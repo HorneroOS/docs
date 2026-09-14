@@ -98,16 +98,14 @@ rendered on-device (see the architecture map).
 
 ## GTK, icon, and font pins
 
-Prefer installed upstream themes: the flagships pin
-`Orchis-Dark-Compact` / `Orchis-Light-Compact` for GTK
-and `Papirus-Dark` for icons. The shell font stack is
+The flagships ship their own GTK themes (`Hornero-Dark`
+/ `Hornero-Light`) and pin the Papirus icon family
+(`Papirus-Dark` / `Papirus`). The shell font stack is
 sans `Rubik`, mono `CaskaydiaCove NF`, icons
-`Material Symbols Rounded`; only the last two words of
-that sentence ship in Arch extra (Material Symbols and
-Papirus packages), so Rubik and CaskaydiaCove stay
-recorded preferences with AUR-side provisioning. Do not
-invent package names: check Arch extra first, as the
-factory record documents.
+`Material Symbols Rounded`; all ship in Arch extra
+except `Rubik`, which stays a recorded preference with
+fallback sans. Do not invent package names: check Arch
+extra first, as the factory record documents.
 
 ## Troubleshooting
 
@@ -122,4 +120,4 @@ the live mode, GTK theme, icon theme, color-scheme
 policy, and wallpaper the system actually resolved.
 
 [config]: https://github.com/HorneroOS/config
-[schema]: https://github.com/HorneroOS/config/blob/feat/p2-desktop-integration/profiles/themes/tokens.schema.json
+[schema]: https://github.com/HorneroOS/config/blob/main/profiles/themes/tokens.schema.json

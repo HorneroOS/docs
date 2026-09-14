@@ -108,13 +108,21 @@ Do not hand-edit the QML tables; re-run the generator.
 `dots-gtk-theme` (backed by
 `config:lib/dots/gtk-theme-manager.sh`) writes GTK 3 and
 GTK 4 `settings.ini` plus the matching `gsettings` keys
-(`gtk-theme`, `icon-theme`, `color-scheme`). There is no
-custom CSS engine: the flagship recipes pin the upstream
-Orchis themes (`Orchis-Dark-Compact` /
-`Orchis-Light-Compact`, package `extra/orchis-theme`).
+(`gtk-theme`, `icon-theme`, `color-scheme`). The flagships
+ship real MIT-native GTK 3 + GTK 4 themes
+(`config:desktop/gtk-theme/Hornero-Dark` and
+`Hornero-Light`, hand-structured CSS from per-variant
+`src/`, `build.sh --check` gated).
 
-Libadwaita apps follow the color-scheme policy, not a
-theme name. `apply_gtk_color_scheme` accepts
+Libadwaita apps ignore theme trees (VM QA proved stock
+Adwaita blue without more), so each variant ships
+`gtk-4.0/recolor.css`: public-palette redefinition only
+(`accent_bg_color`, `window_bg_color`, ...), no widget
+rules, no private nodes. `materialize.sh` pre-places the
+factory (dark) copy as `~/.config/gtk-4.0/gtk.css` and
+`apply-appearance` swaps it on theme set; values are
+test-gated against `theme.json`
+(`config:tests/test_gtk_theme.sh`). `apply_gtk_color_scheme` accepts
 `follow | default | prefer-light | prefer-dark`
 (`light`/`dark` accepted as aliases), persists
 `gtkColorScheme` in state, and maps it onto
@@ -190,11 +198,11 @@ renders PNGs on the target machine (`rsvg-convert`,
 
 ## Icon strategy
 
-Upstream base plus owned marks. The factory icon theme is
-`Papirus-Dark` (package `extra/papirus-icon-theme`); the
-light recipes record `Numix-Circle`, which has no Arch
-extra package (AUR only), so it stays a recorded
-preference. The owned marks live in
+Upstream base plus owned marks. Both flagships pin the
+Papirus family (`Papirus-Dark` for dark, `Papirus` for
+light; package `extra/papirus-icon-theme` — the earlier
+`Numix-Circle` light pin was overturned: chaotic-AUR
+`-git` only, no official package). The owned marks live in
 `config:assets/brand/icons/` (`hornero-app.svg`,
 `hornero-system.svg`) alongside the canonical logo and
 wordmark in `config:assets/brand/`. No full custom icon
@@ -206,12 +214,13 @@ Recorded in `config:profiles/factory.json` from
 `shell:config/shell.default.json`
 (`appearance.font.family`): sans `Rubik`, mono
 `CaskaydiaCove NF`, shell icons `Material Symbols Rounded`.
-Packaging reality (Arch extra, verified 2026-09-13):
+Packaging reality (Arch extra, verified 2026-09-14):
 
 - `extra/ttf-material-symbols-variable` and
   `extra/papirus-icon-theme` are declared deps.
-- `Rubik` / `CaskaydiaCove NF` have no same-named extra
-  package: recorded preference, AUR-side provisioning.
+- `Rubik` has no Arch package: recorded preference with
+  fallback sans until a provider is decided
+  (`extra/ttf-cascadia-code-nerd` covers CaskaydiaCove NF).
 - `desktop/qt6ct/qt6ct.conf` and `desktop/fontconfig/`
   carry the same stack (Fusion + Hornero fonts, generic
   hinting defaults).
@@ -235,8 +244,8 @@ Packaging reality (Arch extra, verified 2026-09-13):
 - Visual QA runs in the graphical VM harness
   (`shell:docs/VM_TESTING.md`: QEMU, Hyprland, `grim` /
   `wf-recorder` screenshots and recordings) and the
-  hornero graphical smoke pass. The screenshots in
-  `desktop/` are pre-release VM captures.
+  hornero graphical smoke pass. Canonical VM captures
+  land under `desktop/screenshots/` with the release.
 
 ## Installer boundary
 
@@ -261,9 +270,9 @@ on theme internals.
 [config]: https://github.com/HorneroOS/config
 [shell]: https://github.com/HorneroOS/shell
 [hornero]: https://github.com/HorneroOS/hornero
-[factory-record]: https://github.com/HorneroOS/config/blob/feat/p2-desktop-integration/docs/FACTORY_DEFAULTS.md
+[factory-record]: https://github.com/HorneroOS/config/blob/main/docs/FACTORY_DEFAULTS.md
 [decisions]: https://github.com/HorneroOS/config/blob/main/docs/DECISIONS.md
-[qt-decision]: https://github.com/HorneroOS/config/blob/feat/p2-desktop-integration/docs/QT_DECISION.md
+[qt-decision]: https://github.com/HorneroOS/config/blob/main/docs/QT_DECISION.md
 [native]: https://github.com/HorneroOS/shell/blob/main/docs/NATIVE-APPEARANCE.md
 [vm-testing]: https://github.com/HorneroOS/shell/blob/main/docs/VM_TESTING.md
 [ipc]: https://github.com/HorneroOS/shell/blob/main/docs/IPC.md
