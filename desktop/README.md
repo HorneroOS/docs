@@ -16,3 +16,8 @@ power menu. Open the launcher to search applications and shell commands:
 Deeper guides (shell, configuration, themes) are being written alongside the
 [HorneroOS/shell](https://github.com/HorneroOS/shell) and
 [HorneroOS/config](https://github.com/HorneroOS/config) repositories.
+
+## Guides
+
+- [Appearance: themes and switching](appearance.md):
+  switch, author, and troubleshoot theme packs.
