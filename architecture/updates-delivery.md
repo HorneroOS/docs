@@ -13,7 +13,7 @@ deliberately separate:
 | Lane | Command | What moves |
 |---|---|---|
 | **Hornero** | `horneroctl` verbs | presets, appearance, snapshots, backups |
-| **Your distribution** | `sudo pacman -Syu` | base system and kernel, from Arch |
+| **Distro** | `sudo pacman -Syu` | base system and kernel, from Arch |
 
 `horneroctl package upgrade` moves the Hornero set; it never decides
 when your box changes kernel. Every lane reports what the other is
@@ -55,7 +55,7 @@ Shipped files are never the user's notepad:
 | Gate | Where | What it proves |
 |---|---|---|
 | `horneroctl doctor` | user box | read-only health: environment, paths, drift |
-| `config validate` | CI + box | syntax, personal-data guard, shortcut manifest |
+| `config validate` | CI + box | syntax, data guard, shortcuts |
 | bind audit | dotfiles CI | every `horneroctl` call in configs resolves |
 | delivery check | dotfiles CI | every repo file reaches the live box |
 
