@@ -12,8 +12,8 @@ deliberately separate:
 
 | Lane | Command | What moves |
 |---|---|---|
-| **Hornero** | `horneroctl` verbs | shell presets, appearance, shell lifecycle, config snapshots, backups |
-| **Your distribution** | `sudo pacman -Syu` | the base system and its kernel, from Arch |
+| **Hornero** | `horneroctl` verbs | presets, appearance, snapshots, backups |
+| **Your distribution** | `sudo pacman -Syu` | base system and kernel, from Arch |
 
 `horneroctl package upgrade` moves the Hornero set; it never decides
 when your box changes kernel. Every lane reports what the other is
@@ -56,8 +56,8 @@ Shipped files are never the user's notepad:
 |---|---|---|
 | `horneroctl doctor` | user box | read-only health: environment, paths, drift |
 | `config validate` | CI + box | syntax, personal-data guard, shortcut manifest |
-| bind audit | dotfiles CI | every `horneroctl` invocation in configs resolves against `--help` |
-| delivery check | dotfiles CI | every repo file has a delivery path to the live box |
+| bind audit | dotfiles CI | every `horneroctl` call in configs resolves |
+| delivery check | dotfiles CI | every repo file reaches the live box |
 
 The implementing repos own the details: [HorneroOS/hornero][hornero]
 (CLI, releases), [HorneroOS/config][config] (defaults, packaging).
