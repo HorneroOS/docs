@@ -10,3 +10,7 @@ boundaries.
 
 - [Appearance system](appearance-system.md): tokens to
   GTK, shell, Hyprland, Kitty, and Qt.
+- [Updates and delivery](updates-delivery.md): the two update lanes,
+  the repo-to-machine flow, and the gates that enforce it.
+- [Power and performance](power-performance.md): measure-first budgets
+  for login, idle, and interaction smoothness.
