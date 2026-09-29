@@ -17,7 +17,7 @@ This page is the map. The implementing repos own the details:
 profiles/themes/<id>/theme.json        (semantic tokens)
   |-- config: Hyprland colors.conf      (static, curated)
   |-- config: kitty hornero-*.conf      (static, curated)
-  |-- config: dots-gtk-theme            (GTK 3/4 + icon + policy)
+  |-- hornero: appearance gtk verbs     (GTK 3/4 + icon + policy; was dots-gtk-theme)
   |-- config: generate-m3-colors.py     (wallpaper -> M3 scheme.json)
   |-- shell:  Colours built-in tables   (flagship, no round-trip)
   `-- shell:  GtkSettings via gsettings (native-first GTK apply)
@@ -263,7 +263,7 @@ on theme internals.
 - [Qt decision][qt-decision]
 - [Shell native appearance layers][native]
 - [Shell VM testing][vm-testing]
-- [Shell dots-CLI contracts][ipc]
+- [Shell IPC surface][ipc]
 - [Canonical-first path contract][paths]
 - [User guide: switching and authoring][user-guide]
 
