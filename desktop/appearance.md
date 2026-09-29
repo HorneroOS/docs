@@ -16,6 +16,9 @@ horneroctl appearance theme get
 horneroctl appearance theme set hornero-light --yes
 ```
 
+All `dots-*` scripts are retired: every appearance operation below runs
+through `horneroctl`.
+
 - `list`, `show <id>`, and `get` are read-only.
 - `set <id>` switches between the official pair
   (`hornero-dark`, `hornero-light`).
@@ -31,9 +34,9 @@ Related verbs:
 horneroctl appearance status
 horneroctl appearance sync --dry-run
 horneroctl appearance scheme status
-dots-appearance theme list
-dots-gtk-theme theme vapor-dreams
-dots-gtk-theme color-scheme follow
+horneroctl appearance theme list
+horneroctl appearance gtk theme vapor-dreams --dry-run
+horneroctl appearance gtk color-scheme follow --dry-run
 ```
 
 `sync` re-applies the pending color scheme.
@@ -110,9 +113,8 @@ extra first, as the factory record documents.
 ## Troubleshooting
 
 ```text
-dots-appearance doctor
-dots-appearance status --json
-horneroctl appearance status
+horneroctl appearance doctor
+horneroctl appearance status --json
 ```
 
 `doctor` reports backend health; `status --json` shows
