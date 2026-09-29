@@ -29,7 +29,9 @@ adopted when there is enough content to justify it.
 
 ## Status
 
-Early scaffolding.
+Growing: 9 pages across getting-started, desktop, architecture, and
+development so far. Coverage is still partial — new shell and CLI
+behavior should land here with its slice.
 
 ## License
 
