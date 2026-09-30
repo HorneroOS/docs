@@ -27,7 +27,6 @@ appearance gtk select
 appearance gtk set-icons
 appearance gtk sync-color-scheme
 appearance gtk theme
-appearance gtk verb
 appearance hyprlock
 appearance night-mode
 appearance night-mode backends
