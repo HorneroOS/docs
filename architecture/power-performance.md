@@ -30,6 +30,25 @@ one-off measurement.
 Done means: one committed script, baseline recorded on reference
 hardware, numbers visible in the repo (not in someone's notes).
 
+## Reference runs (documented machine, dated rows)
+
+One row per reference run, appended never overwritten. These are
+summaries, not raw reports (shell `PERF_BASELINE.md` keeps raw
+reports out of the repo). Numbers describe the documented machine
+only — never universal thresholds.
+
+| Date | Shell | RSS | PSS | IPC | Layers | QML | Δ |
+|---|---|---|---|---|---|---|---|
+| 2026-09-29 | #71 | ~635M | ~433M | ~27ms | 7 | 343 | 0 |
+
+Row 1: shell PR #71 (merge `2b02392`), harness
+`scripts/perf-baseline.sh`, steady state on 24c / 15 GB /
+1×1080p / qs 0.3.1-git. Source: the PR body (first live run).
+
+Re-measure with the same harness on the same machine
+before/after perf changes; same machine, same conditions, or
+the comparison is void.
+
 ## Budgets to defend
 
 - Cold login-to-first-surface: must not regress without a number
