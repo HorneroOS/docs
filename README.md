@@ -27,6 +27,15 @@ No docs framework has been chosen yet; for now this is plain Markdown. A
 heavier setup (static site generator, versioning, search) should only be
 adopted when there is enough content to justify it.
 
+## Checks
+
+CI runs markdownlint plus `scripts/check-horneroctl-refs.py`, which
+fails when a page names a `horneroctl` command path that the CLI does
+not have. The valid paths live in `scripts/horneroctl-commands.txt`,
+generated from the CLI help text; when the CLI surface changes,
+regenerate it with `scripts/gen-horneroctl-commands.py` (usage in the
+script header).
+
 ## Status
 
 Growing: 9 pages across getting-started, desktop, architecture, and

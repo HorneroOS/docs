@@ -45,10 +45,12 @@ Shipped files are never the user's notepad:
 - The shell user file (`~/.config/hornero/shell.json`) is created by
   the shell runtime, never shipped; a preset apply deep-merges into it
   and live-reloads.
-- `horneroctl config snapshots` / `backup create` capture the user
-  layer before risky changes; `backup restore` puts it back.
+- `horneroctl config snapshot create` / `backup create` capture the
+  user layer before risky changes; `config snapshot restore` /
+  `backup restore` put it back.
 - Removing or renaming a shipped key needs a migration path, not a
-  silent drop (see `horneroctl migrate`, `config/tests/test_migrate.sh`).
+  silent drop (see `horneroctl config migrate` and
+  `config/tests/test_migrate.sh`).
 
 ## Gates that enforce it
 

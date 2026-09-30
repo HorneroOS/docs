@@ -1,0 +1,211 @@
+# horneroctl command paths, generated from HorneroOS/hornero@36c2c4b
+# cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
+appearance
+appearance accent
+appearance accent clear
+appearance accent set
+appearance accent show
+appearance colors
+appearance colors concept
+appearance colors export
+appearance colors generate
+appearance colors m3
+appearance colors status
+appearance doctor
+appearance gtk
+appearance gtk apply
+appearance gtk auto
+appearance gtk color-scheme
+appearance gtk current
+appearance gtk current-color-scheme
+appearance gtk current-icon
+appearance gtk detect
+appearance gtk icons
+appearance gtk info
+appearance gtk list
+appearance gtk select
+appearance gtk set-icons
+appearance gtk sync-color-scheme
+appearance gtk theme
+appearance gtk verb
+appearance hyprlock
+appearance night-mode
+appearance night-mode backends
+appearance night-mode off
+appearance night-mode on
+appearance night-mode status
+appearance night-mode status-icon
+appearance night-mode status-text
+appearance night-mode toggle
+appearance scheme
+appearance scheme current
+appearance scheme list
+appearance scheme regenerate
+appearance scheme set-mode
+appearance scheme set-variant
+appearance scheme status
+appearance scheme sync-state
+appearance set-gtk
+appearance set-gtk-color-scheme
+appearance set-icons
+appearance set-wallpaper
+appearance status
+appearance sync
+appearance theme
+appearance theme apply
+appearance theme get
+appearance theme list
+appearance theme set
+appearance theme show
+apps
+apps audit
+apps files
+apps git-status
+apps git-status jobs
+apps git-status stop
+apps git-status watch
+apps launch
+apps performance
+apps performance benchmark
+apps performance memory
+apps performance mode
+apps performance report
+apps performance startup
+apps switcher
+apps switcher apply-theme
+apps switcher apply-theme-pack
+apps switcher daemon
+apps switcher hide
+apps switcher next
+apps switcher prev
+apps switcher quit
+apps switcher select
+apps switcher status
+apps switcher toggle
+apps terminal-file
+apps toggle
+apps toggle bar
+apps toggle caffeine
+apps toggle dashboard
+apps toggle launcher
+apps toggle redshift
+apps toggle session
+apps toggle sidebar
+apps toggle utilities
+apps weather
+backup
+backup create
+backup list
+backup restore
+backup schedule
+capture
+capture clipboard
+capture record
+capture screenshot
+completion
+completion bash
+completion fish
+completion zsh
+config
+config default-apps
+config default-apps list
+config default-apps set
+config gui
+config materialize
+config migrate
+config paths
+config show
+config snapshot
+config snapshot create
+config snapshot list
+config snapshot restore
+config validate
+doctor
+hardware
+hardware battery
+hardware battery monitor
+hardware battery status
+hardware brightness
+hardware brightness down
+hardware brightness set
+hardware brightness status
+hardware brightness up
+hardware keyboard
+hardware keyboard keys
+hardware keyboard layout
+hardware keyboard settings
+hardware mic
+hardware mic status
+hardware mic toggle
+hardware network
+help
+hypr
+hypr animations
+hypr animations current
+hypr animations list
+hypr animations next
+hypr animations restore
+hypr animations set
+hypr layout
+hypr layout current
+hypr layout restore
+hypr layout set
+hypr layout status
+hypr layout toggle
+hypr monitors
+hypr monitors list
+hypr monitors set
+hypr monitors status
+hypr plugins
+hypr plugins install
+hypr plugins list
+hypr plugins status
+hypr workspace
+hypr workspace next
+hypr workspace prev
+lock
+lock now
+lock status
+lock update
+package
+package check
+package deps
+package updates
+package upgrade
+power
+power lock
+power logout
+power reboot
+power shutdown
+power status
+power suspend
+scheme
+scheme current
+scheme list
+scheme regenerate
+scheme set-mode
+scheme set-variant
+scheme status
+scheme sync-state
+shell
+shell ipc
+shell logs
+shell preset
+shell preset apply
+shell preset current
+shell preset list
+shell restart
+shell start
+shell status
+shell stop
+version
+wallpaper
+wallpaper current
+wallpaper reload
+wallpaper set
+welcome
+welcome mark-seen
+welcome open
+welcome reset
+welcome set-show-on-login
+welcome status

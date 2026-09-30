@@ -17,7 +17,7 @@ This page is the map. The implementing repos own the details:
 profiles/themes/<id>/theme.json        (semantic tokens)
   |-- config: Hyprland colors.conf      (static, curated)
   |-- config: kitty hornero-*.conf      (static, curated)
-  |-- hornero: appearance gtk verbs     (GTK 3/4 + icon + policy; was dots-gtk-theme)
+  |-- hornero: appearance gtk verbs     (GTK 3/4 + icon + policy, native V)
   |-- config: generate-m3-colors.py     (wallpaper -> M3 scheme.json)
   |-- shell:  Colours built-in tables   (flagship, no round-trip)
   `-- shell:  GtkSettings via gsettings (native-first GTK apply)
@@ -85,14 +85,15 @@ Do not hand-edit the QML tables; re-run the generator.
 
 - Hyprland borders, groups, shadow tint:
   `config:desktop/hypr/hyprland.conf.d/colors.conf`.
-  Static flagship values; `dots-smart-colors --export
-  --format=hyprland` may regenerate at apply time.
+  Static flagship values; the native smart-color engine
+  (`horneroctl appearance colors generate`) writes the
+  apply-time `colors-hyprland.conf` cache.
 - Kitty palette (16 ANSI plus cursor and selection):
   `config:desktop/kitty/hornero-dark.conf` and
   `hornero-light.conf`. `kitty.conf` includes the dark
   pack, then an optional generated cache override.
-- GTK theme, icons, dark preference: `dots-gtk-theme`
-  over `config:desktop/gtk/settings.ini`. Written by the
+- GTK theme, icons, dark preference: `horneroctl
+  appearance gtk` over `config:desktop/gtk/settings.ini`. Written by the
   config-gtk worker; recorded in
   `config:profiles/factory.json`.
 - Qt6 Widgets (in practice CopyQ):
@@ -105,13 +106,15 @@ Do not hand-edit the QML tables; re-run the generator.
 
 ## GTK generation and the Libadwaita decision
 
-`dots-gtk-theme` (backed by
-`config:lib/dots/gtk-theme-manager.sh`) writes GTK 3 and
+`horneroctl appearance gtk` (native V in
+`hornero:cli/modules/hornero_core/gtk_apply.v`, with
+`gsettings` as the only backend) writes GTK 3 and
 GTK 4 `settings.ini` plus the matching `gsettings` keys
 (`gtk-theme`, `icon-theme`, `color-scheme`). The flagships
 ship real MIT-native GTK 3 + GTK 4 themes
-(`config:desktop/gtk-theme/Hornero-Dark` and
-`Hornero-Light`, hand-structured CSS from per-variant
+(`config:desktop/gtk-theme/Hornero-Dark`,
+`Hornero-Light`, and `Hornero-Pampa`, hand-structured CSS
+from per-variant
 `src/`, `build.sh --check` gated).
 
 Libadwaita apps ignore theme trees (VM QA proved stock
@@ -120,9 +123,10 @@ Adwaita blue without more), so each variant ships
 (`accent_bg_color`, `window_bg_color`, ...), no widget
 rules, no private nodes. `materialize.sh` pre-places the
 factory (dark) copy as `~/.config/gtk-4.0/gtk.css` and
-`apply-appearance` swaps it on theme set; values are
-test-gated against `theme.json`
-(`config:tests/test_gtk_theme.sh`). `apply_gtk_color_scheme` accepts
+`horneroctl appearance theme set|apply` swaps it natively;
+values are test-gated against `theme.json`
+(`config:tests/test_gtk_theme.sh`).
+`horneroctl appearance gtk color-scheme` accepts
 `follow | default | prefer-light | prefer-dark`
 (`light`/`dark` accepted as aliases), persists
 `gtkColorScheme` in state, and maps it onto
@@ -144,34 +148,37 @@ The shell themes natively first
 (`shell:docs/NATIVE-APPEARANCE.md`):
 
 - `services/GtkSettings.qml` applies GTK/icon/color-scheme
-  through `gsettings`, falling back to the
-  `dots-gtk-theme` compat adapter. Theme-pack ids with no
-  explicit GTK theme always take the compat path.
+  through `gsettings`, falling back to
+  `horneroctl appearance gtk` where no deterministic
+  `gsettings` path exists (theme-pack ids with no explicit
+  GTK theme always take that path).
 - `services/WallpaperAnalysis.qml` wraps the native
   `ImageAnalyser` plugin for instant wallpaper tone.
 - `ThemePipeline.applyTheme` short-circuits `hornero-dark`
-  / `hornero-light` natively: no wallpaper, `wal`, or
-  `dots-m3-colors` round-trip.
-- Every remaining `dots-*` call site carries a
-  `TODO(hornero-compat)` marker; the contracts are listed
-  in `shell:docs/IPC.md` and `shell:docs/MIGRATION.md`.
+  / `hornero-light` natively from the built-in tables; every
+  other pack (including `pampa`) runs M3 generation through
+  `horneroctl appearance colors m3` and state sync through
+  `horneroctl scheme regenerate|sync-state`.
 
 Switching from the terminal:
 
 - `horneroctl appearance theme list | show <id> | get`
   are read-only; `set <id>` switches between the official
-  pair and `apply <id>` applies any installed pack.
-- Every mutation delegates to the verified
-  `dots-appearance theme apply` verb
-  (`hornero:cli/modules/hornero_core/theme_switch.v`):
-  validate, resolve backend, apply, then read live state
-  back. A half-applied switch is reported as failure, and
-  a clean official pre-state gets one best-effort restore.
-- `horneroctl appearance sync --yes` re-applies the
-  pending color scheme; `--dry-run` only previews.
-- `dots-appearance status | theme | set-mode | sync`
-  and `dots-gtk-theme apply | theme | color-scheme` are
-  the lower-level verbs; see each `--help`.
+  trio (`hornero-dark`, `hornero-light`, `pampa`) and
+  `apply <id>` applies any installed pack.
+- Both run natively in V
+  (`hornero:cli/modules/hornero_core/theme_switch.v`, no
+  `dots-*` calls): validate, apply, then read live state
+  back (mode plus GTK). A half-applied switch is reported as
+  failure, and a clean official pre-state gets one
+  best-effort restore.
+- `horneroctl appearance sync --yes` reloads the shell and
+  adopts the live `scheme.json` meta into state; `--dry-run`
+  only previews.
+- Lower-level verbs live under `appearance scheme`,
+  `appearance colors`, `appearance gtk`, `appearance accent`,
+  and `appearance night-mode`; run `horneroctl help
+  appearance` for the full surface.
 
 ## Wallpaper ownership and on-device rendering
 
@@ -179,11 +186,13 @@ Wallpaper binaries are never vendored (about 45 MB
 upstream). `config:profiles/themes/wallpapers.manifest.json`
 records each pack's `defaultWallpaper` / `wallpaperDir`
 refs and fetch locations; packs ship through the release
-pipeline into `~/.local/share/dots/wallpapers/` (or
-`~/Pictures/Wallpapers/<id>/`).
+pipeline into `~/.local/share/hornero/wallpapers/` (or
+`~/Pictures/Wallpapers/<wallpaperDir>/`; the legacy
+`~/.local/share/dots/wallpapers/` tree is read as a
+fallback).
 
-Resolution order
-(`config:lib/dots/wallpaper-resolver.sh`): explicit path,
+Resolution order (`horneroctl wallpaper current`, native):
+explicit path,
 then the canonical `hornero` state pointer, then the
 `dots` fallback pointer, then the `wal` link. All new
 writes go to `hornero/*` paths
