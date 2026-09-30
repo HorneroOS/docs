@@ -1,8 +1,9 @@
 # Appearance: themes and switching
 
-Switch between Hornero Dark and Hornero Light, or author
-your own theme pack. Fresh installs boot into Hornero Dark
-with no setup and no network fetch.
+Switch between the official themes (Hornero Dark,
+Hornero Light, and Pampa), or author your own theme
+pack. Fresh installs boot into Hornero Dark with no setup
+and no network fetch.
 
 How it all fits together is mapped in
 [Appearance system](../architecture/appearance-system.md).
@@ -16,12 +17,12 @@ horneroctl appearance theme get
 horneroctl appearance theme set hornero-light --yes
 ```
 
-All `dots-*` scripts are retired: every appearance operation below runs
-through `horneroctl`.
+The legacy `dots-*` appearance scripts are superseded: every
+appearance operation below runs natively through `horneroctl`.
 
 - `list`, `show <id>`, and `get` are read-only.
-- `set <id>` switches between the official pair
-  (`hornero-dark`, `hornero-light`).
+- `set <id>` switches between the official trio
+  (`hornero-dark`, `hornero-light`, `pampa`).
 - `apply <id>` applies any installed pack.
 - Mutations need `--yes`; `--dry-run` only previews.
 - After apply, the CLI reads live state back (mode plus
@@ -39,7 +40,8 @@ horneroctl appearance gtk theme vapor-dreams --dry-run
 horneroctl appearance gtk color-scheme follow --dry-run
 ```
 
-`sync` re-applies the pending color scheme.
+`sync` reloads the shell (when running) and adopts the
+live `scheme.json` meta into appearance state.
 `color-scheme` sets the Libadwaita policy (`follow`,
 `default`, `prefer-light`, `prefer-dark`) without
 changing the theme name. Run any verb with `--help`
@@ -93,17 +95,19 @@ Do not vendor binaries. Add one row to
 `profiles/themes/wallpapers.manifest.json` with the
 pack's `defaultWallpaper` / `wallpaperDir` and where to
 fetch the pack; users drop packs into
-`~/.local/share/dots/wallpapers/<wallpaperDir>/` or
-`~/Pictures/Wallpapers/<id>/`. An explicit path always
-wins; otherwise the last-applied pointer resolves. The
-flagship dark/light wallpapers are procedural SVGs
-rendered on-device (see the architecture map).
+`~/Pictures/Wallpapers/<wallpaperDir>/` or
+`~/.local/share/hornero/wallpapers/<wallpaperDir>/` (the legacy
+`~/.local/share/dots/wallpapers/` tree is still read as a
+fallback). An explicit path always wins; otherwise the
+last-applied pointer resolves. The flagship dark/light
+wallpapers are procedural SVGs rendered on-device (see the architecture map).
 
 ## GTK, icon, and font pins
 
-The flagships ship their own GTK themes (`Hornero-Dark`
-/ `Hornero-Light`) and pin the Papirus icon family
-(`Papirus-Dark` / `Papirus`). The shell font stack is
+The official themes ship their own GTK themes
+(`Hornero-Dark`, `Hornero-Light`, `Hornero-Pampa`) and pin
+the Papirus icon family (`Papirus-Dark` for the dark
+themes, `Papirus` for light). The shell font stack is
 sans `Rubik`, mono `CaskaydiaCove NF`, icons
 `Material Symbols Rounded`; all ship in Arch extra
 except `Rubik`, which stays a recorded preference with
@@ -117,7 +121,8 @@ horneroctl appearance doctor
 horneroctl appearance status --json
 ```
 
-`doctor` reports backend health; `status --json` shows
+`doctor` checks appearance consistency (scheme/state
+agreement, wallpaper pointer, hyprlock output, GTK policy); `status --json` shows
 the live mode, GTK theme, icon theme, color-scheme
 policy, and wallpaper the system actually resolved.
 
