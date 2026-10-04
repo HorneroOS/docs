@@ -91,4 +91,6 @@ or use a path on your own machine.
 The architecture guide explains the boundaries between semantic tokens,
 wallpaper analysis, shell colors, GTK, icons, and Qt:
 [Appearance system](../architecture/appearance-system.md). For everyday
-wallpaper selection, see [Wallpapers and color](wallpapers.md).
+wallpaper selection, see [Wallpapers and color](wallpapers.md). For the
+application-specific behavior of GTK, Qt, Kitty, and CopyQ, see
+[Apps and workflows](../applications/README.md).

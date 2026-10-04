@@ -14,6 +14,7 @@ Center contains persistent system and shell settings.
 | Move between rails, bars, islands, or docks | [Layouts](layouts.md) |
 | Use the keyboard efficiently | [Shortcuts](shortcuts.md) |
 | Open files or launch applications | [Everyday apps](everyday-apps.md) |
+| Learn how the configured applications fit together | [Apps and workflows](../applications/README.md) |
 | Open a Settings page or automate a change | [horneroctl](horneroctl.md) |
 
 ## Desktop surfaces
