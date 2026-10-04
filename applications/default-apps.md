@@ -1,9 +1,11 @@
-# Browsers, editors, and default applications
+# Default applications
 
 Hornero uses desktop-file and MIME associations so users can choose their
 own browser, editor, PDF viewer, image viewer, video player, audio player,
 and file manager. The current Hornero release does not require a specific
-browser or editor package.
+browser, editor, image viewer, PDF reader, or media player. See
+[Browsing, editing, and documents](browsing-documents.md) for practical
+examples and package distinctions.
 
 ## How application launching works
 
@@ -56,8 +58,14 @@ for images (`image/png`), video (`video/mp4`), audio (`audio/mpeg`), and PDF
 (`application/pdf`). The Shell's MPRIS media controls are separate from the
 file association used to open a media file.
 
+The MIME association applies to files opened from file managers and other
+XDG-aware applications. It does not change which program the Shell's MPRIS
+controls target or which terminal starts a shell.
+
 For the current directory and file-manager workflow, see [Files](files.md).
-For media playback controls, see [Media and audio](media-audio.md).
+For media playback controls, see [Media and audio](media-audio.md), and for
+more application-specific guidance see
+[Browsing, editing, and documents](browsing-documents.md).
 Upstream references: [XDG MIME applications](https://www.freedesktop.org/wiki/Specifications/mime-apps-spec/),
 [exo](https://docs.xfce.org/xfce/exo/start),
 [handlr-regex](https://github.com/chmln/handlr).

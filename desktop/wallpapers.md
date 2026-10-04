@@ -22,12 +22,29 @@ can be a file in Pictures or another readable location. `horneroctl wallpaper
 reload --yes` re-runs the color pipeline for the current image; it does not
 choose a different one.
 
+## Curated wallpaper collection
+
+The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers)
+includes optional wallpaper artwork for personal Arch workstations. The
+collection ranges from **Neon City** and **Vapor Dreams** to **Patagonia** and
+**Fin del Mundo**. The latter are original generated artworks inspired by
+glacial water, basalt, southern forest, and Beagle Channel light. When the
+optional wallpaper profile is applied, images are linked under
+`~/Pictures/Wallpapers/<collection>/`. The Hornero Config package owns theme
+metadata and does not fetch these images.
+
+The website [Themes gallery](https://hornero-os.vercel.app/themes) shows real
+desktop captures for Neon City, Vapor Dreams, and Soft Morning, plus clearly
+labelled wallpaper artwork previews for Patagonia and Fin del Mundo. Wallpaper
+artworks are not presented as screenshots of a running desktop.
+
 ## How wallpaper and colors work together
 
 The desktop wallpaper is a visual choice. The shell can also analyse its
-colors and derive a palette for dynamic appearances. A wallpaper change can
-therefore alter shell accents and surfaces while leaving the theme name and
-light or dark mode alone. Semantic Hornero themes use curated roles; recipe
+colors and derive a palette for dynamic appearances. Hornero keeps the image
+and the generated shell palette as separate, user-visible choices. A wallpaper
+change can therefore alter shell accents and surfaces while keeping the theme
+name and light or dark mode. Semantic Hornero themes use curated roles; recipe
 themes may use generated colors. The [Appearance guide](appearance.md)
 explains the difference and the advanced controls.
 
