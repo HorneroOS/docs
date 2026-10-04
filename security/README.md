@@ -6,10 +6,12 @@ source on a machine that holds important data.
 
 ## Location and weather
 
-With no configured location, Weather remains offline: it does not infer your
-location from your IP. If you enter a city or coordinates, Weather sends that
-location to Open-Meteo for geocoding and forecast data. The current provider
-behavior is implemented in
+With no configured location, Weather makes no location request and does not
+infer your location from your IP. Entering a city sends that city name to
+Open-Meteo's geocoding service, then requests the forecast for its coordinates.
+Entering coordinates requests the forecast and uses Nominatim reverse
+geocoding to label the location. These requests use HTTPS. The current
+provider behavior is implemented in
 [Weather.qml](https://github.com/HorneroOS/shell/blob/main/services/Weather.qml);
 review it again before enabling any future location-detection feature.
 
