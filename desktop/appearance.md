@@ -79,8 +79,9 @@ horneroctl appearance colors status
 
 ### Choose how the palette feels
 
-When a wallpaper-led look follows the active wallpaper, Hornero samples its most representative
-colors and builds coordinated colors for surfaces, text, and controls. The
+When a wallpaper-led look follows the active wallpaper, Hornero samples its
+most representative colors and builds coordinated colors for surfaces, text,
+and controls. The
 variant changes the character of that generated palette; it does not change
 the wallpaper or the theme name. Preview a few options against your current
 desktop before applying one.
