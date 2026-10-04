@@ -35,12 +35,13 @@ daemon unless you deliberately replace that ownership.
 
 ## Personal dotfiles additions
 
-The current `~/.dotfiles` setup can provision optional tools including Zen
-Browser, Zsh, tmux, Yazi preview utilities, Discord, Lutris, Docker, Safe
-Eyes, ClamTk, PipeWire studio software, and GPU Screen Recorder. Those
-choices belong to that personal workstation profile, not the Hornero release
-catalogue. Hardware-specific GPU and audio instructions must be checked
-against the actual machine and current Arch documentation.
+The [dotfiles repository](https://github.com/ulises-jeremias/dotfiles) can
+provision optional tools including Zen Browser, Zsh, tmux, Yazi preview
+utilities, Discord, Lutris, Docker, Safe Eyes, ClamTk, PipeWire studio
+software, and GPU Screen Recorder. Those choices belong to that personal
+workstation profile, not the Hornero release catalogue. Check hardware-specific
+GPU and audio instructions against the actual machine and current Arch
+documentation.
 
 Hornero's Git defaults do not contain a user name or email. Set your own
 identity before creating commits.

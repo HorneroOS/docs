@@ -1,9 +1,10 @@
 # Historical dotfiles wiki review
 
-The former `~/.dotfiles/docs/wiki` was mined as historical input, not copied
-as current HorneroOS documentation. Its setup instructions mixed product
-behavior with one person's hardware, applications, package choices, scripts,
-and workflows. This inventory records every Markdown page in that wiki.
+The [historical wiki in the dotfiles repository](https://github.com/ulises-jeremias/dotfiles/tree/main/docs/wiki)
+was mined as input, not copied as current HorneroOS documentation. Its setup
+instructions mixed product behavior with one person's hardware, applications,
+package choices, scripts, and workflows. This inventory records every
+Markdown page in that wiki.
 
 ## Current guidance derived from historical material
 
@@ -112,6 +113,7 @@ and audio integration are documented in the linked workflow pages.
 Other historical pages retain the dispositions above. In particular,
 NVIDIA/hybrid-GPU benchmarks, personal browser/editor choices, host package
 scripts, security-tool suggestions, and machine-specific paths are not
-Hornero defaults. The live `.dotfiles` checkout is a useful reference for
-one configured workstation, but its provisioning scripts do not define the
-HorneroOS package contract.
+Hornero defaults. The
+[dotfiles repository](https://github.com/ulises-jeremias/dotfiles) is a useful
+reference for one configured workstation, but its provisioning scripts do
+not define the HorneroOS package contract.

@@ -47,8 +47,10 @@ Kitty's upstream manual has the complete option reference:
 
 Hornero Config does not define a user-wide interactive Zsh environment.
 Zsh, prompt themes, aliases, plugin managers, and shell startup files are
-personal choices. The `~/.dotfiles` repository has historically provisioned
-Zsh, but that does not make its prompt or aliases a Hornero default.
+personal choices. The
+[dotfiles repository](https://github.com/ulises-jeremias/dotfiles) has
+historically provisioned Zsh, but that does not make its prompt or aliases a
+Hornero default.
 
 Use the shell already configured for your account. A terminal emulator
 launches that account shell unless its application command overrides it.
