@@ -36,6 +36,17 @@ complete semantic palette. Both are resolved through the same catalogue and
 application path; richer metadata is optional enrichment, not a separate
 runtime.
 
+## Product collection is separate from implementation
+
+The product catalogue also groups eight first-party **Hornero Originals**:
+Hornero Dark, Hornero Light, Pampa, Patagonia, Fin del Mundo, Quebrada, Iberá,
+and Buenos Aires Nocturno. Three use semantic tokens; five use wallpaper-led
+palette generation. The other twelve curated looks remain first-class choices
+in the same picker. `collection` and `collectionOrder` describe product
+authorship and presentation. `family`, `palette`, and `components` describe
+the semantic color model. A visual collection label must never imply a token
+schema that the pack does not contain.
+
 Do not infer a product guarantee from a pack name. Dependency availability,
 media presence, and fallback behavior come from the pack metadata and the
 installed package set. The UI and CLI must report unavailable pieces instead

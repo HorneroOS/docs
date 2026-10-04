@@ -26,29 +26,32 @@ choose a different one.
 
 The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers)
 includes optional wallpaper artwork for personal Arch workstations. The
-collection ranges from **Neon City** and **Vapor Dreams** to **Patagonia** and
-**Fin del Mundo**. The latter are original generated artworks inspired by
-glacial water, basalt, southern forest, and Beagle Channel light. When the
-optional wallpaper profile is applied, images are linked under
+collection ranges from **Neon City** and **Vapor Dreams** to **Patagonia**,
+**Fin del Mundo**, **Quebrada**, **Iberá**, and **Buenos Aires Nocturno**.
+These Hornero Originals translate glacial water, Beagle light, high-altitude
+mineral bands, subtropical wetlands, and rain-lit city streets into distinct
+visual palettes. They are original generated artworks, not documentary
+photographs. When the optional wallpaper profile is applied, images are linked under
 `~/Pictures/Wallpapers/<collection>/`. The Hornero Config package owns theme
 metadata and does not fetch these images.
 
-The website [Themes gallery](https://hornero-os.vercel.app/themes) leads with a
-real Neon City desktop capture, then shows Hornero Light on a Patagonian
-landscape and captures using Vapor Dreams and Soft Morning. Separate cards label
-the Patagonia Glacier and Fin del Mundo images as original generated wallpaper
-artwork—not running-desktop screenshots. This presents Argentine landscapes
-alongside synthwave, cyberpunk, and softer natural scenes; Pampa is one Hornero
-look among a wider collection.
+The website [Themes gallery](https://hornero-os.vercel.app/themes) pairs
+wallpaper artwork across several visual directions with verified desktop
+captures in the Showroom.
+Captions distinguish running-desktop screenshots from original generated
+wallpaper art. Argentine landscapes and city atmospheres sit alongside
+synthwave, cyberpunk, and softer natural scenes; Pampa is one Hornero look
+among a wider collection.
 
 ## How wallpaper and colors work together
 
 The desktop wallpaper is a visual choice. The shell can also analyse its
 colors and derive a palette for dynamic appearances. Hornero keeps the image
-and the generated shell palette as separate, user-visible choices. A wallpaper
-change can therefore alter shell accents and surfaces while keeping the theme
-name and light or dark mode. Semantic Hornero themes use curated roles; recipe
-themes may use generated colors. The [Appearance guide](appearance.md)
+and generated shell palette as separate, user-visible choices. A wallpaper
+change can therefore alter shell accents and surfaces while keeping the look
+name and light or dark mode. Hornero Dark, Hornero Light, and Pampa use curated
+semantic roles; five other Hornero Originals and the wider wallpaper-led
+collection can use generated colors. The [Appearance guide](appearance.md)
 explains the difference and the advanced controls.
 
 Check the current state without changing it:
