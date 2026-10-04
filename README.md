@@ -1,46 +1,54 @@
-# docs
+# Hornero OS documentation
 
-User, developer and architecture documentation for Hornero OS.
+Find a guide by the task you are trying to complete. This repository is the
+user and contributor handbook; implementation contracts stay with the
+[Shell](https://github.com/HorneroOS/shell), [CLI](https://github.com/HorneroOS/hornero),
+and [configuration](https://github.com/HorneroOS/config) repositories.
 
-This is the technical documentation home — not the marketing website (see
-[HorneroOS/website](https://github.com/HorneroOS/website)).
+> Hornero OS is an Arch-based desktop project in development. There is no
+> installable ISO or supported system installer yet. The
+> [release page](https://horneroos.org/releases) and
+> [installation status](https://github.com/HorneroOS/website/blob/main/src/pages/install.astro)
+> are the current
+> source for what can be installed.
 
-## Planned categories
+## Choose a path
 
-- Installation and getting started
-- Desktop usage: shell, configuration, themes
-- Packages and hardware
-- Troubleshooting
-- Architecture and development
-- Contributing
+| If you want to… | Start here |
+| --- | --- |
+| Understand release and installation status | [Getting started](getting-started/README.md) |
+| Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) |
+| Change themes, colors, or wallpaper | [Appearance](desktop/appearance.md) · [Wallpapers](desktop/wallpapers.md) |
+| Choose a bar arrangement | [Layouts](desktop/layouts.md) |
+| Find a keyboard shortcut | [Shortcuts](desktop/shortcuts.md) |
+| Automate or inspect the system from a terminal | [horneroctl](desktop/horneroctl.md) |
+| Diagnose graphics or device problems | [Hardware](hardware/README.md) · [Troubleshooting](troubleshooting/README.md) |
+| Understand system boundaries | [Architecture](architecture/README.md) |
+| Build, test, or contribute | [Development](development/README.md) |
 
-## Layout
+## How these docs stay accurate
 
-Each directory holds one documentation area, starting with a short index:
+Steps describe behavior available in the released product unless they are
+labelled **Development** or **Preview**. Package, installer, and release
+availability can change; check the live release and installation pages before
+following older notes. Commands are taken from `horneroctl` help and current
+product configuration. Personal machine examples from the former dotfiles
+wiki are not system requirements.
 
-- `getting-started/` — installation, first boot, first steps.
-- `desktop/` — using the shell and desktop day to day.
-- `architecture/` — how the system fits together.
-- `development/` — building, testing and contributing.
+The website imports these Markdown pages at a reviewed commit and adds its own
+navigation, search, and responsive presentation. This repository owns the
+content; the website does not maintain a second copy.
 
-No docs framework has been chosen yet; for now this is plain Markdown. A
-heavier setup (static site generator, versioning, search) should only be
-adopted when there is enough content to justify it.
+## Areas
 
-## Checks
-
-CI runs markdownlint plus `scripts/check-horneroctl-refs.py`, which
-fails when a page names a `horneroctl` command path that the CLI does
-not have. The valid paths live in `scripts/horneroctl-commands.txt`,
-generated from the CLI help text; when the CLI surface changes,
-regenerate it with `scripts/gen-horneroctl-commands.py` (usage in the
-script header).
-
-## Status
-
-Growing: 9 pages across getting-started, desktop, architecture, and
-development so far. Coverage is still partial — new shell and CLI
-behavior should land here with its slice.
+- [Getting started](getting-started/README.md) — release status and a safe
+  first look.
+- [Desktop](desktop/README.md) — appearance, wallpaper, layouts, and shortcuts.
+- [horneroctl](desktop/horneroctl.md) — supported command-line entry points.
+- [Hardware](hardware/README.md) — device diagnostics and graphics guidance.
+- [Troubleshooting](troubleshooting/README.md) — recover from common failures.
+- [Architecture](architecture/README.md) — ownership and data flow.
+- [Development](development/README.md) — code, QA, and contribution paths.
 
 ## License
 
