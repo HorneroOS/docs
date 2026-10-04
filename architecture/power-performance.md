@@ -38,7 +38,7 @@ reports out of the repo). Numbers describe the documented machine
 only — never universal thresholds.
 
 | Date | Shell | RSS | PSS | IPC | Layers | QML | Δ |
-|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | 2026-09-29 | #71 | ~635M | ~433M | ~27ms | 7 | 343 | 0 |
 
 Row 1: shell PR #71 (merge `2b02392`), harness

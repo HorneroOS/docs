@@ -1,289 +1,104 @@
-# Appearance system (Preview 2)
+# Appearance architecture
 
-How Hornero OS looks: one set of semantic theme tokens feeds
-GTK, the shell, Hyprland, Kitty, and Qt. The factory default
-is Hornero Dark; nothing is fetched at first boot.
+This page describes ownership and data flow for contributors. For the user
+model, start with [Appearance](../desktop/appearance.md) and
+[Wallpapers](../desktop/wallpapers.md).
 
-This page is the map. The implementing repos own the details:
+## Ownership
 
-- Token packs, GTK/Qt/Hyprland/Kitty defaults, and the apply
-  pipeline live in [HorneroOS/config][config].
-- The shell's native theming layers live in
-  [HorneroOS/shell][shell].
-- Theme switching in the CLI lives in
-  [HorneroOS/hornero][hornero].
+- **`HorneroOS/config`** owns theme pack data, semantic brand tokens,
+  defaults, wallpaper manifests, GTK assets, package contents, and the
+  generated theme catalogue.
+- **`HorneroOS/shell`** owns live desktop presentation, wallpaper analysis,
+  M3 color roles, preview UI, and coordination of session-level appearance
+  changes.
+- **`HorneroOS/hornero`** owns stable `horneroctl` operations: catalogue
+  resolution, apply and verification, error reporting, and prior-state
+  restoration where supported.
+- **User data** owns explicit overrides and generated state in the user's
+  config/cache/data directories. System catalogues under `/usr/share` are
+  read-only.
+
+The theme catalogue is generated from installed packs; it is not a second
+hand-maintained list. User themes take precedence over system themes when the
+user deliberately installs an override. New writes target Hornero paths;
+legacy locations are read-only compatibility fallbacks where documented by
+the owning component.
+
+## Two kinds of theme pack
+
+The catalogue supports two levels of description. Flagship themes use the
+semantic model: named color roles, component surfaces, mode, versioned token
+metadata, and coordinated GTK/icon/wallpaper information. Recipe-style packs
+describe an appearance choice using a scheme generator and optional GTK, icon,
+and wallpaper references. A recipe is not required to claim ownership of a
+complete semantic palette. Both are resolved through the same catalogue and
+application path; richer metadata is optional enrichment, not a separate
+runtime.
+
+Do not infer a product guarantee from a pack name. Dependency availability,
+media presence, and fallback behavior come from the pack metadata and the
+installed package set. The UI and CLI must report unavailable pieces instead
+of claiming that an incomplete appearance was fully applied.
+
+## Color flow
 
 ```text
-profiles/themes/<id>/theme.json        (semantic tokens)
-  |-- config: Hyprland colors.conf      (static, curated)
-  |-- config: kitty hornero-*.conf      (static, curated)
-  |-- hornero: appearance gtk verbs     (GTK 3/4 + icon + policy, native V)
-  |-- config: generate-m3-colors.py     (wallpaper -> M3 scheme.json)
-  |-- shell:  Colours built-in tables   (flagship, no round-trip)
-  `-- shell:  GtkSettings via gsettings (native-first GTK apply)
+theme pack or selected wallpaper
+          │
+          ├── semantic brand/component tokens (when provided by the pack)
+          └── wallpaper analysis → selected generation mode → M3 roles
+                                      │
+                                      └── Shell palette and supported consumers
 ```
 
-## Token model
+Brand tokens and generated Material roles have different purposes. Brand
+tokens express Hornero's curated identity; M3 roles map a source color to
+roles appropriate for controls and surfaces. They should remain related but
+must not be forced into identical hex values. Wallpaper-derived colors are
+user-selected appearance state, not a replacement for the pack's authored
+brand palette.
 
-A theme is one JSON recipe:
-`config:profiles/themes/<id>/theme.json`, validated against
-`config:profiles/themes/tokens.schema.json`
-(`schemaVersion: 1`). Required blocks:
+The Shell's `Colours`, `WallpaperAnalysis`, and `ThemePipeline` services
+coordinate rendering and previews. `horneroctl` remains usable without the
+Control Center and owns the stable system-facing operations. Keep display
+logic in QML, live session coordination in Shell services, OS capabilities in
+the CLI, and defaults in config packs.
 
-- Identity: `id` (`[a-z0-9-]+`), `name`, `family`
-  (`hornero` for flagships), `mode` (`dark`/`light`),
-  `version` / `tokensVersion` (semver).
-- Legacy recipe fields kept for back-compat: `darkMode`,
-  `schemeType`, `gtkTheme`, `iconTheme`, `gtkPreferDark`,
-  `defaultWallpaper`, `wallpaperDir`.
-- `palette`: the semantic ramp (`background`, `surface`,
-  `text`, `primary`/`secondary`/`accent` plus their
-  `on*` mates, `border`, `error`, `success`, ...).
-- `components`: named `background`/`foreground` text pairs
-  (`window`, `panel`, `card`, `buttonPrimary`, `input`,
-  `tooltip`, ...).
+## Applying and recovering
 
-`schemeType` is the M3 generator hint (`tonal-spot`,
-`vibrant`, `expressive`, `fidelity`, `content`,
-`neutral`, `monochrome`). The flagships use `vibrant`
-for the config-side recipe; the shell's flagship M3
-tables are `tonal-spot` (see provenance below).
+Applying a pack can touch Shell colors, mode, wallpaper, GTK theme and color
+policy, icons, and generated state. Each consumer has different runtime
+capabilities, so this is a verified best-effort transaction rather than one
+filesystem atomic rename. The operation must validate inputs before writing,
+check resulting state, report partial failure accurately, and restore the
+previous state where the command supports rollback. Never display success
+based only on a process starting.
 
-Theme packs are apply-once recipes: applying never writes
-a "current theme" id. Live state (mode, GTK theme,
-wallpaper pointer) is read back from the system, not
-from the pack.
+The official command and behavior contract is documented in
+[horneroctl](../desktop/horneroctl.md). Component implementation and tests
+live in the linked repositories, not in this handbook.
 
-## Flagship provenance
+## Wallpaper media
 
-The two flagship packs (`hornero-dark`, `hornero-light`)
-start from one brand seed: `#E07856` (ember terracotta),
-the `palette.primary` of
-`config:profiles/themes/hornero-dark/theme.json`.
+Wallpaper binaries are distributed separately from pack metadata. Config
+manifests identify expected media and its source. A missing default must
+produce a deliberate fallback or an unavailable state; it must not make the
+whole theme look malformed. Never download arbitrary images as an implicit
+side effect of selecting a theme.
 
-- Config owns the static semantic palettes (hand-curated
-  surfaces, WCAG-AA-checked pairs).
-- The shell owns the M3 tonal roles. Its canonical tables
-  (`_horneroDark` / `_horneroLight` in
-  `shell:services/Colours.qml`) are generated by
-  `shell:scripts/gen-flagship-m3.py`
-  (`materialyoucolor==3.0.4`) from that single seed.
-- One seed feeds both modes because M3 Fixed colors are
-  mode-independent; two seeds would break that invariant.
-- The two namespaces never share hexes role-for-role:
-  coherence means the same terracotta hue family with
-  role-appropriate lightness per the M3 spec (a dark-mode
-  primary is tone 80, hence lighter than the brand hex).
-- `scrim` / `shadow` / `success*` / `term*` are hand-owned
-  extras outside the generated roles.
+## Change checklist
 
-If config moves that primary, the seed in the generator
-moves with it and `test_gen_stability` fails CI on drift.
-Do not hand-edit the QML tables; re-run the generator.
+When changing appearance data or behavior, update the owning source and its
+tests, then check the downstream consumers:
 
-## Consumers
+- Config pack and generated catalogue.
+- CLI resolution, apply verification, and error reporting.
+- Shell preview and live rendering.
+- GTK, icon, and Qt behavior when relevant.
+- QA evidence for user-visible transitions.
+- Website product data and screenshots only after the behavior is shipped.
 
-- Hyprland borders, groups, shadow tint:
-  `config:desktop/hypr/hyprland.conf.d/colors.conf`.
-  Static flagship values; the native smart-color engine
-  (`horneroctl appearance colors generate`) writes the
-  apply-time `colors-hyprland.conf` cache.
-- Kitty palette (16 ANSI plus cursor and selection):
-  `config:desktop/kitty/hornero-dark.conf` and
-  `hornero-light.conf`. `kitty.conf` includes the dark
-  pack, then an optional generated cache override.
-- GTK theme, icons, dark preference: `horneroctl
-  appearance gtk` over `config:desktop/gtk/settings.ini`. Written by the
-  config-gtk worker; recorded in
-  `config:profiles/factory.json`.
-- Qt6 Widgets (in practice CopyQ):
-  `config:desktop/qt6ct/qt6ct.conf` with Fusion style.
-  Platform pin `QT_QPA_PLATFORMTHEME=qt6ct`; see below.
-- Shell M3 scheme: built-in flagship tables, else a
-  generated `scheme.json`.
-  `Colours.applyBuiltInTheme(id)` short-circuits the
-  flagships with a whole-table write.
-
-## GTK generation and the Libadwaita decision
-
-`horneroctl appearance gtk` (native V in
-`hornero:cli/modules/hornero_core/gtk_apply.v`, with
-`gsettings` as the only backend) writes GTK 3 and
-GTK 4 `settings.ini` plus the matching `gsettings` keys
-(`gtk-theme`, `icon-theme`, `color-scheme`). The flagships
-ship real MIT-native GTK 3 + GTK 4 themes
-(`config:desktop/gtk-theme/Hornero-Dark`,
-`Hornero-Light`, and `Hornero-Pampa`, hand-structured CSS
-from per-variant
-`src/`, `build.sh --check` gated).
-
-Libadwaita apps ignore theme trees (VM QA proved stock
-Adwaita blue without more), so each variant ships
-`gtk-4.0/recolor.css`: public-palette redefinition only
-(`accent_bg_color`, `window_bg_color`, ...), no widget
-rules, no private nodes. `materialize.sh` pre-places the
-factory (dark) copy as `~/.config/gtk-4.0/gtk.css` and
-`horneroctl appearance theme set|apply` swaps it natively;
-values are test-gated against `theme.json`
-(`config:tests/test_gtk_theme.sh`).
-`horneroctl appearance gtk color-scheme` accepts
-`follow | default | prefer-light | prefer-dark`
-(`light`/`dark` accepted as aliases), persists
-`gtkColorScheme` in state, and maps it onto
-`gtk-application-prefer-dark-theme` plus the
-`org.gnome.desktop.interface color-scheme` key. It never
-writes the shell `mode`.
-
-Qt decision (full reasoning in
-`config:docs/QT_DECISION.md`): the only shipped Qt app is
-CopyQ (Qt6 Widgets), so the repo themes exactly the Qt6
-Widgets surface with `qt6ct` (Fusion style, Papirus-Dark
-icons, Hornero fonts). Kvantum is deferred (no Plasma session,
-no curated Kvantum consumer), there is no hand-authored
-QPalette blob, and no `qt5ct` file.
-
-## Shell integration and switching
-
-The shell themes natively first
-(`shell:docs/NATIVE-APPEARANCE.md`):
-
-- `services/GtkSettings.qml` applies GTK/icon/color-scheme
-  through `gsettings`, falling back to
-  `horneroctl appearance gtk` where no deterministic
-  `gsettings` path exists (theme-pack ids with no explicit
-  GTK theme always take that path).
-- `services/WallpaperAnalysis.qml` wraps the native
-  `ImageAnalyser` plugin for instant wallpaper tone.
-- `ThemePipeline.applyTheme` short-circuits `hornero-dark`
-  / `hornero-light` natively from the built-in tables; every
-  other pack (including `pampa`) runs M3 generation through
-  `horneroctl appearance colors m3` and state sync through
-  `horneroctl scheme regenerate|sync-state`.
-
-Switching from the terminal:
-
-- `horneroctl appearance theme list | show <id> | get`
-  are read-only; `set <id>` switches between the official
-  trio (`hornero-dark`, `hornero-light`, `pampa`) and
-  `apply <id>` applies any installed pack.
-- Both run natively in V
-  (`hornero:cli/modules/hornero_core/theme_switch.v`, no
-  `dots-*` calls): validate, apply, then read live state
-  back (mode plus GTK). A half-applied switch is reported as
-  failure, and a clean official pre-state gets one
-  best-effort restore.
-- `horneroctl appearance sync --yes` reloads the shell and
-  adopts the live `scheme.json` meta into state; `--dry-run`
-  only previews.
-- Lower-level verbs live under `appearance scheme`,
-  `appearance colors`, `appearance gtk`, `appearance accent`,
-  and `appearance night-mode`; run `horneroctl help
-  appearance` for the full surface.
-
-## Wallpaper ownership and on-device rendering
-
-Wallpaper binaries are never vendored (about 45 MB
-upstream). `config:profiles/themes/wallpapers.manifest.json`
-records each pack's `defaultWallpaper` / `wallpaperDir`
-refs and fetch locations; packs ship through the release
-pipeline into `~/.local/share/hornero/wallpapers/` (or
-`~/Pictures/Wallpapers/<wallpaperDir>/`; the legacy
-`~/.local/share/dots/wallpapers/` tree is read as a
-fallback).
-
-Resolution order (`horneroctl wallpaper current`, native):
-explicit path,
-then the canonical `hornero` state pointer, then the
-`dots` fallback pointer, then the `wal` link. All new
-writes go to `hornero/*` paths
-(`hornero:docs/PATH_CONTRACT.md`).
-
-The flagship wallpapers are procedural SVG sources in
-`config:assets/brand/wallpaper/` (`hornero-dark.svg`,
-`hornero-light.svg`: adobe-night gradient, setting-sun
-disc, oven-arch contours). `scripts/render-brand-assets.sh`
-renders PNGs on the target machine (`rsvg-convert`,
-1920x1080 and 2560x1440); no binary ships in the repo.
-
-## Icon strategy
-
-Upstream base plus owned marks. Both flagships pin the
-Papirus family (`Papirus-Dark` for dark, `Papirus` for
-light; package `extra/papirus-icon-theme` — the earlier
-`Numix-Circle` light pin was overturned: chaotic-AUR
-`-git` only, no official package). The owned marks live in
-`config:assets/brand/icons/` (`hornero-app.svg`,
-`hornero-system.svg`) alongside the canonical logo and
-wordmark in `config:assets/brand/`. No full custom icon
-set is authored in Preview 2.
-
-## Typography and font dependencies
-
-Recorded in `config:profiles/factory.json` from
-`shell:config/shell.default.json`
-(`appearance.font.family`): sans `Rubik`, mono
-`CaskaydiaCove NF`, shell icons `Material Symbols Rounded`.
-Packaging reality (Arch extra, verified 2026-09-14):
-
-- `extra/ttf-material-symbols-variable` and
-  `extra/papirus-icon-theme` are declared deps.
-- `Rubik` has no Arch package: recorded preference with
-  fallback sans until a provider is decided
-  (`extra/ttf-cascadia-code-nerd` covers CaskaydiaCove NF).
-- `desktop/qt6ct/qt6ct.conf` and `desktop/fontconfig/`
-  carry the same stack (Fusion + Hornero fonts, generic
-  hinting defaults).
-
-## Testing and visual QA
-
-- Contrast is gated: flagship palettes must hold WCAG AA
-  (`config:scripts/check-contrast.py`,
-  `tests/test_contrast.sh` fail CI on violation); the
-  Kitty palette additionally holds ANSI floors plus
-  red/green/yellow distinguishability
-  (`scripts/check-terminal-contrast.py`).
-- `tests/test_desktop_integration.sh` materializes into a
-  temp HOME and asserts flagship tokens in Hyprland/Kitty
-  plus factory-default wiring; `test_gen_stability`
-  (shell) fails on flagship-table drift;
-  `tests/test_appearance_tokens.py` covers text pairs;
-  `test_appearance_consistency.py` plus
-  `scripts/check_forbidden_paths.sh` enforce the
-  native-first layering.
-- Visual QA runs in the graphical VM harness
-  (`shell:docs/VM_TESTING.md`: QEMU, Hyprland, `grim` /
-  `wf-recorder` screenshots and recordings) and the
-  hornero graphical smoke pass. Canonical VM captures
-  land under `desktop/screenshots/` with the release.
-
-## Installer boundary
-
-The installer is untouched by Preview 2 appearance work.
-It consumes tokens only: `config:profiles/factory.json`
-(`defaultTheme`, `availableThemes`, GTK/font/icon/
-wallpaper pointers) plus wallpaper packs from the release
-pipeline. No installer step generates, edits, or depends
-on theme internals.
-
-## Component docs (do not duplicate)
-
-- [Theme recipes and factory record][factory-record]
-- [Why dotfiles are a read-only source][decisions]
-- [Qt decision][qt-decision]
-- [Shell native appearance layers][native]
-- [Shell VM testing][vm-testing]
-- [Shell IPC surface][ipc]
-- [Canonical-first path contract][paths]
-- [User guide: switching and authoring][user-guide]
-
-[config]: https://github.com/HorneroOS/config
-[shell]: https://github.com/HorneroOS/shell
-[hornero]: https://github.com/HorneroOS/hornero
-[factory-record]: https://github.com/HorneroOS/config/blob/main/docs/FACTORY_DEFAULTS.md
-[decisions]: https://github.com/HorneroOS/config/blob/main/docs/DECISIONS.md
-[qt-decision]: https://github.com/HorneroOS/config/blob/main/docs/QT_DECISION.md
-[native]: https://github.com/HorneroOS/shell/blob/main/docs/NATIVE-APPEARANCE.md
-[vm-testing]: https://github.com/HorneroOS/shell/blob/main/docs/VM_TESTING.md
-[ipc]: https://github.com/HorneroOS/shell/blob/main/docs/IPC.md
-[paths]: https://github.com/HorneroOS/hornero/blob/main/docs/PATH_CONTRACT.md
-[user-guide]: ../desktop/appearance.md
+Useful implementation references: [config](https://github.com/HorneroOS/config),
+[shell](https://github.com/HorneroOS/shell), and
+[hornero](https://github.com/HorneroOS/hornero).

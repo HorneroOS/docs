@@ -1,130 +1,94 @@
-# Appearance: themes and switching
+# Appearance: themes, mode, and color
 
-Switch between the official themes (Hornero Dark,
-Hornero Light, and Pampa), or author your own theme
-pack. Fresh installs boot into Hornero Dark with no setup
-and no network fetch.
+Start in **Settings → Appearance** when you want a coordinated change. A
+theme is the simplest choice: it selects a visual direction and may also
+choose a wallpaper, GTK theme, icon theme, and light or dark default. You do
+not need to understand color-generation algorithms to pick a look.
 
-How it all fits together is mapped in
-[Appearance system](../architecture/appearance-system.md).
+## Pick a theme
 
-## Switching themes
+The shipped catalogue contains three Hornero semantic themes — **Hornero
+Dark**, **Hornero Light**, and **Pampa** — plus appearance recipes such as
+Catppuccin, Everforest, Gruvbox, Neon City, and Vapor Dreams. Semantic themes
+carry curated interface roles; recipes provide a starting look and may use
+wallpaper-derived colors. Both are selected from the same theme list.
 
-```text
+In Settings, preview a card and select it to apply. If a theme's external GTK
+or icon theme is missing, the system cannot create that part of the look; use
+the theme details and the [troubleshooting guide](../troubleshooting/README.md)
+to check readiness. Hornero does not silently download third-party themes.
+
+From a terminal, inspect before applying:
+
+```sh
 horneroctl appearance theme list
-horneroctl appearance theme show hornero-light
+horneroctl appearance theme show neon-city
+horneroctl appearance theme apply neon-city --dry-run
+horneroctl appearance theme apply neon-city --yes
 horneroctl appearance theme get
+```
+
+Use `apply` for any installed pack. `set` is the verified, atomic switch for
+the Hornero semantic themes:
+
+```sh
+horneroctl appearance theme set hornero-light --dry-run
 horneroctl appearance theme set hornero-light --yes
 ```
 
-The legacy `dots-*` appearance scripts are superseded: every
-appearance operation below runs natively through `horneroctl`.
+Mutating CLI commands require `--yes`; `--dry-run` shows the proposed action.
+After a theme change, `horneroctl appearance doctor` checks whether live
+appearance state is coherent.
 
-- `list`, `show <id>`, and `get` are read-only.
-- `set <id>` switches between the official trio
-  (`hornero-dark`, `hornero-light`, `pampa`).
-- `apply <id>` applies any installed pack.
-- Mutations need `--yes`; `--dry-run` only previews.
-- After apply, the CLI reads live state back (mode plus
-  GTK). A half-applied switch is reported as a failure,
-  never as success.
+## Light and dark
 
-Related verbs:
+A theme supplies a default mode. The current mode can follow that default or
+be overridden by the user. GTK's color-scheme preference is a separate
+setting: changing it does not switch the shell between light and dark.
+Settings indicates when the live mode differs from the theme's default.
 
-```text
-horneroctl appearance status
-horneroctl appearance sync --dry-run
+For scripted workflows, inspect `horneroctl appearance scheme --help` before
+using `set-mode`; use `horneroctl appearance gtk color-scheme` to inspect or
+change GTK's policy. Avoid changing the shell mode and GTK policy together
+unless that is intentional.
+
+## Wallpaper-derived color
+
+Some appearance recipes use the current wallpaper to generate shell colors.
+The active wallpaper, theme, and mode are related, but they are not the same
+setting: changing a wallpaper does not rename the theme, and a user mode
+override remains independent of the theme default.
+
+To see how a wallpaper will resolve without changing it:
+
+```sh
+horneroctl wallpaper current
 horneroctl appearance scheme status
-horneroctl appearance theme list
-horneroctl appearance gtk theme vapor-dreams --dry-run
-horneroctl appearance gtk color-scheme follow --dry-run
+horneroctl appearance colors status
 ```
 
-`sync` reloads the shell (when running) and adopts the
-live `scheme.json` meta into appearance state.
-`color-scheme` sets the Libadwaita policy (`follow`,
-`default`, `prefer-light`, `prefer-dark`) without
-changing the theme name. Run any verb with `--help`
-for the full contract.
+The generation variant and accent seed are advanced controls. Settings offers
+the visual controls; the CLI names are available for scripts and diagnostics:
 
-## Authoring a theme pack
-
-A theme is one folder,
-`profiles/themes/<id>/theme.json`, in
-[HorneroOS/config][config]. Copy an existing pack
-(`hornero-dark` for dark, `hornero-light` for light),
-keep the `id` lowercase alphanumeric with dashes, and
-fill in every required field:
-
-- `name`, `family`, `mode`, `version`: display name,
-  family, `dark`/`light`, semver.
-- `darkMode`, `schemeType`: legacy mode flag plus the M3
-  generator hint.
-- `gtkTheme`, `iconTheme`, `gtkPreferDark`: upstream
-  GTK and icon pins plus the dark preference.
-- `defaultWallpaper`, `wallpaperDir`: wallpaper ref
-  (see below).
-- `palette`: semantic ramp (`background`, `surface`,
-  `text`, `primary`/`secondary`/`accent` with `on*`
-  mates, `border`, `error`, `success`).
-- `components`: named `background`/`foreground` pairs
-  (`window`, `panel`, `card`, `buttonPrimary`, `input`,
-  `tooltip`, and more).
-
-Rules that CI enforces:
-
-- Every color is `#RRGGBB`.
-- `mode` and `darkMode` must agree.
-- Text pairs must hold WCAG AA contrast; the flagship
-  gate (`scripts/check-contrast.py`) fails the build on
-  violation, and terminal palettes additionally hold ANSI
-  floors plus red/green/yellow distinguishability.
-- `schemeType` is one of `tonal-spot`, `vibrant`,
-  `expressive`, `fidelity`, `content`, `neutral`,
-  `monochrome`.
-- Validate with `scripts/validate.sh` before opening a PR.
-
-The full field contract is
-[tokens.schema.json][schema] (`schemaVersion: 1`); the
-`$schema` pointer at the top of each `theme.json` keeps
-editors in sync.
-
-## Wallpapers for theme packs
-
-Do not vendor binaries. Add one row to
-`profiles/themes/wallpapers.manifest.json` with the
-pack's `defaultWallpaper` / `wallpaperDir` and where to
-fetch the pack; users drop packs into
-`~/Pictures/Wallpapers/<wallpaperDir>/` or
-`~/.local/share/hornero/wallpapers/<wallpaperDir>/` (the legacy
-`~/.local/share/dots/wallpapers/` tree is still read as a
-fallback). An explicit path always wins; otherwise the
-last-applied pointer resolves. The flagship dark/light
-wallpapers are procedural SVGs rendered on-device (see the architecture map).
-
-## GTK, icon, and font pins
-
-The official themes ship their own GTK themes
-(`Hornero-Dark`, `Hornero-Light`, `Hornero-Pampa`) and pin
-the Papirus icon family (`Papirus-Dark` for the dark
-themes, `Papirus` for light). The shell font stack is
-sans `Rubik`, mono `CaskaydiaCove NF`, icons
-`Material Symbols Rounded`; all ship in Arch extra
-except `Rubik`, which stays a recorded preference with
-fallback sans. Do not invent package names: check Arch
-extra first, as the factory record documents.
-
-## Troubleshooting
-
-```text
-horneroctl appearance doctor
-horneroctl appearance status --json
+```sh
+horneroctl appearance accent show
+horneroctl appearance scheme list
 ```
 
-`doctor` checks appearance consistency (scheme/state
-agreement, wallpaper pointer, hyprlock output, GTK policy); `status --json` shows
-the live mode, GTK theme, icon theme, color-scheme
-policy, and wallpaper the system actually resolved.
+Saved palettes are available in Appearance for reusing a generated look.
+They are useful when you want to keep a color result while trying another
+wallpaper; they do not replace a theme pack.
 
-[config]: https://github.com/HorneroOS/config
-[schema]: https://github.com/HorneroOS/config/blob/main/profiles/themes/tokens.schema.json
+## Theme packs and compatibility
+
+Theme metadata and validation rules live in
+[HorneroOS/config](https://github.com/HorneroOS/config/tree/main/profiles/themes).
+The catalogue is generated from those packs. Wallpaper files are separate
+media: packs may name an expected image without bundling that image in the
+package. If the image is not present locally, choose an available wallpaper
+or use a path on your own machine.
+
+The architecture guide explains the boundaries between semantic tokens,
+wallpaper analysis, shell colors, GTK, icons, and Qt:
+[Appearance system](../architecture/appearance-system.md). For everyday
+wallpaper selection, see [Wallpapers and color](wallpapers.md).
