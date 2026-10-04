@@ -57,9 +57,10 @@ snapshot only after reviewing its dry run and selecting the intended target.
 `horneroctl config show <key>` reads one materialized value; `config paths`
 shows which files are active.
 
-The CLI can migrate older configuration layouts with
-`horneroctl config migrate`, but this is a one-time compatibility operation,
-not part of normal setup. Inspect `--dry-run` before confirming it.
+The CLI does not rewrite data from another product or a retired path
+namespace. To recover a broken Hornero configuration, inspect
+`horneroctl config paths`, use a reviewed snapshot, or reset the specific
+user-owned file described by the relevant settings page.
 
 ## Scripting
 

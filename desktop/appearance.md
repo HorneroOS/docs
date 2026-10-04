@@ -67,26 +67,48 @@ horneroctl appearance scheme status
 horneroctl appearance colors status
 ```
 
-The generation variant and accent seed are advanced controls. Settings offers
-the visual controls; the CLI names are available for scripts and diagnostics:
+### Choose how the palette feels
+
+When a recipe follows a wallpaper, Hornero samples its most representative
+colors and builds coordinated colors for surfaces, text, and controls. The
+variant changes the character of that generated palette; it does not change
+the wallpaper or the theme name. Preview a few options against your current
+desktop before applying one.
+
+| Variant | What it tends to look like |
+| --- | --- |
+| Tonal spot | Balanced color with softly tinted surfaces; a good starting point. |
+| Vibrant | Stronger, more colorful accents. |
+| Expressive | A wider mix of related hues, with more distance from the source color. |
+| Fidelity | Keeps the generated roles closer to the source color. |
+| Content | Uses the source color's character more directly in key color roles. |
+| Neutral | Quieter, less colorful surfaces and accents. |
+| Monochrome | Near-grayscale roles with little color emphasis. |
+
+These are generation styles, not seven separate Hornero themes. Light/dark
+mode determines which tones are used; the chosen variant determines how the
+source colors are arranged into a palette. The names are available for
+scripts and diagnostics:
 
 ```sh
 horneroctl appearance accent show
 horneroctl appearance scheme list
 ```
 
-Saved palettes are available in Appearance for reusing a generated look.
-They are useful when you want to keep a color result while trying another
-wallpaper; they do not replace a theme pack.
+Saved palettes let you keep a generated color result while trying a different
+wallpaper or variant. They are reusable color choices, not another theme pack.
+For the underlying Material Color Utilities scheme model, see the
+[upstream color scheme guide](https://github.com/material-foundation/material-color-utilities/blob/main/dev_guide/creating_color_scheme.md).
 
-## Theme packs and compatibility
+## Theme packs and wallpaper availability
 
 Theme metadata and validation rules live in
 [HorneroOS/config](https://github.com/HorneroOS/config/tree/main/profiles/themes).
 The catalogue is generated from those packs. Wallpaper files are separate
 media: packs may name an expected image without bundling that image in the
-package. If the image is not present locally, choose an available wallpaper
-or use a path on your own machine.
+package. If the image is not present locally, choose another available
+wallpaper or use a path on your own machine. Theme selection remains
+available and the Shell explains when referenced media is missing.
 
 The architecture guide explains the boundaries between semantic tokens,
 wallpaper analysis, shell colors, GTK, icons, and Qt:

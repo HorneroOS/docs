@@ -46,5 +46,5 @@ not inside a package-owned preset.
 Attached bars and docks reserve edge space. Floating surfaces normally
 overlay the desktop; some presets explicitly reserve space to preserve
 readability. Try another preset before editing geometry. For the schema,
-edge behavior, entry options, per-monitor settings, and compatibility rules,
+edge behavior, entry options, per-monitor settings, and bar topology,
 see the [layout contract in the Shell repository](https://github.com/HorneroOS/shell/blob/main/docs/LAYOUTS.md).

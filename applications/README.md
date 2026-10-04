@@ -77,8 +77,7 @@ software.
 ## Historical source review
 
 The former dotfiles wiki supplied workflow ideas, not current product
-contracts. Its migration status is recorded in
-[Historical wiki disposition](../development/dotfiles-wiki-disposition.md).
-Old package lists, `dots-*` commands, paths under `~/.cache/dots`, private
-hardware results, and chezmoi-only procedures are not current Hornero
-instructions.
+contracts. Each topic was classified before reuse in the
+[historical wiki disposition](../development/dotfiles-wiki-disposition.md).
+The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles)
+is a source of historical configuration, not an application dependency.
