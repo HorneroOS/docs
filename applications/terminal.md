@@ -35,10 +35,10 @@ configuration includes the current Hornero Dark palette, copy/paste and
 scrollback bindings, font settings, and window padding. Theme-specific files
 include the Hornero Light and Pampa palettes.
 
-The packaged base config still refers to an optional generated-color overlay
-under the historical `~/.cache/dots` path. That file is not required for a
-normal Kitty session. If Kitty warns about a missing include, inspect the
-active user config and remove or comment out only that optional include.
+The optional generated-color overlay lives under
+`~/.cache/hornero/smart-colors/`. If Kitty warns that the include is missing,
+the base palette still works; generate colors from Appearance or remove the
+include from your user override if you do not use generated palettes.
 
 Kitty's upstream manual has the complete option reference:
 [kitty documentation](https://sw.kovidgoyal.net/kitty/).

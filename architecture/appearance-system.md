@@ -21,9 +21,9 @@ model, start with [Appearance](../desktop/appearance.md) and
 
 The theme catalogue is generated from installed packs; it is not a second
 hand-maintained list. User themes take precedence over system themes when the
-user deliberately installs an override. New writes target Hornero paths;
-legacy locations are read-only compatibility fallbacks where documented by
-the owning component.
+user deliberately installs an override. Reads and writes use the Hornero
+user catalogue followed by the read-only system catalogue; no retired path
+namespace is part of the lookup contract.
 
 ## Two kinds of theme pack
 

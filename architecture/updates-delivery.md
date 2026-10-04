@@ -24,11 +24,12 @@ from the fact that an individual component can be packaged.
 ## User data and shipped defaults
 
 Treat `/usr/share` content as package-owned and read-only. User changes belong
-in the documented user configuration/data locations. When changing a shipped
-default, check whether upgrading an existing configuration requires a
-migration and add a compatibility test to the owning repository. Preserve
-explicit user overrides. Avoid copying a developer's machine-specific files
-into package defaults.
+in the documented user configuration/data locations. Package updates must
+not silently rewrite user-owned files. Validate changed defaults in a fresh
+package-faithful environment, preserve explicit user overrides, and avoid
+carrying obsolete paths or formats forward without a supported in-place
+update contract. Never copy a developer's machine-specific files into
+package defaults.
 
 ## Release validation
 
