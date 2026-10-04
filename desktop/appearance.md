@@ -7,11 +7,21 @@ not need to understand color-generation algorithms to pick a look.
 
 ## Pick a theme
 
-The shipped catalogue contains three Hornero semantic themes — **Hornero
-Dark**, **Hornero Light**, and **Pampa** — plus appearance recipes such as
-Catppuccin, Everforest, Gruvbox, Neon City, and Vapor Dreams. Semantic themes
-carry curated interface roles; recipes provide a starting look and may use
-wallpaper-derived colors. Both are selected from the same theme list.
+The catalogue brings together **20 complete looks**. Eight make up **Hornero
+Originals**: Hornero Dark, Hornero Light, Pampa, Patagonia, Fin del Mundo,
+Quebrada, Iberá, and Buenos Aires Nocturno. Other looks span Catppuccin,
+Everforest, Gruvbox, Neon City, Nord Dreams, Rosé Pine, Vapor Dreams,
+Monochrome, Landscape, Soft Morning, and Warm Sunset. Each can create a
+distinct desktop; the collection is not divided into primary and lesser
+appearances.
+
+The implementation has two useful forms. Hornero Dark, Hornero Light, and
+Pampa carry authored semantic interface colors. The other packs describe a
+visual direction and defaults such as mode, GTK/icons, wallpaper, and a
+Material 3 generation style. For those, Hornero derives the shell palette from
+the selected wallpaper. Both forms use the same chooser and can coordinate the
+desktop; the difference matters when inspecting or authoring a pack, not when
+choosing a look.
 
 In Settings, preview a card and select it to apply. If a theme's external GTK
 or icon theme is missing, the system cannot create that part of the look; use
@@ -54,7 +64,7 @@ unless that is intentional.
 
 ## Wallpaper-derived color
 
-Some appearance recipes use the current wallpaper to generate shell colors.
+Some appearances use the current wallpaper to generate shell colors.
 The active wallpaper, theme, and mode are related, but they are not the same
 setting: changing a wallpaper does not rename the theme, and a user mode
 override remains independent of the theme default.
@@ -69,8 +79,9 @@ horneroctl appearance colors status
 
 ### Choose how the palette feels
 
-When a recipe follows a wallpaper, Hornero samples its most representative
-colors and builds coordinated colors for surfaces, text, and controls. The
+When a wallpaper-led look follows the active wallpaper, Hornero samples its
+most representative colors and builds coordinated colors for surfaces, text,
+and controls. The
 variant changes the character of that generated palette; it does not change
 the wallpaper or the theme name. Preview a few options against your current
 desktop before applying one.
@@ -109,6 +120,14 @@ media: packs may name an expected image without bundling that image in the
 package. If the image is not present locally, choose another available
 wallpaper or use a path on your own machine. Theme selection remains
 available and the Shell explains when referenced media is missing.
+
+The wallpaper collection includes high-altitude mineral light in Quebrada,
+blue-green wetlands in Iberá, and rain-lit city color in Buenos Aires
+Nocturno, alongside the southern scenes of Patagonia and Fin del Mundo. These
+original generated artworks are provided by the [public dotfiles wallpaper
+collection](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers)
+and are not documentary photographs. A pack remains selectable if optional
+wallpaper media is unavailable; Settings explains that state.
 
 The architecture guide explains the boundaries between semantic tokens,
 wallpaper analysis, shell colors, GTK, icons, and Qt:
