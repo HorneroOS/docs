@@ -3,8 +3,8 @@
 This guide describes the applications and system tools that Hornero
 configures or calls. It separates three different things: packages supplied
 by a release, configuration files supplied by `hornero-config`, and
-applications available only when the host or personal dotfiles install
-them.
+applications available only when the host or a personal workstation profile
+installs them.
 
 ## What an installed Hornero release includes
 
@@ -15,12 +15,12 @@ desktop application packages such as Kitty, Thunar, CopyQ, `handlr`, and
 `qt6ct` are optional dependencies. Their defaults are installed only when
 the related application is installed.
 
-The current `~/.dotfiles` checkout provisions a broader personal Arch
-workstation. Its package scripts install programs such as Kitty, Thunar,
-Yazi, CopyQ, Zen Browser, Zsh, PipeWire tools, screenshot tools, and studio
-software. That provisioning is useful source material, but it is not the
-Hornero release package set. Do not treat a personal `chezmoi apply` as a
-Hornero installer.
+The [dotfiles repository](https://github.com/ulises-jeremias/dotfiles)
+provisions one broader personal Arch workstation. Its package scripts
+install programs such as Kitty, Thunar, Yazi, CopyQ, Zen Browser, Zsh,
+PipeWire tools, screenshot tools, and studio software. That provisioning is
+useful source material, but it is not the Hornero release package set. Do
+not treat a personal `chezmoi apply` as a Hornero installer.
 
 ## Application and integration catalogue
 
