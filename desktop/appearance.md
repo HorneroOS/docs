@@ -77,9 +77,9 @@ desktop before applying one.
 
 | Variant | What it tends to look like |
 | --- | --- |
-| Tonal spot | Balanced color with softly tinted surfaces; a good starting point. |
+| Tonal spot | Balanced color and softly tinted surfaces. |
 | Vibrant | Stronger, more colorful accents. |
-| Expressive | A wider mix of related hues, with more distance from the source color. |
+| Expressive | A broader mix of related hues. |
 | Fidelity | Keeps the generated roles closer to the source color. |
 | Content | Uses the source color's character more directly in key color roles. |
 | Neutral | Quieter, less colorful surfaces and accents. |
