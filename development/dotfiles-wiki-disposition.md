@@ -82,3 +82,36 @@ rewritten or revalidated before publication:
 - Do not revive retired `dots-*` commands. Use the current
   [horneroctl guide](../desktop/horneroctl.md) and CLI help as the command
   contract.
+
+## Application material carried forward
+
+The wiki's application pages were checked against current config, CLI, and
+Shell sources before any workflow was added to the public handbook:
+
+| Historical page | Source classification | Current handbook treatment |
+| --- | --- | --- |
+| `Kitty.md` | Personal-only | [Terminal](../applications/terminal.md) |
+| `Yazi.md` | Personal-only | [Files](../applications/files.md) |
+| `CopyQ-Customization.md` | Personal-only | [Clipboard](../applications/clipboard.md) |
+| `Thunar-Side-Panel.md` | Personal-only | [Files](../applications/files.md) |
+| `Zsh.md` | Personal-only | [Terminal](../applications/terminal.md) |
+| `Audio-Devices.md` | Needs rewrite | [Media and audio](../applications/media-audio.md) |
+| `Network-Manager.md` | Needs rewrite | [Connectivity](../applications/connectivity.md) |
+| `Studio.md` | Personal-only | See the note below. |
+| `Dots-Scripts.md` | Obsolete | [`horneroctl`](../desktop/horneroctl.md) · [Apps](../applications/README.md) |
+
+Kitty palettes and current shortcuts were checked against Hornero Config.
+Personal aliases and prompt setup remain out of product defaults. The Yazi
+guide now follows the current Super+E binding and `horneroctl
+apps terminal-file`; preview tools remain optional. The CopyQ guide describes
+the current CopyQ/cliphist/minimal fallback and generated theme. Old commands
+and unsupported sync or encryption claims were removed. Thunar bookmarks,
+Zsh setup, and REAPER/Guitarix presets remain personal. Current Thunar actions
+and audio integration are documented in the linked workflow pages.
+
+Other historical pages retain the dispositions above. In particular,
+NVIDIA/hybrid-GPU benchmarks, personal browser/editor choices, host package
+scripts, security-tool suggestions, and machine-specific paths are not
+Hornero defaults. The live `.dotfiles` checkout is a useful reference for
+one configured workstation, but its provisioning scripts do not define the
+HorneroOS package contract.

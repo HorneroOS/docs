@@ -65,3 +65,5 @@ horneroctl hardware keyboard layout --current
 
 The source of truth is
 [HorneroOS/config's keybinding file](https://github.com/HorneroOS/config/blob/main/desktop/hypr/hyprland.conf.d/keybindings.conf).
+For how these shortcuts launch the configured programs, see
+[Apps and workflows](../applications/README.md).

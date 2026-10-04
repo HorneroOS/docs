@@ -1,57 +1,24 @@
-# Everyday apps and file workflows
+# Everyday apps
 
-Hornero's factory configuration declares default applications for the file
-manager, terminal, browser, editor, image viewer, media, and PDF roles. The
-actual installed applications depend on the package composition of the Arch
-system; Hornero does not yet provide a supported end-to-end installer.
+Hornero connects applications through the launcher, keyboard shortcuts,
+XDG file associations, and Shell controls. The exact installed programs
+depend on the Arch system. The current Hornero release profiles compose the
+Shell, configuration defaults, and `horneroctl`; they are not a whole-system
+installer or a promise that every optional application is present.
 
-Check the current associations with:
+Start with the [application catalogue](../applications/README.md) to see what Hornero
+configures, what it expects from the host, and what comes from personal
+dotfiles. Then choose a workflow:
 
-```sh
-horneroctl config default-apps list
-horneroctl apps launch --list
-```
+- [Terminal](../applications/terminal.md)
+- [Files and folders](../applications/files.md)
+- [Clipboard](../applications/clipboard.md)
+- [Browsers, editors, and file associations](../applications/default-apps.md)
+- [Media and audio](../applications/media-audio.md)
+- [Screenshots and recording](../applications/capture.md)
+- [Connectivity and device tools](../applications/connectivity.md)
+- [System utilities](../applications/system-utilities.md)
 
-## Open files and folders
-
-The default file manager opens from the desktop with **Super + F**. The
-terminal file browser opens with **Super + E**. To open them without their
-shortcuts:
-
-```sh
-horneroctl apps files
-horneroctl apps terminal-file
-```
-
-The terminal file browser accepts an initial directory or file selection.
-Read its options before scripting or opening a path:
-
-```sh
-horneroctl apps terminal-file --help
-horneroctl apps terminal-file --cheatsheet
-```
-
-For the current terminal, browser, and editor associations, use the default
-application list rather than assuming that a particular personal app is
-installed.
-
-## Launch apps
-
-Open the application launcher with **Ctrl + Space**. The CLI can open it or
-report the available launch backends:
-
-```sh
-horneroctl apps launch
-horneroctl apps launch --list
-```
-
-Use the desktop shortcut table for window and workspace actions:
-[Keyboard shortcuts](shortcuts.md).
-
-## Change an association
-
-Hornero currently exposes the factory associations as a read-only list.
-Changing a desktop-file association through `horneroctl` is not implemented
-yet. Use the desktop's standard file-association settings or the application
-itself, and check the current CLI help before relying on a future management
-command.
+The application launcher opens with **Ctrl + Space**. Common desktop
+shortcuts are listed in [Keyboard shortcuts](shortcuts.md). To inspect or
+change MIME associations, see [Default applications](../applications/default-apps.md).
