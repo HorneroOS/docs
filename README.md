@@ -17,7 +17,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | If you want to… | Start here |
 | --- | --- |
 | Understand release and installation status | [Getting started](getting-started/README.md) |
-| Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) |
+| Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) · [Apps and workflows](applications/README.md) |
 | Change themes, colors, or wallpaper | [Appearance](desktop/appearance.md) · [Wallpapers](desktop/wallpapers.md) |
 | Choose a bar arrangement | [Layouts](desktop/layouts.md) |
 | Find a keyboard shortcut | [Shortcuts](desktop/shortcuts.md) |
@@ -44,6 +44,8 @@ content; the website does not maintain a second copy.
 - [Getting started](getting-started/README.md) — release status and a safe
   first look.
 - [Desktop](desktop/README.md) — appearance, wallpaper, layouts, and shortcuts.
+- [Apps and workflows](applications/README.md) — the configured application
+  catalog and the paths that connect those tools to Hornero.
 - [horneroctl](desktop/horneroctl.md) — supported command-line entry points.
 - [Hardware](hardware/README.md) — device diagnostics and graphics guidance.
 - [Troubleshooting](troubleshooting/README.md) — recover from common failures.
