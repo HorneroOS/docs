@@ -1,24 +1,15 @@
-# Everyday apps
+# Open an app or file
 
-Hornero connects applications through the launcher, keyboard shortcuts,
-XDG file associations, and Shell controls. The exact installed programs
-depend on the Arch system. The current Hornero release profiles compose the
-Shell, configuration defaults, and `horneroctl`; they are not a whole-system
-installer or a promise that every optional application is present.
+Open the Launcher with **Ctrl + Space** to search installed applications and
+commands. The launch shortcuts for terminal, browser, and file manager use the
+host's XDG desktop entries and preferred-app handlers. Hornero provides those
+connections; the host determines which optional program opens.
 
-Start with the [application catalogue](../applications/README.md) to see what Hornero
-configures, what it expects from the host, and what comes from personal
-dotfiles. Then choose a workflow:
+For supported app relationships, package status, config paths, and
+troubleshooting, use the canonical [Apps and workflows catalogue](../applications/README.md).
+For commands that inspect or change desktop capabilities, see
+[`horneroctl`](horneroctl.md).
 
-- [Terminal](../applications/terminal.md)
-- [Files and folders](../applications/files.md)
-- [Clipboard](../applications/clipboard.md)
-- [Browsers, editors, and file associations](../applications/default-apps.md)
-- [Media and audio](../applications/media-audio.md)
-- [Screenshots and recording](../applications/capture.md)
-- [Connectivity and device tools](../applications/connectivity.md)
-- [System utilities](../applications/system-utilities.md)
-
-The application launcher opens with **Ctrl + Space**. Common desktop
-shortcuts are listed in [Keyboard shortcuts](shortcuts.md). To inspect or
-change MIME associations, see [Default applications](../applications/default-apps.md).
+Quick launch keys: **Super + T** terminal, **Super + W** browser,
+**Super + F** graphical files, and **Super + E** terminal file browser.
+See the full [keyboard shortcut list](shortcuts.md).

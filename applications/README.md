@@ -1,83 +1,104 @@
 # Apps and workflows
 
-This guide describes the applications and system tools that Hornero
-configures or calls. It separates three different things: packages supplied
-by a release, configuration files supplied by `hornero-config`, and
-applications available only when the host or a personal workstation profile
-installs them.
+Hornero is a desktop product, not a fixed collection of third-party apps. Its
+Shell owns desktop surfaces, Hornero Config supplies system defaults, and the
+host decides which optional applications and services are installed. These
+guides explain how those parts connect and what to check when one is missing.
 
-## What an installed Hornero release includes
+## What is part of Hornero?
 
-The current edition profiles compose Hornero Shell, Hornero Config, and
-`horneroctl`. Hornero does not yet publish a supported ISO or end-user
-installer. The `hornero-config` package has a small required dependency set;
-desktop application packages such as Kitty, Thunar, CopyQ, `handlr`, and
-`qt6ct` are optional dependencies. Their defaults are installed only when
-the related application is installed.
+The current Preview composition has no ISO or supported installer. It brings
+together Hornero Shell, `horneroctl`, and the `hornero-config` package. Config
+requires Bash, Git, Python, and `python-materialyoucolor`; it does not install
+a complete workstation by itself.
 
-The [dotfiles repository](https://github.com/ulises-jeremias/dotfiles)
-provisions one broader personal Arch workstation. Its package scripts
-install programs such as Kitty, Thunar, Yazi, CopyQ, Zen Browser, Zsh,
-PipeWire tools, screenshot tools, and studio software. That provisioning is
-useful source material, but it is not the Hornero release package set. Do
-not treat a personal `chezmoi apply` as a Hornero installer.
+### Hornero defaults for optional applications
 
-## Application and integration catalogue
+These programs remain separate host packages. If installed, they can use
+defaults supplied by Hornero Config:
 
-| App or tool | Hornero relationship | Where to learn more |
-| --- | --- | --- |
-| Hyprland | Compositor configuration and shortcuts come from Hornero Config. | [Desktop](../desktop/README.md), [shortcuts](../desktop/shortcuts.md) |
-| Quickshell / Hornero Shell | Owns bars, launcher, Dashboard, notifications, OSD, and Control Center. | [Desktop](../desktop/README.md), [Shell docs](https://github.com/HorneroOS/shell/tree/main/docs) |
-| `horneroctl` | Opens Shell surfaces and provides system, app, capture, and configuration commands. | [`horneroctl`](../desktop/horneroctl.md) |
-| Kitty | Optional `hornero-config` dependency with a Hornero palette. The current Super+E Yazi shortcut launches Kitty directly. | [Terminal](terminal.md) |
-| Yazi | Terminal file manager launched by the Hornero Super+E shortcut. The personal dotfiles setup also adds a Thunar context-menu action. | [Files](files.md) |
-| `exo` / `exo-open` | Launches the default TerminalEmulator, FileManager, and WebBrowser from Hyprland shortcuts. | [Default applications](default-apps.md) |
-| `handlr-regex` / `handlr` | Optional config dependency for reading MIME defaults; `horneroctl` uses `xdg-mime` to set them. | [Default applications](default-apps.md) |
-| CopyQ | Optional config dependency with a base config and generated theme support. Used by the clipboard shortcut when installed. | [Clipboard](clipboard.md) |
-| `cliphist` and `wl-clipboard` | Wayland clipboard history collection and fallback integration in the configured session. | [Clipboard](clipboard.md) |
-| GTK 3/4 and Hornero GTK packs | Configured by Hornero Config; GTK packs are applied by the appearance pipeline. | [Appearance](../desktop/appearance.md) |
-| `qt6ct` | Optional Qt 6 platform-theme configuration. Hornero supplies Fusion, font, icon, and generated palette settings. | [Appearance](../desktop/appearance.md) |
-| Papirus and Orchis | Optional icon and GTK packages referenced by factory appearance defaults. Other theme packs may request other third-party assets. | [Themes](https://horneroos.org/themes) |
-| Fontconfig and Material Symbols | Font rendering defaults and the Shell's symbol font integration. | [Appearance](../desktop/appearance.md) |
-| Fastfetch, btop, Cava | Optional applications with configuration files supplied by Hornero Config. | [System utilities](system-utilities.md) |
-| PipeWire, `pavucontrol`, `pamixer` | Host audio services and mixer utilities used by controls and media workflows; not installed by the Hornero Config package. | [Media and audio](media-audio.md) |
-| MPRIS players, `playerctl`, mpv | The Shell observes MPRIS players. Media keys use `playerctl`; mpv is a host playback option, not a required release dependency. | [Media and audio](media-audio.md) |
-| NetworkManager / `nmcli` | Host network service used by the Shell's connection controls. | [Connectivity](connectivity.md) |
-| BlueZ | Host Bluetooth service used by the Shell's device controls. | [Connectivity](connectivity.md) |
-| `sss`, `grim`, `slurp` | Screenshot capture integrations in the personal dotfiles workflow. `horneroctl capture screenshot` resolves the `sss` helper when present. | [Screenshots and recording](capture.md) |
-| GPU Screen Recorder | Optional recording backend called by `horneroctl capture record`. | [Screenshots and recording](capture.md) |
-| Hyprlock and Hypridle | Lock screen and idle behavior configured in the compositor defaults; packages belong to the host composition. | [Lock and login](login-lock.md), [troubleshooting](../troubleshooting/README.md) |
-| Hornero Greeter / SDDM | Optional login-screen component maintained in its own repository. It is not installed by the current release profile. | [Lock and login](login-lock.md) |
-| `xdg-user-dirs`, `xdg-autostart`, `dex` | Host helpers for standard user folders and launching desktop autostart entries. | [System utilities](system-utilities.md) |
-| Archive tools and preview helpers | Optional host programs such as `p7zip`, `poppler`, `ffmpegthumbnailer`, ImageMagick, `fd`, `fzf`, and `ripgrep` support Yazi workflows. | [Files](files.md) |
-| Editors, image viewers, and PDF readers | Host-selected applications. Personal dotfiles have included `sxiv`; that is not the Hornero default. | [Default applications](default-apps.md) |
-| Zsh and tmux | Interactive shell and multiplexer provisioned by personal dotfiles; Hornero Config does not define their user setup. | [Terminal](terminal.md) |
-| Git | Required package dependency with Hornero defaults that deliberately omit user identity. | [System utilities](system-utilities.md) |
-| Browser, editor, image viewer, PDF viewer | Chosen from host-installed desktop applications. Hornero does not require one particular product in these roles. | [Default applications](default-apps.md) |
+- **Kitty** — terminal colors, typography, and key settings; used by the
+  default **Super + E** Yazi workflow. See [Terminal](terminal.md).
+- **Thunar** — file-manager accelerators, bulk rename, and context actions.
+  **Super + F** asks the host to open its FileManager. See [Files](files.md).
+- **CopyQ** — clipboard history UI configuration and generated theme colors.
+  See [Clipboard](clipboard.md).
+- **Fastfetch**, **btop**, and **Cava** — terminal summary, resource monitor,
+  and visualizer configuration. See [System utilities](system-utilities.md).
+- **Git** — shared defaults and ignore rules, with no user identity. Add your
+  own name and email before creating commits.
+- **Fontconfig**, **GTK**, **qt6ct**, and **Papirus** — font and application
+  appearance defaults. GTK themes and external icon packages can be missing;
+  Hornero does not download them. See [Appearance](../desktop/appearance.md).
+- **`handlr`** — optional integration for inspecting file and app handlers.
+  [`horneroctl`](../desktop/horneroctl.md) uses `xdg-mime` to update MIME
+  associations.
 
-This catalogue describes roles, not a fixed Arch package transaction. Check
-the current release notes and your package manager before installing optional
-software.
+### Host services and applications
 
-## User workflows
+- **Hyprland** runs the configured desktop session. Hornero Config supplies
+  its defaults; see [shortcuts](../desktop/shortcuts.md).
+- **Quickshell / Hornero Shell** owns bars, Launcher, Dashboard, notifications,
+  OSD, and Control Center. See the [desktop guide](../desktop/README.md) and
+  [Shell documentation](https://github.com/HorneroOS/shell/tree/main/docs).
+- **`exo-open` and XDG helpers** start the host's selected terminal, file
+  manager, browser, and MIME handlers. See [Default applications](default-apps.md).
+- **Yazi** is not a Config package dependency, but **Super + E** invokes it
+  inside Kitty. The personal workstation profile can install Yazi and preview
+  helpers. See [Files](files.md).
+- **`cliphist` and `wl-clipboard`** can collect Wayland clipboard history;
+  **PipeWire**, `pamixer`, `pavucontrol`, and `playerctl` provide host audio
+  and media integration. See [Clipboard](clipboard.md) and
+  [Media and audio](media-audio.md).
+- **NetworkManager and BlueZ** provide host network and Bluetooth services.
+  Control Center exposes their state; see [Connectivity](connectivity.md).
+- **`sss`, `grim`, `slurp`, and GPU Screen Recorder** provide optional capture
+  backends. See [Screenshots and recording](capture.md).
+- **Hyprlock and Hypridle** support lock and idle behavior. **SDDM and Hornero
+  Greeter** are separate login components, not part of the current Preview
+  composition. See [Lock and login](login-lock.md).
 
-- [Terminal](terminal.md) explains Kitty, terminal launch, and shell scope.
-- [Files](files.md) connects Thunar, Yazi, file associations, and previews.
-- [Clipboard](clipboard.md) explains CopyQ, `cliphist`, and session history.
-- [Default applications](default-apps.md) covers browser, editor, media, PDF,
-  image, file-manager, and terminal associations.
-- [Media and audio](media-audio.md) connects MPRIS, PipeWire, volume controls,
-  players, and the Shell.
-- [Screenshots and recording](capture.md) covers `horneroctl capture` and
-  its optional backends.
-- [Connectivity](connectivity.md) covers network and Bluetooth services.
-- [System utilities](system-utilities.md) covers the configured monitoring
-  and information tools.
+### Optional personal workstation applications
 
-## Historical source review
-
-The former dotfiles wiki supplied workflow ideas, not current product
-contracts. Each topic was classified before reuse in the
-[historical wiki disposition](../development/dotfiles-wiki-disposition.md).
 The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles)
-is a source of historical configuration, not an application dependency.
+configures a broader Arch workstation. Its optional applications include Zen
+Browser, Zsh, tmux, mpv, sxiv, Xarchiver, and audio or studio tools. They are
+not Hornero release defaults; the relevant workflow pages explain their role.
+
+The release package's exact dependency metadata is maintained in
+[Hornero Config](https://github.com/HorneroOS/config/blob/main/packaging/PKGBUILD).
+The [dotfiles repository](https://github.com/ulises-jeremias/dotfiles) is a
+separate, broader workstation configuration. It is useful to understand the
+personal application setup, but Hornero's product behavior does not depend on
+running its provisioning commands.
+
+## Follow a workflow
+
+- [Terminal](terminal.md) — Kitty, the account shell, Zsh, and tmux.
+- [Files](files.md) — Thunar, Yazi, previews, archives, and file associations.
+- [Clipboard](clipboard.md) — CopyQ, Wayland clipboard history, and privacy.
+- [Default applications](default-apps.md) — host app handlers and MIME types.
+- [Browsing, editing, and documents](browsing-documents.md) — browsers,
+  editors, PDFs, and image/file associations.
+- [Media and audio](media-audio.md) — PipeWire, volume controls, MPRIS, and players.
+- [Screenshots and recording](capture.md) — screenshot and recording backends.
+- [Connectivity](connectivity.md) — NetworkManager, Bluetooth, and VPN providers.
+- [System utilities](system-utilities.md) — Git, Fastfetch, btop, Cava, and
+  host helpers.
+- [Lock and login](login-lock.md) — session lock versus SDDM login.
+
+These guides describe the current Hornero contract first. Optional personal
+workstation choices are labelled as such. Historical wiki procedures were
+reviewed and classified in [the source disposition](../development/dotfiles-wiki-disposition.md);
+old paths and `dots-*` commands are not current instructions.
+
+For a searchable, status-labelled inventory of applications and integrated
+services, see the [application catalogue](catalogue.md). It separates Hornero
+components from optional host apps and the public personal workstation
+profile.
+
+The catalogue is organized around the work people do:
+[terminal](catalogue.md#terminal-and-command-line),
+[files and documents](catalogue.md#files-browsing-and-documents),
+[clipboard, capture, and media](catalogue.md#clipboard-capture-audio-and-connectivity),
+and [appearance and login](catalogue.md#appearance-login-and-desktop-support).

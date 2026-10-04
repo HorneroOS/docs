@@ -81,7 +81,7 @@ desktop before applying one.
 | Vibrant | Stronger, more colorful accents. |
 | Expressive | A broader mix of related hues. |
 | Fidelity | Keeps the generated roles closer to the source color. |
-| Content | Uses the source color's character more directly in key color roles. |
+| Content | Brings more of the source color into key roles. |
 | Neutral | Quieter, less colorful surfaces and accents. |
 | Monochrome | Near-grayscale roles with little color emphasis. |
 
