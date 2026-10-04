@@ -33,10 +33,11 @@ optional wallpaper profile is applied, images are linked under
 `~/Pictures/Wallpapers/<collection>/`. The Hornero Config package owns theme
 metadata and does not fetch these images.
 
-The website [Themes gallery](https://hornero-os.vercel.app/themes) shows real
-desktop captures for Neon City, Vapor Dreams, and Soft Morning, plus clearly
-labelled wallpaper artwork previews for Patagonia and Fin del Mundo. Wallpaper
-artworks are not presented as screenshots of a running desktop.
+The deployed website [Themes gallery](https://hornero-os.vercel.app/themes)
+shows desktop captures for Neon City, Vapor Dreams, and Soft Morning, as well as
+Hornero QA captures of Hornero Light on a Patagonian landscape and Pampa on a
+grassland scene. These are labelled desktop captures; wallpaper artwork is not
+presented as a screenshot of a running desktop.
 
 ## How wallpaper and colors work together
 
