@@ -19,6 +19,8 @@ records which component revisions were composed together.
 
 ## Guides
 
+- [Editions and package composition](editions.md) — the shared catalogue,
+  composition model, and honest maturity boundary.
 - [Appearance system](appearance-system.md) — theme, wallpaper, palette, and
   toolkit responsibilities.
 - [Updates and delivery](updates-delivery.md) — how source, packages, and
