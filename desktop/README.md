@@ -11,6 +11,7 @@ Center contains persistent system and shell settings.
 | --- | --- |
 | Pick a coordinated look | [Themes and appearance](appearance.md) |
 | Change or understand a wallpaper | [Wallpapers and color](wallpapers.md) |
+| Choose or troubleshoot a session compositor | [Wayland compositors](compositors.md) |
 | Move between rails, bars, islands, or docks | [Layouts](layouts.md) |
 | Use the keyboard efficiently | [Shortcuts](shortcuts.md) |
 | Open files or launch applications | [Everyday apps](everyday-apps.md) |
@@ -32,6 +33,11 @@ Center contains persistent system and shell settings.
 
 These surfaces are part of the shell package. Their implementation and
 keyboard focus contracts live in the [Shell repository](https://github.com/HorneroOS/shell/tree/main/docs).
+
+HorneroOS Desktop is Wayland-first. Hyprland is the validated default;
+[Niri is experimental](compositors.md) and has a smaller verified feature
+surface. The same Hornero Shell identity spans both backends where capabilities
+are implemented.
 
 ## Configuration boundaries
 

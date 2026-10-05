@@ -5,12 +5,13 @@ user and contributor handbook; implementation contracts stay with the
 [Shell](https://github.com/HorneroOS/shell), [CLI](https://github.com/HorneroOS/hornero),
 and [configuration](https://github.com/HorneroOS/config) repositories.
 
-> Hornero OS is an Arch-based desktop project in development. There is no
-> installable ISO or supported system installer yet. The
-> [release page](https://horneroos.org/releases) and
-> [installation status](https://github.com/HorneroOS/website/blob/main/src/pages/install.astro)
-> are the current
-> source for what can be installed.
+> HorneroOS is an Arch-based operating-system family in development. Its
+> Desktop edition is Wayland-first, with Hyprland as the default validated
+> compositor and Niri as an experimental backend. There is no installable ISO
+> or supported system installer yet. The
+> [release page](https://horneroos.com/releases) and
+> [installation status](https://horneroos.com/install) are the current source
+> for what can be installed.
 
 ## Choose a path
 
@@ -23,7 +24,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | Find a keyboard shortcut | [Shortcuts](desktop/shortcuts.md) |
 | Automate or inspect the system from a terminal | [horneroctl](desktop/horneroctl.md) |
 | Diagnose graphics or device problems | [Hardware](hardware/README.md) · [Troubleshooting](troubleshooting/README.md) |
-| Understand system boundaries | [Architecture](architecture/README.md) |
+| Understand editions and system boundaries | [Architecture](architecture/README.md) |
 | Build, test, or contribute | [Development](development/README.md) |
 
 ## How these docs stay accurate
@@ -43,13 +44,14 @@ content; the website does not maintain a second copy.
 
 - [Getting started](getting-started/README.md) — release status and a safe
   first look.
-- [Desktop](desktop/README.md) — appearance, wallpaper, layouts, and shortcuts.
+- [Desktop](desktop/README.md) — appearance, wallpaper, layouts, compositors,
+  and shortcuts.
 - [Apps and workflows](applications/README.md) — the configured application
   catalog and the paths that connect those tools to Hornero.
 - [horneroctl](desktop/horneroctl.md) — supported command-line entry points.
 - [Hardware](hardware/README.md) — device diagnostics and graphics guidance.
 - [Troubleshooting](troubleshooting/README.md) — recover from common failures.
-- [Architecture](architecture/README.md) — ownership and data flow.
+- [Architecture](architecture/README.md) — editions, ownership, and data flow.
 - [Development](development/README.md) — code, QA, and contribution paths.
 
 ## License
