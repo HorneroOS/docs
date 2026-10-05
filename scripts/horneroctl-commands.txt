@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@36c2c4b
+# horneroctl command paths, generated from HorneroOS/hornero@33e15bd5acb87bc931a0854d1484d5df217989fe
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -91,7 +91,6 @@ apps toggle redshift
 apps toggle session
 apps toggle sidebar
 apps toggle utilities
-apps weather
 backup
 backup create
 backup list
@@ -111,7 +110,6 @@ config default-apps list
 config default-apps set
 config gui
 config materialize
-config migrate
 config paths
 config show
 config snapshot
@@ -178,14 +176,6 @@ power reboot
 power shutdown
 power status
 power suspend
-scheme
-scheme current
-scheme list
-scheme regenerate
-scheme set-mode
-scheme set-variant
-scheme status
-scheme sync-state
 shell
 shell ipc
 shell logs
@@ -197,6 +187,8 @@ shell restart
 shell start
 shell status
 shell stop
+system
+system info
 version
 wallpaper
 wallpaper current
