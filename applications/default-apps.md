@@ -9,10 +9,11 @@ examples and package distinctions.
 
 ## How application launching works
 
-Hyprland's default shortcuts ask `exo-open` for the XDG `TerminalEmulator`,
-`FileManager`, or `WebBrowser` handler. File types such as `text/plain`,
-`application/pdf`, and `image/png` use MIME associations. A missing
-association or missing `.desktop` file can make a shortcut or file open fail.
+The active compositor's default shortcuts ask `exo-open` for the XDG
+`TerminalEmulator`, `FileManager`, or `WebBrowser` handler. File types such as
+`text/plain`, `application/pdf`, and `image/png` use MIME associations. A
+missing association or missing `.desktop` file can make a shortcut or file
+open fail.
 
 The current config repository supplies an optional `handlr` configuration.
 `horneroctl config default-apps list` reads the active terminal helper and
@@ -30,10 +31,20 @@ horneroctl config default-apps set application/pdf org.example.Reader.desktop --
 horneroctl config default-apps set application/pdf org.example.Reader.desktop --yes
 ```
 
-Replace the example ID with an installed `.desktop` file. The setter uses
-`xdg-mime`; it only changes MIME associations. The terminal emulator is
-configured separately by the desktop's `TerminalEmulator` helper, so this
-command does not change **Super + T** or **Super + Enter**.
+Replace the example ID with an installed `.desktop` file. MIME changes use
+`xdg-mime`. To change the terminal used by **Super + T** or **Super + Enter**,
+set the separate Exo helper instead:
+
+```sh
+horneroctl config default-apps set terminal ghostty --dry-run
+horneroctl config default-apps set terminal ghostty --yes
+```
+
+The terminal setter supports Kitty, Alacritty, and Ghostty, and requires the
+chosen program to be installed. It changes `TerminalEmulator` in the user's
+`$XDG_CONFIG_HOME/xfce4/helpers.rc` (or `~/.config/xfce4/helpers.rc`) while
+preserving other helper entries. `--dry-run` reports the target path without
+writing; `--yes` is required to apply.
 
 To check the selected application names and available launch backends, run:
 
