@@ -17,9 +17,14 @@ association.
 - Press **Super + E** for Yazi in a Kitty window. This workflow needs both
   Kitty and Yazi.
 
-The host's Xfce helper setting chooses the `TerminalEmulator` target. The
-default-application command changes MIME associations and does not change that
-terminal helper. See [Default applications](default-apps.md) and
+The host's Xfce helper setting chooses the `TerminalEmulator` target. Check
+the selected target with `horneroctl config default-apps list`; change it to an
+installed supported terminal with `horneroctl config default-apps set terminal
+ghostty --dry-run`, then repeat with `--yes` to apply. Supported targets are
+Kitty, Alacritty, and Ghostty. This updates only the user's
+`$XDG_CONFIG_HOME/xfce4/helpers.rc` (or `~/.config/xfce4/helpers.rc` when
+`XDG_CONFIG_HOME` is unset), leaving MIME defaults and other helper entries
+alone. See [Default applications](default-apps.md) and
 [keyboard shortcuts](../desktop/shortcuts.md).
 
 ## Kitty
@@ -129,8 +134,8 @@ copying those preferences to another machine.
 - Run `horneroctl apps launch --list` to see which launch backends are
   available.
 - Run `horneroctl apps terminal-file --help` to inspect the Yazi workflow.
-- Check that the selected terminal `.desktop` file and `TerminalEmulator`
-  helper exist.
+- Check that the selected terminal is installed and that the
+  `TerminalEmulator` helper in `~/.config/xfce4/helpers.rc` matches it.
 - If a terminal's colors are stale, apply the desired appearance again in
   **Settings → Appearance** and check `horneroctl appearance colors status`.
 - Check whether a user-level config overrides the Hornero system fallback.
