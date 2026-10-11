@@ -6,9 +6,9 @@ program listed as optional is not silently installed by Hornero Config.
 Package availability depends on the selected host and release.
 
 Search the page for either the application name or the task name. For example,
-**kitty**, **terminal**, **Thunar**, **files**, **Yazi**, **clipboard**, **CopyQ**,
-**PDF**, **browser**, **video**, and **screenshot** are indexed together with
-their workflows.
+**Kitty**, **Alacritty**, **Ghostty**, **terminal**, **Thunar**, **files**,
+**Yazi**, **clipboard**, **CopyQ**, **PDF**, **browser**, **video**, and
+**screenshot** are indexed together with their workflows.
 
 ## Hornero product and session
 
@@ -24,7 +24,9 @@ their workflows.
 
 | App or tool | Status and Hornero behavior | Config / workflow |
 | --- | --- | --- |
-| Kitty | Optional host package with Hornero terminal colors and font defaults. The curated **Super + E** action opens Yazi in Kitty when available. | [`~/.config/kitty/kitty.conf`](terminal.md#kitty), [Terminal guide](terminal.md), [Kitty manual](https://sw.kovidgoyal.net/kitty/) |
+| Kitty | Optional host package selected as the default terminal when installed. Hornero supplies system defaults and the **Super + E** Yazi workflow uses Kitty specifically. | [`~/.config/kitty/kitty.conf`](terminal.md#kitty), [Terminal guide](terminal.md), [Kitty manual](https://sw.kovidgoyal.net/kitty/) |
+| Alacritty | Optional alternative with a packaged `/etc/alacritty/alacritty.toml` fallback and wallpaper-derived palette import. User configuration can override the fallback. | [Alacritty guide](terminal.md#alacritty), [configuration reference](https://alacritty.org/config-alacritty.html) |
+| Ghostty | Optional alternative with a system `Hornero Dynamic` theme, a new-user config seed, and generated per-user palettes. Existing user configs are not overwritten. | [Ghostty guide](terminal.md#ghostty), [configuration guide](https://ghostty.org/docs/config) |
 | Bash | Required by `hornero-config`; used by package scripts and shell helpers. | [Terminal guide](terminal.md#shell-and-command-workflow), [Bash manual](https://www.gnu.org/software/bash/manual/) |
 | Zsh | Personal workstation choice, not a Hornero Config dependency. The dotfiles profile configures its prompt and startup files. | [Terminal guide](terminal.md#shell-and-command-workflow), [Zsh documentation](https://zsh.sourceforge.io/Doc/) |
 | tmux | Optional personal terminal multiplexer with a dotfiles-managed config and session helpers. | [Terminal guide](terminal.md#shell-and-command-workflow), [tmux manual](https://github.com/tmux/tmux/wiki) |

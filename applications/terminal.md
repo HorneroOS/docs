@@ -1,10 +1,12 @@
 # Terminal and shell
 
 Hornero separates the terminal window, the interactive shell inside it, and
-the command-line tools that manage the desktop. Kitty is the curated terminal
-in the Hornero Config package, but it is an optional package dependency. A
-host can use another terminal for normal launches; **Super + E** specifically
-opens Yazi in Kitty.
+the command-line tools that manage the desktop. Kitty is the selected default
+terminal when installed; Alacritty and Ghostty are optional alternatives with
+their own Hornero defaults. The terminal applications are separate host
+packages, not dependencies of the Shell. **Super + E** is a specific Kitty +
+Yazi workflow, while regular terminal launches follow the host's terminal
+association.
 
 ## Open a terminal
 
@@ -53,6 +55,50 @@ adds a personal Kitty setup with an 80×24 initial window, 12-point font, and
 release requirement. Edit the active `kitty.conf` to customize Kitty. See the
 [Kitty manual](https://sw.kovidgoyal.net/kitty/).
 
+## Alacritty
+
+Alacritty is an optional terminal for users who prefer a compact TOML
+configuration. When Alacritty is installed, Hornero Config supplies a system
+fallback at `/etc/alacritty/alacritty.toml`. It imports the static Hornero
+Dark palette and an optional generated palette, and enables live config
+reload. Hornero writes the active wallpaper-derived colors to
+`~/.config/alacritty/hornero-colors.toml`; applying an appearance updates this
+file. If you maintain a user config at
+`~/.config/alacritty/alacritty.toml`, include the Hornero palette imports there
+to keep generated colors active.
+
+The installed default uses 12-pixel window padding, 88% opacity, a 2,500-line
+scrollback, and a non-blinking block cursor. The [Alacritty configuration
+reference](https://alacritty.org/config-alacritty.html) documents TOML imports
+and other settings.
+
+## Ghostty
+
+Ghostty is another optional terminal. Hornero Config provides a
+`Hornero Dynamic` fallback theme under `/usr/share/ghostty/themes/` and seeds
+`/etc/skel/.config/ghostty/config.ghostty` for newly created accounts. That
+config selects the Hornero theme and sets 88% background opacity. Existing
+accounts are not overwritten by the skeleton; add `theme = Hornero Dynamic`
+to your own `~/.config/ghostty/config.ghostty` to opt in.
+
+When an appearance is applied, Hornero writes the wallpaper-derived theme to
+`~/.config/ghostty/themes/Hornero Dynamic`, which takes precedence over the
+system fallback, and signals a running Ghostty instance to reload. Keep the
+theme name stable in your config so subsequent appearances update it. See
+Ghostty's [configuration guide](https://ghostty.org/docs/config) and
+[color-theme guide](https://ghostty.org/docs/features/theme).
+
+## Shared appearance behavior
+
+Applying an appearance in Hornero updates the generated palette files for
+Kitty, Alacritty, and Ghostty from the active wallpaper. Each emulator reads
+its native format. Kitty and Alacritty have static Hornero Dark / Light
+fallbacks; Ghostty has a static `Hornero Dynamic` theme fallback. These keep
+the terminals usable before palette generation, while user-level files remain
+yours to customize.
+To inspect the generated scheme, run `horneroctl appearance colors status`.
+See [Appearance](../desktop/appearance.md) for theme and palette controls.
+
 ## Shell and command workflow
 
 Your account's configured shell runs inside the terminal. Hornero Config
@@ -85,11 +131,15 @@ copying those preferences to another machine.
 - Run `horneroctl apps terminal-file --help` to inspect the Yazi workflow.
 - Check that the selected terminal `.desktop` file and `TerminalEmulator`
   helper exist.
-- If Kitty's palette is stale, apply the desired theme again in
-  **Settings → Appearance**. For generated colors, check
-  `horneroctl appearance colors status`.
+- If a terminal's colors are stale, apply the desired appearance again in
+  **Settings → Appearance** and check `horneroctl appearance colors status`.
+- Check whether a user-level config overrides the Hornero system fallback.
+  For Ghostty, confirm `theme = Hornero Dynamic` is present in the active
+  `config.ghostty` file.
 
 Useful references: [Kitty](https://sw.kovidgoyal.net/kitty/),
+[Alacritty](https://alacritty.org/config-alacritty.html),
+[Ghostty](https://ghostty.org/docs),
 [Zsh manual](https://zsh.sourceforge.io/Doc/Release/),
 [tmux wiki](https://github.com/tmux/tmux/wiki),
 [Appearance](../desktop/appearance.md), and
