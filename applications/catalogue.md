@@ -24,7 +24,7 @@ Search the page for either the application name or the task name. For example,
 
 | App or tool | Status and Hornero behavior | Config / workflow |
 | --- | --- | --- |
-| Kitty | Optional host package selected as the default terminal when installed. Hornero supplies system defaults and the **Super + E** Yazi workflow uses Kitty specifically. | [`~/.config/kitty/kitty.conf`](terminal.md#kitty), [Terminal guide](terminal.md), [Kitty manual](https://sw.kovidgoyal.net/kitty/) |
+| Kitty | Optional host package selected as the default terminal by factory settings. Hornero supplies system defaults; **Super + E** uses the configured terminal, including Kitty, Alacritty, or Ghostty. | [`~/.config/kitty/kitty.conf`](terminal.md#kitty), [Terminal guide](terminal.md), [Kitty manual](https://sw.kovidgoyal.net/kitty/) |
 | Alacritty | Optional alternative with a packaged `/etc/alacritty/alacritty.toml` fallback and wallpaper-derived palette import. User configuration can override the fallback. | [Alacritty guide](terminal.md#alacritty), [configuration reference](https://alacritty.org/config-alacritty.html) |
 | Ghostty | Optional alternative with a system `Hornero Dynamic` theme, a new-user config seed, and generated per-user palettes. Existing user configs are not overwritten. | [Ghostty guide](terminal.md#ghostty), [configuration guide](https://ghostty.org/docs/config) |
 | Bash | Required by `hornero-config`; used by package scripts and shell helpers. | [Terminal guide](terminal.md#shell-and-command-workflow), [Bash manual](https://www.gnu.org/software/bash/manual/) |
@@ -39,7 +39,7 @@ Search the page for either the application name or the task name. For example,
 | App or tool | Status and Hornero behavior | Config / workflow |
 | --- | --- | --- |
 | Thunar | Optional file manager. Config adds useful keyboard actions and context integrations; **Super + F** follows the host FileManager association. | [Files](files.md#thunar-for-visual-file-management), [Thunar documentation](https://docs.xfce.org/xfce/thunar/start) |
-| Yazi | Personal-profile file manager, not a Hornero Config dependency. **Super + E** opens it in Kitty when installed; preview tools are optional. | [Files](files.md#yazi-for-keyboard-driven-browsing), [Yazi documentation](https://yazi-rs.github.io/docs/) |
+| Yazi | Optional terminal file manager, not a Hornero Config dependency. **Super + E** opens it in the configured terminal when installed; preview tools are optional. | [Files](files.md#yazi-for-keyboard-driven-browsing), [Yazi documentation](https://yazi-rs.github.io/docs/) |
 | `xdg-mime`, `exo-open`, desktop files | Host mechanisms that choose the default app for a URL or MIME type. Hornero requests these handlers instead of embedding a browser or file manager. | [Default applications](default-apps.md), [freedesktop MIME applications](https://specifications.freedesktop.org/mime-apps-spec/latest/) |
 | Zen Browser | Optional personal-profile browser. It is not the required browser and is not a Hornero package dependency. | [Browsing, editing, and documents](browsing-documents.md#browsers), [Zen](https://zen-browser.app/) |
 | Neovim, VS Code, other editors | Chosen by the host. The personal profile contains editor configuration; Hornero does not require one editor. | [Browsing, editing, and documents](browsing-documents.md#editors), [Default applications](default-apps.md) |

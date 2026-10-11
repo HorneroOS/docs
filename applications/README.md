@@ -17,8 +17,10 @@ a complete workstation by itself.
 These programs remain separate host packages. If installed, they can use
 defaults supplied by Hornero Config:
 
-- **Kitty** — terminal colors, typography, and key settings; used by the
-  default **Super + E** Yazi workflow. See [Terminal](terminal.md).
+- **Kitty** — terminal colors, typography, and key settings; selected by
+  default for the **Super + E** Yazi workflow. That action follows the
+  configured terminal, including Alacritty or Ghostty. See
+  [Terminal](terminal.md).
 - **Alacritty** and **Ghostty** — optional terminal alternatives with native
   Hornero fallback and wallpaper-derived palette integration. They are not
   installed by Hornero Config. See [Terminal](terminal.md).
@@ -46,9 +48,9 @@ defaults supplied by Hornero Config:
   [Shell documentation](https://github.com/HorneroOS/shell/tree/main/docs).
 - **`exo-open` and XDG helpers** start the host's selected terminal, file
   manager, browser, and MIME handlers. See [Default applications](default-apps.md).
-- **Yazi** is not a Config package dependency, but **Super + E** invokes it
-  inside Kitty. The personal workstation profile can install Yazi and preview
-  helpers. See [Files](files.md).
+- **Yazi** is not a Config package dependency, but **Super + E** opens it in
+  the configured terminal. The personal workstation profile can install Yazi
+  and preview helpers. See [Files](files.md).
 - **`cliphist` and `wl-clipboard`** can collect Wayland clipboard history;
   **PipeWire**, `pamixer`, `pavucontrol`, and `playerctl` provide host audio
   and media integration. See [Clipboard](clipboard.md) and
