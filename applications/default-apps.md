@@ -16,9 +16,11 @@ missing association or missing `.desktop` file can make a shortcut or file
 open fail.
 
 The current config repository supplies an optional `handlr` configuration.
-`horneroctl config default-apps list` reads the active terminal helper and
-the current MIME defaults. It reports what is configured on this machine,
-not what Hornero installs.
+`horneroctl config default-apps list` reads the Exo terminal helper, the
+generic XDG terminal preference, and the current MIME defaults. It reports
+what is configured on this machine, not what Hornero installs. A
+desktop-specific `<desktop>-xdg-terminals.list` can override the generic XDG
+preference for a particular session.
 
 ## Change a file association
 
@@ -33,7 +35,7 @@ horneroctl config default-apps set application/pdf org.example.Reader.desktop --
 
 Replace the example ID with an installed `.desktop` file. MIME changes use
 `xdg-mime`. To change the terminal used by **Super + T** or **Super + Enter**,
-set the separate Exo helper instead:
+set the terminal preference:
 
 ```sh
 horneroctl config default-apps set terminal ghostty --dry-run
@@ -41,10 +43,15 @@ horneroctl config default-apps set terminal ghostty --yes
 ```
 
 The terminal setter supports Kitty, Alacritty, and Ghostty, and requires the
-chosen program to be installed. It changes `TerminalEmulator` in the user's
-`$XDG_CONFIG_HOME/xfce4/helpers.rc` (or `~/.config/xfce4/helpers.rc`) while
-preserving other helper entries. `--dry-run` reports the target path without
-writing; `--yes` is required to apply.
+chosen program to be installed. It keeps Exo's `TerminalEmulator` helper and
+the generic `$XDG_CONFIG_HOME/xdg-terminals.list` preference (or
+`~/.config/xdg-terminals.list`) aligned. Existing helper entries, comments,
+directives, and other terminal choices remain in place; a fallback exclusion
+for the selected terminal is removed so it can be selected. The selected
+terminal takes first priority in the XDG list. When installed,
+`xdg-terminal-exec` reads that preference. Desktop-specific preference files
+can still take precedence. `--dry-run` reports both target paths without writing;
+`--yes` is required to apply.
 
 To check the selected application names and available launch backends, run:
 
@@ -79,4 +86,5 @@ more application-specific guidance see
 [Browsing, editing, and documents](browsing-documents.md).
 Upstream references: [XDG MIME applications](https://www.freedesktop.org/wiki/Specifications/mime-apps-spec/),
 [exo](https://docs.xfce.org/xfce/exo/start),
+[XDG default terminal execution](https://github.com/Vladimir-csp/xdg-terminal-exec),
 [handlr-regex](https://github.com/chmln/handlr).
