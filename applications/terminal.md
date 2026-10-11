@@ -22,10 +22,13 @@ The host's Xfce helper setting chooses the `TerminalEmulator` target. Check
 the selected target with `horneroctl config default-apps list`; change it to an
 installed supported terminal with `horneroctl config default-apps set terminal
 ghostty --dry-run`, then repeat with `--yes` to apply. Supported targets are
-Kitty, Alacritty, and Ghostty. This updates only the user's
-`$XDG_CONFIG_HOME/xfce4/helpers.rc` (or `~/.config/xfce4/helpers.rc` when
-`XDG_CONFIG_HOME` is unset), leaving MIME defaults and other helper entries
-alone. See [Default applications](default-apps.md) and
+Kitty, Alacritty, and Ghostty. The command updates the user's
+`$XDG_CONFIG_HOME/xfce4/helpers.rc` and generic
+`$XDG_CONFIG_HOME/xdg-terminals.list` (or the equivalent paths under
+`~/.config`), while leaving MIME defaults and other helper entries alone.
+When installed, `xdg-terminal-exec` reads the generic list; a
+desktop-specific preference file can take precedence. See
+[Default applications](default-apps.md) and
 [keyboard shortcuts](../desktop/shortcuts.md).
 
 ## Kitty
