@@ -46,10 +46,11 @@ The terminal setter supports Kitty, Alacritty, and Ghostty, and requires the
 chosen program to be installed. It keeps Exo's `TerminalEmulator` helper and
 the generic `$XDG_CONFIG_HOME/xdg-terminals.list` preference (or
 `~/.config/xdg-terminals.list`) aligned. Existing helper entries, comments,
-and other terminal choices remain in place; the selected terminal takes first
-priority in the XDG list. `xdg-terminal-exec` reads that preference when the
-optional package is installed. Desktop-specific preference files can still
-take precedence. `--dry-run` reports both target paths without writing;
+directives, and other terminal choices remain in place; a fallback exclusion
+for the selected terminal is removed so it can be selected. The selected
+terminal takes first priority in the XDG list. When installed,
+`xdg-terminal-exec` reads that preference. Desktop-specific preference files
+can still take precedence. `--dry-run` reports both target paths without writing;
 `--yes` is required to apply.
 
 To check the selected application names and available launch backends, run:

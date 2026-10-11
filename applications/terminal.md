@@ -25,8 +25,9 @@ ghostty --dry-run`, then repeat with `--yes` to apply. Supported targets are
 Kitty, Alacritty, and Ghostty. The command updates the user's
 `$XDG_CONFIG_HOME/xfce4/helpers.rc` and generic
 `$XDG_CONFIG_HOME/xdg-terminals.list` (or the equivalent paths under
-`~/.config`), while leaving MIME defaults and other helper entries alone.
-When installed, `xdg-terminal-exec` reads the generic list; a
+`~/.config`), while leaving MIME defaults and other helper entries alone. It
+also removes a fallback exclusion for the selected terminal. When installed,
+`xdg-terminal-exec` reads the generic list; a
 desktop-specific preference file can take precedence. See
 [Default applications](default-apps.md) and
 [keyboard shortcuts](../desktop/shortcuts.md).
