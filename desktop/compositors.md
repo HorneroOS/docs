@@ -44,7 +44,7 @@ and routes Hornero shortcuts to the Shell and `horneroctl`:
 | `Super+Shift+B` | Open Layout Picker |
 | `Super+X` | Open the session menu |
 | `Super+,` | Open Appearance in Control Center |
-| `Super+E` | Open the terminal file manager |
+| `Super+E` | Open Yazi in the configured terminal |
 | `Super+V` | Open clipboard history |
 | `Super+L` | Lock the session |
 | `Print` | Open Niri's screenshot selection UI |

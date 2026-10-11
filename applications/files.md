@@ -15,7 +15,8 @@ materialization can still supply the actions in the user's config.
 
 When the configured session starts, it asks Thunar's daemon to stay ready so
 later windows open faster. The context menu actions **Open in Yazi** and
-**Open Terminal Here** need Kitty/Yazi or a working terminal association.
+**Open Terminal Here** use the selected terminal association; **Open in Yazi**
+also needs Yazi installed.
 These are integrated workflows, not bundled archive or terminal programs.
 
 Upstream: [Thunar documentation](https://docs.xfce.org/xfce/thunar/start).
@@ -30,18 +31,23 @@ claim that Thunar or these wallpapers are part of the Hornero base package.
 
 ## Yazi for keyboard-driven browsing
 
-Press **Super + E** to open Yazi in a Kitty popup. The current shortcut calls
-`horneroctl apps terminal-file --last-dir`; the CLI can also open a directory
-or selected file directly:
+Press **Super + E** to open Yazi in a window from the configured terminal and
+restore its last directory. The initial Hornero default is Kitty. Choose
+Alacritty or Ghostty as the terminal and the same workflow follows that
+selection. From inside an existing terminal, `horneroctl apps terminal-file`
+opens Yazi in the current window; use `--new-window` for a separate terminal
+window. The CLI can also open a directory or select a file:
 
 ```sh
 horneroctl apps terminal-file --help
 horneroctl apps terminal-file --cheatsheet
 horneroctl apps terminal-file --path ~/Downloads
+horneroctl apps terminal-file --new-window --path ~/Downloads
 ```
 
-Hornero Config lists Kitty as an optional package and does not declare Yazi.
-Both must be present for the default keybinding. The public
+Hornero Config does not declare Yazi as a dependency. The configured terminal
+and Yazi must both be installed for this workflow. Change the terminal with
+[`horneroctl config default-apps`](default-apps.md). The public
 [dotfiles repository](https://github.com/ulises-jeremias/dotfiles) can install
 Yazi and preview helpers for a personal Arch workstation; these are not
 dependencies of the Hornero release composition.

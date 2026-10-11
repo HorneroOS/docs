@@ -4,8 +4,8 @@ Hornero separates the terminal window, the interactive shell inside it, and
 the command-line tools that manage the desktop. Kitty is the selected default
 terminal when installed; Alacritty and Ghostty are optional alternatives with
 their own Hornero defaults. The terminal applications are separate host
-packages, not dependencies of the Shell. **Super + E** is a specific Kitty +
-Yazi workflow, while regular terminal launches follow the host's terminal
+packages, not dependencies of the Shell. **Super + E** opens Yazi in the
+host's configured terminal, while regular terminal launches follow that same
 association.
 
 ## Open a terminal
@@ -14,8 +14,9 @@ association.
   `TerminalEmulator` association through `exo-open`.
 - Open the Launcher with **Ctrl + Space** and search for an installed
   terminal.
-- Press **Super + E** for Yazi in a Kitty window. This workflow needs both
-  Kitty and Yazi.
+- Press **Super + E** for Yazi in a separate window from the configured
+  terminal. Hornero selects Kitty by default; Alacritty and Ghostty are also
+  supported. This workflow needs the selected terminal and Yazi.
 
 The host's Xfce helper setting chooses the `TerminalEmulator` target. Check
 the selected target with `horneroctl config default-apps list`; change it to an
