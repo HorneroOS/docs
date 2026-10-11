@@ -19,6 +19,9 @@ defaults supplied by Hornero Config:
 
 - **Kitty** — terminal colors, typography, and key settings; used by the
   default **Super + E** Yazi workflow. See [Terminal](terminal.md).
+- **Alacritty** and **Ghostty** — optional terminal alternatives with native
+  Hornero fallback and wallpaper-derived palette integration. They are not
+  installed by Hornero Config. See [Terminal](terminal.md).
 - **Thunar** — file-manager accelerators, bulk rename, and context actions.
   **Super + F** asks the host to open its FileManager. See [Files](files.md).
 - **CopyQ** — clipboard history UI configuration and generated theme colors.
@@ -74,7 +77,8 @@ running its provisioning commands.
 
 ## Follow a workflow
 
-- [Terminal](terminal.md) — Kitty, the account shell, Zsh, and tmux.
+- [Terminal](terminal.md) — Kitty, Alacritty, Ghostty, the account shell, Zsh,
+  and tmux.
 - [Files](files.md) — Thunar, Yazi, previews, archives, and file associations.
 - [Clipboard](clipboard.md) — CopyQ, Wayland clipboard history, and privacy.
 - [Default applications](default-apps.md) — host app handlers and MIME types.
