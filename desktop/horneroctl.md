@@ -50,6 +50,26 @@ run the corresponding CLI command directly; see `horneroctl <command> --help`.
 | Read Shell logs | `horneroctl shell logs --lines 100` |
 | Read current key bindings | `horneroctl hardware keyboard keys` |
 
+## Check for updates (Development Preview)
+
+Development builds with AUR-aware update checks report repository packages
+through `checkupdates` and AUR packages through `yay -Qua` or `paru -Qua` when
+one of those helpers is installed. These checks only query package state; they
+do not install or upgrade packages. The AUR query has a 30-second limit.
+
+```sh
+horneroctl package check
+horneroctl package updates --json
+horneroctl package check --dry-run
+```
+
+`package check` lists each source separately. `package updates` includes a
+combined `count`, plus `repository_count`, `aur_count`, and `aur_status` in
+JSON output. If neither `yay` nor `paru` is available, repository results
+remain available and the AUR lane is explicitly marked as unchecked. A dry run
+shows which commands would run without invoking either query. A full system
+upgrade is a separate, explicit operation: `horneroctl package upgrade`.
+
 ## Edition and compositor information (Preview)
 
 Development builds that include the edition-profile command can report the
