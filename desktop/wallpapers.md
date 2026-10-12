@@ -25,23 +25,28 @@ choose a different one.
 ## Curated wallpaper collection
 
 The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers)
-includes optional wallpaper artwork for personal Arch workstations. The
+contains optional wallpaper artwork for personal Arch workstations. Its
 collection ranges from **Neon City** and **Vapor Dreams** to **Patagonia**,
 **Fin del Mundo**, **Quebrada**, **Iberá**, and **Buenos Aires Nocturno**.
-These Hornero Originals translate glacial water, Beagle light, high-altitude
-mineral bands, subtropical wetlands, and rain-lit city streets into distinct
-visual palettes. They are original generated artworks, not documentary
-photographs. When the optional wallpaper profile is applied, images are linked under
-`~/Pictures/Wallpapers/<collection>/`. The Hornero Config package owns theme
-metadata and does not fetch these images.
+The stylized Argentine scenes are original generated artworks, not
+documentary photographs. When the optional wallpaper profile is applied,
+images are linked under `~/Pictures/Wallpapers/<collection>/`. They remain
+user media and are not redistributed by the Hornero Config package.
 
-The website [Themes gallery](https://hornero-os.vercel.app/themes) pairs
-wallpaper artwork across several visual directions with verified desktop
-captures in the Showroom.
-Captions distinguish running-desktop screenshots from original generated
-wallpaper art. Argentine landscapes and city atmospheres sit alongside
-synthwave, cyberpunk, and softer natural scenes; Pampa is one Hornero look
-among a wider collection.
+Hornero Config separately ships six provenance-verified photographs under
+CC BY 2.0 or CC BY-SA 4.0, alongside its procedural flagship SVG wallpapers.
+The [wallpaper guide](https://github.com/HorneroOS/config/blob/main/docs/WALLPAPERS.md)
+and installed credits record each source, creator, license, and modification.
+The Config package owns theme metadata and does not fetch user wallpaper files.
+
+The official website keeps these collections distinct: browse the
+[theme catalog](https://horneroos.com/themes), the
+[photographic wallpaper gallery](https://horneroos.com/wallpapers), and the
+[Showroom](https://horneroos.com/showroom) for verified desktop captures.
+Captions identify photographs, original wallpaper artwork, and running
+desktop screenshots according to their actual provenance. Argentine
+landscapes and city atmospheres sit alongside synthwave, cyberpunk, and
+softer natural scenes; Pampa is one Hornero look among a wider collection.
 
 ## How wallpaper and colors work together
 
