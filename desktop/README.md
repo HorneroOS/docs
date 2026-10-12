@@ -13,6 +13,7 @@ Center contains persistent system and shell settings.
 | Change or understand a wallpaper | [Wallpapers and color](wallpapers.md) |
 | Choose or troubleshoot a session compositor | [Wayland compositors](compositors.md) |
 | Move between rails, bars, islands, or docks | [Layouts](layouts.md) |
+| Lock, restart, or shut down the desktop session | [Session menu](session-menu.md) |
 | Use the keyboard efficiently | [Shortcuts](shortcuts.md) |
 | Open files or launch applications | [Everyday apps](everyday-apps.md) |
 | Learn how the configured applications fit together | [Apps and workflows](../applications/README.md) |
@@ -28,7 +29,7 @@ Center contains persistent system and shell settings.
 - **Layout Picker** previews bar topology before a layout is selected.
 - **Notifications, OSD, and session menu** have different jobs: notifications
   keep actionable events, the OSD echoes short-lived hardware changes, and the
-  session menu contains lock and power actions.
+  [session menu](session-menu.md) contains lock and power actions.
 - **Companion** is a small shell character, not a source of system activity.
 
 These surfaces are part of the shell package. Their implementation and
