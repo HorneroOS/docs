@@ -7,6 +7,8 @@ contributor instructions before editing.
 ## Choose a contributor path
 
 - [Architecture](../architecture/README.md) — find the owner of a change.
+- [Design language](design-language.md) — shared product identity, interface
+  principles, and authoritative design sources across repositories.
 - [Testing](testing.md) — select focused checks and graphical acceptance.
 - [Contributing](contributing.md) — branch, review, and cross-repository
   expectations.
