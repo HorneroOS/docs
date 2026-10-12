@@ -26,6 +26,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | Diagnose graphics or device problems | [Hardware](hardware/README.md) · [Troubleshooting](troubleshooting/README.md) |
 | Understand editions and system boundaries | [Architecture](architecture/README.md) |
 | Build, test, or contribute | [Development](development/README.md) |
+| Design an interface for HorneroOS | [Design language](development/design-language.md) |
 
 ## How these docs stay accurate
 
@@ -53,6 +54,8 @@ content; the website does not maintain a second copy.
 - [Troubleshooting](troubleshooting/README.md) — recover from common failures.
 - [Architecture](architecture/README.md) — editions, ownership, and data flow.
 - [Development](development/README.md) — code, QA, and contribution paths.
+- [Design language](development/design-language.md) — product identity, UI
+  principles, source-of-truth map, and guidance for installer contributors.
 
 ## License
 
