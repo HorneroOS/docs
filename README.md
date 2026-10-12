@@ -21,6 +21,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) · [Apps and workflows](applications/README.md) |
 | Change themes, colors, or wallpaper | [Appearance](desktop/appearance.md) · [Wallpapers](desktop/wallpapers.md) |
 | Choose a bar arrangement | [Layouts](desktop/layouts.md) |
+| Lock, restart, or shut down the desktop session | [Session menu](desktop/session-menu.md) |
 | Find a keyboard shortcut | [Shortcuts](desktop/shortcuts.md) |
 | Automate or inspect the system from a terminal | [horneroctl](desktop/horneroctl.md) |
 | Diagnose graphics or device problems | [Hardware](hardware/README.md) · [Troubleshooting](troubleshooting/README.md) |

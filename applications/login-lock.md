@@ -33,7 +33,7 @@ belong to that repository. After changing a greeter package or SDDM theme,
 inspect its documented preview path and package files before relying on the
 next login. Do not restart SDDM from a running desktop just to test a theme.
 
-See [release status](https://horneroos.org/releases),
-[installation status](https://horneroos.org/install), and the
+See [release status](https://horneroos.com/releases),
+[installation status](https://horneroos.com/install), and the
 [greeter repository](https://github.com/HorneroOS/greeter) before installing
 or upgrading login components.
