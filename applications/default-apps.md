@@ -17,16 +17,19 @@ open fail.
 
 The current config repository supplies an optional `handlr` configuration.
 `horneroctl config default-apps list` reads the Exo terminal helper, the
-generic XDG terminal preference, and the current MIME defaults. It reports
-what is configured on this machine, not what Hornero installs. A
+generic XDG terminal preference, and the current MIME defaults. If optional
+`handlr` is absent, it still reports terminal settings and marks MIME defaults
+unavailable. The JSON response also lists supported terminal commands found
+on `PATH` for Settings to display. It reports what is configured on this
+machine, not what Hornero installs. A
 desktop-specific `<desktop>-xdg-terminals.list` can override the generic XDG
 preference for a particular session.
 
 ## Change a file association
 
-Use a desktop Settings page or the CLI. First find the application's desktop
-ID, usually a file under `/usr/share/applications/`, then preview and apply
-the MIME change:
+For file associations, use the host's desktop settings app or the CLI. First
+find the application's desktop ID, usually a file under
+`/usr/share/applications/`, then preview and apply the MIME change:
 
 ```sh
 horneroctl config default-apps set application/pdf org.example.Reader.desktop --dry-run
@@ -35,15 +38,17 @@ horneroctl config default-apps set application/pdf org.example.Reader.desktop --
 
 Replace the example ID with an installed `.desktop` file. MIME changes use
 `xdg-mime`. To change the terminal used by **Super + T** or **Super + Enter**,
-set the terminal preference:
+open **Settings → Terminal** in Hornero Shell and select an installed option,
+or set the terminal preference with the CLI:
 
 ```sh
 horneroctl config default-apps set terminal ghostty --dry-run
 horneroctl config default-apps set terminal ghostty --yes
 ```
 
-The terminal setter supports Kitty, Alacritty, and Ghostty, and requires the
-chosen program to be installed. It keeps Exo's `TerminalEmulator` helper and
+Settings lists the supported terminals found on `PATH`. The terminal setter
+supports Kitty, Alacritty, and Ghostty, and requires the chosen program to be
+installed. It keeps Exo's `TerminalEmulator` helper and
 the generic `$XDG_CONFIG_HOME/xdg-terminals.list` preference (or
 `~/.config/xdg-terminals.list`) aligned. Existing helper entries, comments,
 directives, and other terminal choices remain in place; a fallback exclusion
