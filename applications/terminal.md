@@ -18,11 +18,17 @@ association.
   terminal. Hornero selects Kitty by default; Alacritty and Ghostty are also
   supported. This workflow needs the selected terminal and Yazi.
 
-The host's Xfce helper setting chooses the `TerminalEmulator` target. Check
-the selected target with `horneroctl config default-apps list`; change it to an
-installed supported terminal with `horneroctl config default-apps set terminal
-ghostty --dry-run`, then repeat with `--yes` to apply. Supported targets are
-Kitty, Alacritty, and Ghostty. The command updates the user's
+Choose an installed terminal in **Settings → Terminal**. Hornero keeps the
+selection aligned across the host's Xfce helper, XDG preference, and Shell
+launch actions. You can inspect it with `horneroctl config default-apps list`
+or change it from the CLI. Preview the change first:
+
+```sh
+horneroctl config default-apps set terminal ghostty --dry-run
+horneroctl config default-apps set terminal ghostty --yes
+```
+
+Supported targets are Kitty, Alacritty, and Ghostty. The command updates the user's
 `$XDG_CONFIG_HOME/xfce4/helpers.rc` and generic
 `$XDG_CONFIG_HOME/xdg-terminals.list` (or the equivalent paths under
 `~/.config`), while leaving MIME defaults and other helper entries alone. It
