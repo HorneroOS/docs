@@ -121,13 +121,17 @@ package. If the image is not present locally, choose another available
 wallpaper or use a path on your own machine. Theme selection remains
 available and the Shell explains when referenced media is missing.
 
-The wallpaper collection includes high-altitude mineral light in Quebrada,
-blue-green wetlands in Iberá, and rain-lit city color in Buenos Aires
-Nocturno, alongside the southern scenes of Patagonia and Fin del Mundo. These
-original generated artworks are provided by the [public dotfiles wallpaper
-collection](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers)
-and are not documentary photographs. A pack remains selectable if optional
-wallpaper media is unavailable; Settings explains that state.
+Six Hornero Originals use provenance-verified photographs taken in Argentina:
+Buenos Aires Nocturno, Fin del Mundo, Iberá, Pampa, Patagonia, and Quebrada.
+Hornero Config ships these images with creator, source, and license credits.
+Hornero Dark and Hornero Light instead use original, procedural SVG wallpapers
+under the project's MIT license. These product assets are separate from the
+optional stylized wallpaper artwork in the
+[personal dotfiles collection](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers),
+which Hornero Config does not redistribute. The
+[wallpaper guide](wallpapers.md) links to the full product credits and explains
+how local and optional wallpaper media are handled. A theme remains selectable
+if optional user media is unavailable; Settings explains that state.
 
 The architecture guide explains the boundaries between semantic tokens,
 wallpaper analysis, shell colors, GTK, icons, and Qt:
