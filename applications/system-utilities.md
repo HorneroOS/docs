@@ -19,7 +19,9 @@ metadata names tools for which it can provide defaults:
 - **Fastfetch** — terminal system summary. Defaults live in
   `/etc/xdg/fastfetch/`; the personal workstation adds a Hornero text mark.
 - **btop** — interactive CPU, memory, process, and device monitor. Defaults
-  live in `/etc/xdg/btop/`.
+  live in `/etc/xdg/btop/`. Hornero selects its `Hornero Dynamic` theme, which
+  Appearance regenerates from the active wallpaper palette. See
+  [Appearance](../desktop/appearance.md).
 
 ### Appearance and desktop integration
 
@@ -39,8 +41,10 @@ metadata names tools for which it can provide defaults:
 ### Media
 
 - **Cava** — optional terminal audio visualizer configuration under
-  `/etc/xdg/cava/`. It does not start the Shell visualizer, which is off by
-  default. See [Media and audio](media-audio.md).
+  `/etc/xdg/cava/`. Its `Hornero Dynamic` color theme follows the active
+  wallpaper palette. It does not start the Shell visualizer, which is off by
+  default. See [Appearance](../desktop/appearance.md) and
+  [Media and audio](media-audio.md).
 
 These are defaults and integrations. Programs marked optional are not
 installed merely because their config file exists. Inspect the package's

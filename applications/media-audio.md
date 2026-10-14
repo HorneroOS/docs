@@ -31,10 +31,10 @@ See [Default applications](default-apps.md) to change file associations.
 
 ## Visualizer
 
-Cava is an optional package with a Hornero Config file. The Shell's desktop
-visualizer is disabled by default. Enabling that visualizer requires a
-working audio source and the configured audio integration; Cava's existence
-alone does not start it.
+Cava is optional and uses a Hornero Config theme that follows the active
+wallpaper palette. The Shell's desktop visualizer is disabled by default.
+Enabling that visualizer requires a working audio source and the configured
+audio integration; Cava's existence alone does not start it.
 
 Troubleshooting:
 
