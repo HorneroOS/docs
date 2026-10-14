@@ -107,7 +107,9 @@ desktop. Hornero Config currently renders one wallpaper-derived scheme into
 native Kitty, Alacritty, Ghostty, btop, and Cava files. Add another adapter
 only when its format is generated from the shared palette and the result has
 tests. This keeps app-specific colors from drifting into separate hand-edited
-copies.
+copies. The [system utilities](../applications/system-utilities.md) and
+[media and audio](../applications/media-audio.md) guides explain which apps
+are optional and what the palette integration changes.
 
 ### Treat reliability as part of the desktop experience
 
