@@ -15,6 +15,9 @@ contributor instructions before editing.
 - [Internationalization](i18n.md) — current language and string contract.
 - [Historical dotfiles wiki disposition](dotfiles-wiki-disposition.md) — how
   earlier knowledge was evaluated before being reused.
+- [Desktop experience reference study](experience-reference-study.md) — current
+  product patterns from related projects and the decisions HorneroOS makes
+  from them.
 
 ## Source-of-truth rule
 
