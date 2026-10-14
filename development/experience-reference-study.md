@@ -21,11 +21,16 @@ must stay visible in docs and marketing.
 
 The desktop already has a composed identity: a Quickshell-based UI, an
 `horneroctl` system interface, shared theme and wallpaper data, real
-Argentina-related photographic assets with provenance, and package support for
-Kitty, Alacritty, and Ghostty. The responsibilities are intentionally split
-between `shell`, `hornero`, `config`, `docs`, and `website`; see the
-[repository map](../architecture/README.md) and
-[design language](design-language.md).
+Argentina-related photographic assets with provenance, and palette adapters
+for Kitty, Alacritty, Ghostty, btop, and Cava. Hornero Config derives native
+formats for all five applications from the active wallpaper scheme. The
+terminal emulators are curated integrations; btop and Cava remain optional
+applications. See the [palette renderers](https://github.com/HorneroOS/config/blob/main/lib/hornero/terminal_themes.py),
+[appearance application path](https://github.com/HorneroOS/config/blob/main/lib/hornero/apply-appearance.sh),
+and [integration tests](https://github.com/HorneroOS/config/blob/main/tests/test_apply_official.sh).
+The responsibilities are intentionally split between `shell`, `hornero`,
+`config`, `docs`, and `website`; see the [repository map](../architecture/README.md)
+and [design language](design-language.md).
 
 ## What the references do well
 
@@ -98,9 +103,11 @@ instead.
 Theme quality is not the number of palettes. It is the number of applications
 that adopt a selected palette correctly, the fidelity of light and dark
 variants, and whether applying or reverting a theme restores a coherent
-desktop. HorneroOS already generates native theme output for Kitty, Alacritty,
-and Ghostty. Additional application adapters should be driven by the shared
-palette and tested output, not copied hand-maintained color files.
+desktop. Hornero Config currently renders one wallpaper-derived scheme into
+native Kitty, Alacritty, Ghostty, btop, and Cava files. Add another adapter
+only when its format is generated from the shared palette and the result has
+tests. This keeps app-specific colors from drifting into separate hand-edited
+copies.
 
 ### Treat reliability as part of the desktop experience
 
