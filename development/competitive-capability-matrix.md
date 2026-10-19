@@ -65,10 +65,11 @@ and attribution in the owning repository.
   and `modules/plugins/PluginHost.qml` loads each entrypoint in
   its own loader with per-plugin fault isolation. Manifest
   `placement` renders bar plugins in the bar end group
-  (`background` stays headless); a read-only Control Center
-  Extensions pane lists installed state. Dashboard placement,
-  GUI lifecycle actions, signing, and a community registry are
-  not done yet. Enabled QML runs with the logged-in user's
+  (`background` stays headless) and dashboard plugins as cards
+  in the dashboard Extensions tab; a read-only Control Center
+  Extensions pane lists installed state. Desktop placement, GUI
+  lifecycle actions, signing, and a community registry are not
+  done yet. Enabled QML runs with the logged-in user's
   permissions; it is not sandboxed.
 
 ### Companion / AI assistant
