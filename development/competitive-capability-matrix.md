@@ -97,7 +97,11 @@ and attribution in the owning repository.
   loopback endpoint, local Bearer key file (0600), runs + SSE
   consumption, stop, approval/clarify answers, an `events`
   reader for pending requests, and a capabilities probe in
-  `assistant status`. Version pinning is pending. See
+  `assistant status`. There is no gateway semver to pin, so
+  status negotiates the protocol (platform plus the five
+  feature flags the client calls) against the studied Hermes
+  commit `f14699a13798…` and fails closed when incompatible.
+  See
   [Hermes assistant architecture](hermes-assistant-architecture.md).
 
 ### Read-only agent tools
