@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@1a2df7acacecc4e2bccf18d7e843f4e63938b470
+# horneroctl command paths, generated from HorneroOS/hornero@7368374faf814663360eb4236b3fc252824cecb2
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -92,9 +92,12 @@ apps toggle session
 apps toggle sidebar
 apps toggle utilities
 assistant
+assistant approve
 assistant ask
+assistant clarify
 assistant disable
 assistant enable
+assistant events
 assistant status
 assistant stop
 assistant tools
