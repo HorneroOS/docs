@@ -35,9 +35,9 @@ and attribution in the owning repository.
 
 | Capability | HorneroOS status | Owner |
 |---|---|---|
-| Plugin/extension runtime | Absent (runtime) | shell + hornero |
-| Companion / AI assistant | Absent (backend) | shell + hornero |
-| Hermes transport | Planned | hornero |
+| Plugin/extension runtime | Partial | shell + hornero |
+| Companion / AI assistant | Experimental | shell + hornero |
+| Hermes transport | Experimental | hornero |
 | Read-only agent tools | Partial (strong) | hornero |
 | Launcher providers | Partial | shell |
 | Control Center depth | Partial | shell |
@@ -56,11 +56,16 @@ and attribution in the owning repository.
 - DMS: `PluginService.qml` plus Go registries; in-process QML with
   full user privileges, experimental API, no signing.
 - Noctalia v4: injected `pluginApi` plus entry points.
-- HorneroOS: contract and static validator only
+- HorneroOS: contract and static validator
   (`shell/docs/PLUGINS.md`, `shell/scripts/validate_plugin.py`,
-  schema v1, allowed imports, exact file match).
-  `hornero_core/community_plugins.v` installs *inert* packages:
-  "Third-party QML is not loaded or sandboxed".
+  schema v1, allowed imports, exact file match). Lifecycle is
+  implemented: `horneroctl plugin enable|disable` owns receipt
+  state (fresh installs start disabled; enable re-validates and
+  fails closed). `services/Plugins.qml` discovers enabled plugins
+  and `modules/plugins/PluginHost.qml` loads each entrypoint in
+  its own loader with per-plugin fault isolation (headless slice
+  1; no placement surface yet). Enabled QML runs with the
+  logged-in user's permissions; it is not sandboxed.
 
 ### Companion / AI assistant
 
@@ -69,8 +74,11 @@ and attribution in the owning repository.
   one-click Hermes setup; no native chat UX in the shell.
 - HorneroOS: Companion states, skins, IPC, and reserved assistant
   states (`listening/thinking/acting/success/warning/error`) are
-  live. ADR 002 (shell repository) keeps the assistant a separate
-  future daemon. No LLM, sessions, or tool calling exist yet.
+  live. `horneroctl assistant` (status/enable/disable/tools/ask/
+  stop) talks to Hermes; `AssistantBridge.qml` routes Companion
+  IPC `ask` through that CLI only. Disabled by default; read-only
+  tools slice 1. Streaming tokens, approval UX, and real-Hermes
+  (non-mock) acceptance are not done yet.
 
 ### Hermes transport
 
@@ -78,8 +86,10 @@ and attribution in the owning repository.
   Bearer key, `POST /v1/runs`, SSE events, `/stop`, `/approval`,
   `/clarify`, `GET /v1/capabilities`, idempotency keys.
   API-owned sessions only.
-- HorneroOS: no session discovery, credential store, versioning,
-  or consent UX exists yet. See
+- HorneroOS: implemented in `hornero_core/assistant.v` —
+  loopback endpoint, local Bearer key file (0600), runs + SSE
+  consumption, stop, capabilities probe in `assistant status`.
+  Consent UX in Companion and version pinning are pending. See
   [Hermes assistant architecture](hermes-assistant-architecture.md).
 
 ### Read-only agent tools
