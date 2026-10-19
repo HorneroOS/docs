@@ -63,9 +63,13 @@ and attribution in the owning repository.
   state (fresh installs start disabled; enable re-validates and
   fails closed). `services/Plugins.qml` discovers enabled plugins
   and `modules/plugins/PluginHost.qml` loads each entrypoint in
-  its own loader with per-plugin fault isolation (headless slice
-  1; no placement surface yet). Enabled QML runs with the
-  logged-in user's permissions; it is not sandboxed.
+  its own loader with per-plugin fault isolation. Manifest
+  `placement` renders bar plugins in the bar end group
+  (`background` stays headless); a read-only Control Center
+  Extensions pane lists installed state. Dashboard placement,
+  GUI lifecycle actions, signing, and a community registry are
+  not done yet. Enabled QML runs with the logged-in user's
+  permissions; it is not sandboxed.
 
 ### Companion / AI assistant
 
@@ -75,10 +79,13 @@ and attribution in the owning repository.
 - HorneroOS: Companion states, skins, IPC, and reserved assistant
   states (`listening/thinking/acting/success/warning/error`) are
   live. `horneroctl assistant` (status/enable/disable/tools/ask/
-  stop) talks to Hermes; `AssistantBridge.qml` routes Companion
-  IPC `ask` through that CLI only. Disabled by default; read-only
-  tools slice 1. Streaming tokens, approval UX, and real-Hermes
-  (non-mock) acceptance are not done yet.
+  stop/approve/clarify/events) talks to Hermes;
+  `AssistantBridge.qml` routes Companion IPC `ask` through that
+  CLI only, surfaces pending approvals in the bubble, and never
+  auto-answers them; the launcher offers a `>ai` prompt entry.
+  Disabled by default; read-only tools slice 1. True streaming
+  tokens, a full chat UI, and real-Hermes (non-mock) acceptance
+  are not done yet.
 
 ### Hermes transport
 
@@ -88,8 +95,9 @@ and attribution in the owning repository.
   API-owned sessions only.
 - HorneroOS: implemented in `hornero_core/assistant.v` —
   loopback endpoint, local Bearer key file (0600), runs + SSE
-  consumption, stop, capabilities probe in `assistant status`.
-  Consent UX in Companion and version pinning are pending. See
+  consumption, stop, approval/clarify answers, an `events`
+  reader for pending requests, and a capabilities probe in
+  `assistant status`. Version pinning is pending. See
   [Hermes assistant architecture](hermes-assistant-architecture.md).
 
 ### Read-only agent tools
@@ -103,9 +111,10 @@ and attribution in the owning repository.
 
 - Launcher exists; plugin-defined providers are blocked on the
   plugin runtime.
-- Control Center: 16 panes (network, bluetooth, VPN, appearance,
+- Control Center: 17 panes (network, bluetooth, VPN, appearance,
   taskbar, layout, launcher, dashboard, companion, audio,
-  notifications, OSD, system, updates, terminal, power). Gaps are
+  notifications, OSD, system, updates, terminal, power,
+  extensions). Gaps are
   tracked per pane, not by mock UI.
 - Themes: validated core. Mature packs, token schema, GTK, icon
   and wallpaper binding, CLI apply, 12 regional Hornero
