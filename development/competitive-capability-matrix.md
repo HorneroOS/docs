@@ -88,9 +88,12 @@ and attribution in the owning repository.
   `AssistantBridge.qml` routes Companion IPC `ask` through that
   CLI only, surfaces pending approvals in the bubble, and never
   auto-answers them; the launcher offers a `>ai` prompt entry.
-  Disabled by default; read-only tools slice 1. True streaming
-  tokens, a full chat UI, and real-Hermes (non-mock) acceptance
-  are not done yet.
+  Disabled by default; read-only tools slice 1. `assistant ask`
+  and `assistant events` accept `--stream` (human output only):
+  SSE deltas print live as they arrive (incremental parser over
+  the HTTP progress callback; buffered and `--json` paths are
+  unchanged). A full chat UI and real-Hermes (non-mock)
+  acceptance are not done yet.
 
 ### Hermes transport
 
