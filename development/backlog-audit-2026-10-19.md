@@ -75,13 +75,13 @@ lives on GitHub, not here; the roadmap remains
 | --- | --- | --- |
 | hornero#154 | partially-completed epic | labels + child index comment |
 | hornero#62 | partially-completed | labels + children #178/#179 |
-| shell#24 | blocked (upstream) | labels incl. `status:blocked` + evidence comment |
+| shell#24 | blocked (upstream) | labels incl. `status:blocked` + evidence |
 | shell#47 | implemented-not-validated | labels + remainder shell#228 |
 | shell#77 | underspecified | labels + decision request comment |
 | installer#11 | implemented-not-validated | staleness comment (PR 13 merged) |
 | installer#12 | accurate | left as-is (owner gates) |
 | installer#3 | accurate | split note (hornero#180); ISO slice stays |
-| .github#9 | blocked (human action) | `status:blocked` + verification issue #20 |
+| .github#9 | blocked (human action) | `status:blocked` + verification issue #2 |
 | dotfiles#179/#181–#188 | partially-completed | comment with product-side links |
 | dotfiles#170–#178 | maintainer decision pending | re-scope suggestion comment |
 | dotfiles#187/#200 | possible duplicates | consolidation comment on #200 |
