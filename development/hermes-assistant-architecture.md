@@ -129,7 +129,14 @@ with dry-run where `horneroctl` supports it.
   Never `curl | bash`.
 - The supported Hermes version range is recorded with the
   implementation; capability negotiation fails closed with an
-  upgrade message.
+  upgrade message. As implemented: Hermes exposes no gateway
+  semver, so `horneroctl assistant status` negotiates the
+  protocol — it requires platform `hermes-agent` plus the
+  feature flags the client calls (`run_submission`,
+  `run_events_sse`, `run_stop`, `run_approval_response`,
+  `approval_events`) and reports the studied upstream commit
+  (`f14699a13798…`) it was verified against. An incompatible
+  gateway fails status with the exact missing capabilities.
 - Install, upgrade, disable, and uninstall are separate,
   tested operations. Uninstall never removes user
   configuration without explicit consent.
