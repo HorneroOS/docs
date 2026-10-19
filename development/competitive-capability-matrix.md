@@ -66,11 +66,13 @@ and attribution in the owning repository.
   its own loader with per-plugin fault isolation. Manifest
   `placement` renders bar plugins in the bar end group
   (`background` stays headless) and dashboard plugins as cards
-  in the dashboard Extensions tab; a read-only Control Center
-  Extensions pane lists installed state. Desktop placement, GUI
-  lifecycle actions, signing, and a community registry are not
-  done yet. Enabled QML runs with the logged-in user's
-  permissions; it is not sandboxed.
+  in the dashboard Extensions tab. The Control Center Extensions
+  pane lists installed state and can enable/disable by invoking
+  the exact `horneroctl` lifecycle commands (horneroctl stays
+  the single receipt writer; enable needs an inline confirmation
+  mirroring the CLI `--yes` gate). Desktop placement, signing,
+  and a community registry are not done yet. Enabled QML runs
+  with the logged-in user's permissions; it is not sandboxed.
 
 ### Companion / AI assistant
 
