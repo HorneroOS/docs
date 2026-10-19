@@ -73,12 +73,12 @@ lives on GitHub, not here; the roadmap remains
 
 | Issue | Classification | Action |
 | --- | --- | --- |
-| hornero#154 | partially-completed epic | labels + child-issue index comment |
+| hornero#154 | partially-completed epic | labels + child index comment |
 | hornero#62 | partially-completed | labels + children #178/#179 |
 | shell#24 | blocked (upstream) | labels incl. `status:blocked` + evidence comment |
-| shell#47 | implemented-not-validated | labels + remainder filed as shell#228 |
+| shell#47 | implemented-not-validated | labels + remainder shell#228 |
 | shell#77 | underspecified | labels + decision request comment |
-| installer#11 | implemented-not-validated | staleness comment (PR #13 merged) |
+| installer#11 | implemented-not-validated | staleness comment (PR 13 merged) |
 | installer#12 | accurate | left as-is (owner gates) |
 | installer#3 | accurate | split note (hornero#180); ISO slice stays |
 | .github#9 | blocked (human action) | `status:blocked` + verification issue #20 |
@@ -111,7 +111,7 @@ per taxonomy) and linked to #154 where applicable:
 
 Duplicates avoided by design: roughly ten audit candidates were
 amendments to existing issues (#154, #62, #24, #47, #77, #11,
-#3, #9, dotfiles Lua epic) and were filed as comments/labels
+installer#3, .github#9, dotfiles Lua epic) and were filed as comments/labels
 instead of new issues; ISO signing stayed inside installer#3.
 
 ## Security handling
