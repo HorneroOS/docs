@@ -81,9 +81,9 @@ lives on GitHub, not here; the roadmap remains
 | installer#11 | implemented-not-validated | staleness comment (PR 13 merged) |
 | installer#12 | accurate | left as-is (owner gates) |
 | installer#3 | accurate | split note (hornero#180); ISO slice stays |
-| .github#9 | blocked (human action) | `status:blocked` + verification issue #2 |
-| dotfiles#179/#181–#188 | partially-completed | comment with product-side links |
-| dotfiles#170–#178 | maintainer decision pending | re-scope suggestion comment |
+| .github#9 | blocked (human) | `status:blocked`; verify in #20 |
+| dotfiles Lua epic | partially-completed | comment, product links |
+| dotfiles#170-#178 | decision pending | re-scope comment |
 | dotfiles#187/#200 | possible duplicates | consolidation comment on #200 |
 | dotfiles#201 | superseded path | pointer comment to config#89 |
 
