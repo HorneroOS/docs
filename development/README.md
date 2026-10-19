@@ -18,6 +18,10 @@ contributor instructions before editing.
 - [Desktop experience reference study](experience-reference-study.md) — current
   product patterns from related projects and the decisions HorneroOS makes
   from them.
+- [Competitive capability matrix](competitive-capability-matrix.md) —
+  evidence-backed comparison against upstream desktop references.
+- [Hermes assistant architecture](hermes-assistant-architecture.md) — the
+  design contract for the optional Hermes-backed Hornero Assistant.
 
 ## Source-of-truth rule
 

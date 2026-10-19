@@ -1,0 +1,165 @@
+# Hermes assistant architecture
+
+Design contract for the first Hermes-backed Hornero Assistant
+vertical slice. Implementation follows this document; where code
+and this document disagree, code wins and this document must be
+fixed.
+
+## Decision summary
+
+- **Backend**: Hermes Agent (Nous Research, MIT), studied at
+  `f14699a1379838862d3020b97785796aa555d36d`. Hermes is the
+  reasoning, tool-use, skills, and memory engine. HorneroOS
+  does not reimplement an agent loop and does not fork Hermes.
+- **Transport**: Hermes gateway API server — OpenAI-compatible
+  HTTP/SSE on `127.0.0.1:8642` with a Bearer `API_SERVER_KEY`
+  (`gateway/platforms/api_server.py` in Hermes). Chosen over
+  the TUI JSON-RPC stdio gateway (fragile process lifecycle,
+  host auto-approve behavior) and ACP (version-skew errors;
+  sessions not owned by the API surface).
+- **Process model**: a user-level Hornero assistant service
+  (never root) owns the Hermes lifecycle: start on enable,
+  stop on disable, recovery on crash. The shell never
+  orchestrates models.
+- **UI**: Hornero Companion (Quickshell/QML) is presentation
+  only, per ADR 002 in the shell repository. Existing reserved
+  states `listening / thinking / acting / success / warning /
+  error` map to assistant activity; existing Companion IPC
+  remains the presentation boundary.
+
+## Transport contract (from Hermes source)
+
+| Operation | Endpoint |
+|---|---|
+| Capabilities | `GET /v1/capabilities` |
+| Start run | `POST /v1/runs` |
+| Stream events | `GET /v1/runs/{id}/events` |
+| Cancel | `POST /v1/runs/{id}/stop` |
+| Approval | `POST /v1/runs/{id}/approval` |
+| Clarify | `POST /v1/runs/{id}/clarify` |
+
+Notes:
+
+- Capabilities are negotiated before any run; expectations are
+  pinned per supported Hermes version.
+- Start sends an `Idempotency-Key`. Sessions are API-owned:
+  foreign CLI/TUI/ACP sessions return 409, so the assistant
+  creates and keeps its own sessions.
+- Events stream over SSE: tokens, tool activity, and approval
+  requests.
+- Cancel must wire to the UI cancel action and to Companion
+  success/error states.
+- Hermes asks for approval; the user decides in native UI.
+  Approvals are never auto-answered.
+
+Authentication: a Bearer key generated per user, stored with
+restrictive permissions (`0600`) in the user config directory,
+never committed, never logged. Loopback only; no listener
+leaves `127.0.0.1`.
+
+## First vertical slice (scope)
+
+1. The user explicitly enables the assistant (Settings and
+   Companion surface, with `horneroctl` parity). Default:
+   **disabled**. The normal desktop is complete with Hermes
+   absent.
+2. The service initializes Hermes. Health means a successful
+   `GET /v1/capabilities`.
+3. Companion opens a conversation; the user sends a message;
+   Hermes streams a real response; Companion shows thinking
+   and speaking states.
+4. Read-only native tools (below) are callable by Hermes.
+   Tool activity is visible in the UI. The user can cancel
+   mid-run.
+5. Questions like "why is my system using memory" or "what
+   updates exist" are answered from real `horneroctl` output,
+   never hardcoded replies.
+6. Failure paths — Hermes missing, wrong version, port
+   conflict, provider unconfigured — each yield a human
+   recovery message, never a stack trace.
+7. Disable stops the integration and the daemon. Zero idle
+   cost when off.
+
+## Native tool catalogue (slice 1: read-only only)
+
+Exposed as literal argv through the existing `hornero_core`
+exec boundary (no shell interpolation). All return the uniform
+`--json` envelope. Class for every tool below: safe read.
+
+- System information: `horneroctl system info --json`
+- Appearance status: `horneroctl appearance status --json`
+- Theme catalogue: `horneroctl appearance theme list --json`
+  and `horneroctl appearance theme show <id> --json`
+  (ids validated: `/`, `..`, and empty are rejected)
+- GTK state: `horneroctl appearance gtk list --json` and
+  `horneroctl appearance gtk current --json`
+- Update check: `horneroctl package updates --json` and
+  `horneroctl package check --json` (UX copy notes the ~30 s
+  AUR lane)
+- Companion state: `qs ipc call companion status`
+
+Mutations (theme apply, package install, settings changes)
+are **out of slice 1**. Slice 2 adds them only behind Hermes
+approval surfaced in native UI, one capability at a time, each
+with dry-run where `horneroctl` supports it.
+
+## Security model
+
+- Disabled by default; enabling is explicit and reversible.
+- User-level service; no root, no polkit broadening in
+  slice 1.
+- Hermes' approval model is never weakened or auto-answered.
+- No screenshots, clipboard, microphone, files, or window
+  contents are exposed in slice 1. Each is a separate future
+  capability with its own consent.
+- Secrets: provider keys belong to Hermes' own configuration.
+  Hornero stores only its local Bearer key, `0600`,
+  user-owned.
+- Prompt-injection posture: tool results are data, not
+  instructions; the tool allowlist above is exhaustive for
+  slice 1.
+- Auditability: run and tool history stays in Hermes'
+  session, plus a local, user-readable assistant log of tool
+  invocations (command and result status, no secret material).
+
+## Packaging and versions
+
+- Hermes is installed through a reproducible, version-pinned,
+  auditable path (Arch package or managed isolated runtime).
+  Never `curl | bash`.
+- The supported Hermes version range is recorded with the
+  implementation; capability negotiation fails closed with an
+  upgrade message.
+- Install, upgrade, disable, and uninstall are separate,
+  tested operations. Uninstall never removes user
+  configuration without explicit consent.
+
+## Performance gates
+
+- Assistant disabled: zero processes, zero idle cost.
+- Enabled but idle: daemon RSS/CPU is measured and recorded.
+  No local model loads or weight downloads without explicit
+  user action.
+- Shell overhead: the streaming UI must not regress launcher
+  or frame baselines (shell performance tooling owns the
+  measurement).
+
+## Acceptance tests (slice 1)
+
+- Protocol compatibility against the pinned Hermes version
+  (mock backend plus real Hermes).
+- Streaming, cancellation, and reconnection after a daemon
+  restart.
+- Approval denial path: denial must block the action.
+- Tool allowlist enforcement: a prompt asking for an unlisted
+  action gets no execution.
+- Disable and uninstall leave the ordinary desktop fully
+  functional.
+- Resource report for disabled, idle, and streaming states.
+
+## Non-goals for slice 1
+
+Voice input/output, proactive suggestions, arbitrary command
+execution, package mutations, file access, multi-provider
+Hornero-side key management, and any claim of offline
+operation.
