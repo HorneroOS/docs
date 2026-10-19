@@ -22,6 +22,8 @@ contributor instructions before editing.
   evidence-backed comparison against upstream desktop references.
 - [Hermes assistant architecture](hermes-assistant-architecture.md) — the
   design contract for the optional Hermes-backed Hornero Assistant.
+- [Backlog audit 2026-10-19](backlog-audit-2026-10-19.md) — ecosystem
+  audit findings, backlog reconciliation, and filed-issue index.
 
 ## Source-of-truth rule
 
