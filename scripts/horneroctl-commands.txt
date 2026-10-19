@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@33e15bd5acb87bc931a0854d1484d5df217989fe
+# horneroctl command paths, generated from HorneroOS/hornero@286abf6481f203ec815f0d725fbc737328e778eb
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -91,6 +91,13 @@ apps toggle redshift
 apps toggle session
 apps toggle sidebar
 apps toggle utilities
+assistant
+assistant ask
+assistant disable
+assistant enable
+assistant status
+assistant stop
+assistant tools
 backup
 backup create
 backup list
@@ -169,6 +176,8 @@ package check
 package deps
 package updates
 package upgrade
+plugin
+plugin new
 power
 power lock
 power logout
