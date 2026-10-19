@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@286abf6481f203ec815f0d725fbc737328e778eb
+# horneroctl command paths, generated from HorneroOS/hornero@1a2df7acacecc4e2bccf18d7e843f4e63938b470
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -177,6 +177,8 @@ package deps
 package updates
 package upgrade
 plugin
+plugin disable
+plugin enable
 plugin new
 power
 power lock
