@@ -70,8 +70,10 @@ and attribution in the owning repository.
   pane lists installed state and can enable/disable by invoking
   the exact `horneroctl` lifecycle commands (horneroctl stays
   the single receipt writer; enable needs an inline confirmation
-  mirroring the CLI `--yes` gate). Desktop placement, signing,
-  and a community registry are not done yet. Enabled QML runs
+  mirroring the CLI `--yes` gate). Desktop placement renders
+  widgets on the background layer (fixed bottom-right stack;
+  positioning/persistence not configurable yet). Signing and a
+  community registry are not done yet. Enabled QML runs
   with the logged-in user's permissions; it is not sandboxed.
 
 ### Companion / AI assistant
