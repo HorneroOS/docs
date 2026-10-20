@@ -1,4 +1,4 @@
-# Spike: How does Ryoku's desktop experience compare to HorneroOS, and where must Hornero be decisively better?
+# Spike: Ryoku desktop vs HorneroOS — where must Hornero be better?
 
 **Owner:** HorneroOS maintainers (AI-assisted audit)
 **Timebox:** 2026-10-20 session
@@ -107,7 +107,7 @@ remaining Ryoku-parity gaps in this order:
 
 ## References
 
-- Ryoku: https://github.com/Ryoku-dev/ryoku (HEAD 98a0368)
+- Ryoku: [ryoku-dev/ryoku](https://github.com/Ryoku-dev/ryoku) (HEAD 98a0368)
 - HorneroOS/shell issues #220–#260, HorneroOS/hornero #176, #189–#202
 - `development/competitive-capability-matrix.md`,
   `development/hermes-assistant-architecture.md`,
