@@ -164,6 +164,53 @@ with dry-run where `horneroctl` supports it.
   functional.
 - Resource report for disabled, idle, and streaming states.
 
+## Real-Hermes acceptance (executed 2026-10-19)
+
+Against Hermes at the pinned commit running locally with a
+real provider (OpenAI), user-level and loopback-only:
+
+- `assistant status` negotiates the protocol as compatible;
+  `assistant ask` returned a real model answer.
+- Tool use from the shipped `hornero` skill: the agent answered
+  installed GTK themes from `horneroctl appearance gtk list
+  --json` (20 themes), not from generic knowledge.
+- Approval flow with `approvals.mode: manual`: a `rm -rf` run
+  parked in `waiting_for_approval`; `assistant approve`
+  executed it (agent-verified), and a second run denied left
+  the target untouched. This caught and fixed the approval
+  wire protocol (hornero#168): the gateway authority path
+  requires `{request_id, execution_generation, choice}` from
+  `pending_controls`, with `approve` mapped to `once` only.
+- Live streaming in the CLI (`--stream`) with timed deltas.
+
+Still open: graphical Companion acceptance on a live desktop
+session, resource report, and the managed lifecycle
+(hornero#174). Hermes packaging for end users is **not**
+decided; local acceptance used a pinned `uv sync --frozen`
+source runtime, never an install script.
+
+## Versus Ryoku Rashin (studied at `98a0368`)
+
+Rashin (Ryoku `docs/rashin.md`, `ryoku/rashin/`) is a Go daemon
+with a generated knowledge vault, an unauthenticated loopback
+web dashboard (Origin-checked), ACP chat, a fast read-only
+quick-ask lane, and one-click Hermes setup via the official
+installer. HorneroOS deliberately differs where it is stricter:
+
+| Axis | Rashin | HorneroOS |
+| --- | --- | --- |
+| Transport auth | none (Origin check) | Bearer auth, key file `0600` |
+| Hermes install | official installer | pinned runtime, auditable |
+| Protocol safety | ACP/stdio bridge | capability negotiation |
+| Approvals | ACP prompts | authority protocol, live-verified |
+| UI | web dashboard | native Companion chat panel |
+| System knowledge | generated vault | live horneroctl + skill |
+| Agent scope | any coding agent | Hermes as official backend |
+
+Rashin's vault, quick-ask fast lane, and session history UX
+remain worth studying; adopting any of them is separate,
+evidence-first work, not imitation for its own sake.
+
 ## Non-goals for slice 1
 
 Voice input/output, proactive suggestions, arbitrary command

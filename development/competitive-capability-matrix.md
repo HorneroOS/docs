@@ -92,8 +92,11 @@ and attribution in the owning repository.
   and `assistant events` accept `--stream` (human output only):
   SSE deltas print live as they arrive (incremental parser over
   the HTTP progress callback; buffered and `--json` paths are
-  unchanged). A full chat UI and real-Hermes (non-mock)
-  acceptance are not done yet.
+  unchanged). A native chat panel shows the conversation with
+  approval buttons; real-Hermes acceptance passed locally on
+  2026-10-19 (real provider, approvals approve/deny executed,
+  skill-driven tool use — see the architecture doc). Graphical
+  Companion acceptance and managed Hermes lifecycle remain.
 
 ### Hermes transport
 
