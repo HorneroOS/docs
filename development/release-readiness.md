@@ -64,10 +64,13 @@ Last reviewed: 2026-10-21.
   custom items not yet inventoried.
 - **Performance baseline — FAIL.**
   Steady-state numbers published (shell
-  `docs/perf-baselines/2026-10-21.md`, HorneroOS/shell#270);
-  cold-start and per-surface frame cost still unmeasured
-  (HorneroOS/shell#47, #228; needs the disposable QA harness).
-  No performance claims until those are measured.
+  `docs/perf-baselines/2026-10-21.md`, HorneroOS/shell#270).
+  Development-host measurements now exist for full-shell cold
+  start (≈1.7 s to the bar in AT-SPI, shell#292) and the
+  launcher frame-cost bound (60 Hz vsync, no dropped frame,
+  shell#293). Still FAIL: no disposable-QA-harness run, other
+  surfaces unmeasured, and no performance claims are made
+  from development-host numbers (HorneroOS/shell#47, #228).
 - **Documentation — PASS.**
   Canonical docs in this repo; website catalogue only via the
   pinned data pipeline.
