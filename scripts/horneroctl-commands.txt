@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@25deabe5b93aa6d224e020f242a99e9e7e6dffee
+# horneroctl command paths, generated from HorneroOS/hornero@25c07c18fb81c4dff40659a130298d97e6b67a38
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent

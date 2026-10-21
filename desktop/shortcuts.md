@@ -64,7 +64,8 @@ horneroctl hardware keyboard layout --current
 ```
 
 To change which layouts the session offers, use **Control Center ›
-Input** or the CLI (applies live and persists for restore):
+Input** or the CLI (applies live, persists, and is restored at
+login):
 
 ```sh
 horneroctl hardware keyboard layout --list
