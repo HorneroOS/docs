@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@f7a017c40443164d79aacdef989cbc21926e6650
+# horneroctl command paths, generated from HorneroOS/hornero@dbccaeab1b294f761fb6ade1d00a836da28af3f7
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -98,6 +98,10 @@ assistant clarify
 assistant disable
 assistant enable
 assistant events
+assistant gateway
+assistant gateway start
+assistant gateway status
+assistant gateway stop
 assistant health
 assistant knowledge
 assistant log
