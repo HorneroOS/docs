@@ -71,9 +71,10 @@ Last reviewed: 2026-10-21.
   Development-host measurements now exist for full-shell cold
   start (≈1.7 s to the bar in AT-SPI, shell#292) and frame-cost
   bounds for the launcher (60 Hz vsync, shell#293) and
-  dashboard (118/120 slots, shell#294). Still FAIL: no
-  disposable-QA-harness run, Control Center and lock surfaces
-  unmeasured, and no performance claims are made
+  dashboard (118/120 slots, shell#294) and Control Center
+  initial render (169/180 slots, shell#298). Still FAIL: no
+  disposable-QA-harness run, the lock surface unmeasured, and
+  no performance claims are made
   from development-host numbers (HorneroOS/shell#47, #228).
 - **Documentation — PASS.**
   Canonical docs in this repo; website catalogue only via the
