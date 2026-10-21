@@ -18,14 +18,42 @@ fixed.
   host auto-approve behavior) and ACP (version-skew errors;
   sessions not owned by the API surface).
 - **Process model**: a user-level Hornero assistant service
-  (never root) owns the Hermes lifecycle: start on enable,
-  stop on disable, recovery on crash. The shell never
+  (never root) owns the Hermes lifecycle. As shipped
+  (hornero#174), enabling the assistant never starts anything:
+  `horneroctl assistant gateway start --yes` writes and starts
+  the `hornero-hermes.service` systemd user unit, and
+  `gateway stop --yes` stops only that unit. The shell never
   orchestrates models.
 - **UI**: Hornero Companion (Quickshell/QML) is presentation
   only, per ADR 002 in the shell repository. Existing reserved
   states `listening / thinking / acting / success / warning /
   error` map to assistant activity; existing Companion IPC
   remains the presentation boundary.
+
+## Gateway lifecycle (shipped, hornero#174)
+
+`horneroctl assistant gateway` owns start/stop of the gateway:
+
+- `gateway status` (default): reports the classified state —
+  `disabled`, `not-installed`, `installed-not-running`,
+  `running-incompatible` or `running-compatible` — plus the
+  `hornero-hermes.service` user-unit state. The same
+  classification appears as `state` in `assistant health`.
+- `gateway start --yes`: requires the assistant enabled and
+  Hermes on PATH (install guidance names a pinned, auditable
+  package; this CLI never downloads Hermes). It writes
+  `~/.config/systemd/user/hornero-hermes.service` only when the
+  content changed, daemon-reloads, and starts the unit. If the
+  gateway already answers, it reports that and starts no
+  duplicate. Without a systemd user session it degrades to
+  "run `hermes gateway run` manually" guidance.
+- `gateway stop --yes`: stops only the unit Hornero manages. A
+  gateway started elsewhere is reported, never killed: Hornero
+  does not terminate processes it does not own.
+
+Neither command needs root, enables anything at login, or
+widens the loopback endpoint. Both require explicit `--yes`
+(`--dry-run` previews), matching `assistant enable`.
 
 ## Transport contract (from Hermes source)
 
