@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@6699b7de74f159d823ba241f2433687d118f25d6
+# horneroctl command paths, generated from HorneroOS/hornero@25e5c536f2a5d2c0e5b83af841685639d1a90093
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -32,6 +32,7 @@ appearance night-mode
 appearance night-mode backends
 appearance night-mode off
 appearance night-mode on
+appearance night-mode schedule
 appearance night-mode set
 appearance night-mode status
 appearance night-mode status-icon
