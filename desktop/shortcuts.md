@@ -73,6 +73,25 @@ horneroctl hardware keyboard layout --set us,latam \
   --variant intl, --yes
 ```
 
+## Window behaviour
+
+**Control Center › Windows** covers gaps, border size, corner
+rounding and focus-follows-mouse, plus user window rules:
+
+```sh
+horneroctl hypr windows status
+horneroctl hypr windows set --gaps-in 8 --follow-mouse 2 --yes
+horneroctl hypr windows rules add --match class \
+  --pattern kitty --effect float --yes
+horneroctl hypr windows rules list
+```
+
+Geometry and focus apply live and are restored at login. Rules are
+stored in your `window-rules-user.conf` overlay (factory rules are
+never edited) and take effect on Hyprland config reload
+(**Super + Shift + R**) or restart; already-open windows are
+unaffected.
+
 ## Rebinding
 
 Open **Control Center › Keybinds** and choose **Rebind** next to a

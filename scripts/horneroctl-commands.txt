@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@25c07c18fb81c4dff40659a130298d97e6b67a38
+# horneroctl command paths, generated from HorneroOS/hornero@d85f7b063925bf46c0d6cec214eae9aac5750b0d
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -186,6 +186,7 @@ hypr plugins list
 hypr plugins status
 hypr windows
 hypr windows restore
+hypr windows rules
 hypr windows set
 hypr windows status
 hypr workspace
