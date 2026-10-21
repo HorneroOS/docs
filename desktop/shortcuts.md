@@ -70,7 +70,8 @@ binding, or use the CLI:
 
 ```sh
 horneroctl hardware keyboard rebind status
-horneroctl hardware keyboard rebind set --old "SUPER + Return" --new "SUPER + F13" --yes
+horneroctl hardware keyboard rebind set \
+  --old "SUPER + Return" --new "SUPER + F13" --yes
 horneroctl hardware keyboard rebind reset --yes
 ```
 
