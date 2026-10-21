@@ -52,6 +52,11 @@ Last reviewed: 2026-10-21.
   spontaneous-crash resilience open (HorneroOS/shell#257).
 - **Accessibility audit — FAIL.**
   Accessible-name audit incomplete (HorneroOS/shell#221).
+  Static slices landed: lock controls (shell#276), launcher
+  rows (shell#277), dashboard cards (shell#278), shared
+  controls (shell#279); inventory in shell
+  `docs/a11y-audit-2026-10-21.md`. Still FAIL: pane-specific
+  custom items unnamed and no AT-SPI runtime pass yet.
 - **Performance baseline — FAIL.**
   Steady-state numbers published (shell
   `docs/perf-baselines/2026-10-21.md`, HorneroOS/shell#270);
