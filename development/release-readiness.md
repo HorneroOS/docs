@@ -32,8 +32,12 @@ Last reviewed: 2026-10-21.
 - **Hermes Companion functional — PASS.**
   Loopback gateway, manual approvals, Hornero skill, Javi chat
   with sessions, attachments, voice path and activity trace;
-  verified live on the dev host. End-user packaging still open
-  (HorneroOS/hornero#174).
+  verified live on the dev host. Gateway lifecycle shipped:
+  `assistant gateway start|stop|status` over a user systemd
+  unit, host-validated stop/start cycle
+  (HorneroOS/hornero#252, closing HorneroOS/hornero#174).
+  End-user Hermes packaging/setup still open
+  (HorneroOS/hornero#191).
 - **Plugin lifecycle — PASS.**
   horneroctl validate/install/list/enable/disable/remove with
   receipts and pinned revisions; shell runtime loads enabled
