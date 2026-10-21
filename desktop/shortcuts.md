@@ -63,6 +63,15 @@ horneroctl hardware keyboard keys
 horneroctl hardware keyboard layout --current
 ```
 
+To change which layouts the session offers, use **Control Center ›
+Input** or the CLI (applies live and persists for restore):
+
+```sh
+horneroctl hardware keyboard layout --list
+horneroctl hardware keyboard layout --set us,latam \
+  --variant intl, --yes
+```
+
 ## Rebinding
 
 Open **Control Center › Keybinds** and choose **Rebind** next to a
