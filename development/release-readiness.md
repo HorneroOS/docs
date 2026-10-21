@@ -55,8 +55,13 @@ Last reviewed: 2026-10-21.
   Static slices landed: lock controls (shell#276), launcher
   rows (shell#277), dashboard cards (shell#278), shared
   controls (shell#279); inventory in shell
-  `docs/a11y-audit-2026-10-21.md`. Still FAIL: pane-specific
-  custom items unnamed and no AT-SPI runtime pass yet.
+  `docs/a11y-audit-2026-10-21.md`. AT-SPI runtime passes now
+  exist for the bar, dashboard, Control Center, launcher rows
+  (shell#290; the earlier gap was a stale deployed checkout,
+  not shell code) and lock content (shell#291, inert-Pam
+  harness). Still FAIL: the real session-lock surface, any
+  screen-reader task-completion pass, and pane-specific
+  custom items not yet inventoried.
 - **Performance baseline — FAIL.**
   Steady-state numbers published (shell
   `docs/perf-baselines/2026-10-21.md`, HorneroOS/shell#270);
