@@ -63,7 +63,25 @@ horneroctl hardware keyboard keys
 horneroctl hardware keyboard layout --current
 ```
 
-The source of truth is
+## Rebinding
+
+Open **Control Center › Keybinds** and choose **Rebind** next to a
+binding, or use the CLI:
+
+```sh
+horneroctl hardware keyboard rebind status
+horneroctl hardware keyboard rebind set --old "SUPER + Return" --new "SUPER + F13" --yes
+horneroctl hardware keyboard rebind reset --yes
+```
+
+Rebinds are stored as `unbind`/`bind` pairs in your
+`keybindings-user.conf`, sourced after the factory defaults; the
+factory file is never edited, changes apply live, and `reset`
+restores the defaults. `keys` always lists the effective set,
+including user overrides. Sessions using the Lua configuration are
+read-only here.
+
+The source of truth for factory bindings is
 [HorneroOS/config's keybinding file](https://github.com/HorneroOS/config/blob/main/desktop/hypr/hyprland.conf.d/keybindings.conf).
 For how these shortcuts launch the configured programs, see
 [Apps and workflows](../applications/README.md).

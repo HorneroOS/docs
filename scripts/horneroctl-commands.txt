@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@5da09a48b09f51f6b7055185936552511fb1996d
+# horneroctl command paths, generated from HorneroOS/hornero@b65296ce883ba8d93d41e75523de4f33d7bf1dde
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -152,6 +152,7 @@ hardware brightness up
 hardware keyboard
 hardware keyboard keys
 hardware keyboard layout
+hardware keyboard rebind
 hardware keyboard settings
 hardware mic
 hardware mic status
