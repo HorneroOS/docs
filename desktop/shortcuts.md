@@ -111,6 +111,22 @@ restores the defaults. `keys` always lists the effective set,
 including user overrides. Sessions using the Lua configuration are
 read-only here.
 
+## Accessibility
+
+**Control Center › Accessibility** groups text size, transparency,
+motion and cursor size:
+
+```sh
+horneroctl hypr cursor status
+horneroctl hypr cursor set --size 32 --yes
+```
+
+The cursor size applies to the Hyprland cursor immediately, is
+restored at login, and is picked up by other apps when they start.
+The status command names where the effective size came from
+(persisted setting, `XCURSOR_SIZE`, or the default), because
+Hyprland does not expose the live size back.
+
 The source of truth for factory bindings is
 [HorneroOS/config's keybinding file](https://github.com/HorneroOS/config/blob/main/desktop/hypr/hyprland.conf.d/keybindings.conf).
 For how these shortcuts launch the configured programs, see

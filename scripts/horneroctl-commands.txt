@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@d85f7b063925bf46c0d6cec214eae9aac5750b0d
+# horneroctl command paths, generated from HorneroOS/hornero@2127415d6d7eca5bb7148eebe0177199bfec657d
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -166,6 +166,10 @@ hypr animations list
 hypr animations next
 hypr animations restore
 hypr animations set
+hypr cursor
+hypr cursor restore
+hypr cursor set
+hypr cursor status
 hypr input
 hypr input restore
 hypr input set
