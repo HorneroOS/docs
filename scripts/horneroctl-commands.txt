@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@7368374faf814663360eb4236b3fc252824cecb2
+# horneroctl command paths, generated from HorneroOS/hornero@cc4e7a30ad19e82c5db70d3640c23a7a18ef45af
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -98,6 +98,9 @@ assistant clarify
 assistant disable
 assistant enable
 assistant events
+assistant knowledge
+assistant model
+assistant sessions
 assistant status
 assistant stop
 assistant tools
@@ -167,6 +170,10 @@ hypr plugins
 hypr plugins install
 hypr plugins list
 hypr plugins status
+hypr windows
+hypr windows restore
+hypr windows set
+hypr windows status
 hypr workspace
 hypr workspace next
 hypr workspace prev
@@ -180,6 +187,7 @@ package deps
 package updates
 package upgrade
 plugin
+plugin catalog
 plugin disable
 plugin enable
 plugin new
