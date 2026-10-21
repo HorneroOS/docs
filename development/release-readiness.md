@@ -59,9 +59,12 @@ Last reviewed: 2026-10-21.
   exist for the bar, dashboard, Control Center, launcher rows
   (shell#290; the earlier gap was a stale deployed checkout,
   not shell code) and lock content (shell#291, inert-Pam
-  harness). Still FAIL: the real session-lock surface, any
-  screen-reader task-completion pass, and pane-specific
-  custom items not yet inventoried.
+  harness). The static inventory is now covered for the
+  inventoried surfaces (Appearance rows shell#295, shared
+  controls and Welcome cards shell#296, pane list rows
+  shell#297). Still FAIL: the real session-lock surface, any
+  screen-reader task-completion pass, and runtime exposure
+  checks for collapsed-section delegates.
 - **Performance baseline — FAIL.**
   Steady-state numbers published (shell
   `docs/perf-baselines/2026-10-21.md`, HorneroOS/shell#270).
