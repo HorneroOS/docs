@@ -5,7 +5,7 @@ development preview that runs on the maintainers' machines. This
 checklist is the single gate list for calling anything a release;
 an item is PASS only with linked evidence, never by intention.
 
-Last reviewed: 2026-10-20.
+Last reviewed: 2026-10-21.
 
 ## Gates
 
@@ -23,8 +23,12 @@ Last reviewed: 2026-10-20.
   AUR publishes CI checksums, no signature verification in
   install flows.
 - **Safe updates + rollback — FAIL.**
-  Snapshot/rollback backend is a spike (HorneroOS/hornero#179);
-  update lanes open (HorneroOS/hornero#178, #62).
+  Update status lanes shipped read-only
+  (HorneroOS/hornero#216: Hornero-owned vs system vs held,
+  surfaced in the Control Center Updates pane); snapshot and
+  rollback backend is still a spike (HorneroOS/hornero#179),
+  mutating lanes open (HorneroOS/hornero#62). No rollback is
+  advertised anywhere until a backend contract passes.
 - **Hermes Companion functional — PASS.**
   Loopback gateway, manual approvals, Hornero skill, Javi chat
   with sessions, attachments, voice path and activity trace;
@@ -32,7 +36,11 @@ Last reviewed: 2026-10-20.
   (HorneroOS/hornero#174).
 - **Plugin lifecycle — PASS.**
   horneroctl validate/install/list/enable/disable/remove with
-  receipts and pinned revisions; shell runtime slices merged.
+  receipts and pinned revisions; shell runtime loads enabled
+  plugins after the PluginHost delegate fix
+  (HorneroOS/shell#269: delegates under an Item root). Live
+  evidence: three official plugins loaded (two bar, one
+  dashboard) via `qs ipc call plugins status`.
 - **Extensions marketplace — PASS.**
   HorneroOS/plugins catalogue (SHA-256 + CI), catalogue commands
   in horneroctl, Control Center browse/install
@@ -45,8 +53,11 @@ Last reviewed: 2026-10-20.
 - **Accessibility audit — FAIL.**
   Accessible-name audit incomplete (HorneroOS/shell#221).
 - **Performance baseline — FAIL.**
-  No published numbers; HorneroOS/shell#47, #228 open. No
-  performance claims until measured.
+  Steady-state numbers published (shell
+  `docs/perf-baselines/2026-10-21.md`, HorneroOS/shell#270);
+  cold-start and per-surface frame cost still unmeasured
+  (HorneroOS/shell#47, #228; needs the disposable QA harness).
+  No performance claims until those are measured.
 - **Documentation — PASS.**
   Canonical docs in this repo; website catalogue only via the
   pinned data pipeline.
