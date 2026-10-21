@@ -55,6 +55,25 @@ Neither command needs root, enables anything at login, or
 widens the loopback endpoint. Both require explicit `--yes`
 (`--dry-run` previews), matching `assistant enable`.
 
+`horneroctl assistant setup [--dry-run|--yes]` performs the
+Hornero-owned half of standing Hermes up (hornero#191):
+enablement with the 0600 key, the gateway unit, and the
+Hornero skill installed into the Hermes home from an embedded
+copy (refreshed only when changed). When Hermes is missing it
+fails before changing anything and prints the pinned source
+contract — NousResearch/hermes-agent at the studied commit,
+user-local layout — because horneroctl never downloads Hermes
+and never runs a remote install script. `setup --remove`
+reverses only what setup wrote (a user-modified skill is kept
+and reported); the Hermes installation itself is user-owned.
+Shipping the Hermes binary as a package remains an installer
+track decision.
+
+`assistant knowledge` exports the live read-only catalogue as
+a bounded Markdown snapshot (dated, provenance-stamped) for
+agents that cannot execute commands; the live
+`assistant tools --json` stays the truth.
+
 ## Transport contract (from Hermes source)
 
 | Operation | Endpoint |

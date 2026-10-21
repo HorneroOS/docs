@@ -36,8 +36,10 @@ Last reviewed: 2026-10-21.
   `assistant gateway start|stop|status` over a user systemd
   unit, host-validated stop/start cycle
   (HorneroOS/hornero#252, closing HorneroOS/hornero#174).
-  End-user Hermes packaging/setup still open
-  (HorneroOS/hornero#191).
+  Setup contract + Markdown knowledge export shipped
+  (HorneroOS/hornero#253 against HorneroOS/hornero#191);
+  packaging the Hermes binary itself remains open on the
+  installer track (HorneroOS/hornero#191).
 - **Plugin lifecycle — PASS.**
   horneroctl validate/install/list/enable/disable/remove with
   receipts and pinned revisions; shell runtime loads enabled

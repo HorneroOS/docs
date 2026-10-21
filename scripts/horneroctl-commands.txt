@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@dbccaeab1b294f761fb6ade1d00a836da28af3f7
+# horneroctl command paths, generated from HorneroOS/hornero@bf9558ca6b4bec37142290354c6a021429e6b7b0
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -107,6 +107,7 @@ assistant knowledge
 assistant log
 assistant model
 assistant sessions
+assistant setup
 assistant status
 assistant stop
 assistant tools
