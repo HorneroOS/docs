@@ -77,7 +77,7 @@ agents that cannot execute commands; the live
 ## Transport contract (from Hermes source)
 
 | Operation | Endpoint |
-|---|---|
+| --- | --- |
 | Capabilities | `GET /v1/capabilities` |
 | Start run | `POST /v1/runs` |
 | Stream events | `GET /v1/runs/{id}/events` |
