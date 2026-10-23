@@ -174,10 +174,10 @@ separate work and output directories for every build. Reserve 40 GiB for work
 and 12 GiB for output (52 GiB if they share one filesystem):
 
 ```sh
-run_id="$(date +%Y%m%d-%H%M%S)"
+run_dir="$(sudo mktemp -d /mnt/build/hornero-XXXXXX)"
 sudo env VJOBS=2 ./scripts/build-iso.sh \
-  --work "/mnt/build/hornero-work-${run_id}" \
-  --output "/mnt/build/hornero-output-${run_id}"
+  --work "${run_dir}/work" \
+  --output "${run_dir}/output"
 ```
 
 In `HorneroOS/qa`:
