@@ -23,8 +23,21 @@ or installed system.
 - **ISO installs on clean hardware/VM — BLOCKED.** Panda Foss owns the
   official installer and has not provided install-to-first-boot acceptance.
   Installer [issue #11](https://github.com/HorneroOS/installer/issues/11) is
-  still open. QA [issue #19](https://github.com/HorneroOS/qa/issues/19) tracks
-  the install scenarios. No HorneroOS ISO is an installable release artifact.
+  still open. A fresh unsigned provisional image built from installer main
+  booted to the live desktop in disposable UEFI and legacy-BIOS VMs. Initial
+  runs stopped at the network/DNS preflight. A follow-up UEFI run with working
+  rootless VM networking resolved the Arch mirror, but Calamares could not
+  start because it requires Qt 6.12 while the live image has Qt 6.11.2. No
+  target was installed. The builder must be synchronized to the locked Arch
+  snapshot before producing another image. The tested ISO used installer
+  revision `78a292ec00c7eee989c68b40054580dff805270f`, product revision
+  `7471351cbe26e2a8754fd1bd9c5f4a2b984115ad`, and Calamares 3.4.3. Its SHA-256
+  is `fde2e6f54f33c341afa6fa87a26cff86740f58e48d8b3ea949cafff35281a2a1`.
+  It remains unsigned. See the runtime evidence and the pending builder fix
+  in [issue #11](https://github.com/HorneroOS/installer/issues/11) and
+  [installer#17](https://github.com/HorneroOS/installer/pull/17).
+  QA [issue #19](https://github.com/HorneroOS/qa/issues/19) tracks the full
+  install scenarios. This image is not a release artifact.
 - **Boot to desktop after installation — BLOCKED.** No passing QA run exists
   for preview20 installed from an ISO in both UEFI and legacy BIOS. The
   existing `smoke/desktop-ready` scenario checks a prepared QA image; it does
@@ -33,13 +46,12 @@ or installed system.
   Niri remains experimental and has no candidate-release parity acceptance.
 - **Package integrity — FAIL.**
   [hornero#180](https://github.com/HorneroOS/hornero/issues/180) remains open.
-  AUR checksums do not verify a maintainer signature. The CI "Release signing
-  smoke" uses an ephemeral key and does not prove that a published asset was
-  signed with the release key. Draft
-  [hornero#275](https://github.com/HorneroOS/hornero/pull/275) gates
-  publication on release-key signing and AUR verification; its CI is pending,
-  and no release public key is committed or provisioned. It does not move this
-  gate.
+  Signing workflow engineering landed in
+  [hornero#275](https://github.com/HorneroOS/hornero/pull/275), and its CI
+  smoke uses an ephemeral key. That does not prove that a published asset was
+  signed with the production release key. No release public key or production
+  signing secret is provisioned, and no official signed release has been
+  verified. AUR checksums alone do not establish maintainer authenticity.
 - **Safe updates and system rollback — FAIL.**
   [hornero#216](https://github.com/HorneroOS/hornero/pull/216) added read-only
   ownership lanes. The rollback backend
@@ -56,27 +68,31 @@ or installed system.
   [hornero#253](https://github.com/HorneroOS/hornero/pull/253). Packaging the
   Hermes runtime for a clean install remains open in
   [hornero#191](https://github.com/HorneroOS/hornero/issues/191). This PASS
-  does not claim a clean-install or release-image test. A setup/removal
-  ownership defect is tracked in [hornero#277](https://github.com/HorneroOS/hornero/issues/277);
-  its fix is in draft [hornero#278](https://github.com/HorneroOS/hornero/pull/278)
-  and is not in the candidate.
+  does not claim a clean-install or release-image test. The setup/removal
+  ownership fix in [hornero#278](https://github.com/HorneroOS/hornero/pull/278)
+  is merged, but it is not in the preview20 candidate and no signed CLI release
+  containing it is published. The dependent dotfiles migration remains in
+  draft [dotfiles#383](https://github.com/ulises-jeremias/dotfiles/pull/383),
+  awaiting a CLI release and an independent review.
 - **Plugin lifecycle — PASS for the tested official plugins.** The CLI
   validates, installs inert data, lists, enables, disables and removes
   plugins. The Shell host fix is in
   [shell#269](https://github.com/HorneroOS/shell/pull/269). Runtime evidence
   recorded three official plugins loaded through `qs ipc call plugins status`.
-- **Official extensions catalogue — PASS.** The pinned
-  [HorneroOS/plugins](https://github.com/HorneroOS/plugins) catalogue and
-  verified installation are in
-  [hornero#214](https://github.com/HorneroOS/hornero/pull/214) and
-  [shell#268](https://github.com/HorneroOS/shell/pull/268). Community
-  listings are not available; their trust and signing design remains open in
-  [shell#251](https://github.com/HorneroOS/shell/issues/251). Drafts
+- **Official extensions marketplace — PASS for the official catalogue.** The
+  pinned [HorneroOS/plugins](https://github.com/HorneroOS/plugins) catalogue,
+  verified CLI installation, Control Center marketplace and metadata are
+  integrated in [hornero#214](https://github.com/HorneroOS/hornero/pull/214),
+  [shell#268](https://github.com/HorneroOS/shell/pull/268),
   [plugins#6](https://github.com/HorneroOS/plugins/pull/6),
   [hornero#273](https://github.com/HorneroOS/hornero/pull/273), and
-  [shell#309](https://github.com/HorneroOS/shell/pull/309) advance the signed
-  index tooling, CLI metadata contract, and Control Center surface. None has
-  landed; no community index is published or consumed as verified.
+  [shell#309](https://github.com/HorneroOS/shell/pull/309). The marketplace is
+  also live on [horneroos.com](https://www.horneroos.com/marketplace). The
+  separate community-index phase remains open in
+  [shell#251](https://github.com/HorneroOS/shell/issues/251): production
+  registry-key custody and end-to-end consumption of a verified community
+  index are not complete. Do not represent the official-catalogue PASS as
+  community-registry acceptance.
 - **Lock/session safety — FAIL.** The Shell refuses its stop/restart actions
   while locked, but recovery after a Shell crash while locked remains open in
   [shell#257](https://github.com/HorneroOS/shell/issues/257). The lock surface
@@ -88,9 +104,15 @@ or installed system.
   [shell#221](https://github.com/HorneroOS/shell/issues/221) and the
   [2026-10-21 shell accessibility inventory](https://github.com/HorneroOS/shell/blob/main/docs/a11y-audit-2026-10-21.md).
   Draft [shell#310](https://github.com/HorneroOS/shell/pull/310) adds a
-  persisted shell high-contrast palette; token tests, QML, lint, and one build
-  pass while another build is pending, but rendered review and the Orca task
-  pass remain outstanding.
+  persisted shell high-contrast palette; all current CI checks pass, but the
+  PR remains draft until rendered review and the Orca task pass are recorded.
+  Greeter [#37](https://github.com/HorneroOS/greeter/pull/37) also has green
+  CI but still needs graphical and Qt Virtual Keyboard acceptance.
+- **PluginKit runtime acceptance — BLOCKED.** Shell
+  [#312](https://github.com/HorneroOS/shell/pull/312) has green CI for the
+  public PluginKit and desktop widget slots, but runtime loading, persistence
+  across Shell restart, and display disconnect/reconnect behavior remain
+  unverified. Keep the PR draft until those checks pass.
 - **Performance baseline — FAIL.** Development-host cold-start and per-surface
   numbers are published in the
   [2026-10-21 shell report](https://github.com/HorneroOS/shell/blob/main/docs/perf-baselines/2026-10-21-cold-start.md).
@@ -98,20 +120,27 @@ or installed system.
   claim is approved. Track
   [shell#47](https://github.com/HorneroOS/shell/issues/47) and
   [shell#228](https://github.com/HorneroOS/shell/issues/228).
-- **Documentation — PASS.** HorneroOS/docs owns canonical technical content;
-  the website renders a reviewed pinned commit.
-- **Repository governance CI — FAIL.** Installer issue
-  [#14](https://github.com/HorneroOS/installer/issues/14) tracks its stale
-  label-sync engine pin. The latest main-branch label-sync run
-  [39226059114](https://github.com/HorneroOS/installer/actions/runs/39226059114)
-  failed. This is a governance failure, separate from installer acceptance.
+- **Documentation and showcase — PASS for the published surfaces.**
+  HorneroOS/docs owns canonical technical content; the website renders a
+  reviewed pinned commit. Website PRs
+  [#148](https://github.com/HorneroOS/website/pull/148) and
+  [#149](https://github.com/HorneroOS/website/pull/149) publish the marketplace
+  and a live workstation capture in the showroom. The capture is not
+  installation, hardware-compatibility, or release evidence.
+- **Repository governance CI — PASS.** Installer issue
+  [#14](https://github.com/HorneroOS/installer/issues/14) is closed after
+  [installer#15](https://github.com/HorneroOS/installer/pull/15) aligned the
+  governance pin. The latest installer main checks
+  [39988724178](https://github.com/HorneroOS/installer/actions/runs/39988724178)
+  and [39988724180](https://github.com/HorneroOS/installer/actions/runs/39988724180)
+  passed. This says nothing about ISO installation acceptance.
 - **QA acceptance — FAIL.** The preview20 checklist still has unchecked
   exact-pin VM and Hornero QA gates. See the
   [candidate checklist](https://github.com/HorneroOS/hornero/blob/main/releases/v0.2.0-preview20-checklist.md),
   QA issues [#16](https://github.com/HorneroOS/qa/issues/16),
   [#18](https://github.com/HorneroOS/qa/issues/18), and
   [#19](https://github.com/HorneroOS/qa/issues/19). The latest successful fast
-  QA CI run is [39935545654](https://github.com/HorneroOS/qa/actions/runs/39935545654)
+  QA CI run is [39957901125](https://github.com/HorneroOS/qa/actions/runs/39957901125)
   on 2026-10-23 (Ruff, Mypy, pytest, scenario matrix, Markdown lint). It tests
   repository code, not a candidate VM or installed ISO.
 
@@ -145,10 +174,10 @@ separate work and output directories for every build. Reserve 40 GiB for work
 and 12 GiB for output (52 GiB if they share one filesystem):
 
 ```sh
-run_id="$(date +%Y%m%d-%H%M%S)"
+run_dir="$(sudo mktemp -d /mnt/build/hornero-XXXXXX)"
 sudo env VJOBS=2 ./scripts/build-iso.sh \
-  --work "/mnt/build/hornero-work-${run_id}" \
-  --output "/mnt/build/hornero-output-${run_id}"
+  --work "${run_dir}/work" \
+  --output "${run_dir}/output"
 ```
 
 In `HorneroOS/qa`:
@@ -161,6 +190,22 @@ uv run hornero-qa inspect <run-id>
 
 The current scenario validates a ready image. QA#19 must add and accept the
 install-to-first-boot matrix before this proves an installed ISO.
+
+To reproduce the latest live-image runtime check in a disposable guest, use
+working DNS and run:
+
+```sh
+getent ahostsv4 archive.archlinux.org
+curl -I --connect-timeout 6 archive.archlinux.org
+pacman -Q qt6-base calamares
+calamares
+```
+
+The 2026-10-23 test resolved the mirror to `49.12.124.107` and received HTTP
+301. The packages reported `qt6-base 6.11.2-3` and `calamares 3.4.3-1`; the
+last command reported that the Calamares binary requires `Qt_6.12`, which the
+live Qt library does not provide. This reproduces the blocker. It is not an
+installation acceptance pass.
 
 ### Compositors
 
