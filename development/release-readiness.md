@@ -35,7 +35,11 @@ or installed system.
   [hornero#180](https://github.com/HorneroOS/hornero/issues/180) remains open.
   AUR checksums do not verify a maintainer signature. The CI "Release signing
   smoke" uses an ephemeral key and does not prove that a published asset was
-  signed with the release key.
+  signed with the release key. Draft
+  [hornero#275](https://github.com/HorneroOS/hornero/pull/275) gates
+  publication on release-key signing and AUR verification; its CI is pending,
+  and no release public key is committed or provisioned. It does not move this
+  gate.
 - **Safe updates and system rollback — FAIL.**
   [hornero#216](https://github.com/HorneroOS/hornero/pull/216) added read-only
   ownership lanes. The rollback backend
@@ -52,7 +56,10 @@ or installed system.
   [hornero#253](https://github.com/HorneroOS/hornero/pull/253). Packaging the
   Hermes runtime for a clean install remains open in
   [hornero#191](https://github.com/HorneroOS/hornero/issues/191). This PASS
-  does not claim a clean-install or release-image test.
+  does not claim a clean-install or release-image test. A setup/removal
+  ownership defect is tracked in [hornero#277](https://github.com/HorneroOS/hornero/issues/277);
+  its fix is in draft [hornero#278](https://github.com/HorneroOS/hornero/pull/278)
+  and is not in the candidate.
 - **Plugin lifecycle — PASS for the tested official plugins.** The CLI
   validates, installs inert data, lists, enables, disables and removes
   plugins. The Shell host fix is in
@@ -64,7 +71,12 @@ or installed system.
   [hornero#214](https://github.com/HorneroOS/hornero/pull/214) and
   [shell#268](https://github.com/HorneroOS/shell/pull/268). Community
   listings are not available; their trust and signing design remains open in
-  [shell#251](https://github.com/HorneroOS/shell/issues/251).
+  [shell#251](https://github.com/HorneroOS/shell/issues/251). Drafts
+  [plugins#6](https://github.com/HorneroOS/plugins/pull/6),
+  [hornero#273](https://github.com/HorneroOS/hornero/pull/273), and
+  [shell#309](https://github.com/HorneroOS/shell/pull/309) advance the signed
+  index tooling, CLI metadata contract, and Control Center surface. None has
+  landed; no community index is published or consumed as verified.
 - **Lock/session safety — FAIL.** The Shell refuses its stop/restart actions
   while locked, but recovery after a Shell crash while locked remains open in
   [shell#257](https://github.com/HorneroOS/shell/issues/257). The lock surface
@@ -75,6 +87,10 @@ or installed system.
   delegates remain unverified. Track
   [shell#221](https://github.com/HorneroOS/shell/issues/221) and the
   [2026-10-21 shell accessibility inventory](https://github.com/HorneroOS/shell/blob/main/docs/a11y-audit-2026-10-21.md).
+  Draft [shell#310](https://github.com/HorneroOS/shell/pull/310) adds a
+  persisted shell high-contrast palette; token tests, QML, lint, and one build
+  pass while another build is pending, but rendered review and the Orca task
+  pass remain outstanding.
 - **Performance baseline — FAIL.** Development-host cold-start and per-surface
   numbers are published in the
   [2026-10-21 shell report](https://github.com/HorneroOS/shell/blob/main/docs/perf-baselines/2026-10-21-cold-start.md).
@@ -94,9 +110,10 @@ or installed system.
   [candidate checklist](https://github.com/HorneroOS/hornero/blob/main/releases/v0.2.0-preview20-checklist.md),
   QA issues [#16](https://github.com/HorneroOS/qa/issues/16),
   [#18](https://github.com/HorneroOS/qa/issues/18), and
-  [#19](https://github.com/HorneroOS/qa/issues/19). The latest successful
-  QA test workflow run is [38537311408](https://github.com/HorneroOS/qa/actions/runs/38537311408),
-  from 2026-10-14; it is not evidence for preview20.
+  [#19](https://github.com/HorneroOS/qa/issues/19). The latest successful fast
+  QA CI run is [39935545654](https://github.com/HorneroOS/qa/actions/runs/39935545654)
+  on 2026-10-23 (Ruff, Mypy, pytest, scenario matrix, Markdown lint). It tests
+  repository code, not a candidate VM or installed ISO.
 
 ## Evidence commands
 
@@ -120,9 +137,19 @@ This validates composition. It does not build or boot an ISO.
 
 ### ISO build and installed desktop
 
-In `HorneroOS/installer`, `./scripts/build-iso.sh` is run only in the dedicated
-disposable Arch VM and with Panda Foss's acceptance process. Do not run this on
-the maintainer host.
+In `HorneroOS/installer`, the following builds the provisional Calamares image
+only in a dedicated disposable Arch VM, against a clean checkout, and with
+Panda Foss's acceptance process. It does not replace Panda's official
+installer acceptance. Do not run this on the maintainer host. Use new,
+separate work and output directories for every build. Reserve 40 GiB for work
+and 12 GiB for output (52 GiB if they share one filesystem):
+
+```sh
+run_id="$(date +%Y%m%d-%H%M%S)"
+sudo env VJOBS=2 ./scripts/build-iso.sh \
+  --work "/mnt/build/hornero-work-${run_id}" \
+  --output "/mnt/build/hornero-output-${run_id}"
+```
 
 In `HorneroOS/qa`:
 
@@ -208,7 +235,7 @@ pass.
 In `HorneroOS/shell`:
 
 ```sh
-uv run pytest tests/test_a11y_names.py tests/test_lock_a11y.py \
+python3 -m pytest tests/test_a11y_names.py tests/test_lock_a11y.py \
   tests/test_appearance_a11y.py tests/test_shared_controls_a11y.py \
   tests/test_pane_rows_a11y.py
 ```
@@ -239,8 +266,10 @@ commit pinned by the website.
 
 In `HorneroOS/hornero`, run `tests/vm/smoke.sh`. In `HorneroOS/qa`, run
 `uv run hornero-qa run smoke/desktop-ready`. Both runs must identify the exact
-preview20 pins and attach their evidence. A prior or mutable-main run does not
-count.
+preview20 pins and attach their evidence. The Hornero script requires KVM and
+a prepared base image; `VM-SMOKE-SKIP` is not a pass. Only an exact-pin
+`VM-SMOKE-PASS` plus the candidate QA evidence counts. A prior or mutable-main
+run does not count.
 
 ## Rules
 
