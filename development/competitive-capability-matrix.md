@@ -15,7 +15,7 @@ Studied from source in an isolated research workspace (never in
 product commits, never installed on a host). Pinned revisions:
 
 | Project | Revision | Studied for |
-|---|---|---|
+| --- | --- | --- |
 | Omarchy | `81fd2d23ca6e` | Cohesion, theme swap, migrations |
 | Ryoku | `98a0368253d9` | Installer philosophy, Rashin |
 | DankMaterialShell | `d6a362d6b36b` | Plugin loader, Go services |
@@ -34,7 +34,7 @@ and attribution in the owning repository.
 ## Matrix summary
 
 | Capability | HorneroOS status | Owner |
-|---|---|---|
+| --- | --- | --- |
 | Plugin/extension runtime | Partial | shell + hornero |
 | Companion / AI assistant | Experimental | shell + hornero |
 | Hermes transport | Experimental | hornero |
