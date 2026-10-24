@@ -121,9 +121,12 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   leaving loading stuck if no response or exit signal arrived. Commit `e59026f`
   reports a timeout in that state and signals only a live process. The focused
   pane suite (37 tests) and pre-commit pass; the full suite previously passed 641
-  tests with Pillow available. CI is running on `e59026f`; the next exact-head
-  graphical matrix is pending those checks. See the
-  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6390329980).
+  tests with Pillow available. Build, tests, QML, lint, harness-lint, smoke-dryrun,
+  and governance/Danger are green on `e59026f`; CodeRabbit reports review rate
+  limiting, and all previous actionable threads are resolved. Exact-head hosted
+  matrix [run 40138798423](https://github.com/HorneroOS/shell/actions/runs/40138798423)
+  is running. See the
+  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6390343950).
   Keep merge blocked until this matrix completes successfully and all screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
