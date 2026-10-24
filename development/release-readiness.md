@@ -93,13 +93,26 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   registry-key custody and end-to-end consumption of a verified community
   index are not complete. Shell
   [#318](https://github.com/HorneroOS/shell/pull/318) adds verified community
-  entries to Control Center. Its first hosted graphical-matrix attempt failed
-  before pane capture in [run 40078012370](https://github.com/HorneroOS/shell/actions/runs/40078012370):
-  the Terminal settings IPC call succeeded, then `hyprctl activewindow` timed
-  out. The failed job is being rerun. The PR has not merged. Do not represent
-  the official-catalogue PASS as community-registry acceptance.
-- **Lock/session safety — FAIL.** The Shell refuses its stop/restart actions
-  while locked, but recovery after a Shell crash while locked remains open in
+  entries to Control Center. The latest hosted graphical matrix failed in
+  [run 40114947064](https://github.com/HorneroOS/shell/actions/runs/40114947064)
+  at head `a14a325f7adc30ba79eaa2e9e183e214a3250ce8`: the Terminal Settings
+  window opened but its content stayed blank with a loading indicator, and
+  none of the 25 pane screenshots were captured. The runtime log showed no
+  Terminal-specific QML error, so the cause remains undiagnosed. Earlier runs
+  exposed different crash and IPC-stall signatures; see the
+  [PR follow-up](https://github.com/HorneroOS/shell/pull/318#issuecomment-6387625515).
+  Keep the PR draft until a cause-specific fix, a passing exact-head graphical
+  matrix, and screenshot review. Do not represent the official-catalogue PASS
+  as community-registry acceptance.
+- **Lock/session safety — BLOCKED.** The Shell refuses its stop/restart
+  actions while locked and guards detectable competing lock requests. The
+  orphaned-lock failure in [shell#24](https://github.com/HorneroOS/shell/issues/24)
+  remains unresolved: Quickshell v0.3.2 includes a failed-acquisition guard,
+  but the exact cross-locker scenario has not been rerun with that version;
+  upstream [quickshell#1054](https://github.com/quickshell-mirror/quickshell/issues/1054)
+  is still open. The update and required evidence are recorded in
+  [shell#24's latest comment](https://github.com/HorneroOS/shell/issues/24#issuecomment-6387620388).
+  Recovery after a spontaneous Shell crash while locked remains open in
   [shell#257](https://github.com/HorneroOS/shell/issues/257). The lock surface
   also lacks a real screen-reader acceptance pass; see the accessibility gate.
 - **Accessibility audit — FAIL.** Static checks cover the inventoried
