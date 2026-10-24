@@ -110,11 +110,19 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   was superseded after a governance check rejected its merge-commit history.
   The PR was rebased with authored commits preserved; a security review also
   reduced the VM workflow's token to contents-read, as the organization default
-  was write. CI is green on the current head except for CodeRabbit review.
-  Exact-head graphical matrix
+  was write. The previous exact-head matrix
   [run 40135011018](https://github.com/HorneroOS/shell/actions/runs/40135011018)
-  is running on `06bbfd5`; screenshot acceptance is still pending. See the
-  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6389866452).
+  was cancelled after CodeRabbit identified additional actionable defects. Shell
+  #318 commit `b5048dd` fixes bounded process termination, Welcome handling when
+  Settings allocation fails, VM capture environment expansion, SSH diagnostic
+  timeouts, a QEMU socket-test race, and checkout credential persistence. Local
+  validation passes: 641 tests (with Pillow available), pre-commit, ShellCheck,
+  dry-run, and diff check. CI checks on the current commit are passing on the
+  push event; the pull-request QML job and CodeRabbit review are still pending
+  (the CodeRabbit check reports rate limiting). Exact-head graphical matrix
+  [run 40136330518](https://github.com/HorneroOS/shell/actions/runs/40136330518)
+  is running on `b5048dd`; screenshot acceptance is still pending. See the
+  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6389991578).
   Keep merge blocked until this matrix completes successfully and all screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
