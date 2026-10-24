@@ -93,17 +93,21 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   registry-key custody and end-to-end consumption of a verified community
   index are not complete. Shell
   [#318](https://github.com/HorneroOS/shell/pull/318) adds verified community
-  entries to Control Center. The latest hosted graphical matrix failed in
-  [run 40114947064](https://github.com/HorneroOS/shell/actions/runs/40114947064)
-  at head `a14a325f7adc30ba79eaa2e9e183e214a3250ce8`: the Terminal Settings
-  window opened but its content stayed blank with a loading indicator, and
-  none of the 25 pane screenshots were captured. The runtime log showed no
-  Terminal-specific QML error, so the cause remains undiagnosed. Earlier runs
-  exposed different crash and IPC-stall signatures; see the
-  [PR follow-up](https://github.com/HorneroOS/shell/pull/318#issuecomment-6387625515).
-  Keep the PR draft until a cause-specific fix, a passing exact-head graphical
-  matrix, and screenshot review. Do not represent the official-catalogue PASS
-  as community-registry acceptance.
+  entries to Control Center. The Terminal Settings timeout is fixed in
+  [shell#321](https://github.com/HorneroOS/shell/pull/321), whose checks pass.
+  Hosted matrix [run 40129324336](https://github.com/HorneroOS/shell/actions/runs/40129324336)
+  then exposed a separate first-login Welcome overlay: its top-level window
+  covered Settings, and cursor animation made an inadequate pixel-diversity
+  check accept the wrong screen. Shell #318 commit `a325e1e` closes Welcome
+  before Settings navigation and verifies that the fresh VM has dismissed it
+  before Settings checks. Exact-head hosted matrix
+  [run 40131614836](https://github.com/HorneroOS/shell/actions/runs/40131614836)
+  is currently running against `a325e1e`; the 25 pane captures are not yet
+  accepted. See the [latest PR evidence](https://github.com/HorneroOS/shell/pull/318#issuecomment-6389386564).
+  Keep the PR draft until this matrix completes successfully and all screenshots
+  are reviewed. Do not represent the official-catalogue PASS as community-registry
+  acceptance; production key custody and end-to-end community install/update/
+  rollback remain incomplete.
 - **Lock/session safety — BLOCKED.** The Shell refuses its stop/restart
   actions while locked and guards detectable competing lock requests. The
   orphaned-lock failure in [shell#24](https://github.com/HorneroOS/shell/issues/24)
