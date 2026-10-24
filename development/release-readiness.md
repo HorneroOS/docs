@@ -129,8 +129,13 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   governance/Danger, and CodeRabbit review are green on `e25ba78`; there are no
   unresolved review threads. Exact-head hosted matrix
   [run 40140797051](https://github.com/HorneroOS/shell/actions/runs/40140797051)
-  is running. See the
-  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6390610648).
+  was canceled after 25 minutes while the guest was compiling the native QML
+  plugin (the last build progress was 48%). Its artifact contains no pane
+  captures; `assertions.json` says `session start`, which does not match the last
+  emitted build output, so the diagnosis is inconclusive. Fresh exact-head run
+  [40142966617](https://github.com/HorneroOS/shell/actions/runs/40142966617) is
+  in progress. See the
+  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6390908312).
   Keep merge blocked until this matrix completes successfully and all screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
