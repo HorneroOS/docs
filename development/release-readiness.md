@@ -114,7 +114,7 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   Exact-head graphical matrix
   [run 40135011018](https://github.com/HorneroOS/shell/actions/runs/40135011018)
   is running on `06bbfd5`; screenshot acceptance is still pending. See the
-  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6389768896).
+  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6389866452).
   Keep merge blocked until this matrix completes successfully and all screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
