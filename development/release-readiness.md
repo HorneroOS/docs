@@ -104,9 +104,9 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   [run 40131614836](https://github.com/HorneroOS/shell/actions/runs/40131614836)
   failed before pane capture: the qs CLI emitted a Qt locale warning before
   the valid `{"open":false,"page":"start"}` JSON, and the smoke script passed
-  both lines directly to `jq`. Shell #318 commit `a21c7d7` extracts the last
-  JSON object from IPC output and tests warning and no-JSON cases. Hosted matrix
-  [run 40134380723](https://github.com/HorneroOS/shell/actions/runs/40134380723)
+  both lines directly to `jq`. Rebased Shell #318 commit `78877c2` extracts
+  the last JSON object from IPC output and tests warning and no-JSON cases.
+  Hosted matrix [run 40134380723](https://github.com/HorneroOS/shell/actions/runs/40134380723)
   was superseded after a governance check rejected its merge-commit history.
   The PR was rebased with authored commits preserved; a security review also
   reduced the VM workflow's token to contents-read, as the organization default
