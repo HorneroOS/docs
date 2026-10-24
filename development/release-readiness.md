@@ -199,8 +199,10 @@ uv run hornero-qa inspect <run-id>
 The current scenario validates a ready image. QA#19 must add and accept the
 install-to-first-boot matrix before this proves an installed ISO.
 
-To reproduce the latest live-image runtime check in a disposable guest, use
-working DNS and run:
+The following historical live-image runtime check was run on 2026-10-23. See
+the newer [R11 validation record](https://github.com/HorneroOS/installer/blob/main/docs/r11-validation.md)
+for current evidence. To reproduce the historical check in a disposable guest,
+use working DNS and run:
 
 ```sh
 getent ahostsv4 archive.archlinux.org
@@ -212,8 +214,8 @@ calamares
 The 2026-10-23 test resolved the mirror to `49.12.124.107` and received HTTP
 301. The packages reported `qt6-base 6.11.2-3` and `calamares 3.4.3-1`; the
 last command reported that the Calamares binary requires `Qt_6.12`, which the
-live Qt library does not provide. This reproduces the blocker. It is not an
-installation acceptance pass.
+live Qt library did not provide in that image. This records the superseded
+runtime incompatibility and is not an installation acceptance pass.
 
 ### Compositors
 
