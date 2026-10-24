@@ -5,43 +5,43 @@ preview. A gate is PASS only when the evidence below exists for the exact
 candidate composition; source tests and maintainer-host checks do not prove
 installed-system acceptance.
 
-Last reviewed: 2026-10-23.
+Last reviewed: 2026-10-24.
 
 Current candidate: [`hornero-0.2.0-preview20`][candidate], selected by
 [`manifests/candidate`][candidate-pointer]. It pins Shell
-`2fcc59de53fa7761b6958fc87e65123a7296af6d` and Config
-`f95b1f51aefc4e42f642a3fc84759822c6c0f74d`. The composition workflow passed
-at [run 39695291293][composition-run]. That validates composition, not an ISO
-or installed system.
+`248f0c9dd020f5b83bad71503ecc488a6d0d6857` and Config
+`64557c05ecf368fb3d5ed6ced69bc5e05901edbe`. Composition and pin-freshness
+checks passed at [run 40074263763][composition-run]. This validates the
+manifest, not exact-pin QA, an ISO, or an installed system.
 
 [candidate]: https://github.com/HorneroOS/hornero/blob/main/manifests/v0.2.0-preview20.yaml
 [candidate-pointer]: https://github.com/HorneroOS/hornero/blob/main/manifests/candidate
-[composition-run]: https://github.com/HorneroOS/hornero/actions/runs/39695291293
+[composition-run]: https://github.com/HorneroOS/hornero/actions/runs/40074263763
 
 ## Gates
 
 - **ISO installs on clean hardware/VM — BLOCKED.** Panda Foss owns the
-  official installer and has not provided install-to-first-boot acceptance.
-  Installer [issue #11](https://github.com/HorneroOS/installer/issues/11) is
-  still open. A fresh unsigned provisional image built from installer main
-  booted to the live desktop in disposable UEFI and legacy-BIOS VMs. Initial
-  runs stopped at the network/DNS preflight. A follow-up UEFI run with working
-  rootless VM networking resolved the Arch mirror, but Calamares could not
-  start because it requires Qt 6.12 while the live image has Qt 6.11.2. No
-  target was installed. The builder must be synchronized to the locked Arch
-  snapshot before producing another image. The tested ISO used installer
-  revision `78a292ec00c7eee989c68b40054580dff805270f`, product revision
-  `7471351cbe26e2a8754fd1bd9c5f4a2b984115ad`, and Calamares 3.4.3. Its SHA-256
-  is `fde2e6f54f33c341afa6fa87a26cff86740f58e48d8b3ea949cafff35281a2a1`.
-  It remains unsigned. See the runtime evidence and the pending builder fix
-  in [issue #11](https://github.com/HorneroOS/installer/issues/11) and
-  [installer#17](https://github.com/HorneroOS/installer/pull/17).
-  QA [issue #19](https://github.com/HorneroOS/qa/issues/19) tracks the full
-  install scenarios. This image is not a release artifact.
-- **Boot to desktop after installation — BLOCKED.** No passing QA run exists
-  for preview20 installed from an ISO in both UEFI and legacy BIOS. The
-  existing `smoke/desktop-ready` scenario checks a prepared QA image; it does
-  not prove a completed installation.
+  official installer and its acceptance. On 2026-10-24, an unsigned
+  provisional ISO built from installer revision
+  `cfc0ca2d7cdbd63806f9c8f1825e6d25fc44f839`, product revision
+  `03476d8bc71626648434587470064e2b82b88463`, and Calamares 3.4.3 completed
+  encrypted installations in disposable UEFI and legacy-BIOS VMs. Cancellation
+  and successful-install cleanup removed temporary target mounts. BIOS first
+  login reached the installed desktop; UEFI reached the login screen, but
+  authentication was not verified. Installed package/profile parity and
+  cleanup after a simulated package-install failure remain unverified. The
+  ISO SHA-256 is
+  `93d70f47327d019dadd546eadf6169b93b7627589665190e2f7981b25a04427f`; it is
+  unsigned, unpublished, and does not establish acceptance for the exact
+  preview20 candidate. See the [R11 validation record](https://github.com/HorneroOS/installer/blob/main/docs/r11-validation.md),
+  installer [issue #11](https://github.com/HorneroOS/installer/issues/11),
+  and QA [issue #19](https://github.com/HorneroOS/qa/issues/19).
+- **Boot to desktop after installation — BLOCKED.** Legacy BIOS reached an
+  authenticated desktop on the R11 provisional ISO. UEFI authentication is
+  still unverified, and QA has not produced a passing install-to-first-boot
+  run against the exact preview20 candidate. The existing
+  `smoke/desktop-ready` scenario checks a prepared QA image; it does not prove
+  a completed installation.
 - **Compositor support matrix — FAIL.** Hyprland is the validated default.
   Niri remains experimental and has no candidate-release parity acceptance.
 - **Package integrity — FAIL.**
@@ -91,8 +91,13 @@ or installed system.
   separate community-index phase remains open in
   [shell#251](https://github.com/HorneroOS/shell/issues/251): production
   registry-key custody and end-to-end consumption of a verified community
-  index are not complete. Do not represent the official-catalogue PASS as
-  community-registry acceptance.
+  index are not complete. Shell
+  [#318](https://github.com/HorneroOS/shell/pull/318) adds verified community
+  entries to Control Center. Its first hosted graphical-matrix attempt failed
+  before pane capture in [run 40078012370](https://github.com/HorneroOS/shell/actions/runs/40078012370):
+  the Terminal settings IPC call succeeded, then `hyprctl activewindow` timed
+  out. The failed job is being rerun. The PR has not merged. Do not represent
+  the official-catalogue PASS as community-registry acceptance.
 - **Lock/session safety — FAIL.** The Shell refuses its stop/restart actions
   while locked, but recovery after a Shell crash while locked remains open in
   [shell#257](https://github.com/HorneroOS/shell/issues/257). The lock surface
@@ -103,11 +108,13 @@ or installed system.
   delegates remain unverified. Track
   [shell#221](https://github.com/HorneroOS/shell/issues/221) and the
   [2026-10-21 shell accessibility inventory](https://github.com/HorneroOS/shell/blob/main/docs/a11y-audit-2026-10-21.md).
-  Draft [shell#310](https://github.com/HorneroOS/shell/pull/310) adds a
-  persisted shell high-contrast palette; all current CI checks pass, but the
-  PR remains draft until rendered review and the Orca task pass are recorded.
-  Greeter [#37](https://github.com/HorneroOS/greeter/pull/37) also has green
-  CI but still needs graphical and Qt Virtual Keyboard acceptance.
+  Shell [#310](https://github.com/HorneroOS/shell/pull/310) has green CI and
+  visual evidence for its persisted high-contrast palette; the PR is open and
+  the Orca task remains unverified. Greeter
+  [#37](https://github.com/HorneroOS/greeter/pull/37) is merged with large
+  text, high contrast, and optional virtual-keyboard controls. Qt 6 SDDM preview
+  and AT-SPI control checks passed locally, but no screen-reader task-completion
+  or candidate-image acceptance has been recorded.
 - **PluginKit runtime acceptance — BLOCKED.** Shell
   [#312](https://github.com/HorneroOS/shell/pull/312) has green CI for the
   public PluginKit and desktop widget slots, but runtime loading, persistence
@@ -130,10 +137,11 @@ or installed system.
 - **Repository governance CI — PASS.** Installer issue
   [#14](https://github.com/HorneroOS/installer/issues/14) is closed after
   [installer#15](https://github.com/HorneroOS/installer/pull/15) aligned the
-  governance pin. The latest installer main checks
-  [39988724178](https://github.com/HorneroOS/installer/actions/runs/39988724178)
-  and [39988724180](https://github.com/HorneroOS/installer/actions/runs/39988724180)
-  passed. This says nothing about ISO installation acceptance.
+  governance pin. Installer PR #24's evidence correction and merge to main
+  passed CI in
+  [run 40071650350](https://github.com/HorneroOS/installer/actions/runs/40071650350)
+  and [run 40071650330](https://github.com/HorneroOS/installer/actions/runs/40071650330).
+  This says nothing about ISO installation acceptance.
 - **QA acceptance — FAIL.** The preview20 checklist still has unchecked
   exact-pin VM and Hornero QA gates. See the
   [candidate checklist](https://github.com/HorneroOS/hornero/blob/main/releases/v0.2.0-preview20-checklist.md),
@@ -191,8 +199,10 @@ uv run hornero-qa inspect <run-id>
 The current scenario validates a ready image. QA#19 must add and accept the
 install-to-first-boot matrix before this proves an installed ISO.
 
-To reproduce the latest live-image runtime check in a disposable guest, use
-working DNS and run:
+The following historical live-image runtime check was run on 2026-10-23. See
+the newer [R11 validation record](https://github.com/HorneroOS/installer/blob/main/docs/r11-validation.md)
+for current evidence. To reproduce the historical check in a disposable guest,
+use working DNS and run:
 
 ```sh
 getent ahostsv4 archive.archlinux.org
@@ -204,8 +214,8 @@ calamares
 The 2026-10-23 test resolved the mirror to `49.12.124.107` and received HTTP
 301. The packages reported `qt6-base 6.11.2-3` and `calamares 3.4.3-1`; the
 last command reported that the Calamares binary requires `Qt_6.12`, which the
-live Qt library does not provide. This reproduces the blocker. It is not an
-installation acceptance pass.
+live Qt library did not provide in that image. This records the superseded
+runtime incompatibility and is not an installation acceptance pass.
 
 ### Compositors
 
