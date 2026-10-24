@@ -102,8 +102,13 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   before Settings navigation and verifies that the fresh VM has dismissed it
   before Settings checks. Exact-head hosted matrix
   [run 40131614836](https://github.com/HorneroOS/shell/actions/runs/40131614836)
-  is currently running against `a325e1e`; the 25 pane captures are not yet
-  accepted. See the [latest PR evidence](https://github.com/HorneroOS/shell/pull/318#issuecomment-6389386564).
+  failed before pane capture: the qs CLI emitted a Qt locale warning before
+  the valid `{"open":false,"page":"start"}` JSON, and the smoke script passed
+  both lines directly to `jq`. Shell #318 commit `a21c7d7` extracts the last
+  JSON object from IPC output and tests warning and no-JSON cases. Hosted matrix
+  [run 40134380723](https://github.com/HorneroOS/shell/actions/runs/40134380723)
+  is running on exact head `a21c7d7`; screenshot acceptance is still pending.
+  See the [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6389768896).
   Keep the PR draft until this matrix completes successfully and all screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
