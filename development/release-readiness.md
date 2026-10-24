@@ -107,9 +107,15 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   both lines directly to `jq`. Shell #318 commit `a21c7d7` extracts the last
   JSON object from IPC output and tests warning and no-JSON cases. Hosted matrix
   [run 40134380723](https://github.com/HorneroOS/shell/actions/runs/40134380723)
-  is running on exact head `a21c7d7`; screenshot acceptance is still pending.
-  See the [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6389768896).
-  Keep the PR draft until this matrix completes successfully and all screenshots
+  was superseded after a governance check rejected its merge-commit history.
+  The PR was rebased with authored commits preserved; a security review also
+  reduced the VM workflow's token to contents-read, as the organization default
+  was write. CI is green on the current head except for CodeRabbit review.
+  Exact-head graphical matrix
+  [run 40135011018](https://github.com/HorneroOS/shell/actions/runs/40135011018)
+  is running on `06bbfd5`; screenshot acceptance is still pending. See the
+  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6389768896).
+  Keep merge blocked until this matrix completes successfully and all screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
   rollback remain incomplete.
