@@ -126,10 +126,11 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   repeated the spinner after 78 seconds, despite the timeout fix in `e59026f`.
   Commit `e25ba78` binds the timeout to the loading/process state instead of
   restarting it imperatively. Build, tests, QML, lint, harness-lint, smoke-dryrun,
-  and governance/Danger are now starting on `e25ba78`; the next exact-head matrix
-  will follow those checks. CodeRabbit reports review rate limiting; all prior
-  actionable threads are resolved. See the
-  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6390561794).
+  governance/Danger, and CodeRabbit review are green on `e25ba78`; there are no
+  unresolved review threads. Exact-head hosted matrix
+  [run 40140797051](https://github.com/HorneroOS/shell/actions/runs/40140797051)
+  is running. See the
+  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6390610648).
   Keep merge blocked until this matrix completes successfully and all screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
