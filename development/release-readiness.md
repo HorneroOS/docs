@@ -93,17 +93,77 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   registry-key custody and end-to-end consumption of a verified community
   index are not complete. Shell
   [#318](https://github.com/HorneroOS/shell/pull/318) adds verified community
-  entries to Control Center. The latest hosted graphical matrix failed in
-  [run 40114947064](https://github.com/HorneroOS/shell/actions/runs/40114947064)
-  at head `a14a325f7adc30ba79eaa2e9e183e214a3250ce8`: the Terminal Settings
-  window opened but its content stayed blank with a loading indicator, and
-  none of the 25 pane screenshots were captured. The runtime log showed no
-  Terminal-specific QML error, so the cause remains undiagnosed. Earlier runs
-  exposed different crash and IPC-stall signatures; see the
-  [PR follow-up](https://github.com/HorneroOS/shell/pull/318#issuecomment-6387625515).
-  Keep the PR draft until a cause-specific fix, a passing exact-head graphical
-  matrix, and screenshot review. Do not represent the official-catalogue PASS
-  as community-registry acceptance.
+  entries to Control Center. The Terminal Settings timeout is fixed in
+  [shell#321](https://github.com/HorneroOS/shell/pull/321), whose checks pass.
+  Hosted matrix [run 40129324336](https://github.com/HorneroOS/shell/actions/runs/40129324336)
+  then exposed a separate first-login Welcome overlay: its top-level window
+  covered Settings, and cursor animation made an inadequate pixel-diversity
+  check accept the wrong screen. Shell #318 commit `a325e1e` closes Welcome
+  before Settings navigation and verifies that the fresh VM has dismissed it
+  before Settings checks. Exact-head hosted matrix
+  [run 40131614836](https://github.com/HorneroOS/shell/actions/runs/40131614836)
+  failed before pane capture: the qs CLI emitted a Qt locale warning before
+  the valid `{"open":false,"page":"start"}` JSON, and the smoke script passed
+  both lines directly to `jq`. Rebased Shell #318 commit `78877c2` extracts
+  the last JSON object from IPC output and tests warning and no-JSON cases.
+  Hosted matrix [run 40134380723](https://github.com/HorneroOS/shell/actions/runs/40134380723)
+  was superseded after a governance check rejected its merge-commit history.
+  The PR was rebased with authored commits preserved; a security review also
+  reduced the VM workflow's token to contents-read, as the organization default
+  was write. Exact-head matrix
+  [run 40136330518](https://github.com/HorneroOS/shell/actions/runs/40136330518)
+  failed at the first Terminal Settings capture: the CLI preflight passed, but
+  the pane remained on its loading spinner. Shell #318 commit `b5048dd` fixed
+  bounded process termination, Welcome handling when Settings allocation fails,
+  VM capture environment expansion, SSH diagnostic timeouts, a QEMU socket-test
+  race, and checkout credential persistence. The failed capture exposed a further
+  edge case: the timer returned early when the process was no longer running,
+  leaving loading stuck if no response or exit signal arrived. Commit `e59026f`
+  reports a timeout in that state and signals only a live process. The focused
+  pane suite (37 tests) and pre-commit pass; the full suite previously passed 641
+  tests with Pillow available. Matrix
+  [40138798423](https://github.com/HorneroOS/shell/actions/runs/40138798423)
+  repeated the spinner after 78 seconds, despite the timeout fix in `e59026f`.
+  Commit `e25ba78` binds the timeout to the loading/process state instead of
+  restarting it imperatively. Build, tests, QML, lint, harness-lint, smoke-dryrun,
+  governance/Danger, and CodeRabbit review are green on `e25ba78`; there are no
+  unresolved review threads. Exact-head hosted matrix
+  [run 40140797051](https://github.com/HorneroOS/shell/actions/runs/40140797051)
+  was canceled after 25 minutes while the guest was compiling the native QML
+  plugin (the last build progress was 48%). Its artifact contains no pane
+  captures; `assertions.json` says `session start`, which does not match the last
+  emitted build output, so the diagnosis is inconclusive. Fresh exact-head run
+  [40142966617](https://github.com/HorneroOS/shell/actions/runs/40142966617)
+  failed at the first Terminal Settings screenshot: the window title and
+  navigation rendered, but the pane content region remained empty. Review traced
+  this to the translated `ColumnLayout` in `Panes.qml` having no explicit width
+  or height; implicit child sizes did not give the layout actual geometry. Shell
+  #318 commit `e02b2ae` sets the stack to the viewport width and full implicit
+  stack height, with a regression test. Full suite (642 tests), QML lint,
+  pre-commit, CMake build, and repository hygiene scans pass on that commit.
+  Exact-head matrix
+  [40145172696](https://github.com/HorneroOS/shell/actions/runs/40145172696)
+  demonstrated that this fix was incomplete. Visual review found its smoke
+  screenshot was the desktop wallpaper empty state, Network displayed Appearance
+  content under a Network title, and Bluetooth had an empty content region; the
+  previous color/difference checks had accepted the first two. Commit `ddd67cf`
+  replaces implicit layout sizing with a viewport-sized page stack and explicit
+  per-pane positions/dimensions. Matrix
+  [40147893239](https://github.com/HorneroOS/shell/actions/runs/40147893239)
+  confirmed that this still did not render Terminal or Bluetooth contents.
+  Run
+  [40150595999](https://github.com/HorneroOS/shell/actions/runs/40150595999)
+  showed that the active Terminal page and loaded item both match the viewport
+  geometry and the Loader is Ready, yet the page contents are blank. Commit
+  `1b917b9` adds diagnostics for TerminalPane's inner surface, Flickable, content
+  layout, header, and section. Exact-head diagnostic matrix
+  [40152601907](https://github.com/HorneroOS/shell/actions/runs/40152601907)
+  is queued. See the
+  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6392198620).
+  Keep merge blocked until this matrix completes successfully and all 25 screenshots
+  are reviewed. Do not represent the official-catalogue PASS as community-registry
+  acceptance; production key custody and end-to-end community install/update/
+  rollback remain incomplete.
 - **Lock/session safety — BLOCKED.** The Shell refuses its stop/restart
   actions while locked and guards detectable competing lock requests. The
   orphaned-lock failure in [shell#24](https://github.com/HorneroOS/shell/issues/24)
