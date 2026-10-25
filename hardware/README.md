@@ -30,6 +30,9 @@ journalctl -b -k -p warning
 These commands inspect state. They do not install drivers or change your
 boot configuration.
 
+For creative hardware and Studio performance boundaries, see
+[Studio hardware](studio.md).
+
 ## NVIDIA and hybrid graphics
 
 Driver and PRIME setup depends on the GPU generation, kernel package, laptop
