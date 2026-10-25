@@ -69,7 +69,13 @@ python3 scripts/resolve-edition.py desktop --compositor niri --json
 python3 scripts/resolve-edition.py server --json
 python3 scripts/resolve-edition.py agents --json
 python3 scripts/resolve-edition.py studio --compositor hyprland --json
+python3 scripts/resolve-edition.py studio \
+  --specialization audio-music-production --application reaper
 ```
+
+Studio selections are composable: specializations and individual
+applications resolve to a deterministic, provenance-carrying plan (see
+[Studio applications](../applications/studio.md)).
 
 Package resolution is an architecture check. A product becomes installable
 only after its services, runtime behavior, recovery, image or install path,
