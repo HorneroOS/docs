@@ -151,11 +151,15 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   per-pane positions/dimensions. Matrix
   [40147893239](https://github.com/HorneroOS/shell/actions/runs/40147893239)
   confirmed that this still did not render Terminal or Bluetooth contents.
-  Commit `c56c8a1` adds active pane, Loader status, and viewport geometry
-  diagnostics. Exact-head matrix
+  Run
   [40150595999](https://github.com/HorneroOS/shell/actions/runs/40150595999)
-  is running. See the
-  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391932361).
+  showed that the active Terminal page and loaded item both match the viewport
+  geometry and the Loader is Ready, yet the page contents are blank. Commit
+  `1b917b9` adds diagnostics for TerminalPane's inner surface, Flickable, content
+  layout, header, and section. Exact-head diagnostic matrix
+  [40152601907](https://github.com/HorneroOS/shell/actions/runs/40152601907)
+  is queued. See the
+  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6392198620).
   Keep merge blocked until this matrix completes successfully and all 25 screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
