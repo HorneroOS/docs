@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@2127415d6d7eca5bb7148eebe0177199bfec657d
+# horneroctl command paths, generated from HorneroOS/hornero@518c451b44d4d240370cc1423ad99df466f14679
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -207,6 +207,7 @@ package updates
 package upgrade
 plugin
 plugin catalog
+plugin community
 plugin disable
 plugin enable
 plugin new
@@ -228,6 +229,11 @@ shell restart
 shell start
 shell status
 shell stop
+studio
+studio doctor
+studio selection
+studio selection set
+studio selection show
 system
 system info
 version

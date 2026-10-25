@@ -89,6 +89,8 @@ running its provisioning commands.
 - [Media and audio](media-audio.md) — PipeWire, volume controls, MPRIS, and players.
 - [Studio applications](studio.md) — verified source, license, and
   support matrix for the Planned Studio edition.
+- [Studio audio](studio-audio.md) — mode setup, routing, and
+  recovery for the Planned Studio edition.
 - [Screenshots and recording](capture.md) — screenshot and recording backends.
 - [Connectivity](connectivity.md) — NetworkManager, Bluetooth, and VPN providers.
 - [System utilities](system-utilities.md) — Git, Fastfetch, btop, Cava, and
