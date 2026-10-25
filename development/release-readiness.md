@@ -151,7 +151,7 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   per-pane positions/dimensions. Fresh exact-head matrix
   [40147893239](https://github.com/HorneroOS/shell/actions/runs/40147893239)
   is queued. See the
-  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391390701).
+  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391567721).
   Keep merge blocked until this matrix completes successfully and all 25 screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
