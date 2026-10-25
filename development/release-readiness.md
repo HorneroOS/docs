@@ -141,10 +141,17 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   #318 commit `e02b2ae` sets the stack to the viewport width and full implicit
   stack height, with a regression test. Full suite (642 tests), QML lint,
   pre-commit, CMake build, and repository hygiene scans pass on that commit.
-  Fresh exact-head hosted matrix
+  Exact-head matrix
   [40145172696](https://github.com/HorneroOS/shell/actions/runs/40145172696)
-  is running. See the
-  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391188103).
+  demonstrated that this fix was incomplete. Visual review found its smoke
+  screenshot was the desktop wallpaper empty state, Network displayed Appearance
+  content under a Network title, and Bluetooth had an empty content region; the
+  previous color/difference checks had accepted the first two. Commit `ddd67cf`
+  replaces implicit layout sizing with a viewport-sized page stack and explicit
+  per-pane positions/dimensions. Fresh exact-head matrix
+  [40147893239](https://github.com/HorneroOS/shell/actions/runs/40147893239)
+  is queued. See the
+  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391390701).
   Keep merge blocked until this matrix completes successfully and all 25 screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
