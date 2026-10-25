@@ -133,10 +133,19 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   plugin (the last build progress was 48%). Its artifact contains no pane
   captures; `assertions.json` says `session start`, which does not match the last
   emitted build output, so the diagnosis is inconclusive. Fresh exact-head run
-  [40142966617](https://github.com/HorneroOS/shell/actions/runs/40142966617) is
-  in progress. See the
-  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6390908312).
-  Keep merge blocked until this matrix completes successfully and all screenshots
+  [40142966617](https://github.com/HorneroOS/shell/actions/runs/40142966617)
+  failed at the first Terminal Settings screenshot: the window title and
+  navigation rendered, but the pane content region remained empty. Review traced
+  this to the translated `ColumnLayout` in `Panes.qml` having no explicit width
+  or height; implicit child sizes did not give the layout actual geometry. Shell
+  #318 commit `e02b2ae` sets the stack to the viewport width and full implicit
+  stack height, with a regression test. Full suite (642 tests), QML lint,
+  pre-commit, CMake build, and repository hygiene scans pass on that commit.
+  Fresh exact-head hosted matrix
+  [40145172696](https://github.com/HorneroOS/shell/actions/runs/40145172696)
+  is running. See the
+  [latest PR evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391188103).
+  Keep merge blocked until this matrix completes successfully and all 25 screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
   rollback remain incomplete.
