@@ -148,10 +148,14 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   content under a Network title, and Bluetooth had an empty content region; the
   previous color/difference checks had accepted the first two. Commit `ddd67cf`
   replaces implicit layout sizing with a viewport-sized page stack and explicit
-  per-pane positions/dimensions. Fresh exact-head matrix
+  per-pane positions/dimensions. Matrix
   [40147893239](https://github.com/HorneroOS/shell/actions/runs/40147893239)
-  is queued. See the
-  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391567721).
+  confirmed that this still did not render Terminal or Bluetooth contents.
+  Commit `c56c8a1` adds active pane, Loader status, and viewport geometry
+  diagnostics. Exact-head matrix
+  [40150595999](https://github.com/HorneroOS/shell/actions/runs/40150595999)
+  is running. See the
+  [latest issue evidence](https://github.com/HorneroOS/shell/issues/251#issuecomment-6391932361).
   Keep merge blocked until this matrix completes successfully and all 25 screenshots
   are reviewed. Do not represent the official-catalogue PASS as community-registry
   acceptance; production key custody and end-to-end community install/update/
