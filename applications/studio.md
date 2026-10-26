@@ -8,9 +8,10 @@ catalogue disagree, the catalogue wins and this page is stale.
 
 **Last verified: 2026-10-25** against the
 [Arch package index](https://archlinux.org/packages/). Package presence is
-not Hornero support: Studio is **Planned**, no application below is
-QA-validated by Hornero yet, and no row promises that an app installs,
-runs, or is supported on any hardware.
+not Hornero support: Studio is a **Preview** edition (maintainer
+decision in HorneroOS/hornero#318), no application below is
+QA-validated by Hornero on physical hardware yet, and no row promises
+that an app installs, runs, or is supported on any hardware.
 
 ## Matrix
 
