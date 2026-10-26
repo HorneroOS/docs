@@ -2,9 +2,9 @@
 
 How Studio audio works on HorneroOS: the mode contract, the portable
 policy profiles, day-to-day routing, and how to recover when something
-sounds wrong. Studio is **Planned** — this guide describes the reviewed
-contracts and configuration that exist today, not QA-validated support
-for any specific interface.
+sounds wrong. Studio is a **Preview** edition — this guide describes
+the reviewed contracts and configuration that exist today, not
+QA-validated support for any specific interface.
 
 Source contracts, in ownership order:
 

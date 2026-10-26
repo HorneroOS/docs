@@ -2,10 +2,12 @@
 
 From a fresh HorneroOS desktop to a first creative project with the
 Studio selection you actually want — nothing more installed than you
-chose. Studio is **Planned**: today you record selections and apply
-reviewed configuration building blocks; package installation through
-the installer arrives with the Studio preview gates, and no step here
-claims otherwise.
+chose. Studio is a **Preview** edition: the Preview ISO installer
+installs the applications for the specializations you select, and
+`horneroctl studio` records and applies reviewed configuration
+building blocks. Post-install package changes through `horneroctl`
+remain recorded intent in this preview, and no step here claims
+otherwise.
 
 ## 1. Pick your workloads
 
