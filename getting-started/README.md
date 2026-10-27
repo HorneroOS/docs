@@ -18,8 +18,9 @@ supported release.
 
 Verify every copy before writing it to media:
 
+The public key comes straight from the release tag, no checkout needed:
+
 ```sh
-# The public key, straight from the release tag (no checkout needed):
 key_base="https://raw.githubusercontent.com/HorneroOS/hornero"
 curl -fsSL \
   "$key_base/v0.2.0-preview22/packaging/keys/hornero-release.pub.asc" \
