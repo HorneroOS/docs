@@ -56,9 +56,10 @@ sudo dd if=horneroos-2026.10-preview22-x86_64.iso of=/dev/sdX bs=4M \
   status=progress conv=fsync
 ```
 
-Boot from the stick and follow the Calamares steps. Report installation problems in
-the [HorneroOS/installer issue chooser](https://github.com/HorneroOS/installer/issues/new/choose)
-with the ISO name, your firmware (UEFI or BIOS), whether the disk is
+Boot from the stick and follow the Calamares steps. Report installation
+problems in the [HorneroOS/installer issue
+chooser](https://github.com/HorneroOS/installer/issues/new/choose) with
+the ISO name, your firmware (UEFI or BIOS), whether the disk is
 encrypted, and the step where it failed.
 
 Individual components are also packaged for people already running Arch
