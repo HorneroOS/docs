@@ -19,7 +19,8 @@ supported release.
 Verify every copy before writing it to media:
 
 ```sh
-gpg --import packaging/keys/hornero-release.pub.asc   # from HorneroOS/hornero
+# The public key, straight from the release tag (no checkout needed):
+curl -fsSL https://raw.githubusercontent.com/HorneroOS/hornero/v0.2.0-preview22/packaging/keys/hornero-release.pub.asc | gpg --import
 gpg --verify horneroos-2026.10-preview22-x86_64.iso.sig \
   horneroos-2026.10-preview22-x86_64.iso
 sha256sum -c horneroos-2026.10-preview22-x86_64.iso.sha256
@@ -43,9 +44,15 @@ sha256sum -c horneroos-2026.10-preview22-x86_64.iso.sha256
 - Panda Foss is developing the future official installer; the Calamares
   path in this ISO is a provisional bridge.
 
-Write the ISO to a USB stick with a tool you trust (for example
-`dd if=horneroos-2026.10-preview22-x86_64.iso of=/dev/sdX bs=4M status=progress`),
-boot it, and follow the Calamares steps. Report installation problems in
+Write the ISO to a USB stick with a graphical writer you trust, or with
+`dd`. With `dd`, first confirm the whole-disk device with `lsblk` (writing
+to the wrong device destroys its data), then run it with privileges:
+
+```sh
+sudo dd if=horneroos-2026.10-preview22-x86_64.iso of=/dev/sdX bs=4M status=progress conv=fsync
+```
+
+Boot from the stick and follow the Calamares steps. Report installation problems in
 the [HorneroOS/installer issue chooser](https://github.com/HorneroOS/installer/issues/new/choose)
 with the ISO name, your firmware (UEFI or BIOS), whether the disk is
 encrypted, and the step where it failed.
