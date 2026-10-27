@@ -1,39 +1,40 @@
 # Release readiness checklist
 
-**Status: NOT READY for a public launch.** HorneroOS remains a development
-preview. A gate is PASS only when the evidence below exists for the exact
-candidate composition; source tests and maintainer-host checks do not prove
+**Status: Preview published; NOT READY for a stable launch.**
+`v0.2.0-preview22` is published as a signed Preview ISO (Desktop and
+Studio Preview). The stable-launch gates below remain open. A gate is
+PASS only when the evidence below exists for the exact candidate
+composition; source tests and maintainer-host checks do not prove
 installed-system acceptance.
 
-Last reviewed: 2026-10-24.
+Last reviewed: 2026-10-26.
 
-Current candidate: [`hornero-0.2.0-preview20`][candidate], selected by
-[`manifests/candidate`][candidate-pointer]. It pins Shell
-`248f0c9dd020f5b83bad71503ecc488a6d0d6857` and Config
-`64557c05ecf368fb3d5ed6ced69bc5e05901edbe`. Composition and pin-freshness
-checks passed at [run 40074263763][composition-run]. This validates the
-manifest, not exact-pin QA, an ISO, or an installed system.
+Current published release: [`hornero-0.2.0-preview22`][candidate],
+selected by [`manifests/candidate`][candidate-pointer] (product
+`bcc53ede593d54f6b9e7562a50cf6c620e56b275`, installer
+`c8fbc359843c2249945adf0091d732c628330d8f`). Its ISO passed the
+virtual-machine installation matrix on the preview21 composition
+carried forward, with the cancel-cleanup scenario retested end to end;
+see the [preview22 checklist](https://github.com/HorneroOS/hornero/blob/main/releases/v0.2.0-preview22-checklist.md).
 
-[candidate]: https://github.com/HorneroOS/hornero/blob/main/manifests/v0.2.0-preview20.yaml
+[candidate]: https://github.com/HorneroOS/hornero/blob/main/manifests/v0.2.0-preview22.yaml
 [candidate-pointer]: https://github.com/HorneroOS/hornero/blob/main/manifests/candidate
-[composition-run]: https://github.com/HorneroOS/hornero/actions/runs/40074263763
 
 ## Gates
 
-- **ISO installs on clean hardware/VM — BLOCKED.** Panda Foss owns the
-  official installer and its acceptance. On 2026-10-24, an unsigned
-  provisional ISO built from installer revision
-  `cfc0ca2d7cdbd63806f9c8f1825e6d25fc44f839`, product revision
-  `03476d8bc71626648434587470064e2b82b88463`, and Calamares 3.4.3 completed
-  encrypted installations in disposable UEFI and legacy-BIOS VMs. Cancellation
-  and successful-install cleanup removed temporary target mounts. BIOS first
-  login reached the installed desktop; UEFI reached the login screen, but
-  authentication was not verified. Installed package/profile parity and
-  cleanup after a simulated package-install failure remain unverified. The
-  ISO SHA-256 is
-  `93d70f47327d019dadd546eadf6169b93b7627589665190e2f7981b25a04427f`; it is
-  unsigned, unpublished, and does not establish acceptance for the exact
-  preview20 candidate. See the [R11 validation record](https://github.com/HorneroOS/installer/blob/main/docs/r11-validation.md),
+- **ISO installs on clean hardware/VM — PARTIAL (VM PASS, hardware BLOCKED).**
+  Panda Foss owns the official installer and its acceptance. The
+  published v0.2.0-preview22 ISO (SHA-256
+  `38ec76d7c9c10ea3e956b2c9f2d8d420e3d09b61899dc453a2858622d7e90bd2`)
+  is signed with the HorneroOS releases key
+  `FCFBEE43925AB5429362278AE59EAB44AA2498DC` and published; its Desktop
+  and Studio install matrix (UEFI and legacy BIOS, encrypted and
+  unencrypted) passed in disposable VMs on the preview21 composition
+  carried forward. Cancellation and successful-install cleanup removed
+  temporary target mounts. BIOS first login reached the installed
+  desktop; UEFI reached the login screen, but authentication was not
+  verified. Installed package/profile parity remains unverified. No
+  physical-hardware installation has been validated. See the [R11 validation record](https://github.com/HorneroOS/installer/blob/main/docs/r11-validation.md),
   installer [issue #11](https://github.com/HorneroOS/installer/issues/11),
   and QA [issue #19](https://github.com/HorneroOS/qa/issues/19).
 - **Boot to desktop after installation — BLOCKED.** Legacy BIOS reached an
@@ -50,8 +51,10 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   [hornero#275](https://github.com/HorneroOS/hornero/pull/275), and its CI
   smoke uses an ephemeral key. That does not prove that a published asset was
   signed with the production release key. No release public key or production
-  signing secret is provisioned, and no official signed release has been
-  verified. AUR checksums alone do not establish maintainer authenticity.
+  signing secret is provisioned (this text predates preview22; the
+  v0.2.0-preview22 ISO is signed with the HorneroOS releases key and the
+  public key is committed at `packaging/keys/hornero-release.pub.asc`).
+  AUR checksums alone do not establish maintainer authenticity.
 - **Safe updates and system rollback — FAIL.**
   [hornero#216](https://github.com/HorneroOS/hornero/pull/216) added read-only
   ownership lanes. The rollback backend
@@ -215,9 +218,9 @@ manifest, not exact-pin QA, an ISO, or an installed system.
   [run 40071650350](https://github.com/HorneroOS/installer/actions/runs/40071650350)
   and [run 40071650330](https://github.com/HorneroOS/installer/actions/runs/40071650330).
   This says nothing about ISO installation acceptance.
-- **QA acceptance — FAIL.** The preview20 checklist still has unchecked
+- **QA acceptance — FAIL.** The preview22 checklist still has unchecked
   exact-pin VM and Hornero QA gates. See the
-  [candidate checklist](https://github.com/HorneroOS/hornero/blob/main/releases/v0.2.0-preview20-checklist.md),
+  [candidate checklist](https://github.com/HorneroOS/hornero/blob/main/releases/v0.2.0-preview22-checklist.md),
   QA issues [#16](https://github.com/HorneroOS/qa/issues/16),
   [#18](https://github.com/HorneroOS/qa/issues/18), and
   [#19](https://github.com/HorneroOS/qa/issues/19). The latest successful fast
@@ -310,8 +313,9 @@ In `HorneroOS/hornero`:
 ./scripts/verify-release.sh <asset> [signature]
 ```
 
-The first command uses a throwaway key. The second is the release check; it
-currently lacks a committed public key until hornero#180 lands.
+The first command uses a throwaway key. The second is the release check;
+the production public key is committed at
+`packaging/keys/hornero-release.pub.asc` in HorneroOS/hornero.
 
 ### Updates and rollback
 
@@ -394,7 +398,7 @@ commit pinned by the website.
 
 In `HorneroOS/hornero`, run `tests/vm/smoke.sh`. In `HorneroOS/qa`, run
 `uv run hornero-qa run smoke/desktop-ready`. Both runs must identify the exact
-preview20 pins and attach their evidence. The Hornero script requires KVM and
+preview22 pins and attach their evidence. The Hornero script requires KVM and
 a prepared base image; `VM-SMOKE-SKIP` is not a pass. Only an exact-pin
 `VM-SMOKE-PASS` plus the candidate QA evidence counts. A prior or mutable-main
 run does not count.

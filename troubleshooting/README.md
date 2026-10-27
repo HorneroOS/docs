@@ -92,6 +92,16 @@ The [Hornero greeter repository](https://github.com/HorneroOS/greeter) owns
 the theme and packaging contract. Do not restart SDDM during a graphical
 session merely to test a theme.
 
+## Installation failures
+
+If the Preview ISO does not boot, the Calamares installer fails, or the
+first boot of that ISO does not reach a login, report it in the
+[HorneroOS/installer issue chooser](https://github.com/HorneroOS/installer/issues/new/choose)
+with the ISO name, your firmware (UEFI or BIOS), whether the disk is
+encrypted, and the step where it failed. Failures after that first
+boot (greeter, shell, desktop hardware, applications) belong to the
+owning component trackers below, not to the installer repository.
+
 ## Include this in a bug report
 
 - Relevant repo and component version.

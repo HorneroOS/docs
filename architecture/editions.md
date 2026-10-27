@@ -21,14 +21,16 @@ Base + server + agent-host             → Agents
 Base + desktop + studio                → Studio
 ```
 
-The same model is independent of the graphical installer. The installer is
-not yet a supported consumer, and HorneroOS does not currently publish
-installable ISO images.
+The same model feeds the graphical installer. The provisional Calamares
+installer in HorneroOS/installer consumes it to build the published,
+signed v0.2.0-preview22 Preview ISO; Panda Foss's custom installer is
+the future official path.
 
 ## Current maturity
 
-- **Desktop — Preview.** Real desktop product and package composition; no
-  supported installer or ISO.
+- **Desktop — Preview.** Real desktop product and package composition;
+  installs from the signed preview22 ISO via the provisional Calamares
+  path.
 - **Hyprland — Supported.** Validated default desktop session.
 - **Niri — Experimental.** A single-output VM journey is verified. See
   [Wayland compositors](../desktop/compositors.md) for the gaps.
@@ -37,8 +39,10 @@ installable ISO images.
 - **Agents — Planned.** Rootless Podman and systemd Quadlet are the direction;
   Hermes provisioning, isolation, secrets, lifecycle, and recovery are not
   certified.
-- **Studio — Planned.** A creative package set is described; audio, capture,
-  editing, hardware acceleration, and compositor workflows are not certified.
+- **Studio — Preview.** Installs from the same signed preview22 ISO with
+  selectable creative specializations; audio, capture, editing, hardware
+  acceleration, and compositor workflows are not certified, hardware QA
+  is blocked on approved fixtures, and Studio is not Supported.
 - **Labwc — Planned.** No Hornero backend or package set is offered.
 
 These labels describe product evidence, not whether an upstream package exists

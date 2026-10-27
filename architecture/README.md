@@ -1,8 +1,9 @@
 # Architecture
 
 Hornero is a set of collaborating repositories with explicit ownership. The
-full system is still in development; no single repository is an installable
-operating system. The [release ledger](https://github.com/HorneroOS/hornero/releases)
+repositories compose into the published, signed v0.2.0-preview22 Preview
+ISO (Desktop and Studio Preview); no single repository on its own is the
+installable operating system. The [release ledger](https://github.com/HorneroOS/hornero/releases)
 records which component revisions were composed together.
 
 ## Where a change belongs

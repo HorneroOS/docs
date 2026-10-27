@@ -142,11 +142,13 @@ and attribution in the owning repository.
 - HorneroOS updates exist for packages and components. There is
   no proven OS snapshot/rollback story; a chezmoi backup is
   config-only and must not be sold as OS rollback.
-- Installer: Calamares provisional, no ISO install acceptance.
-  Installer issue 11 is blocked on a builder disk guard
-  (52 GiB required vs ~29 GiB free); the ISO was not rebuilt
-  after the resolver fix. Official gates (issue 12) are not yet
-  agreed with the installer owner.
+- Installer: Calamares provisional; the signed v0.2.0-preview22 Preview
+  ISO is published and passed the VM install matrix (physical hardware
+  unvalidated). Installer issue 11 tracks the remaining install
+  acceptance. Official gates (issue 12) are not yet agreed with the
+  installer owner. (An earlier revision of this matrix recorded a
+  builder disk guard that blocked a rebuild; that build has since
+  completed.)
 
 ### Hardware, profiles, onboarding, dotfiles
 

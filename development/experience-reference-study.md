@@ -1,6 +1,9 @@
 # Desktop experience reference study
 
-> Checked against the public project sources on 2026-10-14. This is a
+> Checked against the public project sources on 2026-10-14.
+> **Superseded in part, 2026-10-26:** the signed v0.2.0-preview22 Preview
+> ISO is published and Studio is a Preview edition. Statements below
+> about no published ISO or Studio being planned describe 2026-10-14. This is a
 > product-engineering study, not a feature scorecard or a claim that the
 > projects have the same audience. Recheck linked sources before using this
 > page to make a release decision.
@@ -14,9 +17,10 @@ improve the product without copying another project's structure or identity.
 
 HorneroOS is an Arch-based operating-system family in development. Desktop is
 Wayland-first; Hyprland is its default validated compositor, while Niri remains
-experimental until its broader session matrix passes. The current product
-website says no installable ISO is published. Server, Agents, and Studio remain
-planned editions. These maturity boundaries are part of product quality and
+experimental until its broader session matrix passes. At the time, the product
+website said no installable ISO was published, and Server, Agents, and Studio
+were planned editions (Studio is now Preview; the preview22 ISO is
+published). These maturity boundaries are part of product quality and
 must stay visible in docs and marketing.
 
 The desktop already has a composed identity: a Quickshell-based UI, an
