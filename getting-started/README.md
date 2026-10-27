@@ -20,7 +20,10 @@ Verify every copy before writing it to media:
 
 ```sh
 # The public key, straight from the release tag (no checkout needed):
-curl -fsSL https://raw.githubusercontent.com/HorneroOS/hornero/v0.2.0-preview22/packaging/keys/hornero-release.pub.asc | gpg --import
+key_base="https://raw.githubusercontent.com/HorneroOS/hornero"
+curl -fsSL \
+  "$key_base/v0.2.0-preview22/packaging/keys/hornero-release.pub.asc" \
+  | gpg --import
 gpg --verify horneroos-2026.10-preview22-x86_64.iso.sig \
   horneroos-2026.10-preview22-x86_64.iso
 sha256sum -c horneroos-2026.10-preview22-x86_64.iso.sha256
@@ -49,7 +52,8 @@ Write the ISO to a USB stick with a graphical writer you trust, or with
 to the wrong device destroys its data), then run it with privileges:
 
 ```sh
-sudo dd if=horneroos-2026.10-preview22-x86_64.iso of=/dev/sdX bs=4M status=progress conv=fsync
+sudo dd if=horneroos-2026.10-preview22-x86_64.iso of=/dev/sdX bs=4M \
+  status=progress conv=fsync
 ```
 
 Boot from the stick and follow the Calamares steps. Report installation problems in
