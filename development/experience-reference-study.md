@@ -19,7 +19,8 @@ HorneroOS is an Arch-based operating-system family in development. Desktop is
 Wayland-first; Hyprland is its default validated compositor, while Niri remains
 experimental until its broader session matrix passes. At the time, the product
 website said no installable ISO was published, and Server, Agents, and Studio
-were planned editions (Studio is now Preview; the preview22 ISO is published). These maturity boundaries are part of product quality and
+were planned editions (Studio is now Preview; the preview22 ISO is
+published). These maturity boundaries are part of product quality and
 must stay visible in docs and marketing.
 
 The desktop already has a composed identity: a Quickshell-based UI, an

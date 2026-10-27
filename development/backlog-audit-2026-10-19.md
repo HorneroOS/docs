@@ -1,6 +1,8 @@
 # Backlog audit — 2026-10-19
 
-> **Dated snapshot.** This audit predates the published, signed v0.2.0-preview22 Preview ISO (2026-10-26) and Studio's promotion to Preview. Install and maturity statements describe their audit date.
+> **Dated snapshot.** This audit predates the published, signed
+> v0.2.0-preview22 Preview ISO (2026-10-26) and Studio's promotion to
+> Preview. Install and maturity statements describe their audit date.
 
 Status: completed audit; issue filing and reconciliation executed
 the same day. This report is a summary and index. Issue status

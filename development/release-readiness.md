@@ -19,7 +19,6 @@ see the [preview22 checklist](https://github.com/HorneroOS/hornero/blob/main/rel
 
 [candidate]: https://github.com/HorneroOS/hornero/blob/main/manifests/v0.2.0-preview22.yaml
 [candidate-pointer]: https://github.com/HorneroOS/hornero/blob/main/manifests/candidate
-[composition-run]: https://github.com/HorneroOS/hornero/actions/runs/40074263763
 
 ## Gates
 
@@ -314,8 +313,9 @@ In `HorneroOS/hornero`:
 ./scripts/verify-release.sh <asset> [signature]
 ```
 
-The first command uses a throwaway key. The second is the release check; the production public key is committed
-at `packaging/keys/hornero-release.pub.asc` in HorneroOS/hornero.
+The first command uses a throwaway key. The second is the release check;
+the production public key is committed at
+`packaging/keys/hornero-release.pub.asc` in HorneroOS/hornero.
 
 ### Updates and rollback
 

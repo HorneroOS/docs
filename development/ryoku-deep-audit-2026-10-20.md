@@ -1,6 +1,8 @@
 # Spike: Ryoku desktop vs HorneroOS — where must Hornero be better?
 
-> **Dated snapshot.** This audit predates the published, signed v0.2.0-preview22 Preview ISO (2026-10-26) and Studio's promotion to Preview. Install and maturity statements describe their audit date.
+> **Dated snapshot.** This audit predates the published, signed
+> v0.2.0-preview22 Preview ISO (2026-10-26) and Studio's promotion to
+> Preview. Install and maturity statements describe their audit date.
 
 **Owner:** HorneroOS maintainers (AI-assisted audit)
 **Timebox:** 2026-10-20 session
