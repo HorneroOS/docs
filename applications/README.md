@@ -7,7 +7,8 @@ guides explain how those parts connect and what to check when one is missing.
 
 ## What is part of Hornero?
 
-The current Preview composition has no ISO or supported installer. It brings
+The current Preview composition ships in the signed v0.2.0-preview22 ISO
+(Desktop and Studio Preview, provisional Calamares installer). It brings
 together Hornero Shell, `horneroctl`, and the `hornero-config` package. Config
 requires Bash, Git, Python, and `python-materialyoucolor`; it does not install
 a complete workstation by itself.
@@ -88,11 +89,11 @@ running its provisioning commands.
   editors, PDFs, and image/file associations.
 - [Media and audio](media-audio.md) — PipeWire, volume controls, MPRIS, and players.
 - [Studio applications](studio.md) — verified source, license, and
-  support matrix for the Planned Studio edition.
+  support matrix for the Preview Studio edition.
 - [Studio getting started](studio-getting-started.md) — first
-  project walkthrough for the Planned Studio edition.
+  project walkthrough for the Preview Studio edition.
 - [Studio audio](studio-audio.md) — mode setup, routing, and
-  recovery for the Planned Studio edition.
+  recovery for the Preview Studio edition.
 - [Screenshots and recording](capture.md) — screenshot and recording backends.
 - [Connectivity](connectivity.md) — NetworkManager, Bluetooth, and VPN providers.
 - [System utilities](system-utilities.md) — Git, Fastfetch, btop, Cava, and

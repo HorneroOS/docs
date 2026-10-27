@@ -1,5 +1,8 @@
 # Studio getting started: your first project
 
+New to HorneroOS? Start with [Getting started](../getting-started/README.md)
+to download, verify and install the Preview ISO, then come back here.
+
 From a fresh HorneroOS desktop to a first creative project with the
 Studio selection you actually want — nothing more installed than you
 chose. Studio is a **Preview** edition: the Preview ISO installer

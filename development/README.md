@@ -52,3 +52,5 @@ or full personal logs.
 - [horneroctl](https://github.com/HorneroOS/hornero/issues) — CLI behavior.
 - [Website](https://github.com/HorneroOS/website/issues) — public pages and
   docs presentation.
+- [Installer](https://github.com/HorneroOS/installer/issues) — ISO boot,
+  Calamares installation and first-boot reports.
