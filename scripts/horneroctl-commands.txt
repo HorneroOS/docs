@@ -140,6 +140,8 @@ config snapshot list
 config snapshot restore
 config validate
 doctor
+gaming
+gaming doctor
 hardware
 hardware battery
 hardware battery monitor

@@ -94,6 +94,8 @@ running its provisioning commands.
   project walkthrough for the Preview Studio edition.
 - [Studio audio](studio-audio.md) — mode setup, routing, and
   recovery for the Preview Studio edition.
+- [Gaming applications](gaming.md) — verified source, license, and
+  support matrix for the Planned Gaming edition.
 - [Screenshots and recording](capture.md) — screenshot and recording backends.
 - [Connectivity](connectivity.md) — NetworkManager, Bluetooth, and VPN providers.
 - [System utilities](system-utilities.md) — Git, Fastfetch, btop, Cava, and
