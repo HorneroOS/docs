@@ -33,7 +33,7 @@ bundle:
 | --- | --- | --- | --- | --- | --- | --- |
 | Steam | steam | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/steam/) | proprietary (Steam Subscriber Agreement) | pacman-repository-opt-in | Planned — opt-in only | Desktop Gaming, Handheld, VR |
 | Lutris | lutris | [arch-extra](https://archlinux.org/packages/extra/x86_64/lutris/) | open-source (GPL-3.0-or-later) | pacman-repository | Planned | Multi-Launcher |
-| Bottles | bottles | AUR (manual) | open-source (GPL-3.0-or-later) | manual | Planned — optional, manual only | Multi-Launcher |
+| Bottles | bottles | AUR (manual) | open-source (GPL-3.0-or-later) | manual | Planned — manual only | Multi-Launcher |
 | Wine | wine | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/wine/) | open-source (LGPL-2.1-or-later) | pacman-repository | Planned | Multi-Launcher, Advanced Compatibility |
 | vkBasalt | vkbasalt (+ lib32 via AUR) | [arch-extra](https://archlinux.org/packages/extra/x86_64/vkbasalt/) | open-source (MIT) | pacman-repository / manual | Planned | Advanced Compatibility |
 | OBS Studio | obs-studio | [arch-extra](https://archlinux.org/packages/extra/x86_64/obs-studio/) | open-source (GPL-2.0-only) | pacman-repository | Planned | Streaming |
