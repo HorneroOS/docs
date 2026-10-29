@@ -21,11 +21,11 @@ bundle:
 | Profile | Meaning | Status |
 | --- | --- | --- |
 | Desktop Gaming | Default desktop gaming profile | Planned |
-| Handheld | Controller-first session, qualified handhelds only | Planned — none qualified yet |
+| Handheld | Controller-first session | Planned — none qualified |
 | Streaming | Capture/recording with OBS Studio | Planned |
 | Multi-Launcher | Lutris, Bottles, and Wine runners | Planned |
-| VR | SteamVR path | Experimental — reference-only today |
-| Advanced Compatibility | User-managed Proton/Wine tooling opt-ins | Planned |
+| VR | SteamVR path | Experimental — reference-only |
+| Advanced Compatibility | User-managed Proton/Wine opt-ins | Planned |
 
 ## Matrix
 
