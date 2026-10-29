@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@518c451b44d4d240370cc1423ad99df466f14679
+# horneroctl command paths, generated from HorneroOS/hornero@2ea9e368d18d2ef8f78a5a18abed7127683ff551
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -27,6 +27,7 @@ appearance gtk select
 appearance gtk set-icons
 appearance gtk sync-color-scheme
 appearance gtk theme
+appearance hyprland
 appearance hyprlock
 appearance night-mode
 appearance night-mode backends
@@ -113,6 +114,7 @@ assistant setup
 assistant status
 assistant stop
 assistant tools
+assistant usage
 backup
 backup create
 backup list
@@ -142,6 +144,9 @@ config validate
 doctor
 gaming
 gaming doctor
+gaming selection
+gaming selection set
+gaming selection show
 hardware
 hardware battery
 hardware battery monitor
@@ -233,6 +238,18 @@ shell status
 shell stop
 studio
 studio doctor
+studio jobs
+studio jobs cancel
+studio jobs list
+studio jobs log
+studio jobs run
+studio jobs status
+studio jobs submit
+studio mode
+studio mode audio
+studio mode performance
+studio mode restore
+studio mode show
 studio selection
 studio selection set
 studio selection show
