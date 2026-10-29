@@ -21,7 +21,7 @@ bundle:
 | Profile | Meaning | Status |
 | --- | --- | --- |
 | Desktop Gaming | Default desktop gaming profile | Planned |
-| Handheld | Controller-first session on qualified handhelds only | Planned — no device qualified yet |
+| Handheld | Controller-first session, qualified handhelds only | Planned — none qualified yet |
 | Streaming | Capture/recording with OBS Studio | Planned |
 | Multi-Launcher | Lutris, Bottles, and Wine runners | Planned |
 | VR | SteamVR path | Experimental — reference-only today |
