@@ -78,6 +78,9 @@ list, a dotfiles checkout, or an old wiki page as an installer.
 
 ## After installing
 
+Systems installed from v0.2.0-preview24 need a one-time manual
+migration before normal updates work; follow
+[Upgrading an existing preview24 installation](upgrading-from-preview24.md).
 Follow the release notes for changes to package availability. Use the
 [HorneroOS/installer issue chooser](https://github.com/HorneroOS/installer/issues/new/choose)
 for installation failures and the owning repository's tracker for
