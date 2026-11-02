@@ -28,12 +28,28 @@ Preview29 changes no edition composition. The delta is package-level:
 
    ```bash
    git clone https://aur.archlinux.org/horneroctl-bin.git
-   cd horneroctl-bin && makepkg -si
+   cd horneroctl-bin
+   # horneroctl-bin verifies its signed binary against the HorneroOS
+   # release key (fingerprint
+   # FCFBEE43925AB5429362278AE59EAB44AA2498DC, pinned in validpgpkeys).
+   # The key ships with the package; import it once so makepkg can
+   # verify. AUR helpers (yay/paru) can also fetch it automatically
+   # from public keyservers. Never build with signature checks off.
+   gpg --import keys/pgp/*.asc
+   gpg --list-keys FCFBEE43925AB5429362278AE59EAB44AA2498DC
+   makepkg -si
+   cd ..
    git clone https://aur.archlinux.org/hornero-config.git
    cd hornero-config && makepkg -si
    pacman -Q horneroctl-bin hornero-config
    # expect horneroctl-bin 0.2.0_preview37-1, hornero-config 0.3.15-1
    ```
+
+   If the build stops with
+   `gpg: keyserver receive failed: No data` or
+   `FAILED (unknown public key …)`, the import step above was skipped
+   in a keyring that does not have the key yet; run it and rebuild.
+   Do not work around it by disabling PGP verification.
 
 3. Log out and back in so the session picks up the new Hyprland
    environment (the VA-API change is session-scoped).
