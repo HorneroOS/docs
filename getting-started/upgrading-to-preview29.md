@@ -35,7 +35,7 @@ Preview29 changes no edition composition. The delta is package-level:
    # The key ships with the package; import it once so makepkg can
    # verify. AUR helpers (yay/paru) can also fetch it automatically
    # from public keyservers. Never build with signature checks off.
-   gpg --import keys/pgp/*.asc
+   gpg --import hornero-release.pub
    gpg --list-keys FCFBEE43925AB5429362278AE59EAB44AA2498DC
    makepkg -si
    cd ..
