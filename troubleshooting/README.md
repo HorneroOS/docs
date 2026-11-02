@@ -112,3 +112,43 @@ owning component trackers below, not to the installer repository.
 
 See [how to report a bug](../development/README.md#report-a-bug) for the
 repository issue links and information to include.
+
+## The installer does not see the internal NVMe drive (Intel VMD/RST)
+
+On some Intel laptops (for example ASUS ROG models) the firmware exposes
+the NVMe SSD through Intel VMD/RST ("PCIE RST Controlled Disk"). With VMD
+enabled, the Live system may show no internal disk at all. This is a
+controller-visibility problem, not a missing or damaged drive:
+
+1. Do **not** delete partitions or reformat anything to "fix" it.
+2. Reboot into the firmware setup and switch the storage controller from
+   RST/VMD to the standard NVMe/AHCI mode, if your firmware offers it.
+3. Boot the HorneroOS Live ISO again and confirm the drive appears in the
+   installer's disk list before continuing.
+
+Warnings: changing the controller mode can make an existing Windows
+installation unbootable until its storage driver is prepared, and it can
+affect BitLocker recovery (have the recovery key ready). HorneroOS never
+changes firmware settings for you. Compatibility with VMD-managed drives
+is not claimed; the standard-controller path above is the tested one.
+
+## Encrypted swap and the `openswap` initramfs error
+
+Older installer builds could generate an `mkinitcpio` configuration with
+an `openswap` hook (plus duplicate `encrypt` entries) for LUKS + separate
+encrypted swap, failing with `ERROR: Hook 'openswap' cannot be found`.
+HorneroOS does not ship an `openswap` hook, so that layout could never
+produce a bootable initramfs. Current installers therefore offer
+`No Swap` only (`userSwapChoices: [ none ]`) — a fail-closed boundary,
+not a claim that encrypted swap is supported. If you need swap, add a
+swapfile on the installed (already encrypted) Btrfs root after
+installation instead of re-enabling the partition option.
+
+## Copy-to-RAM and the missing `base.sqfs`
+
+With large amounts of RAM, Archiso could copy the Live system to RAM and
+unmount the installation payload, after which Calamares failed with
+`The source filesystem "/run/archiso/bootmnt/hornero/x86_64/base.sqfs"
+does not exist`. Current ISOs disable automatic copy-to-RAM and verify
+the payload before any disk changes. If you hit this on an old ISO, boot
+with `copytoram=n` as a workaround and prefer a current ISO.
