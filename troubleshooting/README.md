@@ -131,6 +131,9 @@ installation unbootable until its storage driver is prepared, and it can
 affect BitLocker recovery (have the recovery key ready). HorneroOS never
 changes firmware settings for you. Compatibility with VMD-managed drives
 is not claimed; the standard-controller path above is the tested one.
+Note also that a missing disk does not prove the SSD is healthy: if the
+drive stays invisible in standard controller mode too, suspect a
+hardware or seating problem and stop before installing anywhere else.
 
 ## Encrypted swap and the `openswap` initramfs error
 
