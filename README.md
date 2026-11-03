@@ -8,9 +8,9 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 > HorneroOS is an Arch-based operating-system family in development. Its
 > Desktop edition is Wayland-first, with Hyprland as the default validated
 > compositor and Niri as an experimental backend. A signed Preview ISO
-> (Desktop, Studio and Gaming Preview, v0.2.0-preview30) is published;
+> (Desktop, Studio and Gaming Preview, v0.2.0-preview31) is published;
 > it is not a
-> stable or supported release, and v0.2.0-preview30 itself has no
+> stable or supported release, and v0.2.0-preview31 itself has no
 > physical-hardware validation or acceptance yet. The
 > [release page](https://horneroos.com/releases) and
 > [installation status](https://horneroos.com/install) are the current source
@@ -60,6 +60,14 @@ content; the website does not maintain a second copy.
 - [Development](development/README.md) — code, QA, and contribution paths.
 - [Design language](development/design-language.md) — product identity, UI
   principles, source-of-truth map, and guidance for installer contributors.
+
+## Languages
+
+English is the canonical text. Argentine Spanish translations live in
+[`es/`](es/README.md), mirroring the English paths; the website serves
+the Spanish page when a translation exists and falls back to English
+(labelled as such) when it does not. When an English page changes, its
+`es/` counterpart should change in the same pull request.
 
 ## License
 
