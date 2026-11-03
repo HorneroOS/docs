@@ -398,7 +398,8 @@ commit pinned by the website.
 
 In `HorneroOS/hornero`, run `tests/vm/smoke.sh`. In `HorneroOS/qa`, run
 `uv run hornero-qa run smoke/desktop-ready`. Both runs must identify the
-exact candidate pins and attach their evidence. The Hornero script requires KVM and
+exact candidate pins and attach their evidence. The Hornero script
+requires KVM and
 a prepared base image; `VM-SMOKE-SKIP` is not a pass. Only an exact-pin
 `VM-SMOKE-PASS` plus the candidate QA evidence counts. A prior or mutable-main
 run does not count.
