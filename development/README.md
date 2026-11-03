@@ -10,6 +10,8 @@ contributor instructions before editing.
 - [Design language](design-language.md) — shared product identity, interface
   principles, and authoritative design sources across repositories.
 - [Testing](testing.md) — select focused checks and graphical acceptance.
+- [Quality assurance and release engineering](quality-and-releases.md) —
+  evidence classes, graphical acceptance, signing and how releases are built.
 - [Contributing](contributing.md) — branch, review, and cross-repository
   expectations.
 - [Internationalization](i18n.md) — current language and string contract.
