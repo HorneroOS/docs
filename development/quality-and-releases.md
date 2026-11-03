@@ -14,12 +14,14 @@ which are written once per release and never edited afterwards.
 Every acceptance claim in HorneroOS carries one of four labels. They are not
 interchangeable:
 
-| Label | Meaning |
-| --- | --- |
-| `AUTOMATED-VERIFIED` | A deterministic check or graphical scenario executed and recorded the result. |
-| `SCREENSHOT-VERIFIED` | A human or reviewer inspected a real capture of the running system. |
-| `USER-VERIFIED` | The maintainer reports it working on real hardware in daily use. |
-| `NOT SPECIFICALLY TESTED` | Nobody has evidence either way. It is never presented as working. |
+- `AUTOMATED-VERIFIED`: a deterministic check or graphical scenario
+  executed and recorded the result.
+- `SCREENSHOT-VERIFIED`: a human or reviewer inspected a real capture
+  of the running system.
+- `USER-VERIFIED`: the maintainer reports it working on real hardware
+  in daily use.
+- `NOT SPECIFICALLY TESTED`: nobody has evidence either way. It is
+  never presented as working.
 
 A virtual-machine result is never physical-hardware evidence, and a
 screenshot alone never makes a scenario pass: the deterministic runner is
