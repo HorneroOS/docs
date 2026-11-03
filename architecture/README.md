@@ -2,7 +2,7 @@
 
 Hornero is a set of collaborating repositories with explicit ownership. The
 repositories compose into the published, signed v0.2.0-preview30 Preview
-ISO (Desktop and Studio Preview); no single repository on its own is the
+ISO (Desktop, Studio and Gaming Preview); no single repository on its own is the
 installable operating system. The [release ledger](https://github.com/HorneroOS/hornero/releases)
 records which component revisions were composed together.
 

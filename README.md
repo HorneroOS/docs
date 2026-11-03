@@ -10,8 +10,8 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 > compositor and Niri as an experimental backend. A signed Preview ISO
 > (Desktop, Studio and Gaming Preview, v0.2.0-preview30) is published;
 > it is not a
-> stable or supported release, and no physical-hardware validation exists
-> yet. The
+> stable or supported release, and v0.2.0-preview30 itself has no
+> physical-hardware validation or acceptance yet. The
 > [release page](https://horneroos.com/releases) and
 > [installation status](https://horneroos.com/install) are the current source
 > for what can be installed.

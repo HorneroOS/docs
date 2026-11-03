@@ -8,7 +8,7 @@ guides explain how those parts connect and what to check when one is missing.
 ## What is part of Hornero?
 
 The current Preview composition ships in the signed v0.2.0-preview30 ISO
-(Desktop and Studio Preview, provisional Calamares installer). It brings
+(Desktop, Studio and Gaming Preview, provisional Calamares installer). It brings
 together Hornero Shell, `horneroctl`, and the `hornero-config` package. Config
 requires Bash, Git, Python, and `python-materialyoucolor`; it does not install
 a complete workstation by itself.
