@@ -8,9 +8,10 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 > HorneroOS is an Arch-based operating-system family in development. Its
 > Desktop edition is Wayland-first, with Hyprland as the default validated
 > compositor and Niri as an experimental backend. A signed Preview ISO
-> (Desktop and Studio Preview, v0.2.0-preview22) is published; it is not a
-> stable or supported release, and no physical-hardware validation exists
-> yet. The
+> (Desktop, Studio and Gaming Preview, v0.2.0-preview30) is published;
+> it is not a
+> stable or supported release, and v0.2.0-preview30 itself has no
+> physical-hardware validation or acceptance yet. The
 > [release page](https://horneroos.com/releases) and
 > [installation status](https://horneroos.com/install) are the current source
 > for what can be installed.

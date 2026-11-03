@@ -6,10 +6,11 @@ Gaming. This page is a reading view of the canonical Hornero catalogue
 in HorneroOS/hornero); it is not a second catalogue. If this page and the
 catalogue disagree, the catalogue wins and this page is stale.
 
-**Last verified: 2026-10-26** against the
+**Last verified: 2026-11-03** against the
 [Arch package index](https://archlinux.org/packages/). Package presence is
-not Hornero support: Gaming is a **Planned** edition (HorneroOS/hornero#328),
-it has no installable image yet, no application below is QA-validated by
+not Hornero support: Gaming is a **Preview** edition
+(HorneroOS/hornero#328) that installs from the shared signed ISO
+(VM-validated only), no application below is QA-validated by
 Hornero on physical hardware, and no row promises that a game, launcher,
 or driver works on any hardware.
 
@@ -20,9 +21,9 @@ bundle:
 
 | Profile | Meaning | Status |
 | --- | --- | --- |
-| Desktop Gaming | Default desktop gaming profile | Planned |
+| Desktop Gaming | Default desktop gaming profile | Preview (VM-validated) |
 | Handheld | Controller-first session | Planned — none qualified |
-| Streaming | Capture/recording with OBS Studio | Planned |
+| Streaming | Capture/recording with OBS Studio | Preview (VM-validated) |
 | Multi-Launcher | Lutris, Bottles, and Wine runners | Planned |
 | VR | SteamVR path | Experimental — reference-only |
 | Advanced Compatibility | User-managed Proton/Wine opt-ins | Planned |
@@ -31,7 +32,7 @@ bundle:
 
 | Application | Packages | Source | License | Install | Status | Profiles |
 | --- | --- | --- | --- | --- | --- | --- |
-| Steam | steam | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/steam/) | proprietary (Steam Subscriber Agreement) | pacman-repository-opt-in | Planned — opt-in only | Desktop Gaming, Handheld, VR |
+| Steam | steam | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/steam/) | proprietary (Steam Subscriber Agreement) | pacman-repository-opt-in | Preview — opt-in only | Desktop Gaming, Handheld, VR |
 | Lutris | lutris | [arch-extra](https://archlinux.org/packages/extra/x86_64/lutris/) | open-source (GPL-3.0-or-later) | pacman-repository | Planned | Multi-Launcher |
 | Bottles | bottles | [AUR](https://aur.archlinux.org/packages/bottles) (manual) | open-source (GPL-3.0-or-later) | manual | Planned — manual only | Multi-Launcher |
 | Wine | wine | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/wine/) | open-source (LGPL-2.1-or-later) | pacman-repository | Planned | Multi-Launcher, Advanced Compatibility |
