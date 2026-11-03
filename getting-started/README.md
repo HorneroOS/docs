@@ -2,16 +2,16 @@
 
 ## Know what is available
 
-HorneroOS publishes a signed Preview ISO: **v0.2.0-preview29**, one x86_64
+HorneroOS publishes a signed Preview ISO: **v0.2.0-preview30**, one x86_64
 image that installs HorneroOS Desktop, Studio or Gaming Preview
 with selectable creative specializations. It is a preview, not a stable or
 supported release.
 
 - Download: [horneroos.com/install](https://www.horneroos.com/install) or the
-  [v0.2.0-preview29 release](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview29).
-- ISO: `horneroos-2026.10-preview29-x86_64.iso` (2.7 GB, hosted on Vercel
+  [v0.2.0-preview30 release](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview30).
+- ISO: `horneroos-2026.10-preview30-x86_64.iso` (2.7 GB, hosted on Vercel
   Blob because it exceeds GitHub's 2 GB asset limit).
-- SHA-256: `c64a8e13e0b5ee2109df60882dccaaa688913cbd2cd74e65c5d164af6ef2b1db`
+- SHA-256: `474a0405fdc7366848d110b730c65d6f29ac36e66d9b36a9cd1f61e7c6dd1356`
 - Signature: detached GPG signature from the HorneroOS releases key
   `FCFBEE43925AB5429362278AE59EAB44AA2498DC`. The public key is
   `packaging/keys/hornero-release.pub.asc` in HorneroOS/hornero.
@@ -23,11 +23,11 @@ The public key comes straight from the release tag, no checkout needed:
 ```sh
 key_base="https://raw.githubusercontent.com/HorneroOS/hornero"
 curl -fsSL \
-  "$key_base/v0.2.0-preview29/packaging/keys/hornero-release.pub.asc" \
+  "$key_base/v0.2.0-preview30/packaging/keys/hornero-release.pub.asc" \
   | gpg --import
-gpg --verify horneroos-2026.10-preview29-x86_64.iso.sig \
-  horneroos-2026.10-preview29-x86_64.iso
-sha256sum -c horneroos-2026.10-preview29-x86_64.iso.sha256
+gpg --verify horneroos-2026.10-preview30-x86_64.iso.sig \
+  horneroos-2026.10-preview30-x86_64.iso
+sha256sum -c horneroos-2026.10-preview30-x86_64.iso.sha256
 ```
 
 ## Requirements and limits
@@ -37,8 +37,8 @@ sha256sum -c horneroos-2026.10-preview29-x86_64.iso.sha256
   and encryption (LUKS) are chosen during installation; nothing is
   preselected, and confirming a partition operation can erase data.
 - Validated scope: Desktop, Studio and Gaming UEFI unencrypted
-  installs passed on the preview29 ISO in disposable virtual machines
-  (greeter login, edition doctors, OBS recording); the full
+  installs passed on the preview30 ISO in disposable virtual machines
+  (greeter login, edition doctors); the full
   UEFI/BIOS x encrypted/unencrypted matrix passed on earlier preview
   compositions and is carried forward for unchanged areas.
 - Physical-hardware acceptance for one ASUS ROG Strix G16 workstation
@@ -56,7 +56,7 @@ Write the ISO to a USB stick with a graphical writer you trust, or with
 to the wrong device destroys its data), then run it with privileges:
 
 ```sh
-sudo dd if=horneroos-2026.10-preview29-x86_64.iso of=/dev/sdX bs=4M \
+sudo dd if=horneroos-2026.10-preview30-x86_64.iso of=/dev/sdX bs=4M \
   status=progress conv=fsync
 ```
 
