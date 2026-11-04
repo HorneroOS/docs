@@ -2,16 +2,16 @@
 
 ## Sabé qué hay disponible
 
-HorneroOS publica una ISO Preview firmada: **v0.2.0-preview31**, una sola
+HorneroOS publica una ISO Preview firmada: **v0.2.0-preview32**, una sola
 imagen x86_64 que instala HorneroOS Desktop, Studio o Gaming Preview con
 especializaciones creativas a elección. Es una preview, no una release
 estable ni soportada.
 
 - Descarga: [horneroos.com/install](https://www.horneroos.com/install) o la
-  [release v0.2.0-preview31](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview31).
-- ISO: `horneroos-2026.10-preview31-x86_64.iso` (2.7 GB, alojada en Vercel
+  [release v0.2.0-preview32](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview32).
+- ISO: `horneroos-2026.10-preview32-x86_64.iso` (2.8 GB, alojada en Vercel
   Blob porque supera el límite de 2 GB por asset de GitHub).
-- SHA-256: `4200ff28ee4ee42f84bd65d01ec4d0e67b19adc5827e6ff09f7b5c42438c5194`
+- SHA-256: `b8cd0f8604bc69f7d2112fb8bccd97115d32d197e9c92c62e02faf5de6345aec`
 - Firma: firma GPG desacoplada de la clave de releases de HorneroOS
   `FCFBEE43925AB5429362278AE59EAB44AA2498DC`. La clave pública es
   `packaging/keys/hornero-release.pub.asc` en HorneroOS/hornero.
@@ -23,11 +23,11 @@ La clave pública viene directo del tag de la release, sin checkout:
 ```sh
 key_base="https://raw.githubusercontent.com/HorneroOS/hornero"
 curl -fsSL \
-  "$key_base/v0.2.0-preview31/packaging/keys/hornero-release.pub.asc" \
+  "$key_base/v0.2.0-preview32/packaging/keys/hornero-release.pub.asc" \
   | gpg --import
-gpg --verify horneroos-2026.10-preview31-x86_64.iso.sig \
-  horneroos-2026.10-preview31-x86_64.iso
-sha256sum -c horneroos-2026.10-preview31-x86_64.iso.sha256
+gpg --verify horneroos-2026.10-preview32-x86_64.iso.sig \
+  horneroos-2026.10-preview32-x86_64.iso
+sha256sum -c horneroos-2026.10-preview32-x86_64.iso.sha256
 ```
 
 ## Requisitos y límites
@@ -38,10 +38,11 @@ sha256sum -c horneroos-2026.10-preview31-x86_64.iso.sha256
   preseleccionado, y confirmar una operación de particiones puede borrar
   datos.
 - Alcance validado: las instalaciones UEFI sin cifrar de Desktop, Studio
-  y Gaming pasaron sobre la ISO preview31 en máquinas virtuales
-  desechables (login del greeter, doctors de cada edición); la matriz
-  completa UEFI/BIOS × con/sin cifrado pasó en composiciones preview
-  anteriores y se hereda para las áreas sin cambios.
+  y Gaming pasaron sobre la ISO preview32 en máquinas virtuales
+  desechables. Las instalaciones con cifrado LUKS, el BIOS heredado, las
+  sesiones Niri y copytoram no se ejecutaron sobre este artefacto y no
+  se heredan como aprobadas para preview32. La propia preview32 todavía
+  no tiene validación en hardware físico.
 - La aceptación en hardware físico de una estación de trabajo ASUS ROG
   Strix G16 está registrada como USER-VERIFIED en preview24 más arreglos
   post-instalación (ver `docs/PELICANO-PARITY.md` en HorneroOS/qa); los
@@ -58,7 +59,7 @@ con `lsblk` (escribir al dispositivo equivocado destruye sus datos) y
 después ejecutalo con privilegios:
 
 ```sh
-sudo dd if=horneroos-2026.10-preview31-x86_64.iso of=/dev/sdX bs=4M \
+sudo dd if=horneroos-2026.10-preview32-x86_64.iso of=/dev/sdX bs=4M \
   status=progress conv=fsync
 ```
 

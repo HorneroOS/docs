@@ -10,7 +10,7 @@ falta una.
 ## ¿Qué es parte de Hornero?
 
 La composición Preview actual se distribuye en la ISO firmada
-v0.2.0-preview31 (Desktop, Studio y Gaming Preview, instalador
+v0.2.0-preview32 (Desktop, Studio y Gaming Preview, instalador
 provisional Calamares). Reúne a Hornero Shell, `horneroctl` y el paquete
 `hornero-config`. Config requiere Bash, Git, Python y
 `python-materialyoucolor`; no instala una estación de trabajo completa
