@@ -23,13 +23,13 @@ Base + desktop + studio                → Studio
 
 The same model feeds the graphical installer. The provisional Calamares
 installer in HorneroOS/installer consumes it to build the published,
-signed v0.2.0-preview30 Preview ISO; Panda Foss's custom installer is
+signed v0.2.0-preview32 Preview ISO; Panda Foss's custom installer is
 the future official path.
 
 ## Current maturity
 
 - **Desktop — Preview.** Real desktop product and package composition;
-  installs from the signed preview30 ISO via the provisional Calamares
+  installs from the signed preview32 ISO via the provisional Calamares
   path.
 - **Hyprland — Supported.** Validated default desktop session.
 - **Niri — Experimental.** A single-output VM journey is verified. See
@@ -39,7 +39,7 @@ the future official path.
 - **Agents — Planned.** Rootless Podman and systemd Quadlet are the direction;
   Hermes provisioning, isolation, secrets, lifecycle, and recovery are not
   certified.
-- **Studio — Preview.** Installs from the same signed preview30 ISO with
+- **Studio — Preview.** Installs from the same signed preview32 ISO with
   selectable creative specializations; audio, capture, editing, hardware
   acceleration, and compositor workflows are not certified, hardware QA
   is blocked on approved fixtures, and Studio is not Supported.

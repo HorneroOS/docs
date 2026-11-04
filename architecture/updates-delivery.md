@@ -2,7 +2,7 @@
 
 HorneroOS is assembled from several repositories and packages. This page is
 for contributors changing how source reaches an installed system; it is not
-an end-user installation guide. The signed v0.2.0-preview30 Preview ISO
+an end-user installation guide. The signed v0.2.0-preview32 Preview ISO
 is delivered out-of-band (Vercel Blob, with checksum, signature and
 manifest on the GitHub release); this page covers package delivery. See
 [Getting started](../getting-started/README.md) for the current status.
