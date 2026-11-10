@@ -264,3 +264,39 @@ Voice input/output, proactive suggestions, arbitrary command
 execution, package mutations, file access, multi-provider
 Hornero-side key management, and any claim of offline
 operation.
+
+## Secure harness (Javi, 2026-11)
+
+Slice 1 above deliberately kept the agent read-only and relied on
+Hermes approvals. The secure harness adds the missing enforcement
+layers in horneroctl, outside the agent process, following Hermes'
+own SECURITY.md §2.2 (only OS-level isolation is a boundary):
+
+- **Kernel sandbox.** The `hornero-hermes.service` unit horneroctl
+  writes is systemd-hardened and, when bubblewrap is available, runs
+  the whole Hermes process in a bwrap view: home masked, only
+  `~/.hermes` and the active Javi workspace bound, session runtime
+  dir masked (no Wayland/D-Bus socket). Without bwrap the status
+  honestly reports `systemd-only (not sandboxed)`.
+- **ABAC policy.** `horneroctl assistant policy` evaluates
+  Principal+Action+Resource+Context with default deny,
+  deny-overrides, hard denies (protected paths, unattended shell,
+  package removal), approvals bound to exact action+resource+expiry,
+  and delegation intersection. Presets: read-only (default),
+  workspace-agent, desktop-assistant; `revoke-all` applies at once.
+- **Typed broker.** `horneroctl assistant tool` executes a fixed
+  catalogue (read-only system tools, official theme set, window
+  list/focus, notify, mediated screenshot) only after a policy
+  allow; every outcome is audit-logged. No generic command tool.
+- **Workspaces.** Agent write scope lives under the XDG data dir,
+  never `$HOME`; the registry and policy file sit outside the
+  sandbox so the agent cannot widen its own scope.
+- **Modes.** Sessions are Ask / Agent / Chat. Ask and Chat never
+  escalate: horneroctl denies their Hermes approvals server-side.
+- **Prompt.** The user system prompt is Hermes' SOUL.md, editable
+  via `horneroctl assistant prompt` with version history and
+  rollback. Behaviour only — never authorization.
+
+Full design, residual risks and host-test evidence:
+`HorneroOS/hornero: docs/javi-secure-harness.md`
+(hornero#374, shell#353).
