@@ -109,12 +109,17 @@ assistant health
 assistant knowledge
 assistant log
 assistant model
+assistant policy
+assistant profile
+assistant prompt
 assistant sessions
 assistant setup
 assistant status
 assistant stop
+assistant tool
 assistant tools
 assistant usage
+assistant workspace
 backup
 backup create
 backup list
