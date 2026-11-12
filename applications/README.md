@@ -94,6 +94,8 @@ running its provisioning commands.
   project walkthrough for the Preview Studio edition.
 - [Studio audio](studio-audio.md) — mode setup, routing, and
   recovery for the Preview Studio edition.
+- [ArtCraft Launcher](studio-artcraft.md) — experimental, manual
+  opt-in launcher for the Craft applications.
 - [Gaming applications](gaming.md) — verified source, license, and
   support matrix for the Gaming Preview edition.
 - [Screenshots and recording](capture.md) — screenshot and recording backends.

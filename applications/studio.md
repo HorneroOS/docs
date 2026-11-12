@@ -6,7 +6,7 @@ Studio. This page is a reading view of the canonical Hornero catalogue
 in HorneroOS/hornero); it is not a second catalogue. If this page and the
 catalogue disagree, the catalogue wins and this page is stale.
 
-**Last verified: 2026-10-25** against the
+**Last verified: 2026-11-12** against the
 [Arch package index](https://archlinux.org/packages/). Package presence is
 not Hornero support: Studio is a **Preview** edition (maintainer
 decision in HorneroOS/hornero#318), no application below is
@@ -36,6 +36,7 @@ that an app installs, runs, or is supported on any hardware.
 | Scribus | scribus | [arch-extra](https://archlinux.org/packages/extra/x86_64/scribus/) | open-source (GPL-2.0-or-later) | pacman-repository-opt-in | Preview — not QA-validated | Graphic Design & Illustration |
 | FreeCAD | freecad | [arch-extra](https://archlinux.org/packages/extra/x86_64/freecad/) | open-source (LGPL-2.0-only) | pacman-repository-opt-in | Preview — not QA-validated | Maker & CAD |
 | Godot | godot | [arch-extra](https://archlinux.org/packages/extra/x86_64/godot/) | open-source (MIT) | pacman-repository-opt-in | Preview — not QA-validated | Game Development |
+| ArtCraft Launcher | ai.storyteller.artcraft-launcher | [vendor](https://github.com/storytold/craft-launcher/releases) | open-source (MIT, Apache-2.0) | manual | Experimental — not QA-validated | Custom Selection (explicit application opt-in only; never in any specialization) |
 
 ## Reading the matrix
 
@@ -68,6 +69,10 @@ that an app installs, runs, or is supported on any hardware.
   selected for installation.
 - **Graphite** is marked experimental in the catalogue and is flagged as
   such in every selection plan.
+- **ArtCraft Launcher** is experimental, vendor-distributed, and
+  manual-install only: it never enters a package plan, not even when
+  selected, and no HorneroOS component downloads it. See
+  [ArtCraft Launcher](studio-artcraft.md) for its lifecycle.
 
 ## Specializations
 
