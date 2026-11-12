@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@2ea9e368d18d2ef8f78a5a18abed7127683ff551
+# horneroctl command paths, generated from HorneroOS/hornero@4bee61e859307837868c9e87258aef9762ae3aef
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 appearance
 appearance accent
@@ -125,10 +125,12 @@ backup create
 backup list
 backup restore
 backup schedule
+bluetooth
 capture
 capture clipboard
 capture record
 capture screenshot
+capture status
 completion
 completion bash
 completion fish
@@ -230,6 +232,8 @@ power reboot
 power shutdown
 power status
 power suspend
+recovery
+recovery doctor
 shell
 shell ipc
 shell logs
@@ -242,6 +246,7 @@ shell start
 shell status
 shell stop
 studio
+studio app
 studio doctor
 studio jobs
 studio jobs cancel
