@@ -30,6 +30,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | Diagnose graphics or device problems | [Hardware](hardware/README.md) · [Troubleshooting](troubleshooting/README.md) |
 | Understand editions and system boundaries | [Architecture](architecture/README.md) |
 | Build, test, or contribute | [Development](development/README.md) |
+| Write a shell extension | [Extensions 2.0 authoring guide](development/extensions.md) |
 | Design an interface for HorneroOS | [Design language](development/design-language.md) |
 
 ## How these docs stay accurate
