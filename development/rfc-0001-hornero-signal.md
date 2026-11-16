@@ -1,11 +1,14 @@
 # RFC 0001 — Hornero Signal
 
-| Field | Value |
-|---|---|
-| Status | Accepted (2026-11-16) |
-| Scope | Every first-party HorneroOS surface: shell, PluginKit and extensions, config (GTK/Qt/terminal/compositor), horneroctl, greeter, installer, website, docs, brand |
-| Supersedes | The Material 3–derived token system (`M3Palette`, `m3*` roles, Material Symbols, wallpaper tonal-spot synthesis) and the "Hornero 199X" optional theme |
-| Tracking | [HorneroOS/.github#28](https://github.com/HorneroOS/.github/issues/28) |
+- **Status** — Accepted (2026-11-16)
+- **Scope** — Every first-party HorneroOS surface: shell, PluginKit and
+  extensions, config (GTK/Qt/terminal/compositor), horneroctl, greeter,
+  installer, website, docs, brand
+- **Supersedes** — The Material 3–derived token system (`M3Palette`, `m3*`
+  roles, Material Symbols, wallpaper tonal-spot synthesis) and the "Hornero
+  199X" optional theme
+- **Tracking** —
+  [HorneroOS/.github#28](https://github.com/HorneroOS/.github/issues/28)
 
 ## 1. Why
 
@@ -65,31 +68,29 @@ generators map from these roles only.
 
 ### 3.1 Colour roles
 
-| Role | Use |
-|---|---|
-| `ground` | Desktop/back-most level, scrims over wallpaper, lock background |
-| `sunken` | Input wells, track backgrounds, inset areas |
-| `base` | Bars, window/dialog body |
-| `panel` | Cards, popouts, menus |
-| `raised` | Hovered/selected rows, nested cards |
-| `lifted` | Highest elevation, tooltips, pressed states |
-| `ink` | Primary text and glyphs |
-| `inkMuted` | Secondary text, eyebrows, inactive glyphs |
-| `inkFaint` | Disabled / decorative only — never essential text |
-| `rule` | Hairline separators inside a surface |
-| `ruleStrong` | Control boundaries, outlines that must pass 3:1 |
-| `signal` / `onSignal` | Primary action, live/active state (amber) |
-| `signalWell` / `onSignalWell` | Low-emphasis primary fill (selected chip) |
-| `cue` / `onCue` | Focus ring, selection, information (celeste) |
-| `cueWell` / `onCueWell` | Low-emphasis informational fill |
-| `phosphor` / `onPhosphor` | Positive/healthy/connected (phosphor green) |
-| `phosphorWell` / `onPhosphorWell` | Low-emphasis positive fill |
-| `alert` / `onAlert` | Destructive/error |
-| `alertWell` / `onAlertWell` | Low-emphasis error fill |
-| `inverse` / `onInverse` / `inverseSignal` | Snackbars and inverted toasts |
-| `scrim`, `shadow` | Overlays and the single shadow colour |
-| `focus` | Keyboard focus ring (defaults to `cue`) |
-| `term0`…`term15` | Terminal ANSI palette |
+- `ground` — Desktop/back-most level, scrims over wallpaper, lock background
+- `sunken` — Input wells, track backgrounds, inset areas
+- `base` — Bars, window/dialog body
+- `panel` — Cards, popouts, menus
+- `raised` — Hovered/selected rows, nested cards
+- `lifted` — Highest elevation, tooltips, pressed states
+- `ink` — Primary text and glyphs
+- `inkMuted` — Secondary text, eyebrows, inactive glyphs
+- `inkFaint` — Disabled / decorative only — never essential text
+- `rule` — Hairline separators inside a surface
+- `ruleStrong` — Control boundaries, outlines that must pass 3:1
+- `signal` / `onSignal` — Primary action, live/active state (amber)
+- `signalWell` / `onSignalWell` — Low-emphasis primary fill (selected chip)
+- `cue` / `onCue` — Focus ring, selection, information (celeste)
+- `cueWell` / `onCueWell` — Low-emphasis informational fill
+- `phosphor` / `onPhosphor` — Positive/healthy/connected (phosphor green)
+- `phosphorWell` / `onPhosphorWell` — Low-emphasis positive fill
+- `alert` / `onAlert` — Destructive/error
+- `alertWell` / `onAlertWell` — Low-emphasis error fill
+- `inverse` / `onInverse` / `inverseSignal` — Snackbars and inverted toasts
+- `scrim`, `shadow` — Overlays and the single shadow colour
+- `focus` — Keyboard focus ring (defaults to `cue`)
+- `term0`…`term15` — Terminal ANSI palette
 
 Removed with no replacement: all `*Fixed*`, `*_paletteKeyColor`,
 `surfaceTint`, `surfaceVariant`, `onBackground`, tonal-spot "variants",
@@ -107,37 +108,45 @@ alias table): `background/surfaceDim/surfaceContainerLowest → ground`,
 
 ### 3.2 Flagship palettes
 
-**Signal Night** (`hornero-signal-night`, factory default)
+`hornero-signal-night` is the factory default: cool graphite instrument
+panels with warm phosphor-cream ink. `hornero-signal-day` is warm
+technical-drawing paper with ink-black text.
 
-| Role | Hex | Role | Hex |
-|---|---|---|---|
-| ground | `#0C0F13` | ink | `#ECE6DA` |
-| sunken | `#101419` | inkMuted | `#A8ABAD` |
-| base | `#13171D` | inkFaint | `#737980` |
-| panel | `#181D24` | rule | `#2C333C` |
-| raised | `#1F252E` | ruleStrong | `#66707B` |
-| lifted | `#283039` | focus | `#7EC1EA` |
-| signal / on | `#F2A33A` / `#1A1205` | signalWell / on | `#3A2A12` / `#FFD9A3` |
-| cue / on | `#7EC1EA` / `#06151F` | cueWell / on | `#16303F` / `#CDE8F8` |
-| phosphor / on | `#8BD49A` / `#07170C` | phosphorWell / on | `#173222` / `#CDEFD4` |
-| alert / on | `#F0705A` / `#1E0905` | alertWell / on | `#3D1A14` / `#FFD3CA` |
-| inverse / on / inverseSignal | `#ECE6DA` / `#181D24` / `#8A5200` | scrim / shadow | `#000000` |
-
-**Signal Day** (`hornero-signal-day`) — warm technical-drawing paper
-
-| Role | Hex | Role | Hex |
-|---|---|---|---|
-| ground | `#E6E1D5` | ink | `#1B1E22` |
-| sunken | `#DCD6C8` | inkMuted | `#4E545B` |
-| base | `#F2EEE5` | inkFaint | `#7A8086` |
-| panel | `#F7F4EE` | rule | `#D3CCBD` |
-| raised | `#FBF9F5` | ruleStrong | `#857F73` |
-| lifted | `#FFFFFF` | focus | `#1D6894` |
-| signal / on | `#9A5100` / `#FFFFFF` | signalWell / on | `#F6DDB8` / `#3D2200` |
-| cue / on | `#1D6894` / `#FFFFFF` | cueWell / on | `#D3E7F3` / `#0B2E44` |
-| phosphor / on | `#2A7341` / `#FFFFFF` | phosphorWell / on | `#D5EBD9` / `#0E2E17` |
-| alert / on | `#B0371F` / `#FFFFFF` | alertWell / on | `#F7D7D0` / `#4A1209` |
-| inverse / on / inverseSignal | `#1B1E22` / `#F2EEE5` / `#F2A33A` | scrim / shadow | `#000000` |
+| Role             | Signal Night | Signal Day |
+| ---------------- | ------------ | ---------- |
+| `ground`         | `#0C0F13`    | `#E6E1D5`  |
+| `sunken`         | `#101419`    | `#DCD6C8`  |
+| `base`           | `#13171D`    | `#F2EEE5`  |
+| `panel`          | `#181D24`    | `#F7F4EE`  |
+| `raised`         | `#1F252E`    | `#FBF9F5`  |
+| `lifted`         | `#283039`    | `#FFFFFF`  |
+| `ink`            | `#ECE6DA`    | `#1B1E22`  |
+| `inkMuted`       | `#A8ABAD`    | `#4E545B`  |
+| `inkFaint`       | `#737980`    | `#7A8086`  |
+| `rule`           | `#2C333C`    | `#D3CCBD`  |
+| `ruleStrong`     | `#66707B`    | `#857F73`  |
+| `focus`          | `#7EC1EA`    | `#1D6894`  |
+| `signal`         | `#F2A33A`    | `#9A5100`  |
+| `onSignal`       | `#1A1205`    | `#FFFFFF`  |
+| `signalWell`     | `#3A2A12`    | `#F6DDB8`  |
+| `onSignalWell`   | `#FFD9A3`    | `#3D2200`  |
+| `cue`            | `#7EC1EA`    | `#1D6894`  |
+| `onCue`          | `#06151F`    | `#FFFFFF`  |
+| `cueWell`        | `#16303F`    | `#D3E7F3`  |
+| `onCueWell`      | `#CDE8F8`    | `#0B2E44`  |
+| `phosphor`       | `#8BD49A`    | `#2A7341`  |
+| `onPhosphor`     | `#07170C`    | `#FFFFFF`  |
+| `phosphorWell`   | `#173222`    | `#D5EBD9`  |
+| `onPhosphorWell` | `#CDEFD4`    | `#0E2E17`  |
+| `alert`          | `#F0705A`    | `#B0371F`  |
+| `onAlert`        | `#1E0905`    | `#FFFFFF`  |
+| `alertWell`      | `#3D1A14`    | `#F7D7D0`  |
+| `onAlertWell`    | `#FFD3CA`    | `#4A1209`  |
+| `inverse`        | `#ECE6DA`    | `#1B1E22`  |
+| `onInverse`      | `#181D24`    | `#F2EEE5`  |
+| `inverseSignal`  | `#8A5200`    | `#F2A33A`  |
+| `scrim`          | `#000000`    | `#000000`  |
+| `shadow`         | `#000000`    | `#000000`  |
 
 **Signal High Contrast** keeps the roles, uses `#000000` ground, `#FFFFFF`
 ink, `#FFC247` signal, `#8FD3FF` cue and pure white `ruleStrong`.
@@ -148,11 +157,11 @@ contrast tests. Themes that only existed as M3 seeds are removed or ported.
 
 ### 3.3 Typography
 
-| Family | Font | Use |
-|---|---|---|
-| `sans` | IBM Plex Sans | UI text |
-| `mono` | IBM Plex Mono | Readouts, numerals, eyebrows, code |
-| `display` | IBM Plex Sans Condensed | Clock, lock, large headings |
+| Family    | Font                    | Use                                |
+| --------- | ----------------------- | ---------------------------------- |
+| `sans`    | IBM Plex Sans           | UI text                            |
+| `mono`    | IBM Plex Mono           | Readouts, numerals, eyebrows, code |
+| `display` | IBM Plex Sans Condensed | Clock, lock, large headings        |
 
 Package: `ttf-ibm-plex` (Arch `extra`, OFL-1.1). Scale (px at scale 1):
 `small 11`, `smaller 12`, `normal 13`, `larger 15`, `large 18`,
@@ -178,12 +187,12 @@ offset away from the anchor edge). No blur-behind glass by default.
 
 ### 3.6 Motion
 
-| Curve | Bezier | Use |
-|---|---|---|
-| `standard` | `0.2, 0, 0, 1` | State changes |
-| `enter` | `0.05, 0.7, 0.1, 1` | Things appearing |
-| `exit` | `0.3, 0, 1, 1` | Things leaving |
-| `sweep` | `0.65, 0, 0.35, 1` | Reveal wipes, page transitions |
+| Curve      | Bezier              | Use                            |
+| ---------- | ------------------- | ------------------------------ |
+| `standard` | `0.2, 0, 0, 1`      | State changes                  |
+| `enter`    | `0.05, 0.7, 0.1, 1` | Things appearing               |
+| `exit`     | `0.3, 0, 1, 1`      | Things leaving                 |
+| `sweep`    | `0.65, 0, 0.35, 1`  | Reveal wipes, page transitions |
 
 Durations: `quick 90`, `short 160`, `medium 240`, `long 360`, `scan 480` ms.
 No overshoot or spring curves. **Scan-in**: anchored surfaces reveal by a clip
@@ -242,17 +251,23 @@ screenshots (§7).
 
 ## 6. Ownership and integration order
 
-| Workstream | Repos | Depends on |
-|---|---|---|
-| W1 Tokens + theme schema v2 + flagship themes, GTK/Qt/kitty/Hyprland generators, Cockpit default | config | RFC |
-| W2 Shell foundation: `Signal` singleton, fonts, Hornero Glyphs, motion tokens, removal of M3 code | shell | RFC |
-| W3 Appearance backend: drop `materialyoucolor` synthesis, apply schema-v2 themes | hornero (horneroctl) | W1 |
-| W4 Shell surfaces: components, bars, Cockpit, anchored surface solver, launcher, dashboard, Control Center, notifications, OSD, lock, session, welcome | shell | W2 |
-| W5 PluginKit + first-party extensions on Signal | shell, plugins | W2 |
-| W6 Greeter, installer branding, boot | greeter, installer | RFC |
-| W7 Website repositioning + brand assets | website, config | RFC |
-| W8 Docs, org profile, READMEs | docs, .github, all | W1–W7 |
-| W9 QA: host matrix, VM install, evidence | qa | W4–W6 |
+- **W1 Tokens + theme schema v2 + flagship themes, GTK/Qt/kitty/Hyprland
+  generators, Cockpit default** — config; *depends on:* RFC
+- **W2 Shell foundation: `Signal` singleton, fonts, Hornero Glyphs, motion
+  tokens, removal of M3 code** — shell; *depends on:* RFC
+- **W3 Appearance backend: drop `materialyoucolor` synthesis, apply schema-v2
+  themes** — hornero (horneroctl); *depends on:* W1
+- **W4 Shell surfaces: components, bars, Cockpit, anchored surface solver,
+  launcher, dashboard, Control Center, notifications, OSD, lock, session,
+  welcome** — shell; *depends on:* W2
+- **W5 PluginKit + first-party extensions on Signal** — shell, plugins; *depends
+  on:* W2
+- **W6 Greeter, installer branding, boot** — greeter, installer; *depends on:*
+  RFC
+- **W7 Website repositioning + brand assets** — website, config; *depends on:*
+  RFC
+- **W8 Docs, org profile, READMEs** — docs, .github, all; *depends on:* W1–W7
+- **W9 QA: host matrix, VM install, evidence** — qa; *depends on:* W4–W6
 
 Contracts between workstreams are the role names (§3.1), font families
 (§3.3), glyph component API (§3.4), motion names (§3.6) and the anchored
