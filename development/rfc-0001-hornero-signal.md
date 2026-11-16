@@ -1,6 +1,8 @@
 # RFC 0001 — Hornero Signal
 
-- **Status** — Accepted (2026-11-16)
+- **Status** — Accepted (2026-11-16); amended 2026-11-16 (amendment 1:
+  WOW + WORK ambition, motion springs, layout catalogue, experience modes,
+  instrumentation, integration contracts)
 - **Scope** — Every first-party HorneroOS surface: shell, PluginKit and
   extensions, config (GTK/Qt/terminal/compositor), horneroctl, greeter,
   installer, website, docs, brand
@@ -32,14 +34,32 @@ no parallel legacy system.
 > sheets and the diagonal geometry of La Plata — executed with modern
 > restraint.
 
+Amendment 1 raises the ambition: HorneroOS should feel like an
+extraordinary workstation from an alternate technological future —
+retrofuturist and cyberpunk computing interpreted by a world-class designer —
+inspired by the best Rainmeter/Conky desktops, purposeful Polybar/Waybar
+configurations, Cyberpunk 2077-era interfaces and fictional operating systems.
+Two experiences must coexist without compromising each other:
+
+- **WOW** — unmistakably original, cinematic, delightful to discover.
+- **WORK** — responsive, accessible, dependable for hours of coding, music
+  production, creative work and gaming.
+
+The concrete visual language (bar anatomy, meters, framing, luminous accents,
+phosphor details, per-layout art direction, motion choreography) is specified
+in [Signal Visual Language](signal-visual-language.md), chosen after a
+documented comparison of three directions. It must look exceptional with
+animations disabled.
+
 Principles, in priority order:
 
 1. **Work first.** Chrome is quiet and matte. The accent is a signal, not a
    decoration: amber means *live / active / primary*, celeste means *focus /
    selection / information*.
 2. **Instrument, not toy.** Hairline rules, small radii, tabular numerals,
-   segmented meters, labelled channels. No pills-everywhere, no bounce, no
-   glass, no neon gradients, no pixel-art chrome.
+   segmented meters, labelled channels, restrained luminous signal accents.
+   No pills-everywhere, no glass, no neon gradients, no random hex
+   decoration, no glitch effects, no constant blinking, no pixel-art chrome.
 3. **Legible at a glance.** Every text role passes WCAG AA on every surface it
    is used on; UI boundaries pass 3:1.
 4. **One language everywhere.** Shell, extensions, GTK/Qt apps, greeter,
@@ -194,12 +214,25 @@ offset away from the anchor edge). No blur-behind glass by default.
 | `exit`     | `0.3, 0, 1, 1`      | Things leaving                 |
 | `sweep`    | `0.65, 0, 0.35, 1`  | Reveal wipes, page transitions |
 
-Durations: `quick 90`, `short 160`, `medium 240`, `long 360`, `scan 480` ms.
-No overshoot or spring curves. **Scan-in**: anchored surfaces reveal by a clip
-wipe from the anchor edge plus 6 px travel and a fade (`enter`/`short` to
-`medium`); exit is a fade plus 4 px travel back toward the anchor
-(`exit`/`quick`). Reduced motion (`appearance.reducedMotion` or the system
-preference) sets durations to 0 except opacity cross-fades capped at 90 ms.
+| `settle`     | `0.32, 1.24, 0.42, 1` | Small elegant overshoot      |
+| `settleFast` | `0.34, 1.36, 0.5, 1`  | Quick controls, chips        |
+
+Durations: `quick 90`, `short 160`, `medium 240`, `long 360`, `scan 480`,
+`settleFast 220`, `settle 320` ms.
+
+Amendment 1: physically inspired settling is part of the language. Overshoot
+stays small (≤ 4 % of travel), is used for spatial motion only (position, size,
+shape morph), never for opacity or colour, and every surface defines its
+choreography (trigger-origin morph, size/shape morphing between adjacent
+controls, stagger of content, layered depth) through shared primitives — no
+layout-specific tricks. Motion must not add input latency: surfaces are
+interactive from their first frame, budgets are measured (§7), and low-power
+hardware can select a reduced motion level. **Scan-in**: anchored surfaces
+reveal by a clip wipe from the anchor edge plus 6 px travel and a fade
+(`enter`/`short` to `medium`); exit is a fade plus 4 px travel back toward the
+anchor (`exit`/`quick`). Reduced motion (`appearance.reducedMotion` or the
+system preference) sets durations to 0 except opacity cross-fades capped at 90
+ms.
 
 ## 4. Interaction contract — anchored surfaces
 
@@ -245,9 +278,68 @@ screenshots (§7).
   occupancy ticks; centre — active window title and media transport; end —
   keyboard layout, resources (segmented mini-meters), battery when present.
 - Cockpit is the default in `shell.default.json`, config defaults, horneroctl
-  reset, installer first boot and every edition. Supported alternative presets
-  are kept only if they render correctly under Signal and the anchored surface
-  contract; obsolete variants are deleted.
+  reset, installer first boot and every edition. Cockpit is the recognizable
+  flagship and gets the most art direction.
+
+### 5.1 Layout catalogue (amendment 1)
+
+Every shipped preset is audited and art-directed; weak presets are improved,
+merged or removed on merit, not kept to preserve a count. Survivors each have
+a distinct visual and functional identity defined in the visual-language
+spec.
+
+- **Hornero Left / Hornero Right** are preserved as polished, supported
+  layouts. Their descriptions acknowledge that they are inspired by
+  Caelestia's layout, with attribution. They adopt Signal tokens, the shared
+  interaction contract and motion primitives while keeping their recognizable
+  composition. This does not reintroduce Material tokens or APIs.
+- **Cockpit Clear** has a genuinely absent bar background: zero background
+  opacity, no tint, slab, blur, edge scrim or backdrop shadow. Legibility
+  comes from foreground-only treatments (adaptive ink chosen per wallpaper
+  region, glyph/text outline or shadow on the foreground only, user-selectable
+  foreground styles). Popouts opened from Clear bars remain fully opaque
+  Signal surfaces. Validated against bright, dark, detailed and high-contrast
+  wallpapers on the real host.
+
+## 5a. Experience modes (amendment 1)
+
+Four independent axes compose; none of them is a separate shell:
+
+1. **Edition** (Desktop, Studio, Gaming) — installed capabilities and
+   packages. Owned by HorneroOS/hornero.
+2. **Experience mode** — how the system behaves right now: `focus`,
+   `everyday` (default), `signal` (immersive), `gaming`, `studio`. A mode is a
+   declarative profile of: motion level, instrumentation density, desktop
+   widgets, notification policy (do-not-disturb, fullscreen suppression),
+   preferred layout preset, idle/power hints, and edition hooks (GameMode,
+   PipeWire quantum, Gamescope). Owned by the shell (`services/Experience`)
+   with `horneroctl mode get|set|list|reset` as the system interface.
+3. **Layout preset** — bar composition (Cockpit, Hornero Left, …).
+4. **Theme** — Signal roles and wallpaper.
+
+Rules: modes are switched explicitly by the user (launcher, Control Center,
+IPC, CLI); optional automatic switching (e.g. fullscreen game → `gaming`) is
+off by default, local-only, shown in the UI and reversible with one action.
+User customisations per mode are preserved; `horneroctl mode reset` and a
+Control Center action return to the factory `everyday` + Cockpit + Signal
+Night. Modes only enable capabilities the installed edition has; a missing
+capability is shown as unavailable, not faked. **Gaming** must never draw
+over fullscreen applications, steal focus, or poll at a cost; **Focus**
+maximises usable space and quiets motion and notifications; **Signal** is
+where the richest telemetry and motion live.
+
+## 5b. Instrumentation (amendment 1)
+
+Rainmeter/Conky-class desktops are built on PluginKit, not a competing widget
+engine: bar modules, desktop widgets (floating, layer-shell), and contextual
+panels share one widget surface API, Signal tokens, motion primitives and the
+anchored-surface contract. Data comes from native shell services
+(SystemUsage, Network, Audio, Players, Battery, Hypr/Niri) and declared
+providers with permissions; values are never invented — unavailable sensors
+render as unavailable. Polling is shared and rate-limited per provider with
+measured CPU cost. Instrumentation covers CPU/GPU load and temperature,
+memory, storage, network, audio/playback, hardware health, workspaces, clocks
+and calendars.
 
 ## 6. Ownership and integration order
 
@@ -284,8 +376,35 @@ the real host at the listed resolutions and scales; a disposable VM install
 reaches first boot in Cockpit + Signal Night. Evidence states where it was
 produced (host, VM or CI) and is never fabricated.
 
+### 7.1 Visual validation (amendment 1)
+
+Passing tests are not evidence of good design. Every surface change is run on
+the real host (or a VM when the host cannot exercise it), captured, inspected
+and compared before/after; weak results are iterated. Required coverage:
+1280×720, 1366×768, 1920×1080, ultrawide; 100/125/150/200 % scale; single,
+multi and mixed-scale monitors (virtual outputs where hardware is absent,
+labelled as such); all four bar edges; every surviving preset; Cockpit Clear
+over at least four wallpaper classes; light/dark, reduced motion; startup,
+restart, persistence. Motion is measured (frame time, input-to-first-frame)
+and recorded where possible. Concept renders are always labelled as concepts.
+
 ## 8. Attribution
 
-Caelestia ancestry, licences and NOTICE files are kept and remain accurate
+Caelestia ancestry, licences and NOTICE files are kept, and the Hornero
+Left/Right preset descriptions credit Caelestia's layout and remain accurate
 (`shell/docs/PROVENANCE.md`). Tabler Icons (MIT) and IBM Plex (OFL-1.1) are
 credited in NOTICE files where they ship.
+
+## 9. Integration contracts
+
+- **Theme file** — `config/profiles/themes/<id>/theme.json`, schema v2:
+  `schemaVersion: 2`, `id`, `name`, `mode`, `palette` (exactly the §3.1
+  roles), `terminal` (16 colours) and gtk/icon/wallpaper metadata.
+- **Live scheme** —
+  `${XDG_STATE_HOME:-~/.local/state}/hornero/signal/scheme.json` written
+  atomically by `horneroctl theme apply` (or the shell for built-ins) and
+  watched by the shell. Wallpapers never recolour the UI.
+- **Built-in ids** — `hornero-signal-night` (default), `hornero-signal-day`,
+  `hornero-signal-contrast`; `hornero-dark/light/199x` selections migrate
+  once to night/day/night.
+- **Default preset** — `cockpit`; default mode — `everyday`.
