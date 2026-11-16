@@ -8,6 +8,11 @@ copy of their changing token values.
 
 ## Status and authority
 
+The concrete design system is [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md).
+It defines the token roles, flagship palettes, typography, glyphs, motion,
+anchored-surface contract and the Cockpit default. Where this guide and the
+RFC disagree, the RFC wins.
+
 HorneroOS is a product family in development. The design direction below is
 the cross-component policy; the linked repositories remain authoritative for
 their assets, tokens, interaction details, and tested capabilities. When this
