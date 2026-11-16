@@ -9,8 +9,9 @@ Center contains persistent system and shell settings.
 
 | Task | Guide |
 | --- | --- |
+| Understand the Hornero Signal look | [Hornero Signal](hornero-signal.md) |
 | Pick a coordinated look | [Themes and appearance](appearance.md) |
-| Change or understand a wallpaper | [Wallpapers and color](wallpapers.md) |
+| Change or understand a wallpaper | [Wallpapers](wallpapers.md) |
 | Choose or troubleshoot a session compositor | [Wayland compositors](compositors.md) |
 | Move between rails, bars, islands, or docks | [Layouts](layouts.md) |
 | Lock, restart, or shut down the desktop session | [Session menu](session-menu.md) |

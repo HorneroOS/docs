@@ -34,11 +34,17 @@ Argentine identity belongs in the Hornero mark, the project's origins, and
 real places and visual references; it should not depend on flags, clichés, or
 an obligatory neon treatment.
 
-The Hornero bird and oven-arch motif form the canonical visual signature. The
-desktop's flagship identity uses clay, adobe, cream, and sunset colors. Other
-themes may have distinct palettes and moods while retaining clear Hornero
-authorship. Cyberpunk and neon are valid creative directions for particular
-themes or the website; they are not mandatory OS chrome.
+The Hornero bird and oven-arch motif form the canonical visual signature.
+The design language is **Hornero Signal**: a contemporary engineering
+workstation from an alternate 1990s Argentina — broadcast control rooms,
+oscilloscope bezels, test cards and technical drawing sheets — executed with
+modern restraint. Chrome is quiet and matte; amber `signal` marks what is
+live or primary and celeste `cue` marks focus and information. Regional
+themes may have distinct palettes and moods, but every theme fills the same
+Signal roles. It is not Material Design, not glass, and not generic neon.
+The [Hornero Signal overview](../desktop/hornero-signal.md) explains it for
+users; the [Signal Visual Language](signal-visual-language.md) spec gives
+the concrete rules for bars, meters, panels and motion.
 
 The interface should prioritize the task in front of the user. Ornament,
 motion, transparency, and imagery must not reduce legibility, keyboard access,
@@ -59,17 +65,17 @@ system feedback, or confidence around consequential actions.
 
 ### 2. Compose from semantic appearance roles
 
-- In the desktop, use the theme's semantic roles for surfaces, text, outlines,
-  focus, and status. Do not hardcode a dark-only appearance or use wallpaper
-  colors as the only source of UI contrast.
-- Config owns product theme recipes, the semantic token contract, theme
-  catalogues, and wallpaper references. Shell owns live palette presentation
+- In the desktop, use the Signal roles (`ground` … `lifted` surfaces,
+  `ink` tiers, `rule`/`ruleStrong`, `signal`, `cue`, `phosphor`, `alert`) for
+  surfaces, text, outlines, focus and status. Do not hardcode hex values or a
+  dark-only appearance, and never derive UI colours from the wallpaper.
+- Config owns theme packs, the schema-v2 token contract, theme catalogues,
+  and wallpaper references. Shell owns live palette presentation
   and runtime appearance behavior. Their boundary and fallback behavior are
   described in [the appearance architecture](../architecture/appearance-system.md).
-- For a standalone installer, use canonical brand assets and a restrained
-  brand-derived accent, while keeping the installer's surfaces and status
-  colors independently readable. Do not copy the website's cyberpunk palette
-  wholesale or pretend the installer implements desktop theme switching.
+- For a standalone installer or the greeter, map to the Signal Night and
+  Signal Day role values and use canonical brand assets. Do not pretend the
+  installer implements desktop theme switching.
 - Preserve contrast for text, controls, focus indicators, warnings, and
   destructive steps in every supported mode. See Config's
   [theme token schema](https://github.com/HorneroOS/config/blob/main/profiles/themes/tokens.schema.json)
@@ -127,13 +133,16 @@ system feedback, or confidence around consequential actions.
 
 ## Type, icons, and imagery
 
-The desktop's current reference typefaces are Rubik for interface text,
-CaskaydiaCove Nerd Font for technical values, and Material Symbols Rounded
-for system icons; those values are implemented in Shell's
+Hornero Signal uses three IBM Plex families (Arch `ttf-ibm-plex`, OFL-1.1):
+IBM Plex Sans for interface text, IBM Plex Mono for readouts, numerals,
+eyebrows and code, and IBM Plex Sans Condensed for the clock, lock screen and
+large headings. Numbers use tabular figures. Shell icons are Hornero Glyphs,
+a curated Tabler Icons (MIT) subset used through `Glyph { name: "wifi" }`;
+Material Symbols are not used anywhere. The roles and scale are defined in
+RFC 0001 §3.3–3.4 and implemented in Shell's
 [`AppearanceConfig.qml`](https://github.com/HorneroOS/shell/blob/main/config/AppearanceConfig.qml).
-Treat them as implementation references, not a requirement to bundle the
-same font in every independent tool. A separate component should choose
-available, licensed fonts that preserve the same clarity and density.
+Independent tools that cannot load Plex should pick an available, licensed
+face with similar clarity and density.
 
 Use icons with a consistent, recognizable meaning; pair unfamiliar or
 high-impact icons with text. Prefer genuine app icons for applications.
@@ -161,7 +170,8 @@ selection, and recovery instructions take visual priority.
 | --- | --- | --- |
 | Product identity and logo | [Config `docs/BRAND.md`](https://github.com/HorneroOS/config/blob/main/docs/BRAND.md), [`assets/brand/`](https://github.com/HorneroOS/config/tree/main/assets/brand) | Hornero mark, logo variants, wordmark, app symbols, brand direction |
 | Desktop themes and wallpaper | [Config appearance architecture](../architecture/appearance-system.md), [theme profiles](https://github.com/HorneroOS/config/tree/main/profiles/themes), [wallpaper policy](https://github.com/HorneroOS/config/blob/main/docs/WALLPAPERS.md) | Semantic theme packs, wallpaper selection, credits and application boundary |
-| Shell visual tokens and runtime behavior | [Shell `AppearanceConfig.qml`](https://github.com/HorneroOS/shell/blob/main/config/AppearanceConfig.qml), [`Colours.qml`](https://github.com/HorneroOS/shell/blob/main/services/Colours.qml) | Spacing, typography, rounding, motion defaults, semantic palette presentation |
+| Design system | [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md), [Signal Visual Language](signal-visual-language.md) | Roles, palettes, type, glyphs, motion, anchored surfaces, per-layout art direction |
+| Shell visual tokens and runtime behavior | [Shell `AppearanceConfig.qml`](https://github.com/HorneroOS/shell/blob/main/config/AppearanceConfig.qml), [`Signal.qml`](https://github.com/HorneroOS/shell/blob/main/services/Signal.qml), [`NATIVE-APPEARANCE.md`](https://github.com/HorneroOS/shell/blob/main/docs/NATIVE-APPEARANCE.md) | Spacing, typography, rounding, motion, `Signal.palette` roles |
 | Shell interaction and compositor capabilities | [Focus](https://github.com/HorneroOS/shell/blob/main/docs/FOCUS.md), [Interaction](https://github.com/HorneroOS/shell/blob/main/docs/INTERACTION.md), [Compositors](https://github.com/HorneroOS/shell/blob/main/docs/COMPOSITORS.md), [Layouts](https://github.com/HorneroOS/shell/blob/main/docs/LAYOUTS.md) | Keyboard focus, dismissal, compositor-specific feature support, layout intent |
 | Login and lock experience | [Greeter UX checklist](https://github.com/HorneroOS/greeter/blob/main/docs/UX_CHECKLIST.md) | Authentication-safe visual hierarchy, keyboard access, offline media and fallback behavior |
 | Edition and installable capability truth | [Hornero edition catalogue](https://github.com/HorneroOS/hornero/blob/main/editions/catalogue.yaml), [edition architecture](../architecture/editions.md) | Product names, profile composition, maturity and supported choices |
@@ -169,15 +179,14 @@ selection, and recovery instructions take visual priority.
 | Website art direction | [Website styling guide](https://github.com/HorneroOS/website/blob/main/docs/COMPONENTS_AND_STYLING.md) | The website's own editorial composition, web palette, content imagery, accessibility and motion |
 | Evidence and visual QA | [QA scenarios](https://github.com/HorneroOS/qa/blob/main/docs/SCENARIOS.md), [QA media policy](https://github.com/HorneroOS/qa/blob/main/docs/MEDIA.md) | Reproducible captures, provenance, and what test evidence can claim |
 
-The website's Southern Signal palette is a web presentation layer. It may
-interpret Buenos Aires and Argentine landscapes with night ink, river cyan,
-signage magenta, and sodium amber. It does not replace the desktop's semantic
-theme system or establish a mandatory installer palette.
+The website uses the same Hornero Signal roles and IBM Plex families as the
+desktop, adapted for editorial layout. It does not define a separate palette
+for the desktop or the installer.
 
 ## Applying this guide to the provisional installer
 
 The installer should feel like HorneroOS through its mark, naming, language,
-color accents, and care with consequential decisions. It remains an
+Signal colours and type, and care with consequential decisions. It remains an
 installation utility, not a miniature desktop shell. A visitor should be
 able to tell what edition is being installed, where it will go, what will
 change, and whether a choice is experimental before confirming it.

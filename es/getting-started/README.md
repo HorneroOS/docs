@@ -83,7 +83,7 @@ de wiki como si fueran un instalador.
   disponibles.
 - Leé los [fundamentos del escritorio](../desktop/README.md), los
   [atajos](../../desktop/shortcuts.md) y la
-  [apariencia](../../desktop/appearance.md).
+  [apariencia](../desktop/appearance.md).
 
 ## Después de instalar
 

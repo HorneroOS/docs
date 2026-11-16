@@ -22,8 +22,8 @@ history.
 ## What Hornero configures
 
 CopyQ is an optional dependency of `hornero-config`, which provides its base
-configuration under `~/.config/copyq/`. The appearance pipeline can generate
-a matching CopyQ palette. `cliphist` and `wl-clipboard` are separate host
+configuration under `~/.config/copyq/`. Applying a theme can write a
+matching CopyQ palette. `cliphist` and `wl-clipboard` are separate host
 packages; the personal dotfiles session starts text and image history
 collection with `wl-paste --watch`.
 

@@ -23,7 +23,8 @@ implementación quedan en los repositorios de la
 | --- | --- |
 | Entender el estado de releases e instalación | [Primeros pasos](getting-started/README.md) |
 | Usar el escritorio, las apps y el Centro de control | [Desktop](desktop/README.md) · [Apps y flujos](applications/README.md) |
-| Cambiar temas, colores o el fondo | [Apariencia](../desktop/appearance.md) · [Fondos](../desktop/wallpapers.md) |
+| Conocer el aspecto Hornero Signal: temas, tipografía, accesibilidad | [Hornero Signal](desktop/hornero-signal.md) |
+| Cambiar temas, colores o el fondo | [Apariencia](desktop/appearance.md) · [Fondos](desktop/wallpapers.md) |
 | Elegir una disposición de barra | [Layouts](../desktop/layouts.md) |
 | Bloquear, reiniciar o apagar la sesión | [Menú de sesión](../desktop/session-menu.md) |
 | Buscar un atajo de teclado | [Atajos](../desktop/shortcuts.md) |
@@ -54,6 +55,9 @@ copia.
   primera mirada segura.
 - [Desktop](desktop/README.md) — apariencia, fondos, layouts, compositores
   y atajos.
+- [Hornero Signal](desktop/hornero-signal.md) — el lenguaje visual de
+  HorneroOS: temas, tipografía IBM Plex, glifos, alto contraste y
+  movimiento reducido.
 - [Apps y flujos](applications/README.md) — el catálogo de aplicaciones
   configurado y los caminos que conectan esas herramientas con Hornero.
 - [horneroctl](../desktop/horneroctl.md) — puntos de entrada de línea de
@@ -68,7 +72,9 @@ copia.
   contribución.
 - [Design language](../development/design-language.md) — identidad del
   producto, principios de UI, mapa de fuentes de verdad y guía para quien
-  contribuye al instalador.
+  contribuye al instalador. La autoridad de diseño es la
+  [RFC 0001 — Hornero Signal](../development/rfc-0001-hornero-signal.md)
+  (en inglés).
 
 ## Licencia
 

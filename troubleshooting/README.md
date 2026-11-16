@@ -56,6 +56,21 @@ local wallpaper and check installed GTK and icon themes before treating an
 external dependency as a shell failure. See [Appearance](../desktop/appearance.md)
 and [Wallpapers](../desktop/wallpapers.md).
 
+After updating from a preview that used the old wallpaper-generated
+appearance, a saved Hornero Dark, Light or 199X selection is migrated once to
+[Hornero Signal](../desktop/hornero-signal.md). If colours or terminals still
+look stale, preview and run the migration explicitly, then check again:
+
+```sh
+horneroctl appearance sync --dry-run
+horneroctl appearance sync --yes
+horneroctl appearance doctor
+```
+
+`doctor` also reports missing IBM Plex fonts; install `ttf-ibm-plex` if it
+does. A wallpaper change never changes colours, so a palette that does not
+match the image is expected.
+
 ## Network and Bluetooth
 
 Check that the adapter is visible to the operating system, then open the

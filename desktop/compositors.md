@@ -75,8 +75,9 @@ not prove a working capture workflow.
 
 A QEMU guest running Niri 26.04 at 1280×800 has been driven with keyboard and
 pointer input. The verified journey covers Shell startup, Launcher,
-Dashboard, Control Center, Appearance, a Hornero Light theme change, Layout
-Picker/Hornero Left, workspace switching, and Niri's screenshot selection.
+Dashboard, Control Center, Appearance, a theme change (Hornero Light, before
+Hornero Signal replaced it), Layout Picker/Hornero Left, workspace switching,
+and Niri's screenshot selection.
 This is a real graphical session check, not only a configuration parser test.
 
 The following still need graphical acceptance before Niri can move beyond

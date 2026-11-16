@@ -8,8 +8,8 @@ composition.
 
 ## Tools configured by Hornero Config
 
-The `hornero-config` package requires Bash, Git, Python, and
-`python-materialyoucolor` for its appearance operations. Its optional package
+The `hornero-config` package requires Bash, Git, Python, `polkit-gnome`, and
+`ttf-ibm-plex` (the Hornero Signal typefaces). Its optional package
 metadata names tools for which it can provide defaults:
 
 ### Terminal and developer tools
@@ -20,7 +20,7 @@ metadata names tools for which it can provide defaults:
   `/etc/xdg/fastfetch/`; the personal workstation adds a Hornero text mark.
 - **btop** — interactive CPU, memory, process, and device monitor. Defaults
   live in `/etc/xdg/btop/`. Hornero selects its `Hornero Dynamic` theme, which
-  Appearance regenerates from the active wallpaper palette. See
+  is rewritten from the applied theme's Signal palette. See
   [Appearance](../desktop/appearance.md).
 
 ### Appearance and desktop integration
@@ -28,7 +28,9 @@ metadata names tools for which it can provide defaults:
 - **Fontconfig** — font selection defaults under `/etc/xdg/fontconfig/`;
   font files are separate packages.
 - **GTK 3/4** — theme, icon, and dark/light preferences under XDG config
-  paths. Hornero also ships Hornero Dark, Light, and Pampa GTK theme assets.
+  paths. Hornero also ships a GTK theme tree for every Signal theme
+  (`Hornero-Signal`, `Hornero-Signal-Day`, `Hornero-Signal-Contrast`, and one
+  per Hornero Original).
 - **`qt6ct`** — optional Qt 6 theme and palette under `/etc/xdg/qt6ct/`.
   Applications use it only when the host selects qt6ct as its platform theme.
 - **Papirus icons** — optional external icon package referenced by factory
@@ -41,8 +43,8 @@ metadata names tools for which it can provide defaults:
 ### Media
 
 - **Cava** — optional terminal audio visualizer configuration under
-  `/etc/xdg/cava/`. Its `Hornero Dynamic` color theme follows the active
-  wallpaper palette. It does not start the Shell visualizer, which is off by
+  `/etc/xdg/cava/`. Its `Hornero Dynamic` color theme follows the applied
+  theme. It does not start the Shell visualizer, which is off by
   default. See [Appearance](../desktop/appearance.md) and
   [Media and audio](media-audio.md).
 
