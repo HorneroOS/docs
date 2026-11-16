@@ -38,9 +38,10 @@ horneroctl appearance theme apply patagonia --yes
 horneroctl appearance theme get
 ```
 
-Use `apply` for any installed theme. `set` is the verified, atomic switch
-between the three built-in Signal themes, with a best-effort rollback if
-the result does not check out:
+Use `apply` for any installed theme. `set` is the verified switch between
+the three built-in Signal themes: it checks that the scheme and GTK agree
+afterwards and makes a best-effort rollback to the previous built-in theme
+if they do not:
 
 ```sh
 horneroctl appearance theme set hornero-signal-day --dry-run

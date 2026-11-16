@@ -74,8 +74,9 @@ horneroctl appearance doctor
 ```
 
 `doctor` también avisa si faltan las fuentes IBM Plex; en ese caso instalá
-`ttf-ibm-plex`. Cambiar el fondo nunca cambia los colores, así que es
-esperable que la paleta no combine con la imagen.
+`ttf-ibm-plex`. Con Hornero Signal, cambiar el fondo nunca cambia los
+colores, así que es esperable que la paleta no combine con la imagen; las
+previews anteriores todavía generan los colores a partir del fondo.
 
 ## Red y Bluetooth
 

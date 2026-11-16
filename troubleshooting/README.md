@@ -68,8 +68,9 @@ horneroctl appearance doctor
 ```
 
 `doctor` also reports missing IBM Plex fonts; install `ttf-ibm-plex` if it
-does. A wallpaper change never changes colours, so a palette that does not
-match the image is expected.
+does. With Hornero Signal a wallpaper change never changes colours, so a
+palette that does not match the image is expected; older previews still
+generate colours from the wallpaper.
 
 ## Network and Bluetooth
 

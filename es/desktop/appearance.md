@@ -40,9 +40,9 @@ horneroctl appearance theme apply patagonia --yes
 horneroctl appearance theme get
 ```
 
-Usá `apply` para cualquier tema instalado. `set` es el cambio verificado y
-atómico entre los tres temas Signal incorporados, con una vuelta atrás de
-mejor esfuerzo si el resultado no verifica:
+Usá `apply` para cualquier tema instalado. `set` es el cambio verificado
+entre los tres temas Signal incorporados: después chequea que el esquema y
+GTK coincidan y, si no, intenta volver al tema incorporado anterior:
 
 ```sh
 horneroctl appearance theme set hornero-signal-day --dry-run

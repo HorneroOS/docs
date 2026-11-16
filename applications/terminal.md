@@ -54,12 +54,18 @@ copy/paste bindings:
 | `Ctrl + Shift + Home/End` | Scroll to top / bottom |
 | `Ctrl + L` | Clear the visible screen |
 
+> **Development.** The palette behaviour below is Hornero Signal on `main`.
+> Preview ISOs up to v0.2.0-preview32 still write wallpaper-generated
+> terminal colours.
+
 Every theme ships a Kitty palette as `<theme-id>.conf`, and `kitty.conf`
 has a single `include <theme-id>.conf` line (the factory default is
 `include hornero-signal-night.conf`). Applying a theme rewrites that include
 line and reloads Kitty. Older previews also included a generated
-`~/.cache/hornero/smart-colors/colors-kitty.conf` overlay; that include is no
-longer used, and a user override that still names it can drop the line.
+`~/.cache/hornero/smart-colors/colors-kitty.conf` overlay. Signal no longer
+uses it: after migrating to Signal, a user override that still names it can
+drop the line. Keep it on an older preview, where it still carries the
+generated colours.
 
 The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles)
 adds a personal Kitty setup with an 80×24 initial window, 12-point font, and
