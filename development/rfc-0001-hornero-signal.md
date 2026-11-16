@@ -215,7 +215,7 @@ offset away from the anchor edge). No blur-behind glass by default.
 | `sweep`    | `0.65, 0, 0.35, 1`  | Reveal wipes, page transitions |
 
 | `settle`     | `0.32, 1.24, 0.42, 1` | Small elegant overshoot      |
-| `settleFast` | `0.34, 1.36, 0.5, 1`  | Quick controls, chips        |
+| `settleFast` | `0.34, 1.3, 0.5, 1`   | Quick controls, chips        |
 
 Durations: `quick 90`, `short 160`, `medium 240`, `long 360`, `scan 480`,
 `settleFast 220`, `settle 320` ms.
@@ -313,14 +313,15 @@ Four independent axes compose; none of them is a separate shell:
    widgets, notification policy (do-not-disturb, fullscreen suppression),
    preferred layout preset, idle/power hints, and edition hooks (GameMode,
    PipeWire quantum, Gamescope). Owned by the shell (`services/Experience`)
-   with `horneroctl mode get|set|list|reset` as the system interface.
+   with a planned horneroctl mode command group (get, set, list, reset) as
+   the system interface.
 3. **Layout preset** — bar composition (Cockpit, Hornero Left, …).
 4. **Theme** — Signal roles and wallpaper.
 
 Rules: modes are switched explicitly by the user (launcher, Control Center,
 IPC, CLI); optional automatic switching (e.g. fullscreen game → `gaming`) is
 off by default, local-only, shown in the UI and reversible with one action.
-User customisations per mode are preserved; `horneroctl mode reset` and a
+User customisations per mode are preserved; the planned mode reset verb and a
 Control Center action return to the factory `everyday` + Cockpit + Signal
 Night. Modes only enable capabilities the installed edition has; a missing
 capability is shown as unavailable, not faked. **Gaming** must never draw
@@ -402,7 +403,7 @@ credited in NOTICE files where they ship.
   roles), `terminal` (16 colours) and gtk/icon/wallpaper metadata.
 - **Live scheme** —
   `${XDG_STATE_HOME:-~/.local/state}/hornero/signal/scheme.json` written
-  atomically by `horneroctl theme apply` (or the shell for built-ins) and
+  atomically by horneroctl's theme apply path (or the shell for built-ins) and
   watched by the shell. Wallpapers never recolour the UI.
 - **Built-in ids** — `hornero-signal-night` (default), `hornero-signal-day`,
   `hornero-signal-contrast`; `hornero-dark/light/199x` selections migrate
