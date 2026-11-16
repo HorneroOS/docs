@@ -42,8 +42,9 @@ desktop-specific preference file can take precedence. See
 
 Kitty is a GPU-accelerated terminal emulator. Hornero Config provides its
 system defaults under `/etc/xdg/kitty`; your user configuration at
-`~/.config/kitty/kitty.conf` can override them. The defaults include a Hornero
-Dark palette, font and window spacing, scrollback, and copy/paste bindings:
+`~/.config/kitty/kitty.conf` can override them. The defaults include the
+Hornero Signal Night palette, IBM Plex Mono, window spacing, scrollback, and
+copy/paste bindings:
 
 | Key | Action |
 | --- | --- |
@@ -53,17 +54,18 @@ Dark palette, font and window spacing, scrollback, and copy/paste bindings:
 | `Ctrl + Shift + Home/End` | Scroll to top / bottom |
 | `Ctrl + L` | Clear the visible screen |
 
-The screenshot shows Kitty running `horneroctl` appearance commands with the
-current host configuration. Theme IDs shown by a specific machine can differ
-from a later catalogue pin.
+> **Development.** The palette behaviour below is Hornero Signal on `main`.
+> Preview ISOs up to v0.2.0-preview32 still write wallpaper-generated
+> terminal colours.
 
-![Kitty displays Hornero theme IDs and wallpaper-derived color information in a styled terminal window.](/images/apps/kitty-appearance.webp)
-
-Theme packs provide Hornero Dark, Light, and Pampa palettes. Wallpaper-derived
-colors can also write a user overlay under
-`~/.cache/hornero/smart-colors/colors-kitty.conf`. If Kitty reports that the
-optional overlay is absent, the packaged palette still works; generate colors
-from Appearance or remove only the stale include in a user override.
+Every theme ships a Kitty palette as `<theme-id>.conf`, and `kitty.conf`
+has a single `include <theme-id>.conf` line (the factory default is
+`include hornero-signal-night.conf`). Applying a theme rewrites that include
+line and reloads Kitty. Older previews also included a generated
+`~/.cache/hornero/smart-colors/colors-kitty.conf` overlay. Signal no longer
+uses it: after migrating to Signal, a user override that still names it can
+drop the line. Keep it on an older preview, where it still carries the
+generated colours.
 
 The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles)
 adds a personal Kitty setup with an 80×24 initial window, 12-point font, and
@@ -75,13 +77,12 @@ release requirement. Edit the active `kitty.conf` to customize Kitty. See the
 
 Alacritty is an optional terminal for users who prefer a compact TOML
 configuration. When Alacritty is installed, Hornero Config supplies a system
-fallback at `/etc/alacritty/alacritty.toml`. It imports the static Hornero
-Dark palette and an optional generated palette, and enables live config
-reload. Hornero writes the active wallpaper-derived colors to
-`~/.config/alacritty/hornero-colors.toml`; applying an appearance updates this
-file. If you maintain a user config at
+fallback at `/etc/alacritty/alacritty.toml`. It imports the packaged Signal
+Night palette and then the applied theme's palette, and enables live config
+reload. Applying a theme writes that theme's colours to
+`~/.config/alacritty/hornero-colors.toml`. If you maintain a user config at
 `~/.config/alacritty/alacritty.toml`, include the Hornero palette imports there
-to keep generated colors active.
+to keep theme colours active.
 
 The installed default uses 12-pixel window padding, 88% opacity, a 2,500-line
 scrollback, and a non-blinking block cursor. The [Alacritty configuration
@@ -97,7 +98,7 @@ config selects the Hornero theme and sets 88% background opacity. Existing
 accounts are not overwritten by the skeleton; add `theme = Hornero Dynamic`
 to your own `~/.config/ghostty/config.ghostty` to opt in.
 
-When an appearance is applied, Hornero writes the wallpaper-derived theme to
+When a theme is applied, Hornero writes its Signal palette to
 `~/.config/ghostty/themes/Hornero Dynamic`, which takes precedence over the
 system fallback, and signals a running Ghostty instance to reload. Keep the
 theme name stable in your config so subsequent appearances update it. See
@@ -106,14 +107,13 @@ Ghostty's [configuration guide](https://ghostty.org/docs/config) and
 
 ## Shared appearance behavior
 
-Applying an appearance in Hornero updates the generated palette files for
-Kitty, Alacritty, and Ghostty from the active wallpaper. Each emulator reads
-its native format. Kitty and Alacritty have static Hornero Dark / Light
-fallbacks; Ghostty has a static `Hornero Dynamic` theme fallback. These keep
-the terminals usable before palette generation, while user-level files remain
-yours to customize.
-To inspect the generated scheme, run `horneroctl appearance colors status`.
-See [Appearance](../desktop/appearance.md) for theme and palette controls.
+Applying a theme updates the palette files for Kitty, Alacritty, and Ghostty
+from that theme's 16-colour terminal palette. Each emulator reads its native
+format. The wallpaper never changes terminal colours. Kitty and Alacritty
+fall back to the packaged Signal Night palette; Ghostty has a static
+`Hornero Dynamic` fallback. User-level files remain yours to customize.
+To inspect the live colours, run `horneroctl appearance colors status`.
+See [Appearance](../desktop/appearance.md) for theme controls.
 
 ## Shell and command workflow
 

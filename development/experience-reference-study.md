@@ -7,6 +7,12 @@
 > product-engineering study, not a feature scorecard or a claim that the
 > projects have the same audience. Recheck linked sources before using this
 > page to make a release decision.
+>
+> **Superseded in part, 2026-11-16:** Hornero Signal
+> ([RFC 0001](rfc-0001-hornero-signal.md)) replaced the wallpaper-derived
+> Material 3 palette. Themes are now complete authored Signal palettes and
+> wallpapers never recolour the desktop; references below to a
+> wallpaper-derived scheme describe the 2026-10-14 state.
 
 HorneroOS has its own product history, design language, and operating-system
 boundaries. This study records useful patterns from Caelestia, Ryoku, and

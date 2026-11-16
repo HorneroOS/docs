@@ -58,8 +58,25 @@ horneroctl appearance doctor
 Una imagen nombrada por un manifiesto de tema puede no estar instalada
 localmente. Elegí un fondo local y revisá los temas GTK y de íconos
 instalados antes de tratar una dependencia externa como un fallo de la
-shell. Ver [Apariencia](../../desktop/appearance.md) y
-[Fondos](../../desktop/wallpapers.md).
+shell. Ver [Apariencia](../desktop/appearance.md) y
+[Fondos](../desktop/wallpapers.md).
+
+Si actualizaste desde una preview que usaba la apariencia vieja generada a
+partir del fondo, una selección guardada de Hornero Dark, Light o 199X se
+migra una sola vez a [Hornero Signal](../desktop/hornero-signal.md). Si los
+colores o las terminales siguen viéndose desactualizados, previsualizá y
+corré la migración a mano, y después volvé a chequear:
+
+```sh
+horneroctl appearance sync --dry-run
+horneroctl appearance sync --yes
+horneroctl appearance doctor
+```
+
+`doctor` también avisa si faltan las fuentes IBM Plex; en ese caso instalá
+`ttf-ibm-plex`. Con Hornero Signal, cambiar el fondo nunca cambia los
+colores, así que es esperable que la paleta no combine con la imagen; las
+previews anteriores todavía generan los colores a partir del fondo.
 
 ## Red y Bluetooth
 

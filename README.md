@@ -22,6 +22,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | --- | --- |
 | Understand release and installation status | [Getting started](getting-started/README.md) |
 | Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) · [Apps and workflows](applications/README.md) |
+| Learn the Hornero Signal look: themes, type, accessibility | [Hornero Signal](desktop/hornero-signal.md) |
 | Change themes, colors, or wallpaper | [Appearance](desktop/appearance.md) · [Wallpapers](desktop/wallpapers.md) |
 | Choose a bar arrangement | [Layouts](desktop/layouts.md) |
 | Lock, restart, or shut down the desktop session | [Session menu](desktop/session-menu.md) |
@@ -52,6 +53,9 @@ content; the website does not maintain a second copy.
   first look.
 - [Desktop](desktop/README.md) — appearance, wallpaper, layouts, compositors,
   and shortcuts.
+- [Hornero Signal](desktop/hornero-signal.md) — the HorneroOS visual
+  language: themes, IBM Plex type, glyphs, high contrast, and reduced
+  motion.
 - [Apps and workflows](applications/README.md) — the configured application
   catalog and the paths that connect those tools to Hornero.
 - [horneroctl](desktop/horneroctl.md) — supported command-line entry points.
@@ -61,6 +65,8 @@ content; the website does not maintain a second copy.
 - [Development](development/README.md) — code, QA, and contribution paths.
 - [Design language](development/design-language.md) — product identity, UI
   principles, source-of-truth map, and guidance for installer contributors.
+  The design authority is
+  [RFC 0001 — Hornero Signal](development/rfc-0001-hornero-signal.md).
 
 ## Languages
 

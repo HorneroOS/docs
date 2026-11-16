@@ -9,11 +9,17 @@ guides explain how those parts connect and what to check when one is missing.
 
 The current Preview composition ships in the signed v0.2.0-preview32 ISO
 (Desktop, Studio and Gaming Preview, provisional Calamares installer). It brings
-together Hornero Shell, `horneroctl`, and the `hornero-config` package. Config
-requires Bash, Git, Python, and `python-materialyoucolor`; it does not install
+together Hornero Shell, `horneroctl`, and the `hornero-config` package. On
+`main`, Config requires Bash, Git, Python, `polkit-gnome`, and `ttf-ibm-plex`;
+it does not install
 a complete workstation by itself.
 
 ### Hornero defaults for optional applications
+
+> **Development.** Theme palettes below describe
+> [Hornero Signal](../desktop/hornero-signal.md) on `main`. The
+> v0.2.0-preview32 ISO still generates application colours from the
+> wallpaper.
 
 These programs remain separate host packages. If installed, they can use
 defaults supplied by Hornero Config:
@@ -23,11 +29,11 @@ defaults supplied by Hornero Config:
   configured terminal, including Alacritty or Ghostty. See
   [Terminal](terminal.md).
 - **Alacritty** and **Ghostty** — optional terminal alternatives with native
-  Hornero fallback and wallpaper-derived palette integration. They are not
+  Hornero fallback and theme palette integration. They are not
   installed by Hornero Config. See [Terminal](terminal.md).
 - **Thunar** — file-manager accelerators, bulk rename, and context actions.
   **Super + F** asks the host to open its FileManager. See [Files](files.md).
-- **CopyQ** — clipboard history UI configuration and generated theme colors.
+- **CopyQ** — clipboard history UI configuration and theme colors.
   See [Clipboard](clipboard.md).
 - **Fastfetch**, **btop**, and **Cava** — terminal summary, resource monitor,
   and visualizer configuration. See [System utilities](system-utilities.md).

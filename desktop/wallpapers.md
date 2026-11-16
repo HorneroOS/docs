@@ -1,10 +1,13 @@
-# Wallpapers and color
+# Wallpapers
 
 Use **Settings → Appearance → Background** to work with the desktop
-background. Wallpaper files are user media: theme packs can refer to them, but
-third-party images are not automatically downloaded when you select a theme.
-This keeps theme changes usable offline and avoids an unexpected network
-fetch.
+background. A wallpaper is only the image behind your windows: it never
+changes interface colours. Colours come from the selected
+[theme](appearance.md), so you can pair any image with any theme.
+
+> **Development.** Wallpaper-independent colours arrived with
+> [Hornero Signal](hornero-signal.md) in November 2026. Preview ISOs up to
+> v0.2.0-preview32 still generate shell colours from the wallpaper.
 
 ## Set a local wallpaper
 
@@ -17,73 +20,62 @@ horneroctl wallpaper set "$HOME/Pictures/Wallpapers/night.jpg" --dry-run
 horneroctl wallpaper set "$HOME/Pictures/Wallpapers/night.jpg" --yes
 ```
 
-`horneroctl wallpaper current` reports the resolved current image. The path
-can be a file in Pictures or another readable location. `horneroctl wallpaper
-reload --yes` re-runs the color pipeline for the current image; it does not
-choose a different one.
+`horneroctl wallpaper current` prints the resolved current image. `set`
+replaces the wallpaper pointer that the shell watches and refreshes the lock
+screen backdrop; it never changes a colour. The path can be any readable
+file.
 
-## Curated wallpaper collection
+## Wallpapers that ship with HorneroOS
+
+- **Signal Night and Signal Day** use procedural wallpapers drawn from the
+  theme colours — a drafting grid, the La Plata diagonal and registration
+  marks — rendered on your machine from SVG sources under the project's MIT
+  license. Signal High Contrast reuses the Night wallpaper.
+- **Hornero Originals** each ship one licensed photograph of the place they
+  are named after: Buenos Aires Nocturno, Cuyo, Fin del Mundo, Iberá,
+  Iguazú, Pampa, Patagonia, Quebrada and Sierras. They are Wikimedia Commons
+  images under CC BY 2.0 or CC BY-SA 4.0; creator, source and license are
+  recorded in Config's
+  [wallpaper credits](https://github.com/HorneroOS/config/blob/main/profiles/themes/WALLPAPER-CREDITS.md)
+  and installed under `/usr/share/licenses/hornero-config/`.
+- **Community ports** name an optional wallpaper collection, looked up in
+  `~/Pictures/Wallpapers/<collection>/` or
+  `~/.local/share/hornero/wallpapers/<collection>/`; they do not bundle
+  images.
+
+Packaged wallpapers install under `/usr/share/hornero/wallpapers/`.
+
+The retired Hornero Dark, Light and 199X artwork is no longer shipped.
+
+## Optional and personal wallpaper collections
 
 The public [dotfiles repository](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers)
-contains optional wallpaper artwork for personal Arch workstations. Its
-collection ranges from **Neon City** and **Vapor Dreams** to **Patagonia**,
-**Fin del Mundo**, **Quebrada**, **Iberá**, and **Buenos Aires Nocturno**.
-The stylized Argentine scenes are original generated artworks, not
-documentary photographs. When the optional wallpaper profile is applied,
-images are linked under `~/Pictures/Wallpapers/<collection>/`. They remain
-user media and are not redistributed by the Hornero Config package.
+contains optional wallpaper artwork for personal Arch workstations. When the
+optional wallpaper profile is applied, images are linked under
+`~/Pictures/Wallpapers/<collection>/`. They remain user media and are not
+redistributed by the Hornero Config package.
 
-Hornero Config separately ships six provenance-verified photographs under
-CC BY 2.0 or CC BY-SA 4.0, alongside its procedural flagship SVG wallpapers.
-The [wallpaper guide](https://github.com/HorneroOS/config/blob/main/docs/WALLPAPERS.md)
-and installed credits record each source, creator, license, and modification.
-The Config package owns theme metadata and does not fetch user wallpaper files.
-
-The official website keeps these collections distinct: browse the
-[theme catalog](https://horneroos.com/themes), the
-[photographic wallpaper gallery](https://horneroos.com/wallpapers), and the
-[Showroom](https://horneroos.com/showroom) for verified desktop captures.
-Captions identify photographs, original wallpaper artwork, and running
-desktop screenshots according to their actual provenance. Argentine
-landscapes and city atmospheres sit alongside synthwave, cyberpunk, and
-softer natural scenes; Pampa is one Hornero look among a wider collection.
-
-## How wallpaper and colors work together
-
-The desktop wallpaper is a visual choice. The shell can also analyse its
-colors and derive a palette for dynamic appearances. Hornero keeps the image
-and generated shell palette as separate, user-visible choices. A wallpaper
-change can therefore alter shell accents and surfaces while keeping the look
-name and light or dark mode. Hornero Dark, Hornero Light, and Pampa use curated
-semantic roles; five other Hornero Originals and the wider wallpaper-led
-collection can use generated colors. The [Appearance guide](appearance.md)
-explains the difference and the advanced controls.
-
-Check the current state without changing it:
-
-```sh
-horneroctl wallpaper current
-horneroctl appearance scheme status
-horneroctl appearance colors status
-horneroctl appearance doctor
-```
+The website keeps these collections distinct: browse the
+[theme catalogue](https://horneroos.com/themes), the
+[photographic wallpaper gallery](https://horneroos.com/wallpapers) and the
+[Showroom](https://horneroos.com/showroom). Captions identify photographs,
+original artwork, concept renders and running-desktop screenshots by their
+actual provenance; desktop captures taken before Hornero Signal are labelled
+as showing the previous appearance.
 
 ## When a theme wallpaper is unavailable
 
-A theme's manifest can identify a default image and a wallpaper collection
-without shipping the image itself. If that media is not present, the theme is
-still a theme pack; it is not evidence that the shell or theme catalog is
-broken. Choose one of the images already installed or point the CLI at a
-local file. Hornero does not fetch an arbitrary image on your behalf.
+A theme's manifest can name a default image and a wallpaper collection
+without shipping the image. If that media is not present, the theme still
+applies; choose an installed image or point the CLI at a local file. Hornero
+does not download an image on your behalf.
 
-To inspect pack wallpaper metadata:
+To inspect wallpaper metadata for every installed theme:
 
 ```sh
 horneroctl appearance theme list --full
-horneroctl appearance theme show vapor-dreams
+horneroctl appearance theme show hornero-signal-night
 ```
 
-The canonical theme and wallpaper manifest are maintained in
+The theme and wallpaper manifests are maintained in
 [HorneroOS/config](https://github.com/HorneroOS/config/tree/main/profiles/themes).
-For a real product comparison across color and image directions, visit the
-[Showroom](https://github.com/HorneroOS/website/tree/main/src/content/showroom).

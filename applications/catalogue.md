@@ -18,15 +18,15 @@ Search the page for either the application name or the task name. For example,
 | `horneroctl` | Supported CLI for appearance, config, hardware, capture, and application actions. It also offers shell-independent diagnostics. | [CLI reference](../desktop/horneroctl.md), [upstream repository](https://github.com/HorneroOS/hornero) |
 | Hyprland | Wayland compositor and session integration used by the current reference environment. | [Shortcuts](../desktop/shortcuts.md), [upstream documentation](https://wiki.hypr.land/) |
 | `hornero-config` | Declarative defaults, theme packs, application snippets, and package integration; does not provide a whole installed OS. | [Appearance](../desktop/appearance.md), [Config repository](https://github.com/HorneroOS/config) |
-| Bash, Git, Python, `python-materialyoucolor` | Required package dependencies for the current Config CLI and palette pipeline. | [CLI reference](../desktop/horneroctl.md), [Themes](../desktop/appearance.md) |
+| Bash, Git, Python, `polkit-gnome`, `ttf-ibm-plex` | Required package dependencies of `hornero-config`: helpers, theme renderers, privilege prompts, and the IBM Plex families. | [CLI reference](../desktop/horneroctl.md), [Themes](../desktop/appearance.md) |
 
 ## Terminal and command line
 
 | App or tool | Status and Hornero behavior | Config / workflow |
 | --- | --- | --- |
 | Kitty | Optional host package selected as the default terminal by factory settings. Hornero supplies system defaults; **Super + E** uses the configured terminal, including Kitty, Alacritty, or Ghostty. | [`~/.config/kitty/kitty.conf`](terminal.md#kitty), [Terminal guide](terminal.md), [Kitty manual](https://sw.kovidgoyal.net/kitty/) |
-| Alacritty | Optional alternative with a packaged `/etc/alacritty/alacritty.toml` fallback and wallpaper-derived palette import. User configuration can override the fallback. | [Alacritty guide](terminal.md#alacritty), [configuration reference](https://alacritty.org/config-alacritty.html) |
-| Ghostty | Optional alternative with a system `Hornero Dynamic` theme, a new-user config seed, and generated per-user palettes. Existing user configs are not overwritten. | [Ghostty guide](terminal.md#ghostty), [configuration guide](https://ghostty.org/docs/config) |
+| Alacritty | Optional alternative with a packaged `/etc/alacritty/alacritty.toml` fallback and an import of the applied theme's palette. User configuration can override the fallback. | [Alacritty guide](terminal.md#alacritty), [configuration reference](https://alacritty.org/config-alacritty.html) |
+| Ghostty | Optional alternative with a system `Hornero Dynamic` theme, a new-user config seed, and per-user palettes written from the applied theme. Existing user configs are not overwritten. | [Ghostty guide](terminal.md#ghostty), [configuration guide](https://ghostty.org/docs/config) |
 | Bash | Required by `hornero-config`; used by package scripts and shell helpers. | [Terminal guide](terminal.md#shell-and-command-workflow), [Bash manual](https://www.gnu.org/software/bash/manual/) |
 | Zsh | Personal workstation choice, not a Hornero Config dependency. The dotfiles profile configures its prompt and startup files. | [Terminal guide](terminal.md#shell-and-command-workflow), [Zsh documentation](https://zsh.sourceforge.io/Doc/) |
 | tmux | Optional personal terminal multiplexer with a dotfiles-managed config and session helpers. | [Terminal guide](terminal.md#shell-and-command-workflow), [tmux manual](https://github.com/tmux/tmux/wiki) |
@@ -64,8 +64,8 @@ Search the page for either the application name or the task name. For example,
 | App or component | Role and availability | Guide |
 | --- | --- | --- |
 | GTK, Fontconfig, `qt6ct` | Optional host appearance components. Hornero can configure them; external GTK themes and icon packages must be installed separately. | [Appearance](../desktop/appearance.md) |
-| Papirus, Numix Circle, Orchis | Optional icon and GTK theme packages used by the personal profile and theme packs. Missing packages produce a documented fallback/degraded state. | [Appearance](../desktop/appearance.md#theme-packs-and-wallpaper-availability) |
-| Rubik, Cascadia Code Nerd Font, Material Symbols | Fonts used by the configured workstation and Shell. Other fonts remain available as user choices. | [Appearance](../desktop/appearance.md) |
+| Papirus, Numix Circle, Orchis | Optional icon and GTK theme packages used by the personal profile and theme packs. Missing packages produce a documented fallback/degraded state. | [Appearance](../desktop/appearance.md#theme-packs) |
+| IBM Plex Sans, Mono, and Sans Condensed (`ttf-ibm-plex`) | Hornero Signal typefaces for the Shell, GTK, Qt, and terminals; a hard dependency of `hornero-config`. Shell icons are the bundled Hornero Glyphs, so no icon font is required. Other fonts remain available as user choices. | [Appearance](../desktop/appearance.md) |
 | Hyprlock, Hypridle | Optional lock and idle-session tools, separate from Shell notifications and Controls. | [Lock and login](login-lock.md#lock-the-session) |
 | SDDM and Hornero Greeter | Separate display-manager and login-screen components. They are not part of the Preview composition. | [Lock and login](login-lock.md#hornero-greeter) |
 | Portals, `polkit-gnome`, `libnotify`, `dex` | Session services and helpers used for file dialogs, privilege prompts, notification compatibility, and desktop autostart. They are integration components rather than end-user apps. | [System utilities](system-utilities.md#internal-implementation-tools) |

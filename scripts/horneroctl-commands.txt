@@ -1,15 +1,23 @@
-# horneroctl command paths, generated from HorneroOS/hornero@46b75160574bea9d87778bd2c3b8c7a706ef8fc7
+# horneroctl command paths, generated from HorneroOS/hornero@daa03b0af8751e16e3902a9600662a7a6e192156
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
+agent
+agent config
+agent config apply
+agent config check
+agent config status
+agent default
+agent default set
+agent default show
+agent doctor
+agent launch
+agent list
+agent status
+agent usage
 appearance
-appearance accent
-appearance accent clear
-appearance accent set
-appearance accent show
 appearance colors
 appearance colors concept
 appearance colors export
 appearance colors generate
-appearance colors m3
 appearance colors status
 appearance doctor
 appearance gtk
@@ -19,7 +27,6 @@ appearance gtk color-scheme
 appearance gtk current
 appearance gtk current-color-scheme
 appearance gtk current-icon
-appearance gtk detect
 appearance gtk icons
 appearance gtk info
 appearance gtk list
@@ -41,12 +48,7 @@ appearance night-mode status-text
 appearance night-mode toggle
 appearance scheme
 appearance scheme current
-appearance scheme list
-appearance scheme regenerate
-appearance scheme set-mode
-appearance scheme set-variant
 appearance scheme status
-appearance scheme sync-state
 appearance set-gtk
 appearance set-gtk-color-scheme
 appearance set-icons
@@ -98,6 +100,7 @@ assistant
 assistant approve
 assistant ask
 assistant clarify
+assistant delegate
 assistant disable
 assistant enable
 assistant events
@@ -114,6 +117,7 @@ assistant profile
 assistant prompt
 assistant sessions
 assistant setup
+assistant shell-proposal
 assistant status
 assistant stop
 assistant tool
@@ -142,6 +146,7 @@ config default-apps set
 config gui
 config materialize
 config paths
+config refresh-hypr
 config show
 config snapshot
 config snapshot create
@@ -220,10 +225,12 @@ package deps
 package updates
 package upgrade
 plugin
+plugin action
 plugin catalog
 plugin community
 plugin disable
 plugin enable
+plugin install-local
 plugin new
 power
 power lock
@@ -236,6 +243,10 @@ recovery
 recovery doctor
 shell
 shell ipc
+shell lock-process
+shell lock-process disable
+shell lock-process enable
+shell lock-process status
 shell logs
 shell preset
 shell preset apply
@@ -268,7 +279,6 @@ system info
 version
 wallpaper
 wallpaper current
-wallpaper reload
 wallpaper set
 welcome
 welcome mark-seen

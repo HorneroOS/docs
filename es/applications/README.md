@@ -12,8 +12,8 @@ falta una.
 La composición Preview actual se distribuye en la ISO firmada
 v0.2.0-preview32 (Desktop, Studio y Gaming Preview, instalador
 provisional Calamares). Reúne a Hornero Shell, `horneroctl` y el paquete
-`hornero-config`. Config requiere Bash, Git, Python y
-`python-materialyoucolor`; no instala una estación de trabajo completa
+`hornero-config`. Config requiere Bash, Git, Python, `polkit-gnome` y
+`ttf-ibm-plex`; no instala una estación de trabajo completa
 por sí solo.
 
 ### Valores por defecto de Hornero para aplicaciones opcionales
@@ -27,14 +27,14 @@ Config:
   acción sigue a la terminal configurada, incluyendo Alacritty o Ghostty.
   Ver [Terminal](../../applications/terminal.md).
 - **Alacritty** y **Ghostty** — alternativas opcionales de terminal con
-  fallback nativo de Hornero e integración de paleta derivada del fondo.
+  fallback nativo de Hornero e integración con la paleta del tema.
   No los instala Hornero Config. Ver
   [Terminal](../../applications/terminal.md).
 - **Thunar** — aceleradores del gestor de archivos, renombrado masivo y
   acciones de contexto. **Super + F** le pide al host que abra su
   FileManager. Ver [Archivos](../../applications/files.md).
 - **CopyQ** — configuración de la UI del historial del portapapeles y
-  colores de tema generados. Ver
+  colores del tema. Ver
   [Portapapeles](../../applications/clipboard.md).
 - **Fastfetch**, **btop** y **Cava** — configuración del resumen de
   terminal, el monitor de recursos y el visualizador. Ver
@@ -44,7 +44,7 @@ Config:
 - **Fontconfig**, **GTK**, **qt6ct** y **Papirus** — valores por defecto
   de tipografías y apariencia de aplicaciones. Los temas GTK y los
   paquetes de íconos externos pueden faltar; Hornero no los descarga. Ver
-  [Apariencia](../../desktop/appearance.md).
+  [Apariencia](../desktop/appearance.md).
 - **`handlr`** — integración opcional para inspeccionar manejadores de
   archivos y aplicaciones. [`horneroctl`](../../desktop/horneroctl.md)
   usa `xdg-mime` para actualizar las asociaciones MIME.

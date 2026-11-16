@@ -1,115 +1,123 @@
 # Appearance architecture
 
 This page describes ownership and data flow for contributors. For the user
-model, start with [Appearance](../desktop/appearance.md) and
-[Wallpapers](../desktop/wallpapers.md).
+model, start with [Hornero Signal](../desktop/hornero-signal.md),
+[Appearance](../desktop/appearance.md) and
+[Wallpapers](../desktop/wallpapers.md). The design authority is
+[RFC 0001 — Hornero Signal](../development/rfc-0001-hornero-signal.md);
+token names, font families, the glyph API, motion names and the
+anchored-surface contract change only by amending it.
 
 ## Ownership
 
-- **`HorneroOS/config`** owns theme pack data, semantic brand tokens,
-  defaults, wallpaper manifests, GTK assets, package contents, and the
-  generated theme catalogue.
-- **`HorneroOS/shell`** owns live desktop presentation, wallpaper analysis,
-  M3 color roles, preview UI, and coordination of session-level appearance
-  changes.
+- **`HorneroOS/config`** owns the token contract
+  (`profiles/themes/tokens.schema.json`, schema version 2), every theme pack,
+  the generated theme catalogue, wallpaper manifests and credits, brand
+  assets, the GTK/Qt/terminal/compositor generators
+  (`lib/hornero/signal_theme.py`, `lib/hornero/signal_render.py`) and factory
+  defaults, including Cockpit and Signal Night.
+- **`HorneroOS/shell`** owns live presentation: the `Signal` singleton
+  (`Signal.palette.<role>`), IBM Plex type roles, Hornero Glyphs, motion
+  tokens, theme previews, accessibility overrides and the anchored-surface
+  solver.
 - **`HorneroOS/hornero`** owns stable `horneroctl` operations: catalogue
-  resolution, apply and verification, error reporting, and prior-state
-  restoration where supported.
-- **User data** owns explicit overrides and generated state in the user's
-  config/cache/data directories. System catalogues under `/usr/share` are
-  read-only.
+  resolution, theme apply and verification, the one-shot migration of
+  retired selections, diagnostics and error reporting.
+- **User data** holds explicit overrides and generated state in the user's
+  config, state and cache directories. System catalogues under `/usr/share`
+  are read-only.
 
 The theme catalogue is generated from installed packs; it is not a second
-hand-maintained list. User themes take precedence over system themes when the
-user deliberately installs an override. Reads and writes use the Hornero
-user catalogue followed by the read-only system catalogue; no retired path
-namespace is part of the lookup contract.
+hand-maintained list. Reads use the user catalogue, then the read-only system
+catalogue.
 
-## Two kinds of theme pack
+## One kind of theme pack
 
-The catalogue supports two levels of description. Flagship themes use the
-semantic model: named color roles, component surfaces, mode, versioned token
-metadata, and coordinated GTK/icon/wallpaper information. Recipe-style packs
-describe an appearance choice using a scheme generator and optional GTK, icon,
-and wallpaper references. A recipe is not required to claim ownership of a
-complete semantic palette. Both are resolved through the same catalogue and
-application path; richer metadata is optional enrichment, not a separate
-runtime.
+Every theme is `profiles/themes/<id>/theme.json` with `schemaVersion: 2`:
+`id`, `name`, `mode` (`dark` or `light`), `palette` (exactly the RFC §3.1
+roles, plus the optional `glow`), `terminal` (16 colours), `gtkTheme`,
+`iconTheme`, `defaultWallpaper` and `wallpaperDir`; `description`, `tags`,
+`collection` and `collectionOrder` are optional presentation metadata.
+There are no seeds, scheme types, variants or partial "recipe" packs. A pack
+that does not define the full role set is invalid, and Config's contrast
+check runs on every shipped pack.
 
-## Product collection is separate from implementation
+`collection` describes authorship and presentation only (`hornero-signal`,
+`hornero-originals`, community ports); it never implies a different token
+model.
 
-The product catalogue also groups eight first-party **Hornero Originals**:
-Hornero Dark, Hornero Light, Pampa, Patagonia, Fin del Mundo, Quebrada, Iberá,
-and Buenos Aires Nocturno. Three use semantic tokens; five use wallpaper-led
-palette generation. The other twelve curated looks remain first-class choices
-in the same picker. `collection` and `collectionOrder` describe product
-authorship and presentation. `family`, `palette`, and `components` describe
-the semantic color model. A visual collection label must never imply a token
-schema that the pack does not contain.
-
-Do not infer a product guarantee from a pack name. Dependency availability,
-media presence, and fallback behavior come from the pack metadata and the
-installed package set. The UI and CLI must report unavailable pieces instead
-of claiming that an incomplete appearance was fully applied.
-
-## Color flow
+## Colour flow
 
 ```text
-theme pack or selected wallpaper
+config theme pack (schema v2)
+          │  horneroctl appearance theme apply|set   (or the shell, for built-ins)
+          ▼
+$XDG_STATE_HOME/hornero/signal/scheme.json   ← written atomically
           │
-          ├── semantic brand/component tokens (when provided by the pack)
-          └── wallpaper analysis → selected generation mode → M3 roles
-                                      │
-                                      └── Shell palette and supported consumers
+          ├── Shell: watches the file → Signal.palette.<role>
+          ├── Hyprland borders, hyprlock variables
+          ├── Kitty include, Alacritty, Ghostty, btop, Cava palettes
+          ├── GTK 3/4 + libadwaita recolour (pack's gtkTheme tree)
+          └── Qt via qt6ct colour scheme
 ```
 
-Brand tokens and generated Material roles have different purposes. Brand
-tokens express Hornero's curated identity; M3 roles map a source color to
-roles appropriate for controls and surfaces. They should remain related but
-must not be forced into identical hex values. Wallpaper-derived colors are
-user-selected appearance state, not a replacement for the pack's authored
-brand palette.
+The live scheme is
+`{"schemaVersion":2,"id":…,"mode":…,"palette":{role:"#RRGGBB"},"terminal":[16]}`.
+Wallpapers never feed this flow: there is no wallpaper analysis, tonal
+synthesis or `materialyoucolor` step anywhere in the stack. The wallpaper
+pointer is a separate file the shell watches for the image only.
 
-The Shell's `Colours`, `WallpaperAnalysis`, and `ThemePipeline` services
-coordinate rendering and previews. `horneroctl` remains usable without the
-Control Center and owns the stable system-facing operations. Keep display
-logic in QML, live session coordination in Shell services, OS capabilities in
-the CLI, and defaults in config packs.
+High contrast (`appearance.highContrast`) is a shell-only override: the shell
+renders the `hornero-signal-contrast` table and disables translucency without
+changing the persisted theme. Reduced motion (`appearance.reducedMotion` or
+GNOME's `enable-animations`) sets durations to zero except short opacity
+fades.
+
+Keep display logic in QML, live session coordination in shell services, OS
+operations in `horneroctl`, and data in Config packs. `horneroctl` stays
+usable without the Control Center.
 
 ## Applying and recovering
 
-Applying a pack can touch Shell colors, mode, wallpaper, GTK theme and color
-policy, icons, and generated state. Each consumer has different runtime
-capabilities, so this is a verified best-effort transaction rather than one
-filesystem atomic rename. The operation must validate inputs before writing,
-check resulting state, report partial failure accurately, and restore the
-previous state where the command supports rollback. Never display success
-based only on a process starting.
+Applying a theme writes the live scheme atomically, then the derived files,
+then GTK, and persists the selection. Each consumer has different runtime
+capabilities, so the whole apply is a verified best-effort transaction
+rather than one atomic rename. It must validate the pack before writing,
+check the resulting state, report partial failure accurately and, for
+`appearance theme set`, roll back to the previous built-in theme on
+failure. Never report success because a process started.
 
-The official command and behavior contract is documented in
-[horneroctl](../desktop/horneroctl.md). Component implementation and tests
-live in the linked repositories, not in this handbook.
+Retired ids (`hornero-dark`, `hornero-light`, `hornero-199x`, `neon-city`,
+`vapor-dreams`, `soft-morning`, `warm-sunset`) are rejected by `apply` with
+their replacement. A persisted selection naming one of them migrates once,
+on shell load or through `horneroctl appearance sync --yes`. This is a data
+migration, not an alias layer.
+
+The command contract is documented in [horneroctl](../desktop/horneroctl.md)
+and in `horneroctl appearance --help`.
 
 ## Wallpaper media
 
-Wallpaper binaries are distributed separately from pack metadata. Config
-manifests identify expected media and its source. A missing default must
-produce a deliberate fallback or an unavailable state; it must not make the
-whole theme look malformed. Never download arbitrary images as an implicit
-side effect of selecting a theme.
+Wallpaper binaries are separate from pack metadata. Config manifests name
+the expected media and its source; licensed photographs and their credits
+ship with `hornero-config`, and the Signal wallpapers are rendered from SVG
+on the target machine. A missing default produces an unavailable state, not
+a malformed theme. Never download an image as a side effect of selecting a
+theme.
 
 ## Change checklist
 
-When changing appearance data or behavior, update the owning source and its
+When changing appearance data or behaviour, update the owning source and its
 tests, then check the downstream consumers:
 
-- Config pack and generated catalogue.
-- CLI resolution, apply verification, and error reporting.
-- Shell preview and live rendering.
-- GTK, icon, and Qt behavior when relevant.
-- QA evidence for user-visible transitions.
-- Website product data and screenshots only after the behavior is shipped.
+- RFC 0001, if a role, family, glyph API or motion name changes.
+- Config schema, packs, contrast check and generated catalogue.
+- `horneroctl` apply, verification, migration and error reporting.
+- Shell `Signal` roles, previews and live rendering.
+- GTK, icon, Qt and terminal output.
+- QA evidence for user-visible transitions, stating where it ran.
+- Website product data and screenshots only after the behaviour ships.
 
-Useful implementation references: [config](https://github.com/HorneroOS/config),
-[shell](https://github.com/HorneroOS/shell), and
-[hornero](https://github.com/HorneroOS/hornero).
+Implementation references: [config](https://github.com/HorneroOS/config),
+[shell `docs/NATIVE-APPEARANCE.md`](https://github.com/HorneroOS/shell/blob/main/docs/NATIVE-APPEARANCE.md)
+and [hornero](https://github.com/HorneroOS/hornero).

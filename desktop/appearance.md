@@ -1,141 +1,127 @@
-# Appearance: themes, mode, and color
+# Appearance: themes and mode
 
 Start in **Settings → Appearance** when you want a coordinated change. A
-theme is the simplest choice: it selects a visual direction and may also
-choose a wallpaper, GTK theme, icon theme, and light or dark default. You do
-not need to understand color-generation algorithms to pick a look.
+theme is a complete look: it sets every interface colour and also chooses a
+default wallpaper, GTK theme, icon theme and light or dark mode. All themes
+use the [Hornero Signal](hornero-signal.md) design language.
+
+> **Development.** This page describes Hornero Signal, on the `main`
+> branches since November 2026. Preview ISOs up to v0.2.0-preview32 still
+> ship the previous, wallpaper-generated appearance system.
 
 ## Pick a theme
 
-The catalogue brings together **20 complete looks**. Eight make up **Hornero
-Originals**: Hornero Dark, Hornero Light, Pampa, Patagonia, Fin del Mundo,
-Quebrada, Iberá, and Buenos Aires Nocturno. Other looks span Catppuccin,
-Everforest, Gruvbox, Neon City, Nord Dreams, Rosé Pine, Vapor Dreams,
-Monochrome, Landscape, Soft Morning, and Warm Sunset. Each can create a
-distinct desktop; the collection is not divided into primary and lesser
-appearances.
+The catalogue has **20 themes**, all complete Signal palettes:
 
-The implementation has two useful forms. Hornero Dark, Hornero Light, and
-Pampa carry authored semantic interface colors. The other packs describe a
-visual direction and defaults such as mode, GTK/icons, wallpaper, and a
-Material 3 generation style. For those, Hornero derives the shell palette from
-the selected wallpaper. Both forms use the same chooser and can coordinate the
-desktop; the difference matters when inspecting or authoring a pack, not when
-choosing a look.
+- **Hornero Signal** — Signal Night (factory default), Signal Day and Signal
+  High Contrast.
+- **Hornero Originals** — Buenos Aires Nocturno, Cuyo, Fin del Mundo, Iberá,
+  Iguazú, Pampa, Patagonia, Quebrada and Sierras: regional palettes, each
+  with a credited photograph.
+- **Community ports** — Catppuccin Latte, Catppuccin Mocha, Everforest,
+  Gruvbox, Landscape, Monochrome, Nord Dreams and Rosé Pine, mapped to the
+  Signal roles.
 
-In Settings, preview a card and select it to apply. If a theme's external GTK
-or icon theme is missing, the system cannot create that part of the look; use
-the theme details and the [troubleshooting guide](../troubleshooting/README.md)
-to check readiness. Hornero does not silently download third-party themes.
+In **Settings → Appearance → Themes**, preview a card and select it to apply.
+If a theme's GTK or icon theme is missing, the rest of the look still
+applies; the theme details and the
+[troubleshooting guide](../troubleshooting/README.md) show what is missing.
+Hornero does not silently download third-party themes.
 
 From a terminal, inspect before applying:
 
 ```sh
 horneroctl appearance theme list
-horneroctl appearance theme show neon-city
-horneroctl appearance theme apply neon-city --dry-run
-horneroctl appearance theme apply neon-city --yes
+horneroctl appearance theme show patagonia
+horneroctl appearance theme apply patagonia --dry-run
+horneroctl appearance theme apply patagonia --yes
 horneroctl appearance theme get
 ```
 
-Use `apply` for any installed pack. `set` is the verified, atomic switch for
-the Hornero semantic themes:
+Use `apply` for any installed theme. `set` is the verified switch between
+the three built-in Signal themes: it checks that the scheme and GTK agree
+afterwards and makes a best-effort rollback to the previous built-in theme
+if they do not:
 
 ```sh
-horneroctl appearance theme set hornero-light --dry-run
-horneroctl appearance theme set hornero-light --yes
+horneroctl appearance theme set hornero-signal-day --dry-run
+horneroctl appearance theme set hornero-signal-day --yes
 ```
 
-Mutating CLI commands require `--yes`; `--dry-run` shows the proposed action.
-After a theme change, `horneroctl appearance doctor` checks whether live
-appearance state is coherent.
+Mutating commands require `--yes`; `--dry-run` shows the proposed action.
+After a change, `horneroctl appearance doctor` checks that the live scheme
+is valid, that the IBM Plex fonts are installed and that derived files agree.
 
-## Light and dark
+## What applying a theme changes
 
-A theme supplies a default mode. The current mode can follow that default or
-be overridden by the user. GTK's color-scheme preference is a separate
-setting: changing it does not switch the shell between light and dark.
-Settings indicates when the live mode differs from the theme's default.
+Applying a theme writes the live colour scheme to
+`~/.local/state/hornero/signal/scheme.json` (under `$XDG_STATE_HOME` when
+set). The shell watches that file and recolours at once. The same apply
+step rewrites the Hyprland border and hyprlock colours, switches Kitty's
+theme include, regenerates the Alacritty, Ghostty, btop and Cava palettes,
+and applies the theme's GTK theme. Qt apps follow when qt6ct is the platform
+theme.
 
-For scripted workflows, inspect `horneroctl appearance scheme --help` before
-using `set-mode`; use `horneroctl appearance gtk color-scheme` to inspect or
-change GTK's policy. Avoid changing the shell mode and GTK policy together
-unless that is intentional.
-
-## Wallpaper-derived color
-
-Some appearances use the current wallpaper to generate shell colors.
-The active wallpaper, theme, and mode are related, but they are not the same
-setting: changing a wallpaper does not rename the theme, and a user mode
-override remains independent of the theme default.
-
-To see how a wallpaper will resolve without changing it:
+To see the current state without changing anything:
 
 ```sh
-horneroctl wallpaper current
+horneroctl appearance status
 horneroctl appearance scheme status
 horneroctl appearance colors status
 ```
 
-### Choose how the palette feels
+## Light and dark
 
-When a wallpaper-led look follows the active wallpaper, Hornero samples its
-most representative colors and builds coordinated colors for surfaces, text,
-and controls. The
-variant changes the character of that generated palette; it does not change
-the wallpaper or the theme name. Preview a few options against your current
-desktop before applying one.
+Each theme has a fixed mode: Signal Day, Cuyo, Quebrada, Sierras and
+Catppuccin Latte are light; the others are dark. To switch between light and
+dark, choose a theme of the other mode — for the flagship pair, switch
+between Signal Night and Signal Day.
 
-| Variant | What it tends to look like |
-| --- | --- |
-| Tonal spot | Balanced color and softly tinted surfaces. |
-| Vibrant | Stronger, more colorful accents. |
-| Expressive | A broader mix of related hues. |
-| Fidelity | Keeps the generated roles closer to the source color. |
-| Content | Brings more of the source color into key roles. |
-| Neutral | Quieter, less colorful surfaces and accents. |
-| Monochrome | Near-grayscale roles with little color emphasis. |
+GTK's colour-scheme preference is a separate setting that tells GTK and
+libadwaita apps which variant to prefer. Inspect or change it with
+`horneroctl appearance gtk color-scheme`; changing it does not change the
+shell's theme.
 
-These are generation styles, not seven separate Hornero themes. Light/dark
-mode determines which tones are used; the chosen variant determines how the
-source colors are arranged into a palette. The names are available for
-scripts and diagnostics:
+## Accessibility
+
+- **High contrast** — **Settings → Accessibility → High contrast** gives the
+  shell the Signal High Contrast palette and turns off transparency while
+  keeping your selected theme. Apply `hornero-signal-contrast` to use it in
+  GTK, Qt and terminals too.
+- **Reduce motion** — in **Settings → Accessibility** or **Appearance →
+  Animations**. The shell also follows the GNOME `enable-animations`
+  preference.
+- **Text size** and **animation speed** — in **Settings → Accessibility**.
+
+## Wallpapers
+
+A wallpaper never changes colours. Each theme names a default wallpaper and
+collection; you can pick any other image without affecting the palette. See
+[Wallpapers](wallpapers.md).
+
+## Coming from an earlier preview
+
+Hornero Dark, Hornero Light, Hornero 199X, Neon City, Vapor Dreams, Soft
+Morning and Warm Sunset are retired. A saved selection that names one of
+them migrates once to Signal Night or Signal Day. Wallpaper colour
+generation, scheme variants and the accent override were removed. After
+updating, run:
 
 ```sh
-horneroctl appearance accent show
-horneroctl appearance scheme list
+horneroctl appearance sync --dry-run
+horneroctl appearance sync --yes
 ```
 
-Saved palettes let you keep a generated color result while trying a different
-wallpaper or variant. They are reusable color choices, not another theme pack.
-For the underlying Material Color Utilities scheme model, see the
-[upstream color scheme guide](https://github.com/material-foundation/material-color-utilities/blob/main/dev_guide/creating_color_scheme.md).
+## Theme packs
 
-## Theme packs and wallpaper availability
+Theme files and their validation rules live in
+[HorneroOS/config](https://github.com/HorneroOS/config/tree/main/profiles/themes)
+(`profiles/themes/<id>/theme.json`, schema version 2). The catalogue is
+generated from those packs. A pack defines every Signal colour role and a
+16-colour terminal palette; Config's checks verify contrast for every
+shipped pack, and `horneroctl` lists and applies only schema-v2 packs.
 
-Theme metadata and validation rules live in
-[HorneroOS/config](https://github.com/HorneroOS/config/tree/main/profiles/themes).
-The catalogue is generated from those packs. Wallpaper files are separate
-media: packs may name an expected image without bundling that image in the
-package. If the image is not present locally, choose another available
-wallpaper or use a path on your own machine. Theme selection remains
-available and the Shell explains when referenced media is missing.
-
-Six Hornero Originals use provenance-verified photographs taken in Argentina:
-Buenos Aires Nocturno, Fin del Mundo, Iberá, Pampa, Patagonia, and Quebrada.
-Hornero Config ships these images with creator, source, and license credits.
-Hornero Dark and Hornero Light instead use original, procedural SVG wallpapers
-under the project's MIT license. These product assets are separate from the
-optional stylized wallpaper artwork in the
-[personal dotfiles collection](https://github.com/ulises-jeremias/dotfiles/tree/main/home/dot_local/share/hornero/wallpapers),
-which Hornero Config does not redistribute. The
-[wallpaper guide](wallpapers.md) links to the full product credits and explains
-how local and optional wallpaper media are handled. A theme remains selectable
-if optional user media is unavailable; Settings explains that state.
-
-The architecture guide explains the boundaries between semantic tokens,
-wallpaper analysis, shell colors, GTK, icons, and Qt:
-[Appearance system](../architecture/appearance-system.md). For everyday
-wallpaper selection, see [Wallpapers and color](wallpapers.md). For the
-application-specific behavior of GTK, Qt, Kitty, Alacritty, Ghostty, and
-CopyQ, see [Apps and workflows](../applications/README.md).
+The architecture guide explains how themes flow from Config through
+`horneroctl` to the shell, GTK, Qt and terminals:
+[Appearance system](../architecture/appearance-system.md). For terminal
+details, see [Terminal](../applications/terminal.md).

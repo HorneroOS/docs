@@ -418,13 +418,27 @@ credited in NOTICE files where they ship.
 ## 9. Integration contracts
 
 - **Theme file** — `config/profiles/themes/<id>/theme.json`, schema v2:
-  `schemaVersion: 2`, `id`, `name`, `mode`, `palette` (exactly the §3.1
-  roles), `terminal` (16 colours) and gtk/icon/wallpaper metadata.
+  `schemaVersion: 2`, `id`, `name`, `mode` (`dark` | `light`), `palette`
+  (exactly the §3.1 roles; `glow` optional, absent → `signal`), `terminal`
+  (array of 16 hex colours), `gtkTheme`, `iconTheme`, `defaultWallpaper`,
+  `wallpaperDir`; optional `description`, `tags`, `collection`,
+  `collectionOrder`, `colorOnly`, `version`, `$schema`. Removed with no
+  replacement: M3 seeds, `schemeType`, variants, flavours, `darkMode`,
+  `gtkPreferDark`, `family`, `tokensVersion`, `components`.
 - **Live scheme** —
-  `${XDG_STATE_HOME:-~/.local/state}/hornero/signal/scheme.json` written
-  atomically by horneroctl's theme apply path (or the shell for built-ins) and
-  watched by the shell. Wallpapers never recolour the UI.
+  `${XDG_STATE_HOME:-~/.local/state}/hornero/signal/scheme.json` =
+  `{"schemaVersion":2,"id":…,"mode":…,"palette":{role:"#RRGGBB"},"terminal":[16]}`
+  (`glow` only when the theme defines it), written atomically by
+  horneroctl's theme apply path (or the shell for built-ins) and watched by
+  the shell. Wallpapers never recolour the UI.
 - **Built-in ids** — `hornero-signal-night` (default), `hornero-signal-day`,
   `hornero-signal-contrast`; `hornero-dark/light/199x` selections migrate
-  once to night/day/night.
+  once to night/day/night. The retired `neon-city`, `vapor-dreams`,
+  `soft-morning` and `warm-sunset` have no Signal equivalent and migrate to
+  night or day by their mode. This is a one-shot data migration, not an
+  alias layer.
+- **Fonts and glyphs** — families `IBM Plex Sans`, `IBM Plex Mono`,
+  `IBM Plex Sans Condensed` from `ttf-ibm-plex`;
+  `assets/fonts/hornero-glyphs.ttf` loaded by the shell through
+  `Glyph { name }`, with no system icon-font dependency.
 - **Default preset** — `cockpit`; default mode — `everyday`.
