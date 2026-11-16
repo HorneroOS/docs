@@ -11,6 +11,8 @@ contributor instructions before editing.
   principles, and authoritative design sources across repositories.
 - [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md) — the first-party
   design system: tokens, type, glyphs, motion, anchored surfaces and Cockpit.
+- [Signal Visual Language](signal-visual-language.md) — bar anatomy, meters,
+  framing, motion choreography, Cockpit Clear and per-preset art direction.
 - [Testing](testing.md) — select focused checks and graphical acceptance.
 - [Quality assurance and release engineering](quality-and-releases.md) —
   evidence classes, graphical acceptance, signing and how releases are built.
