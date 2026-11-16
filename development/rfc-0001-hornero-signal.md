@@ -1,6 +1,8 @@
 # RFC 0001 — Hornero Signal
 
-- **Status** — Accepted (2026-11-16); amended 2026-11-16 (amendment 1:
+- **Status** — Accepted (2026-11-16); amended 2026-11-16 (amendment 2:
+  contrast-driven palette tweaks, optional `glow` role, Signal Bezel
+  direction; amendment 1:
   WOW + WORK ambition, motion springs, layout catalogue, experience modes,
   instrumentation, integration contracts)
 - **Scope** — Every first-party HorneroOS surface: shell, PluginKit and
@@ -47,8 +49,14 @@ Two experiences must coexist without compromising each other:
 
 The concrete visual language (bar anatomy, meters, framing, luminous accents,
 phosphor details, per-layout art direction, motion choreography) is specified
-in [Signal Visual Language](signal-visual-language.md), chosen after a
-documented comparison of three directions. It must look exceptional with
+in [Signal Visual Language](signal-visual-language.md). Amendment 2: the
+chosen direction is **Signal Bezel** (matte instrument modules, sunken
+readout wells, oscilloscope telemetry, trigger notches), selected over
+*Carta* and *Transmisión* after a documented comparison; it borrows
+dimension lines from Carta and channel strips / on-air chips from
+Transmisión. The `signal` experience mode must be visibly richer than
+`everyday` (framed instrument compositions, live luminous traces, larger
+telemetry) — not the same desktop with more widgets. It must look exceptional with
 animations disabled.
 
 Principles, in priority order:
@@ -109,6 +117,7 @@ generators map from these roles only.
 - `alertWell` / `onAlertWell` — Low-emphasis error fill
 - `inverse` / `onInverse` / `inverseSignal` — Snackbars and inverted toasts
 - `scrim`, `shadow` — Overlays and the single shadow colour
+- `glow` — Optional luminous accent for live telemetry (amendment 2)
 - `focus` — Keyboard focus ring (defaults to `cue`)
 - `term0`…`term15` — Terminal ANSI palette
 
@@ -144,21 +153,21 @@ technical-drawing paper with ink-black text.
 | `inkMuted`       | `#A8ABAD`    | `#4E545B`  |
 | `inkFaint`       | `#737980`    | `#7A8086`  |
 | `rule`           | `#2C333C`    | `#D3CCBD`  |
-| `ruleStrong`     | `#66707B`    | `#857F73`  |
-| `focus`          | `#7EC1EA`    | `#1D6894`  |
-| `signal`         | `#F2A33A`    | `#9A5100`  |
+| `ruleStrong`     | `#707A85`    | `#736D62`  |
+| `focus`          | `#7EC1EA`    | `#1A5F88`  |
+| `signal`         | `#F2A33A`    | `#8F4B00`  |
 | `onSignal`       | `#1A1205`    | `#FFFFFF`  |
 | `signalWell`     | `#3A2A12`    | `#F6DDB8`  |
 | `onSignalWell`   | `#FFD9A3`    | `#3D2200`  |
-| `cue`            | `#7EC1EA`    | `#1D6894`  |
+| `cue`            | `#7EC1EA`    | `#1A5F88`  |
 | `onCue`          | `#06151F`    | `#FFFFFF`  |
 | `cueWell`        | `#16303F`    | `#D3E7F3`  |
 | `onCueWell`      | `#CDE8F8`    | `#0B2E44`  |
-| `phosphor`       | `#8BD49A`    | `#2A7341`  |
+| `phosphor`       | `#8BD49A`    | `#256A3B`  |
 | `onPhosphor`     | `#07170C`    | `#FFFFFF`  |
 | `phosphorWell`   | `#173222`    | `#D5EBD9`  |
 | `onPhosphorWell` | `#CDEFD4`    | `#0E2E17`  |
-| `alert`          | `#F0705A`    | `#B0371F`  |
+| `alert`          | `#F0705A`    | `#A8341C`  |
 | `onAlert`        | `#1E0905`    | `#FFFFFF`  |
 | `alertWell`      | `#3D1A14`    | `#F7D7D0`  |
 | `onAlertWell`    | `#FFD3CA`    | `#4A1209`  |
@@ -167,6 +176,7 @@ technical-drawing paper with ink-black text.
 | `inverseSignal`  | `#8A5200`    | `#F2A33A`  |
 | `scrim`          | `#000000`    | `#000000`  |
 | `shadow`         | `#000000`    | `#000000`  |
+| `glow`           | `#FFB650`    | `#8F4B00`  |
 
 **Signal High Contrast** keeps the roles, uses `#000000` ground, `#FFFFFF`
 ink, `#FFC247` signal, `#8FD3FF` cue and pure white `ruleStrong`.
@@ -174,6 +184,15 @@ ink, `#FFC247` signal, `#8FD3FF` cue and pure white `ruleStrong`.
 Other catalogue themes (regional Argentina photo themes, community ports)
 remain valid **if** they provide a complete schema-v2 role set that passes the
 contrast tests. Themes that only existed as M3 seeds are removed or ported.
+
+Amendment 2: values above were tightened so every text role also passes
+4.5:1 on `sunken` readout wells and `ruleStrong` passes 3:1 on `lifted`
+tooltips. `glow` is an optional role (default: `signal`) for luminous
+accents: only on live telemetry traces and, in the `signal` experience mode,
+the active on-air bar and on-air chips; blur ≤ 4 px, alpha ≤ 40 %, at most
+three glowing items on screen, never animated, disabled in day themes, high
+contrast, `focus` and `gaming` modes and on Cockpit Clear bars. Validation
+extends to `sunken` and `lifted`.
 
 ### 3.3 Typography
 
