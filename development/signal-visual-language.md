@@ -286,8 +286,8 @@ dock styles.
 - Every slab carries a 1 px `rule` hairline (all round for inset, floating and
   islands; inner edge only for attached). Radii are at most 4 px; nothing is
   translucent glass.
-- Density factor: logical height h gives f = 0.94 + 0.06 * (h - 720) / 360 up
-  to 1080 px and f = 1 + 0.10 * (h - 1080) / 1080 above (maximum 1.10), times
+- Density factor: logical height h gives f = 0.94 + 0.06 x (h - 720) / 360 up
+  to 1080 px and f = 1 + 0.10 x (h - 1080) / 1080 above (maximum 1.10), times
   the user multiplier 0.75 to 1.5. Primary text is 12 px (never below),
   captions 11 px, bar icons 15 to 18 px, segment padding 12 px (8 px in
   rails, floor 8 and 6), and no bar is thinner than the 24 px hit area.
@@ -298,6 +298,8 @@ dock styles.
   clock is one colour; tray icons are monochrome by default.
 
 Thickness in px by logical height (rounded; floor 24):
+
+<!-- markdownlint-disable MD013 -->
 
 | Preset | Style | Margin | 720p | 768p | 960p | 1080p | 1440p | 2160p |
 |---|---|---|---|---|---|---|---|---|
@@ -315,6 +317,8 @@ Thickness in px by logical height (rounded; floor 24):
 | Dock Bottom | dock | 8 | 43 | 44 | 45 | 46 | 48 | 51 |
 | Hornero Left / Right | attached | 6 | 45 | 46 | 47 | 48 | 50 | 53 |
 | Minimal Left | attached | 6 | 36 | 36 | 37 | 38 | 39 | 42 |
+
+<!-- markdownlint-enable MD013 -->
 
 Product evidence: HorneroOS/shell `.github/evidence/layouts-calibration/`
 (offscreen before/after strips at 1080, 768 and 720). Concept renders keep
@@ -711,7 +715,9 @@ to the named survivor.
 | hornero-left    | Keep     | Caelestia-inspired left rail       |
 | hornero-right   | Keep     | Caelestia-inspired right rail      |
 
-Sixteen presets ship; each has a distinct composition and purpose. Floating Island and Productivity were removed in the first audit and restored after review, redesigned in Signal Bezel (sections 14.5 and 14.10).
+Sixteen presets ship; each has a distinct composition and purpose. Floating
+Island and Productivity were removed in the first audit and restored after
+review, redesigned in Signal Bezel (sections 14.5 and 14.10).
 
 ### 14.1 cockpit — keep
 
