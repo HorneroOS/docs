@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@650fae7724f481a2254eeab552759841742fa387
+# horneroctl command paths, generated from HorneroOS/hornero@420c73c0d7db34ae5569788311c94fc1915ad157
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 agent
 agent config
@@ -14,6 +14,24 @@ agent list
 agent status
 agent usage
 appearance
+appearance chromatic
+appearance chromatic analyze
+appearance chromatic apply
+appearance chromatic delete
+appearance chromatic doctor
+appearance chromatic export
+appearance chromatic follow
+appearance chromatic history
+appearance chromatic import
+appearance chromatic list
+appearance chromatic off
+appearance chromatic preview
+appearance chromatic rename
+appearance chromatic rollback
+appearance chromatic save
+appearance chromatic status
+appearance chromatic templates
+appearance chromatic variants
 appearance colors
 appearance colors concept
 appearance colors export
