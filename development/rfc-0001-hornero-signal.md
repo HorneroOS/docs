@@ -334,7 +334,7 @@ Four independent axes compose; none of them is a separate shell:
    widgets, notification policy (do-not-disturb, fullscreen suppression),
    preferred layout preset, idle/power hints, and edition hooks (GameMode,
    PipeWire quantum, Gamescope). Owned by the shell (`services/Experience`)
-   with a planned horneroctl mode command group (get, set, list, reset) as
+   with the `horneroctl mode` command group (list, get, set, reset, status) as
    the system interface.
 3. **Layout preset** — bar composition (Cockpit, Hornero Left, …).
 4. **Theme** — Signal roles and wallpaper.
@@ -342,8 +342,8 @@ Four independent axes compose; none of them is a separate shell:
 Rules: modes are switched explicitly by the user (launcher, Control Center,
 IPC, CLI); optional automatic switching (e.g. fullscreen game → `gaming`) is
 off by default, local-only, shown in the UI and reversible with one action.
-User customisations per mode are preserved; the planned mode reset verb and a
-Control Center action return to the factory `everyday` + Cockpit + Signal
+User customisations per mode are preserved; the `horneroctl mode reset` verb
+and a Control Center action return to the factory `everyday` + Cockpit + Signal
 Night. Modes only enable capabilities the installed edition has; a missing
 capability is shown as unavailable, not faked. **Gaming** must never draw
 over fullscreen applications, steal focus, or poll at a cost; **Focus**
@@ -485,8 +485,6 @@ Not done, by design or not yet reached:
   [shell#485](https://github.com/HorneroOS/shell/issues/485), and the
   remaining experience-mode evidence in
   [shell#478](https://github.com/HorneroOS/shell/issues/478).
-- A `horneroctl` mode command group (section 5a). The shell's own interface
-  is the only way to change modes today.
 - The website product-data refresh and a fresh QA image minted from the
   merged mains.
 - Every item in section 7.1 that needs the real host.
