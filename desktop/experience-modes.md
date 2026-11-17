@@ -125,9 +125,9 @@ rails, with the middle left open for windows:
 | 1 | System Insight | Processor, graphics, memory and storage |
 | 2 | Network Scope | Download and upload traces |
 | 3 | Audio Deck | Playback and the audio spectrum |
-| 4 | Calendar | The month |
-| 5 | Agenda | Upcoming events |
-| 6 | Moon Phase | The current phase |
+| 4 | Calendar | The month and the time |
+| 5 | Agenda | Date facts, week and year progress |
+| 6 | Moon Phase | The approximate phase |
 
 - The deck is laid out per display and never covers a bar. What does not fit
   is dropped by priority rather than overlapped: a 1366×768 display shows
