@@ -25,7 +25,7 @@ implementación quedan en los repositorios de la
 | Usar el escritorio, las apps y el Centro de control | [Desktop](desktop/README.md) · [Apps y flujos](applications/README.md) |
 | Conocer el aspecto Hornero Signal: temas, tipografía, accesibilidad | [Hornero Signal](desktop/hornero-signal.md) |
 | Cambiar temas, colores o el fondo | [Apariencia](desktop/appearance.md) · [Fondos](desktop/wallpapers.md) |
-| Elegir una disposición de barra | [Layouts](../desktop/layouts.md) |
+| Elegir una disposición de barra | [Layouts](desktop/layouts.md) |
 | Bloquear, reiniciar o apagar la sesión | [Menú de sesión](../desktop/session-menu.md) |
 | Buscar un atajo de teclado | [Atajos](../desktop/shortcuts.md) |
 | Automatizar o inspeccionar el sistema desde una terminal | [horneroctl](../desktop/horneroctl.md) |
