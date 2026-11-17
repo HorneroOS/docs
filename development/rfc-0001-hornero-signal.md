@@ -3,8 +3,8 @@
 - **Status** — Accepted (2026-11-16); **superseded in part** by
   [RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) (2026-11-17,
   amendment 3: optional dynamic colour; §1, §3.1 and §9 below are annotated
-  where it applies); amended 2026-11-17 (amendment 4: Cozy Hackerpunk atmosphere, see the
-  end of this document); amended 2026-11-16 (amendment 2:
+  where it applies); amended 2026-11-17 (amendment 4: Cozy Hackerpunk
+  atmosphere, see the end of this document); amended 2026-11-16 (amendment 2:
   contrast-driven palette tweaks, optional `glow` role, Signal Bezel
   direction; amendment 1:
   WOW + WORK ambition, motion springs, layout catalogue, experience modes,
