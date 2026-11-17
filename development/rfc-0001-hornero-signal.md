@@ -3,7 +3,7 @@
 - **Status** — Accepted (2026-11-16); **superseded in part** by
   [RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) (2026-11-17,
   amendment 3: optional dynamic colour; §1, §3.1 and §9 below are annotated
-  where it applies); amended 2026-11-16 (amendment 2:
+  where it applies); amended 2026-11-17 (amendment 4: Cozy Hackerpunk atmosphere, see the end of this document); amended 2026-11-16 (amendment 2:
   contrast-driven palette tweaks, optional `glow` role, Signal Bezel
   direction; amendment 1:
   WOW + WORK ambition, motion springs, layout catalogue, experience modes,
@@ -554,3 +554,30 @@ user pages as intent, not result.
 
 The Material scan is gated in the shell and plugins repositories only; the
 other repositories are not yet gated by a static scan.
+
+## Amendment 4 — Cozy Hackerpunk (2026-11-17)
+
+Direction: **Cozy Hackerpunk, Argentine retrofuturism, personal computing**
+([study](signal-cozy-hackerpunk-study.md)). Signal Bezel remains the
+structure; this amendment changes atmosphere, not contracts.
+
+- **Roles unchanged.** §3.1 gains no roles. Warmth comes from a curated
+  palette and from atmosphere values derived from the active palette.
+- **New flagship palette.** `hornero-signal-dusk` (collection `hornero-signal`,
+  order 4): warm charcoal-aubergine surfaces, cream ink `#F1E6D2`, copper
+  signal `#F29A4A`, cyan cue, phosphor, `glow` `#FFB070`. Same gates as
+  Night; Night, Day and High Contrast keep their values.
+- **Atmosphere** (lamp wash, soft inner light, vignette, grain) is allowed as
+  a low-alpha layer under text with hard ceilings, user-tunable, disabled in
+  High Contrast and by low power, and never counted as glow. The glow budget
+  of Amendment 2 is unchanged.
+- **Typography.** IBM Plex remains the family. Adds a *plate* label style
+  (Plex Sans Condensed SemiBold, uppercase, +14 % tracking) for enum states,
+  at most four type treatments per screen, tabular figures for every changing
+  value.
+- **Rose/violet** are rare accents (terminal, tags, special moments), never
+  the sole carrier of meaning.
+- **Voice.** Warm microcopy in the user's language (voseo in Spanish) with a
+  plain voice always one switch away.
+- **Originality.** The reference series informs principles only; no
+  third-party character, artwork, logo or prop is used (study §2).
