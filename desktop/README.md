@@ -11,6 +11,7 @@ Center contains persistent system and shell settings.
 | --- | --- |
 | Understand the Hornero Signal look | [Hornero Signal](hornero-signal.md) |
 | Pick a coordinated look | [Themes and appearance](appearance.md) |
+| Find a setting in the Control Center | [Control Center map](control-center.md) |
 | Change how the desktop behaves: Focus, Signal, Gaming | [Experience modes](experience-modes.md) |
 | Change or understand a wallpaper | [Wallpapers](wallpapers.md) |
 | Choose or troubleshoot a session compositor | [Wayland compositors](compositors.md) |

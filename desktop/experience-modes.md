@@ -83,7 +83,8 @@ follows the mode.
 
 You switch explicitly. Any of these work:
 
-- **Settings → Experience.** Pick a mode and press **Switch**.
+- **Settings → Experience.** Pick a mode and press **Switch**. The
+  [Control Center map](control-center.md) lists every page.
 - **The launcher.** Search for *Focus mode*, *Everyday mode*, *Signal mode*,
   *Gaming mode*, *Studio mode* or *Revert mode*.
 - **The mode indicator on the bar.** Cockpit and Cockpit Clear show a small

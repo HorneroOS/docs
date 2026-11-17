@@ -89,7 +89,8 @@ para que el layout acompañe al modo.
 
 Cambiás de modo de forma explícita. Cualquiera de estas sirve:
 
-- **Ajustes → Experience.** Elegí un modo y apretá **Switch**.
+- **Ajustes → Experience.** Elegí un modo y apretá **Switch**. El
+  [mapa del Centro de control](control-center.md) lista todas las páginas.
 - **El lanzador.** Buscá *Focus mode*, *Everyday mode*, *Signal mode*,
   *Gaming mode*, *Studio mode* o *Revert mode*.
 - **El indicador de modo en la barra.** Cockpit y Cockpit Clear muestran un
