@@ -63,9 +63,16 @@ $XDG_STATE_HOME/hornero/signal/scheme.json   ← written atomically
 
 The live scheme is
 `{"schemaVersion":2,"id":…,"mode":…,"palette":{role:"#RRGGBB"},"terminal":[16]}`.
-Wallpapers never feed this flow: there is no wallpaper analysis, tonal
-synthesis or `materialyoucolor` step anywhere in the stack. The wallpaper
-pointer is a separate file the shell watches for the image only.
+For curated themes, wallpapers never feed this flow and the wallpaper
+pointer is a separate file the shell watches for the image only. The
+optional **Hornero Chromatic** theme (`hornero-chromatic`,
+[RFC 0002](../development/rfc-0002-hornero-chromatic.md), not yet
+implemented) adds one step in front of the same writer: horneroctl runs the
+native `hornero-chromatic` helper (shipped with the shell) to synthesise the
+Signal roles from the wallpaper, an image or a chosen colour, validates them
+against config's gate table and then writes the live scheme and every output
+exactly as for a curated theme. There is no Material step and no Python in
+that path.
 
 High contrast (`appearance.highContrast`) is a shell-only override: the shell
 renders the `hornero-signal-contrast` table and disables translucency without

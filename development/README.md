@@ -11,6 +11,9 @@ contributor instructions before editing.
   principles, and authoritative design sources across repositories.
 - [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md) — the first-party
   design system: tokens, type, glyphs, motion, anchored surfaces and Cockpit.
+- [RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) — the
+  optional native dynamic colour engine: Signal palettes and variants from a
+  wallpaper, an image or a chosen colour.
 - [Signal Visual Language](signal-visual-language.md) — bar anatomy, meters,
   framing, motion choreography, Cockpit Clear and per-preset art direction.
 - [Testing](testing.md) — select focused checks and graphical acceptance.
