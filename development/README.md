@@ -16,6 +16,8 @@ contributor instructions before editing.
   wallpaper, an image or a chosen colour.
 - [Signal Visual Language](signal-visual-language.md) — bar anatomy, meters,
   framing, motion choreography, Cockpit Clear and per-preset art direction.
+- [Visual quality audit](visual-quality-audit.md) — independent per-surface
+  ratings, prioritised visual defects and the capture coverage gaps.
 - [Testing](testing.md) — select focused checks and graphical acceptance.
 - [Quality assurance and release engineering](quality-and-releases.md) —
   evidence classes, graphical acceptance, signing and how releases are built.
