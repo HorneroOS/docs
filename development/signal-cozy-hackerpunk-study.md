@@ -1,5 +1,7 @@
 # Signal: Cozy Hackerpunk study
 
+<!-- markdownlint-disable MD013 -->
+
 - **Status** — Accepted direction (2026-11-17) for
   [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md), amendment 4
 - **Tracking** —
