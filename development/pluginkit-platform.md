@@ -10,14 +10,23 @@ writing; nothing here is on a released Shell until its pull requests merge.
 
 ## What a package can contribute
 
-| Contribution | Declared in | Where it shows up |
-| --- | --- | --- |
-| Desktop widget, bar item, dashboard card | `surfaces.desktop` / `bar` / `dashboard` | the desktop layer, the bar, the dashboard |
-| Several instances of one desktop widget | `surfaces.desktop.instances` | the desktop; each instance has its own settings, position and size |
-| Commands | `contributes.commands` + `surfaces.commands` | the launcher (`>do`), `qs ipc call plugincommands`, key bindings you own |
-| Quick-setting tile | `contributes.quickSettings` + `surfaces.quickSetting` | the Utilities quick toggles, once the person adds it |
-| Control Center panel | `contributes.panels` + `surfaces.panel` | Control Center › Extensions, loaded only while open |
-| Typed settings | `capabilities.settings` | generated controls in Control Center, with a live preview |
+- **Desktop widget, bar item, dashboard card** — Declared in:
+  `surfaces.desktop` / `bar` / `dashboard`; Where it shows up: the desktop
+  layer, the bar, the dashboard
+- **Several instances of one desktop widget** — Declared in:
+  `surfaces.desktop.instances`; Where it shows up: the desktop; each instance
+  has its own settings, position and size
+- **Commands** — Declared in: `contributes.commands` + `surfaces.commands`;
+  Where it shows up: the launcher (`>do`), `qs ipc call plugincommands`, key
+  bindings you own
+- **Quick-setting tile** — Declared in: `contributes.quickSettings` +
+  `surfaces.quickSetting`; Where it shows up: the Utilities quick toggles,
+  once the person adds it
+- **Control Center panel** — Declared in: `contributes.panels` +
+  `surfaces.panel`; Where it shows up: Control Center › Extensions, loaded
+  only while open
+- **Typed settings** — Declared in: `capabilities.settings`; Where it shows
+  up: generated controls in Control Center, with a live preview
 
 Everything that can be shown without running extension code (names, glyphs,
 settings, command lists) is declared in `manifest.json`; code is loaded lazily,

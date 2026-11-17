@@ -15,14 +15,23 @@ el inglés es canónico.
 
 ## Qué puede contribuir un paquete
 
-| Contribución | Se declara en | Dónde aparece |
-| --- | --- | --- |
-| Widget de escritorio, ítem de barra, tarjeta del dashboard | `surfaces.desktop` / `bar` / `dashboard` | la capa de escritorio, la barra, el dashboard |
-| Varias instancias de un widget de escritorio | `surfaces.desktop.instances` | el escritorio; cada instancia tiene sus propios ajustes, posición y tamaño |
-| Comandos | `contributes.commands` + `surfaces.commands` | el lanzador (`>do`), `qs ipc call plugincommands`, atajos de teclado que armás vos |
-| Mosaico de ajuste rápido | `contributes.quickSettings` + `surfaces.quickSetting` | los interruptores rápidos de Utilidades, cuando la persona lo agrega |
-| Panel del Centro de control | `contributes.panels` + `surfaces.panel` | Centro de control › Extensiones, cargado solo mientras está abierto |
-| Ajustes tipados | `capabilities.settings` | controles generados en el Centro de control, con vista previa en vivo |
+- **Widget de escritorio, ítem de barra, tarjeta del dashboard** — Se declara
+  en: `surfaces.desktop` / `bar` / `dashboard`; Dónde aparece: la capa de
+  escritorio, la barra, el dashboard
+- **Varias instancias de un widget de escritorio** — Se declara en:
+  `surfaces.desktop.instances`; Dónde aparece: el escritorio; cada instancia
+  tiene sus propios ajustes, posición y tamaño
+- **Comandos** — Se declara en: `contributes.commands` + `surfaces.commands`;
+  Dónde aparece: el lanzador (`>do`), `qs ipc call plugincommands`, atajos de
+  teclado que armás vos
+- **Mosaico de ajuste rápido** — Se declara en: `contributes.quickSettings` +
+  `surfaces.quickSetting`; Dónde aparece: los interruptores rápidos de
+  Utilidades, cuando la persona lo agrega
+- **Panel del Centro de control** — Se declara en: `contributes.panels` +
+  `surfaces.panel`; Dónde aparece: Centro de control › Extensiones, cargado
+  solo mientras está abierto
+- **Ajustes tipados** — Se declara en: `capabilities.settings`; Dónde aparece:
+  controles generados en el Centro de control, con vista previa en vivo
 
 Todo lo que se puede mostrar sin ejecutar código de la extensión (nombres,
 glifos, ajustes, lista de comandos) se declara en `manifest.json`; el código se
