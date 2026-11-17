@@ -14,6 +14,9 @@ contributor instructions before editing.
 - [RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) — the
   optional native dynamic colour engine: Signal palettes and variants from a
   wallpaper, an image or a chosen colour.
+- [RFC 0003 — PluginKit contribution surfaces](rfc-0003-pluginkit-contribution-surfaces.md)
+  — the extension platform: contribution-point matrix, per-instance
+  configuration, typed settings schema v2, capability model, versioning.
 - [Signal Visual Language](signal-visual-language.md) — bar anatomy, meters,
   framing, motion choreography, Cockpit Clear and per-preset art direction.
 - [Visual quality audit](visual-quality-audit.md) — independent per-surface
