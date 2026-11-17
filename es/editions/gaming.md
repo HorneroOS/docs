@@ -13,16 +13,21 @@ certificado.
 Cambiá con `horneroctl mode set gaming` (o el launcher). Bajo una ventana en
 pantalla completa en Hyprland:
 
-| Comportamiento | Garantía |
-| --- | --- |
-| Barras y drawers | Los drawers se cierran, se quitan las regiones de entrada, la barra se deshabilita; solo el selector de área usa la capa Overlay |
-| Foco de teclado | La shell no pide foco exclusivo (salvo superficies que abrís vos: selector de área, chat del companion) |
-| Notificaciones | Los avisos no críticos se archivan sin popup y se cuentan; los críticos se muestran |
-| Sondeo | Telemetría de sistema y red en pausa |
-| Widgets y reloj de escritorio | Ocultos |
-| Reposo | Inhibido en pantalla completa |
-| Movimiento, brillo, scanlines | Apagados, no se pueden sobrescribir |
-| Ajuste de Hyprland | Gaps, redondeo, sombra y blur desactivados; tearing permitido; se restaura recargando tu configuración al salir |
+- **Barras y drawers**: Garantía: Los drawers se cierran, se quitan las
+  regiones de entrada, la barra se deshabilita; solo el selector de área usa
+  la capa Overlay
+- **Foco de teclado**: Garantía: La shell no pide foco exclusivo (salvo
+  superficies que abrís vos: selector de área, chat del companion)
+- **Notificaciones**: Garantía: Los avisos no críticos se archivan sin popup y
+  se cuentan; los críticos se muestran
+- **Sondeo**: Garantía: Telemetría de sistema y red en pausa
+- **Widgets y reloj de escritorio**: Garantía: Ocultos
+- **Reposo**: Garantía: Inhibido en pantalla completa
+- **Movimiento, brillo, scanlines**: Garantía: Apagados, no se pueden
+  sobrescribir
+- **Ajuste de Hyprland**: Garantía: Gaps, redondeo, sombra y blur
+  desactivados; tearing permitido; se restaura recargando tu configuración al
+  salir
 
 Límites: la detección es solo de Hyprland; una ventana sin bordes que solo
 llena la pantalla es una ventana normal para el compositor y no cuenta como
@@ -58,13 +63,19 @@ memoria.
 
 ## Verificado
 
-| Qué | Dónde |
-| --- | --- |
-| Política bajo pantalla completa (avisos retenidos, sondeo en pausa, capa de escritorio oculta, inhibición de reposo, guardas) y test de bits de pantalla completa | pruebas unitarias offscreen (node), CI |
-| Solo las superficies intencionales toman foco de teclado; Overlay solo para el selector de área; los drawers se retiran | pruebas de contrato estáticas, CI |
-| Sondas del doctor, WARN de herramientas opcionales, composición de launch-options | pruebas unitarias de V, CI |
-| `gaming doctor` en un Arch real con Steam, GameMode y GPU NVIDIA (solo lectura) | equipo real, solo lectura |
-| Comportamiento en vivo en pantalla completa y ajuste de Hyprland con Hyprland solo-Lua | escenarios de VM `experience/gaming-fullscreen`, `gaming/hyprland-tuning-lua` (resultado indicado en el PR) |
+- **Política bajo pantalla completa (avisos retenidos, sondeo en pausa, capa
+  de escritorio oculta, inhibición de reposo, guardas) y test de bits de
+  pantalla completa**: Dónde: pruebas unitarias offscreen (node), CI
+- **Solo las superficies intencionales toman foco de teclado; Overlay solo
+  para el selector de área; los drawers se retiran**: Dónde: pruebas de
+  contrato estáticas, CI
+- **Sondas del doctor, WARN de herramientas opcionales, composición de
+  launch-options**: Dónde: pruebas unitarias de V, CI
+- **`gaming doctor` en un Arch real con Steam, GameMode y GPU NVIDIA (solo
+  lectura)**: Dónde: equipo real, solo lectura
+- **Comportamiento en vivo en pantalla completa y ajuste de Hyprland con
+  Hyprland solo-Lua**: Dónde: escenarios de VM `experience/gaming-fullscreen`,
+  `gaming/hyprland-tuning-lua` (resultado indicado en el PR)
 
 ## No validado
 

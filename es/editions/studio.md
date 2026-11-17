@@ -11,15 +11,23 @@ hardware está bloqueado por falta de fixtures de audio aprobados.
 
 ## Qué es real hoy
 
-| Pieza | Qué hace | Comando |
-| --- | --- | --- |
-| Selección | Registra especializaciones y aplicaciones; no instala nada | `horneroctl studio selection set --specialization audio-music-production --application ardour` |
-| Doctor | Selección, PipeWire/WirePlumber, runtime de PipeWire, xruns, puente JACK, RealtimeKit, estado del perfil | `horneroctl studio doctor` |
-| Perfil Low Latency | Un drop-in de usuario más valores de reloj en vivo (quantum 128, mín 64, máx 256 a 48 kHz); reversión exacta | `horneroctl studio audio apply --yes` / `revert` |
-| Instrumentación | Quantum/tasa, xruns y carga DSP según `pw-top` | `horneroctl studio audio status` |
-| Rendimiento temporal | Cambio vía power-profiles-daemon con restauración exacta | `horneroctl studio mode performance --yes` |
-| Trabajos de render | Trabajos ffmpeg y Blender en lista permitida, sin sobrescribir | `horneroctl studio jobs submit ...` |
-| Modo de experiencia | Lienzo estable, sin brillo, avisos retenidos en pantalla completa | `horneroctl mode set studio` |
+- **Selección**: Qué hace: Registra especializaciones y aplicaciones; no
+  instala nada; Comando: `horneroctl studio selection set --specialization
+  audio-music-production --application ardour`
+- **Doctor**: Qué hace: Selección, PipeWire/WirePlumber, runtime de PipeWire,
+  xruns, puente JACK, RealtimeKit, estado del perfil; Comando: `horneroctl
+  studio doctor`
+- **Perfil Low Latency**: Qué hace: Un drop-in de usuario más valores de reloj
+  en vivo (quantum 128, mín 64, máx 256 a 48 kHz); reversión exacta; Comando:
+  `horneroctl studio audio apply --yes` / `revert`
+- **Instrumentación**: Qué hace: Quantum/tasa, xruns y carga DSP según
+  `pw-top`; Comando: `horneroctl studio audio status`
+- **Rendimiento temporal**: Qué hace: Cambio vía power-profiles-daemon con
+  restauración exacta; Comando: `horneroctl studio mode performance --yes`
+- **Trabajos de render**: Qué hace: Trabajos ffmpeg y Blender en lista
+  permitida, sin sobrescribir; Comando: `horneroctl studio jobs submit ...`
+- **Modo de experiencia**: Qué hace: Lienzo estable, sin brillo, avisos
+  retenidos en pantalla completa; Comando: `horneroctl mode set studio`
 
 Los valores de Low Latency son una **propuesta**, no soporte medido para tu
 interfaz. El quantum es un período de planificación, no latencia de ida y
@@ -40,12 +48,15 @@ governors, y se niegan a pisar un archivo personal con el mismo nombre.
 
 ## Verificado
 
-| Qué | Dónde |
-| --- | --- |
-| apply / dry-run / revert / rechazo de archivo ajeno / estados sin PipeWire, parseo de pw-top | pruebas unitarias con `pw-metadata`/`pw-top` falsos (CI) |
-| `studio doctor` y formato de salida de `pw-metadata`/`pw-top` en un equipo real con PipeWire 1.6 (solo lectura) | equipo real, solo lectura; no se aplicó nada |
-| El modo es Balanced por defecto y Low Latency se rechaza sin `--yes` | escenario de VM `studio/audio-mode-opt-in` |
-| Preset Studio y perfil de experiencia | CI + offscreen |
+- **apply / dry-run / revert / rechazo de archivo ajeno / estados sin
+  PipeWire, parseo de pw-top**: Dónde: pruebas unitarias con
+  `pw-metadata`/`pw-top` falsos (CI)
+- **`studio doctor` y formato de salida de `pw-metadata`/`pw-top` en un equipo
+  real con PipeWire 1.6 (solo lectura)**: Dónde: equipo real, solo lectura; no
+  se aplicó nada
+- **El modo es Balanced por defecto y Low Latency se rechaza sin `--yes`**:
+  Dónde: escenario de VM `studio/audio-mode-opt-in`
+- **Preset Studio y perfil de experiencia**: Dónde: CI + offscreen
 
 ## No validado
 

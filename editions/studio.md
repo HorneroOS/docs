@@ -11,15 +11,23 @@ blocked on approved audio fixtures.
 
 ## What is real today
 
-| Piece | What it does | Command |
-| --- | --- | --- |
-| Selection | Records specializations and applications; installs nothing | `horneroctl studio selection set --specialization audio-music-production --application ardour` |
-| Doctor | Selection validity, PipeWire/WirePlumber, PipeWire runtime, xruns, JACK bridge, RealtimeKit, profile state | `horneroctl studio doctor` |
-| Low Latency profile | One user drop-in plus live PipeWire clock values (quantum 128, min 64, max 256 at 48 kHz); exact revert | `horneroctl studio audio apply --yes` / `revert` |
-| Instrumentation | Live quantum/rate, xruns and DSP load as `pw-top` reports them | `horneroctl studio audio status` |
-| Temporary Performance | power-profiles-daemon switch with exact restore | `horneroctl studio mode performance --yes` |
-| Render jobs | Allow-listed ffmpeg and Blender jobs, never overwriting output | `horneroctl studio jobs submit ...` |
-| Experience mode | Stable canvas, no glow, popups held under fullscreen | `horneroctl mode set studio` |
+- **Selection**: What it does: Records specializations and applications;
+  installs nothing; Command: `horneroctl studio selection set --specialization
+  audio-music-production --application ardour`
+- **Doctor**: What it does: Selection validity, PipeWire/WirePlumber, PipeWire
+  runtime, xruns, JACK bridge, RealtimeKit, profile state; Command:
+  `horneroctl studio doctor`
+- **Low Latency profile**: What it does: One user drop-in plus live PipeWire
+  clock values (quantum 128, min 64, max 256 at 48 kHz); exact revert;
+  Command: `horneroctl studio audio apply --yes` / `revert`
+- **Instrumentation**: What it does: Live quantum/rate, xruns and DSP load as
+  `pw-top` reports them; Command: `horneroctl studio audio status`
+- **Temporary Performance**: What it does: power-profiles-daemon switch with
+  exact restore; Command: `horneroctl studio mode performance --yes`
+- **Render jobs**: What it does: Allow-listed ffmpeg and Blender jobs, never
+  overwriting output; Command: `horneroctl studio jobs submit ...`
+- **Experience mode**: What it does: Stable canvas, no glow, popups held under
+  fullscreen; Command: `horneroctl mode set studio`
 
 Low Latency values are a **proposal**, not measured support for your
 interface. A quantum is a scheduling period, not round-trip latency. If you
@@ -41,12 +49,13 @@ See [Studio audio](../applications/studio-audio.md).
 
 ## Verified
 
-| What | Where |
-| --- | --- |
-| apply / dry-run / revert / foreign-file refusal / no-PipeWire states, pw-top parsing | unit tests with fake `pw-metadata`/`pw-top` (CI) |
-| `studio doctor` and `pw-metadata`/`pw-top` output format on a real PipeWire 1.6 host (read-only) | host, read-only; nothing applied |
-| Mode intent is Balanced by default and Low Latency refuses without `--yes` | QA VM scenario `studio/audio-mode-opt-in` |
-| Studio preset and experience profile | CI + offscreen |
+- **apply / dry-run / revert / foreign-file refusal / no-PipeWire states,
+  pw-top parsing**: Where: unit tests with fake `pw-metadata`/`pw-top` (CI)
+- **`studio doctor` and `pw-metadata`/`pw-top` output format on a real
+  PipeWire 1.6 host (read-only)**: Where: host, read-only; nothing applied
+- **Mode intent is Balanced by default and Low Latency refuses without
+  `--yes`**: Where: QA VM scenario `studio/audio-mode-opt-in`
+- **Studio preset and experience profile**: Where: CI + offscreen
 
 ## Not validated
 

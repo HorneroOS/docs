@@ -21,11 +21,12 @@ See [Layouts](../desktop/layouts.md), [Appearance](../desktop/appearance.md),
 
 ## Verified
 
-| What | Where |
-| --- | --- |
-| Shell unit and contract tests, QML lint, mode policy under fullscreen | CI + offscreen |
-| Desktop boots to a ready session, mode switching, screenshots | QA VM (Hyprland) |
-| Package composition for the edition | `scripts/resolve-edition.py` in CI |
+- **Shell unit and contract tests, QML lint, mode policy under fullscreen**:
+  Where: CI + offscreen
+- **Desktop boots to a ready session, mode switching, screenshots**: Where: QA
+  VM (Hyprland)
+- **Package composition for the edition**: Where: `scripts/resolve-edition.py`
+  in CI
 
 ## Not validated
 

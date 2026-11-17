@@ -7,11 +7,12 @@ un **tema** cambian cómo se ve. Se componen: edición × modo × layout × tema
 ([arquitectura](../architecture/README.md),
 [modos de experiencia](../desktop/experience-modes.md)).
 
-| Edición | Lema | Madurez | Página |
-| --- | --- | --- | --- |
-| Desktop | Construí tu mundo | Preview | [Desktop](desktop.md) |
-| Studio | Hacé algo real | Preview | [Studio](studio.md) |
-| Gaming | Jugá a tu manera | Preview, extras experimentales rotulados | [Gaming](gaming.md) |
+- **Desktop**: Lema: Construí tu mundo; Madurez: Preview; Página:
+  [Desktop](desktop.md)
+- **Studio**: Lema: Hacé algo real; Madurez: Preview; Página:
+  [Studio](studio.md)
+- **Gaming**: Lema: Jugá a tu manera; Madurez: Preview, extras experimentales
+  rotulados; Página: [Gaming](gaming.md)
 
 Cada página separa **qué se verificó y dónde** de **qué no está validado**.
 "Verificado" siempre nombra el lugar: CI, pruebas unitarias offscreen, la VM

@@ -12,16 +12,18 @@ labelled Experimental and unqualified on every device. No game is certified.
 Switch with `horneroctl mode set gaming` (or the launcher). Under a
 fullscreen window on Hyprland:
 
-| Behaviour | Guarantee |
-| --- | --- |
-| Bars and drawers | Drawers close, input regions drop, bar disabled; only the area picker uses the Overlay layer |
-| Keyboard focus | The shell does not request exclusive focus (except surfaces you open: area picker, companion chat) |
-| Notifications | Non-critical popups are filed without a popup and counted; critical ones still show |
-| Polling | System and network telemetry paused |
-| Desktop widgets and clock | Hidden |
-| Idle | Inhibited while fullscreen |
-| Motion, glow, scanlines | Off, cannot be overridden |
-| Hyprland tuning | Gaps, rounding, shadow, blur off; tearing allowed; restored by reloading your config when you leave |
+- **Bars and drawers**: Guarantee: Drawers close, input regions drop, bar
+  disabled; only the area picker uses the Overlay layer
+- **Keyboard focus**: Guarantee: The shell does not request exclusive focus
+  (except surfaces you open: area picker, companion chat)
+- **Notifications**: Guarantee: Non-critical popups are filed without a popup
+  and counted; critical ones still show
+- **Polling**: Guarantee: System and network telemetry paused
+- **Desktop widgets and clock**: Guarantee: Hidden
+- **Idle**: Guarantee: Inhibited while fullscreen
+- **Motion, glow, scanlines**: Guarantee: Off, cannot be overridden
+- **Hyprland tuning**: Guarantee: Gaps, rounding, shadow, blur off; tearing
+  allowed; restored by reloading your config when you leave
 
 Limits: detection is Hyprland-only; a borderless window that merely fills
 the screen is a normal window to the compositor and is not treated as
@@ -55,13 +57,18 @@ No default tweaks touch the kernel, scheduler, governor or memory.
 
 ## Verified
 
-| What | Where |
-| --- | --- |
-| Policy under fullscreen (held notifications, paused polling, hidden desktop layer, idle inhibit, guardrails), fullscreen bit test | offscreen (node) unit tests, CI |
-| Only intentional surfaces take keyboard focus; Overlay layer only for the area picker; drawers stand down | static contract tests, CI |
-| Doctor probes, optional-tool WARN, launch-options composition | V unit tests, CI |
-| `gaming doctor` on a real Arch host with Steam, GameMode and an NVIDIA GPU (read-only) | host, read-only |
-| Live fullscreen behaviour and Hyprland tuning on a Lua-only Hyprland | QA VM scenarios `experience/gaming-fullscreen`, `gaming/hyprland-tuning-lua` (result stated in the PR) |
+- **Policy under fullscreen (held notifications, paused polling, hidden
+  desktop layer, idle inhibit, guardrails), fullscreen bit test**: Where:
+  offscreen (node) unit tests, CI
+- **Only intentional surfaces take keyboard focus; Overlay layer only for the
+  area picker; drawers stand down**: Where: static contract tests, CI
+- **Doctor probes, optional-tool WARN, launch-options composition**: Where: V
+  unit tests, CI
+- **`gaming doctor` on a real Arch host with Steam, GameMode and an NVIDIA GPU
+  (read-only)**: Where: host, read-only
+- **Live fullscreen behaviour and Hyprland tuning on a Lua-only Hyprland**:
+  Where: QA VM scenarios `experience/gaming-fullscreen`,
+  `gaming/hyprland-tuning-lua` (result stated in the PR)
 
 ## Not validated
 

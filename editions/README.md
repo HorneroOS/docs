@@ -7,11 +7,12 @@ They compose: edition × mode × layout × theme
 ([architecture](../architecture/editions.md),
 [experience modes](../desktop/experience-modes.md)).
 
-| Edition | Tagline | Maturity | Page |
-| --- | --- | --- | --- |
-| Desktop | Build your world | Preview | [Desktop](desktop.md) |
-| Studio | Make something real | Preview | [Studio](studio.md) |
-| Gaming | Play on your terms | Preview, experimental extras labelled | [Gaming](gaming.md) |
+- **Desktop**: Tagline: Build your world; Maturity: Preview; Page:
+  [Desktop](desktop.md)
+- **Studio**: Tagline: Make something real; Maturity: Preview; Page:
+  [Studio](studio.md)
+- **Gaming**: Tagline: Play on your terms; Maturity: Preview, experimental
+  extras labelled; Page: [Gaming](gaming.md)
 
 Each page separates **what was verified and where** from **what is not
 validated**. "Verified" always names the place: CI, offscreen unit tests, the

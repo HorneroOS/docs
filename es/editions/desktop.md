@@ -19,11 +19,12 @@ estable.
 
 ## Verificado
 
-| Qué | Dónde |
-| --- | --- |
-| Pruebas unitarias y de contrato de la Shell, lint QML, política de modos bajo pantalla completa | CI + offscreen |
-| El escritorio arranca a una sesión lista, cambio de modos, capturas | VM de QA (Hyprland) |
-| Composición de paquetes de la edición | `scripts/resolve-edition.py` en CI |
+- **Pruebas unitarias y de contrato de la Shell, lint QML, política de modos
+  bajo pantalla completa**: Dónde: CI + offscreen
+- **El escritorio arranca a una sesión lista, cambio de modos, capturas**:
+  Dónde: VM de QA (Hyprland)
+- **Composición de paquetes de la edición**: Dónde:
+  `scripts/resolve-edition.py` en CI
 
 ## No validado
 
