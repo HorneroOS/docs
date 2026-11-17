@@ -444,7 +444,9 @@ credited in NOTICE files where they ship.
   `{"schemaVersion":2,"id":…,"mode":…,"palette":{role:"#RRGGBB"},"terminal":[16]}`
   (`glow` only when the theme defines it), written atomically by
   horneroctl's theme apply path (or the shell for built-ins) and watched by
-  the shell. With a curated theme, wallpapers never recolour the UI.
+  the shell. With a curated theme, wallpapers never change the palette (only
+  Cockpit Clear's per-region choice between the theme's night and day inks
+  follows the wallpaper).
   Amendment 3: the reserved theme id `hornero-chromatic` selects Hornero
   Chromatic; horneroctl then writes a generated scheme with the optional,
   additive `chromatic`, `minSurfaceAlpha` and `clearInk` blocks

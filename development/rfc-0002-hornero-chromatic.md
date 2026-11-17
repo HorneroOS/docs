@@ -197,9 +197,12 @@ config does, so the engine and every validator agree.
 3. Convert to sRGB through the embedded colour profile
    (`QImage::convertToColorSpace`), so Display P3 and Adobe RGB photos are
    read correctly.
-4. Animated GIF/WebP/APNG: sample up to 8 frames evenly spaced over the
-   frame count (stop at a 150 ms decode budget); pixels from every sampled
-   frame are pooled with equal frame weight.
+4. Animated GIF/WebP/APNG: sample `n = min(8, frameCount)` frames at
+   indices `floor(i × frameCount / n)` for `i = 0 … n−1`; pixels from every
+   sampled frame are pooled with equal frame weight. The choice depends only
+   on the file, never on elapsed time. A file whose frame count is unknown
+   uses frame 0 only; a sampled frame that fails to decode fails the source
+   (`source-unreadable`) rather than being skipped.
 5. Video (`.mp4 .mkv .webm .mov .avi`): one frame at 1 s (or at 0 when the
    video is shorter), scaled to 512 px, extracted by one `ffmpeg` call into
    the cache (§15). Never more than once per file identity; never while the
@@ -213,7 +216,8 @@ config does, so the engine and every validator agree.
 Over the 256 px working image, area-weighted, with the top and bottom 8 %
 bands (where bars live) weighted 2×:
 
-- Lightness: mean `L̄`, percentiles `L5`, `L50`, `L95`, standard deviation.
+- Lightness: mean `L̄`, `Lmin`, `Lmax`, percentiles `L5`, `L50`, `L95`,
+  standard deviation.
 - Chroma: mean, `C90`, `C95`; colourfulness `Cf = C90`.
 - Hue histogram: 36 bins weighted by chroma; hue entropy (bits).
 - Detail: mean absolute Laplacian of L (busy-ness).
@@ -340,7 +344,10 @@ minimum plus a **0.15 margin**:
 1. `ink`, `inkMuted`, `signal`, `cue`, `phosphor`, `alert` on `sunken`,
    `base`, `panel`, `raised`.
 2. `ruleStrong` on `base`, `panel`, `lifted` and the text surfaces; `focus`
-   on every surface (stricter than config, which gates `focus` on `base`).
+   on every surface (stricter than config, which gates `focus` on `base`);
+   `inkFaint` 3:1 on `base` and `panel`. `inkFaint` is decorative and never
+   carries essential text (RFC 0001 §3.1), so it is not a text role at any
+   level; the 3:1 floor keeps decorative marks visible.
 3. Every `on*` on its fill; `onInverse` and `inverseSignal` on `inverse`.
 4. Terminal: normals (1–6) 4.5:1 and brights (9–14) 3:1 on `base`; red,
    green and yellow separable (ΔE ≥ 10); each normal → bright step ΔE ≥ 6.
@@ -375,7 +382,9 @@ Two outputs protect readability where the wallpaper shows through:
 
 - **`minSurfaceAlpha`**: for each translucent surface role, the smallest
   opacity at which `ink` and `inkMuted` still pass their gate when the
-  surface is composited over the wallpaper's `L5` and `L95` extremes.
+  surface is composited over the wallpaper's darkest and lightest pixels
+  (`Lmin`, `Lmax` of the working image, §4.2), so no patch of the wallpaper
+  can lower contrast below the bound.
   `Signal` uses `max(user opacity, minSurfaceAlpha)`.
 - **`clearInk`**: the Cockpit Clear foreground sets for both polarities
   (`ink`, `inkMuted`, `signal`, `alert`, `halo`) re-hued from the scheme and
@@ -574,8 +583,11 @@ in `shell.default.json`, resynced into config):
 Chromatic is active only when `appearance.theme` is `hornero-chromatic`.
 `follow` is `off`, `auto` (recolour when the wallpaper changes) or `ask`
 (preview with a timed Apply / Keep current toast). The shell edits these
-preferences; horneroctl reads them and writes them only when a CLI apply
-passes `--persist` (the default for `apply`).
+preferences; horneroctl reads them. A horneroctl `apply` always selects
+Chromatic (it sets `appearance.theme` to `hornero-chromatic`); by default it
+also stores its request in `appearance.chromatic`, and `--no-persist`
+skips only that second write, so a one-off CLI request does not replace the
+saved preferences.
 
 ## 9. Ownership
 
@@ -606,8 +618,10 @@ Control Center ──in-process──▶ Hornero.Chromatic (preview, no writes)
       ▼
 [horneroctl] appearance chromatic apply ──▶ hornero-chromatic generate (JSON)
       │ validate with the gate table ─ fail → write nothing, exit 1
-      │ lock → snapshot → render outputs to temp files
-      │ rename scheme.json, then outputs ─ any failure → restore snapshot
+      │ lock → snapshot (scheme, outputs, shell.json appearance keys)
+      │ render scheme, outputs and shell.json to temp files
+      │ rename scheme.json, outputs, then shell.json
+      │ any failure → restore every renamed file from the snapshot
       ▼
 Signal (FileView) adopts the scheme with a transition; apps reload natively
 ```
@@ -633,7 +647,8 @@ and require `--yes` when not interactive.
 - `preview [request]` — Generate and validate without writing; prints the scheme
   and gate report
 - `apply [request] [--no-persist]` — Generate, validate, snapshot, write scheme
-  and outputs, select `hornero-chromatic`
+  and outputs, select `hornero-chromatic` in `shell.json`; `--no-persist`
+  leaves `appearance.chromatic` unchanged
 - `follow` — Re-apply from the current wallpaper when Chromatic is active and
   `follow` is `auto`; otherwise a successful no-op reporting `skipped`
 - `rollback [--steps N]` — Restore an earlier snapshot (curated or Chromatic)
@@ -825,9 +840,13 @@ are unchanged.
   JSON from the same build, across runs and thread counts. Cross-architecture
   results may differ by at most ΔEOK 0.005 per role (checked in CI when a
   second architecture is available).
-- **Cache keys**: `sourceKey = sha256(canonical path, size, mtime_ns,
-  algorithm)`; palette key = `sha256(analysis digest, canonical request,
-  algorithm)`. Entries carry their own digest; a mismatch or parse failure
+- **Cache keys**: `sourceKey = sha256(content digest, algorithm)`, where the
+  content digest is the SHA-256 of the file bytes (files above 64 MiB, in
+  practice videos: of the size plus the first and last 4 MiB). Path, size
+  and mtime are only a fast index to a stored digest and are never trusted
+  alone; a changed file with the same size and mtime is detected because a
+  hit re-hashes the file before reuse. Palette key =
+  `sha256(analysis digest, canonical request, algorithm)`. Entries carry their own digest; a mismatch or parse failure
   deletes the entry and recomputes. Size cap 64 MB, LRU pruning on write.
   The cache is never required: `--no-cache` gives the same result.
 - **Corpus**: generated by the test harness, no binary blobs — black, white,

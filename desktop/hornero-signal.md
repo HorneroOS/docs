@@ -58,14 +58,16 @@ Choose a theme in **Settings → Appearance → Themes**, or see
 ## Wallpapers change colours only when you choose Chromatic
 
 A theme decides every colour. With a curated theme (Signal Night, Signal Day,
-Signal High Contrast or a catalogue theme), changing the wallpaper changes
-only the image behind your windows; the shell, apps and terminals keep the
-theme's palette. See [Wallpapers](wallpapers.md).
+Signal High Contrast or a catalogue theme), changing the wallpaper never
+changes the palette: the shell, apps and terminals keep the theme's colours.
+The one exception is Cockpit Clear, whose bar text switches between the
+theme's own night and day inks to stay readable over the new image. See [Wallpapers](wallpapers.md).
 
 **Hornero Chromatic** is an optional dynamic theme that builds a complete
 Signal palette from your wallpaper, an image or a colour you pick, with
 variants such as balanced, vibrant, muted or neon. It keeps the Signal
-structure and its readability rules, and High Contrast always overrides it.
+structure and its readability rules. In the shell, the High Contrast switch
+always overrides it; apps and terminals keep the Chromatic palette.
 It is specified in
 [RFC 0002](../development/rfc-0002-hornero-chromatic.md) and is not
 released yet.
