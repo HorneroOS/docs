@@ -383,7 +383,7 @@ whether it is a small additive change at level 4.
 | 3 | `string-list` and `path` setting types | `path` shipped in settings v2; free-form `strings` (list of up to 32 strings of at most 128 chars, text rows) added beside `list` (which is a multi-select over declared options) | 4 | `path` in review (shell#602); `strings` next |
 | 4 | `experience` capability instead of spawning horneroctl | A typed `Experience` facade (read mode; `set(mode)` on a user gesture) over the existing service, declared in `capabilities.providers` | 5 | Designed |
 | 5 | Process failure signal (a missing executable never reports exit) | The host owns a `Run` facade: argv from `processCommands` only, `started`/`failed(reason)`/`finished(code)` signals, a timeout, one place for the not-found case | 5 | Designed; needs a security review as it is the only new process API |
-| 6 | Launcher surface host | Already hosted (`PluginLauncherHost`, shell#250 closed); `commands` (shell#604) adds action rows | 3/4 | Shipped |
+| 6 | Launcher surface host | Already hosted (`PluginLauncherHost`, shell#250 closed); `commands` (shell#605) adds action rows | 3/4 | Shipped |
 | 7 | Desktop-widget content and scroll contract | Host-provided `UiScrollArea` in PluginKit and a documented rule that content past the frame scrolls instead of clipping | 4 | Next small PR |
 | 8 | Real-shell screenshots in marketplace metadata | Existing `marketplace.screenshots`; the QA VM capture tool should write them | - | Tooling, plugins repo |
 | 9 | Providers: `Power.devices`, calendar, clipboard (consent-gated), game library, frame time | One shared-provider domain each (RFC 0001 section 5b); clipboard and library need an explicit per-extension consent step, not a manifest declaration alone | 5 | Designed; `Power.devices` first (no consent needed) |
@@ -409,14 +409,14 @@ their own review.
 
 | Item | Repo | Status |
 | - | - | - |
-| This RFC | docs | Proposed |
-| `pluginKit` field, apiLevel 4, validator, schema | shell, plugins | See PR list in the tracking issue |
-| Settings schema v2 (colour, list, text, path, group, title, unit, step, visibleWhen) and generated controls | shell | See PR list |
-| Live preview | shell | See PR list |
-| Per-instance desktop widgets | shell | See PR list |
-| Actions (launcher, IPC) | shell | See PR list |
+| This RFC | docs | Proposed (docs#130) |
+| `pluginKit` field, apiLevel 4, validator, schema; settings schema v2 and live preview | shell | In review: shell#602 (CI green) |
+| Per-instance desktop widgets | shell | Draft: shell#603 (stacked on #602) |
+| Commands (launcher, IPC) | shell | Draft: shell#605 (stacked on #603) |
+| Validator, schema and catalogue mirror | plugins | In review: plugins#82 |
 | Quick-setting tiles, Control Center panels | shell | Not started |
-| Notification source, lock-screen card, hooks | shell | Designed here, not started |
+| Hidden settings, `strings`, scroll area (Section 10a 2, 3, 7) | shell | Not started |
+| Notification source, lock-screen card, hooks, new providers | shell | Designed here, not started |
 | Extractions (Section 10) | shell, plugins | Not started |
 | Spanish handbook page | docs | Not started |
 
