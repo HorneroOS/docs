@@ -935,6 +935,26 @@ duration; the only scale in this section is the 1.0 to 0.98 settle of empty
 states, well inside the 4 % spring limit, and all of it is static under
 reduced motion.
 
+### 17.4a Follow-ups from Bezel Calido (study and Amendment 4)
+
+- **Plate** — engraved label: IBM Plex Sans Condensed SemiBold, capitals,
+  tracking 0.14 em (user setting 0 to 0.3), tabular figures. Enums only (a
+  mode, a state, a channel such as the launcher's LAUNCH), never sentences. At
+  most four type treatments per screen: UI, readout, eyebrow, plate or display.
+- **Low power** — the power-saver profile drops lamp, vignette, grain and
+  scanlines; the inner highlight stays. High Contrast, Focus, Gaming and Studio
+  hide the whole layer.
+- **Fade** — a mode or switch change fades the layer over 480 ms (the `scan`
+  duration, inside the 400 to 600 ms range); reduced motion and low power make
+  it instant.
+- **Radii** — the Cozy look scales rounding by 1.2, so effective radii stay at
+  or under `small x 2` (6 px): soft, never pill.
+- **Cockpit Clear** — the layer is never attached to bars, so a clear bar has
+  no tint and no background of any kind.
+- **Alert on `lifted`** — where a palette puts plain `alert` under 4.5:1 on
+  tooltips (Dusk: 4.36), alert text uses `alertText`, `alert` pulled toward
+  `ink` until it passes on all six surfaces.
+
 ### 17.5 Control
 
 | Control | Key | Range | Factory |
