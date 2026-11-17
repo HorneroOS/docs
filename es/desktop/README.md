@@ -12,6 +12,7 @@ los ajustes persistentes del sistema y de la shell.
 | --- | --- |
 | Entender el aspecto Hornero Signal | [Hornero Signal](hornero-signal.md) |
 | Elegir un aspecto coordinado | [Temas y apariencia](appearance.md) |
+| Cambiar cómo se comporta el escritorio: Focus, Signal, Gaming | [Modos de experiencia](experience-modes.md) |
 | Cambiar o entender un fondo | [Fondos](wallpapers.md) |
 | Elegir o solucionar un compositor de sesión | [Compositores Wayland](../../desktop/compositors.md) |
 | Moverte entre rieles, barras, islas o docks | [Layouts](../../desktop/layouts.md) |

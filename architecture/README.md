@@ -26,6 +26,8 @@ records which component revisions were composed together.
   composition model, and honest maturity boundary.
 - [Appearance system](appearance-system.md) — theme, wallpaper, palette, and
   toolkit responsibilities.
+- [Experience modes](experience-modes.md) — how modes compose with
+  edition, layout and theme, and how the Signal deck is built.
 - [Updates and delivery](updates-delivery.md) — how source, packages, and
   tested compositions relate.
 - [Power and performance](power-performance.md) — measurement and current
