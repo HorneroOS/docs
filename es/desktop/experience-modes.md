@@ -131,9 +131,9 @@ vivo sobre dos rieles, con el centro libre para las ventanas:
 | 1 | System Insight | Procesador, gráficos, memoria y almacenamiento |
 | 2 | Network Scope | Trazas de descarga y subida |
 | 3 | Audio Deck | Reproducción y espectro de audio |
-| 4 | Calendar | El mes |
-| 5 | Agenda | Próximos eventos |
-| 6 | Moon Phase | La fase actual |
+| 4 | Calendar | El mes y la hora |
+| 5 | Agenda | Datos de fecha, semana y año |
+| 6 | Moon Phase | La fase aproximada |
 
 - El deck se arma por pantalla y nunca tapa una barra. Lo que no entra se
   descarta por prioridad en vez de superponerse: una pantalla de 1366×768

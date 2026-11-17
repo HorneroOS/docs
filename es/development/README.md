@@ -11,6 +11,10 @@ instrucciones para colaboradores de ese repositorio antes de editar.
 - [Design language](../../development/design-language.md) — identidad de
   producto compartida, principios de interfaz y fuentes de diseño
   autorizadas entre repositorios.
+- [Guía de extensiones](../../development/extensions.md) y
+  [contrato de interacción](../../development/interaction-contract.md) —
+  PluginKit 3, manifest v3, glifos, widgets de escritorio y reglas de
+  popups y movimiento (solo en inglés por ahora).
 - [Testing](../../development/testing.md) — elegí chequeos enfocados y
   aceptación gráfica.
 - [Calidad y releases](../../development/quality-and-releases.md) —
