@@ -101,7 +101,7 @@ hard-coded features, with everything customisable from Control Center
 | 4 | `dashboard` card | Dashboard › Extensions | `surfaces.dashboard` Item, `size`, `category` | While the dashboard is open | Yes (instances) | 3, instances 4 | Instances: follow-up |
 | 5 | `settings` section | Control Center › Extensions | Generated from the typed schema; optional custom `surfaces.settings` Item | While the section is expanded | Per instance | 3 | Shipped; schema v2 level 4 |
 | 6 | `launcher` provider | Launcher | `query` / `result` contract | Hidden, while enabled | No | 3 | Shipped |
-| 7 | `contributes.actions` | Launcher rows, IPC, key bindings, scripts | Declared `{id, title, glyph, keywords}` plus a `surfaces.actions` handler `run(actionId, args)` | Handler loaded on first invocation | No | 4 | This RFC |
+| 7 | `contributes.commands` | Launcher rows, IPC, key bindings, scripts | Declared `{id, title, glyph, keywords}` plus a `surfaces.commands` handler `run(actionId, args)` | Handler loaded on first invocation | No | 4 | This RFC |
 | 8 | `contributes.quickSettings` | Utilities quick toggles, Control Center overview | Declared tile `{id, title, glyph, kind}` plus a `surfaces.quickSetting` Item exposing `checked`/`state` and `toggle()` | While the tile is placed | No | 4 | This RFC |
 | 9 | `contributes.panels` | Control Center nav (Extensions group) | Declared `{id, title, glyph}` plus a `surfaces.panel` Item | Only while the panel is open | Per instance | 4 | This RFC |
 | 10 | Notification source | Notification centre | A source id and a typed `post({summary, body, glyph, urgency, actions})` through PluginKit; grouped and DND-aware by the host | Background | No | 5 | Designed, not started |
@@ -155,13 +155,13 @@ All strings are plain text; none is interpreted as markup or a command.
 - Launcher: prefix `>` lists actions of enabled, installed extensions
   (title, glyph, extension name, fuzzy match on title and keywords).
   Activating one calls the handler.
-- IPC: `qs ipc call plugins actions` (JSON list), `qs ipc call plugins action
-  <pluginId> <actionId> [args]` (returns `ok`, or a one-line error). This is
+- IPC: `qs ipc call plugincommands list` (JSON), `qs ipc call plugincommands run
+  <pluginId> <commandId> [args]` (returns `ok`, or a one-line error). This is
   the stable surface for key binds (`bind = SUPER, F9, exec, qs ipc call
   plugins action hornero-pomodoro startFocus`) and scripts. The Shell does not
   write key bindings itself: the user owns the binding, Control Center shows
   the exact command to copy.
-- Handler contract: `surfaces.actions` entrypoint is an `Item` with
+- Handler contract: `surfaces.commands` entrypoint is an `Item` with
   `function run(actionId: string, args: string): string` returning an empty
   string on success or a short error. The host loads the handler on first
   invocation and keeps it for the session, in its own asynchronous Loader. A
@@ -369,6 +369,28 @@ each needs the contribution point it names):
 
 Extraction happens only when the replacement is demonstrably identical in the
 QA VM; until then the built-in stays. Section 12 records what was done.
+
+## 10a. Catalogue API wishes, prioritised
+
+The catalogue audit (plugins#80, #81) lists API gaps that block shipped or
+planned extensions. Priority is by how many extensions each unblocks, and
+whether it is a small additive change at level 4.
+
+| # | Wish | Plan | Level | Status |
+| - | - | - | - | - |
+| 1 | Per-instance configuration | Section 6 | 4 | In review (shell#603) |
+| 2 | Hidden state storage (timers persisting deadlines must not show in generated settings) | Display field `hidden: true` on any setting: stored, validated and readable like any other, never rendered nor counted by Reset all; or a separate `Storage` facade if hidden state must survive Reset | 4 | Next small PR |
+| 3 | `string-list` and `path` setting types | `path` shipped in settings v2; free-form `strings` (list of up to 32 strings of at most 128 chars, text rows) added beside `list` (which is a multi-select over declared options) | 4 | `path` in review (shell#602); `strings` next |
+| 4 | `experience` capability instead of spawning horneroctl | A typed `Experience` facade (read mode; `set(mode)` on a user gesture) over the existing service, declared in `capabilities.providers` | 5 | Designed |
+| 5 | Process failure signal (a missing executable never reports exit) | The host owns a `Run` facade: argv from `processCommands` only, `started`/`failed(reason)`/`finished(code)` signals, a timeout, one place for the not-found case | 5 | Designed; needs a security review as it is the only new process API |
+| 6 | Launcher surface host | Already hosted (`PluginLauncherHost`, shell#250 closed); `commands` (shell#604) adds action rows | 3/4 | Shipped |
+| 7 | Desktop-widget content and scroll contract | Host-provided `UiScrollArea` in PluginKit and a documented rule that content past the frame scrolls instead of clipping | 4 | Next small PR |
+| 8 | Real-shell screenshots in marketplace metadata | Existing `marketplace.screenshots`; the QA VM capture tool should write them | - | Tooling, plugins repo |
+| 9 | Providers: `Power.devices`, calendar, clipboard (consent-gated), game library, frame time | One shared-provider domain each (RFC 0001 section 5b); clipboard and library need an explicit per-extension consent step, not a manifest declaration alone | 5 | Designed; `Power.devices` first (no consent needed) |
+
+The ones that unblock shipped extensions (1, 2, 3, 7) are level 4 and
+additive; 4, 5 and 9 introduce new capabilities and ship as level 5 each with
+their own review.
 
 ## 11. Alternatives considered
 
