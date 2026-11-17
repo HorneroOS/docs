@@ -216,6 +216,9 @@ All values are logical pixels at scale 1 on the RFC 4 px grid.
 
 ### 4.1 Horizontal bars
 
+> Sizes in this section are the original targets. The shipped, calibrated
+> sizes are in section 4.4 and take precedence.
+
 - **Top rail (act)** — 36 px tall, `base` fill. Inset style: 6 px from the
   screen edges, 1 px `rule` border, radius `small` (3). Attached style: no
   outer border, 1 px `rule` on the inner edge only.
@@ -267,6 +270,59 @@ The existing `density` setting maps to: `icons` (glyph only, labels and
 values in tooltips), `values` (glyph and value, labels hidden), `labels`
 (glyph, eyebrow and value). Cockpit ships `values`; Signal mode may raise to
 `labels`, Focus lowers to `icons`.
+
+### 4.4 Calibrated sizes (shipped)
+
+The first thin-bar pass (shell#520) made every bar 24 to 28 px with 11 px
+text and read as cramped. The calibrated values replace the 36/30 targets
+above and the 40/32 of open item 16; they are the contract the shell ships
+(`presets/*.json`, `tests/test_thin_bars.py`). Thickness is the bar body; the
+margin is the extra gap to the screen edge for inset, floating, islands and
+dock styles.
+
+- Horizontal bars are 26 to 34 px (Cockpit 34 top and 26 bottom, both inset
+  by 6 px; Classic 32; Minimal 30). Hornero Left/Right keep a generous 48 px
+  rail, Minimal Left 38 px, the Console dock 46 px with 28 px app tiles.
+- Every slab carries a 1 px `rule` hairline (all round for inset, floating and
+  islands; inner edge only for attached). Radii are at most 4 px; nothing is
+  translucent glass.
+- Density factor: logical height h gives f = 0.94 + 0.06 x (h - 720) / 360 up
+  to 1080 px and f = 1 + 0.10 x (h - 1080) / 1080 above (maximum 1.10), times
+  the user multiplier 0.75 to 1.5. Primary text is 12 px (never below),
+  captions 11 px, bar icons 15 to 18 px, segment padding 12 px (8 px in
+  rails, floor 8 and 6), and no bar is thinner than the 24 px hit area.
+  Logical height already divides by the compositor scale, so 1920x1080 at 1.5
+  is 720p.
+- Chromatic discipline: ink and `inkMuted` foregrounds, one `signal` accent
+  (mark, active workspace, mode chip, on-air chips, live interaction); the
+  clock is one colour; tray icons are monochrome by default.
+
+Thickness in px by logical height (rounded; floor 24):
+
+<!-- markdownlint-disable MD013 -->
+
+| Preset | Style | Margin | 720p | 768p | 960p | 1080p | 1440p | 2160p |
+|---|---|---|---|---|---|---|---|---|
+| Cockpit top / bottom | inset | 6 | 32 / 24 | 32 / 25 | 33 / 25 | 34 / 26 | 35 / 27 | 37 / 29 |
+| Cockpit Clear | inset | 6 | 32 / 24 | 32 / 25 | 33 / 25 | 34 / 26 | 35 / 27 | 37 / 29 |
+| Horizon top / bottom | inset | 6 | 30 / 24 | 30 / 25 | 31 / 25 | 32 / 26 | 33 / 27 | 35 / 29 |
+| Classic Top / Bottom | attached | 6 | 30 | 30 | 31 | 32 | 33 | 35 |
+| Minimal Top | attached | 6 | 28 | 28 | 29 | 30 | 31 | 33 |
+| Minimal Float | floating | 8 | 28 | 28 | 29 | 30 | 31 | 33 |
+| Floating Island | floating | 10 | 32 | 32 | 33 | 34 | 35 | 37 |
+| Islands | islands | 8 | 30 | 30 | 31 | 32 | 33 | 35 |
+| Productivity | inset | 6 | 30 | 30 | 31 | 32 | 33 | 35 |
+| Studio | attached | 6 | 30 | 30 | 31 | 32 | 33 | 35 |
+| Gaming | floating | 8 | 26 | 27 | 27 | 28 | 29 | 31 |
+| Dock Bottom | dock | 8 | 43 | 44 | 45 | 46 | 48 | 51 |
+| Hornero Left / Right | attached | 6 | 45 | 46 | 47 | 48 | 50 | 53 |
+| Minimal Left | attached | 6 | 36 | 36 | 37 | 38 | 39 | 42 |
+
+<!-- markdownlint-enable MD013 -->
+
+Product evidence: HorneroOS/shell `.github/evidence/layouts-calibration/`
+(offscreen before/after strips at 1080, 768 and 720). Concept renders keep
+their CONCEPT label and are not product evidence.
 
 ## 5. Workspace indicator
 
@@ -646,20 +702,22 @@ to the named survivor.
 | cockpit-clear   | Keep     | Cockpit with no backdrop           |
 | horizon         | Redesign | Single instrument line             |
 | islands         | Redesign | Three rack modules                 |
-| floating-island | Remove   | Migrates to cozy-minimal           |
+| floating-island | Redesign | Compact floating module (restored) |
 | cozy-minimal    | Redesign | Minimal floating strip             |
 | dock-bottom     | Redesign | Console dock                       |
 | classic-top     | Keep     | Conventional single bar            |
 | classic-bottom  | Keep     | Edge variant of classic-top        |
 | minimal-top     | Redesign | Focus layout, absorbs productivity |
-| productivity    | Remove   | Migrates to minimal-top            |
+| productivity    | Redesign | Calm focused-work composition (restored) |
 | minimal-left    | Redesign | Instrument rail                    |
 | studio          | Redesign | Studio mode layout                 |
 | gaming          | Redesign | Gaming mode layout                 |
 | hornero-left    | Keep     | Caelestia-inspired left rail       |
 | hornero-right   | Keep     | Caelestia-inspired right rail      |
 
-Fourteen presets survive; each has a distinct composition and purpose.
+Sixteen presets ship; each has a distinct composition and purpose. Floating
+Island and Productivity were removed in the first audit and restored after
+review, redesigned in Signal Bezel (sections 14.5 and 14.10).
 
 ### 14.1 cockpit — keep
 
@@ -698,11 +756,15 @@ the current look is pill islands. Target: three floating 36 px modules
 border, radius 3 — not full radius. The island that owns an open popout
 shows the registration tick; popouts keep a 4 px gap.
 
-### 14.5 floating-island — remove
+### 14.5 floating-island — restored
 
-Why: its stated identity is "pill-shaped, glassy and glowy", which RFC §2
-excludes, and its content (logo, workspaces, clock, status, power) duplicates
-cozy-minimal. Existing selections migrate once to cozy-minimal.
+Why: users value the floating look. The glassy, glowy pill is gone (RFC §2);
+the preset is now one compact floating module with a 1 px `rule` hairline,
+radius 3, `base` fill. Target: 34 px, 10 px from the top edge, content-sized
+and centred: mark and workspaces, clock, status cluster and power. It
+reserves space like every floating preset (margin included) and is
+distinct from Minimal Float by its larger module, wider margin and fuller
+content.
 
 ### 14.6 cozy-minimal — redesign
 
@@ -729,18 +791,18 @@ sliders leave the start group for the status cluster. classic-bottom is the
 same art direction on the bottom edge; the Layout Picker presents both as
 one card with an edge toggle.
 
-### 14.9 minimal-top — redesign (absorbs productivity)
+### 14.9 minimal-top — redesign
 
-Why: productivity and minimal-top differ only by the active window title and
-a notification policy, which now belongs to Focus mode. Target: Focus mode's
-preferred layout — a 30 px attached top strip: workspaces and active window
-title at the start, clock centre, status cluster and power at the end,
-density `icons`.
+Why: the quietest layout. Target: a 30 px attached top strip with workspaces
+at the start, clock centre and power at the end.
 
-### 14.10 productivity — remove
+### 14.10 productivity — restored
 
-Why: duplicate of the redesigned minimal-top; its notification settings move
-to the Focus mode profile. Existing selections migrate once to minimal-top.
+Why: a calm focused-work composition is a real alternative to Minimal Top.
+Target: a 32 px inset top rail (6 px): workspaces and the active window
+title at the start, clock and date at the centre, only the tray, extensions
+island, status cluster and power at the end; density `glyphs`; no sliders,
+weather or meters; notifications expire after 4 s.
 
 ### 14.11 minimal-left — redesign
 
