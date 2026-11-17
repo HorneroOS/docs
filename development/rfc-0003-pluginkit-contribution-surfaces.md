@@ -93,21 +93,56 @@ hard-coded features, with everything customisable from Control Center
 "Surface" is where it appears; "Contract" is what the extension provides;
 "Loaded" is when its code runs. Level is the apiLevel that introduced it.
 
-| # | Contribution point | Surface | Contract | Loaded | Multi-instance | Level | Status |
-| - | - | - | - | - | - | - | - |
-| 1 | `bar` (bar item) | Bar island | `surfaces.bar` Item; host context; optional `section` | Always while enabled | Per screen (existing) | 3 | Shipped |
-| 2 | Popover / popup | Anchored to the bar item or widget | `UiPopover` / `UiTooltip` from the bar or desktop surface; not a surface of its own | With its host surface | Follows host | 3 | Shipped |
-| 3 | `desktop` (desktop widget) | Desktop layer | `surfaces.desktop` Item, geometry hints | While enabled and mode allows | **Yes** (instances) | 3, instances 4 | Instances: this RFC |
-| 4 | `dashboard` card | Dashboard › Extensions | `surfaces.dashboard` Item, `size`, `category` | While the dashboard is open | Yes (instances) | 3, instances 4 | Instances: follow-up |
-| 5 | `settings` section | Control Center › Extensions | Generated from the typed schema; optional custom `surfaces.settings` Item | While the section is expanded | Per instance | 3 | Shipped; schema v2 level 4 |
-| 6 | `launcher` provider | Launcher | `query` / `result` contract | Hidden, while enabled | No | 3 | Shipped |
-| 7 | `contributes.commands` | Launcher rows, IPC, key bindings, scripts | Declared `{id, title, glyph, keywords}` plus a `surfaces.commands` handler `run(actionId, args)` | Handler loaded on first invocation | No | 4 | This RFC |
-| 8 | `contributes.quickSettings` | Utilities quick toggles, Control Center overview | Declared tile `{id, title, glyph, kind}` plus a `surfaces.quickSetting` Item exposing `checked`/`state` and `toggle()` | While the tile is placed | No | 4 | This RFC |
-| 9 | `contributes.panels` | Control Center nav (Extensions group) | Declared `{id, title, glyph}` plus a `surfaces.panel` Item | Only while the panel is open | Per instance | 4 | This RFC |
-| 10 | Notification source | Notification centre | A source id and a typed `post({summary, body, glyph, urgency, actions})` through PluginKit; grouped and DND-aware by the host | Background | No | 5 | Designed, not started |
-| 11 | Session / lock-screen slot | Lock, greeter-adjacent surfaces | Read-only, declarative card (`UiMetric` subset) rendered by the host, never extension code on the lock surface | Never on lock | No | 5 | Designed, not started; see 7.5 |
-| 12 | Hooks | Shell events (mode change, lock, wake, workspace) | Declared subscriptions delivered to `surfaces.background` as signals on a `Hooks` facade | Background | No | 5 | Designed, not started |
-| 13 | Theme templates | horneroctl theme apply | `theme.templates` (existing) | CLI only | No | 3 | Shipped |
+- **1. `bar` (bar item)** — Surface: Bar island; Contract: `surfaces.bar`
+  Item; host context; optional `section`; Loaded: Always while enabled;
+  Multi-instance: Per screen (existing); Level: 3; Status: Shipped
+- **2. Popover / popup** — Surface: Anchored to the bar item or widget;
+  Contract: `UiPopover` / `UiTooltip` from the bar or desktop surface; not a
+  surface of its own; Loaded: With its host surface; Multi-instance: Follows
+  host; Level: 3; Status: Shipped
+- **3. `desktop` (desktop widget)** — Surface: Desktop layer; Contract:
+  `surfaces.desktop` Item, geometry hints; Loaded: While enabled and mode
+  allows; Multi-instance: **Yes** (instances); Level: 3, instances 4; Status:
+  Instances: this RFC
+- **4. `dashboard` card** — Surface: Dashboard › Extensions; Contract:
+  `surfaces.dashboard` Item, `size`, `category`; Loaded: While the dashboard
+  is open; Multi-instance: Yes (instances); Level: 3, instances 4; Status:
+  Instances: follow-up
+- **5. `settings` section** — Surface: Control Center › Extensions; Contract:
+  Generated from the typed schema; optional custom `surfaces.settings` Item;
+  Loaded: While the section is expanded; Multi-instance: Per instance; Level:
+  3; Status: Shipped; schema v2 level 4
+- **6. `launcher` provider** — Surface: Launcher; Contract: `query` / `result`
+  contract; Loaded: Hidden, while enabled; Multi-instance: No; Level: 3;
+  Status: Shipped
+- **7. `contributes.commands`** — Surface: Launcher rows, IPC, key bindings,
+  scripts; Contract: Declared `{id, title, glyph, keywords}` plus a
+  `surfaces.commands` handler `run(actionId, args)`; Loaded: Handler loaded on
+  first invocation; Multi-instance: No; Level: 4; Status: This RFC
+- **8. `contributes.quickSettings`** — Surface: Utilities quick toggles,
+  Control Center overview; Contract: Declared tile `{id, title, glyph, kind}`
+  plus a `surfaces.quickSetting` Item exposing `checked`/`state` and
+  `toggle()`; Loaded: While the tile is placed; Multi-instance: No; Level: 4;
+  Status: This RFC
+- **9. `contributes.panels`** — Surface: Control Center nav (Extensions
+  group); Contract: Declared `{id, title, glyph}` plus a `surfaces.panel`
+  Item; Loaded: Only while the panel is open; Multi-instance: Per instance;
+  Level: 4; Status: This RFC
+- **10. Notification source** — Surface: Notification centre; Contract: A
+  source id and a typed `post({summary, body, glyph, urgency, actions})`
+  through PluginKit; grouped and DND-aware by the host; Loaded: Background;
+  Multi-instance: No; Level: 5; Status: Designed, not started
+- **11. Session / lock-screen slot** — Surface: Lock, greeter-adjacent
+  surfaces; Contract: Read-only, declarative card (`UiMetric` subset) rendered
+  by the host, never extension code on the lock surface; Loaded: Never on
+  lock; Multi-instance: No; Level: 5; Status: Designed, not started; see 7.5
+- **12. Hooks** — Surface: Shell events (mode change, lock, wake, workspace);
+  Contract: Declared subscriptions delivered to `surfaces.background` as
+  signals on a `Hooks` facade; Loaded: Background; Multi-instance: No; Level:
+  5; Status: Designed, not started
+- **13. Theme templates** — Surface: horneroctl theme apply; Contract:
+  `theme.templates` (existing); Loaded: CLI only; Multi-instance: No; Level:
+  3; Status: Shipped
 
 Rationale for the order. Rows 3 and 5 (instances and the settings schema) are
 the multiplier: every other contribution is more useful once an extension can
@@ -129,7 +164,8 @@ running code:
       "keywords": ["pomodoro", "timer"] }
   ],
   "quickSettings": [
-    { "id": "focus", "title": "Focus timer", "glyph": "hourglass", "kind": "toggle" }
+    { "id": "focus", "title": "Focus timer", "glyph": "hourglass",
+      "kind": "toggle" }
   ],
   "panels": [
     { "id": "stats", "title": "Focus statistics", "glyph": "chart-bar" }
@@ -204,12 +240,17 @@ Section 12 row 11.
 The closed type set grows; the existing five types and their rules are
 unchanged. New types and fields require `pluginKit: 4`.
 
-| Type | Value | Constraints | Generated control |
-| - | - | - | - |
-| `colour` | `#RRGGBB` or `#RRGGBBAA` string | `alpha` (bool, default false) | Swatch with hex field and the Signal palette as presets |
-| `list` | array of strings | `options` (required, 1–32 unique strings), `minItems`, `maxItems` | Toggle group (multi-select), order preserved as declared |
-| `text` | string, may contain newlines | `minLength`, `maxLength` (≤ 4096), `rows` (1–12) | Multi-line text area |
-| `path` | string | `kind`: `file` or `directory`; `mustExist` (bool) is a UI hint only | Text field with a Browse button; see 5.1 |
+- **`colour`** — Value: `#RRGGBB` or `#RRGGBBAA` string; Constraints: `alpha`
+  (bool, default false); Generated control: Swatch with hex field and the
+  Signal palette as presets
+- **`list`** — Value: array of strings; Constraints: `options` (required, 1–32
+  unique strings), `minItems`, `maxItems`; Generated control: Toggle group
+  (multi-select), order preserved as declared
+- **`text`** — Value: string, may contain newlines; Constraints: `minLength`,
+  `maxLength` (≤ 4096), `rows` (1–12); Generated control: Multi-line text area
+- **`path`** — Value: string; Constraints: `kind`: `file` or `directory`;
+  `mustExist` (bool) is a UI hint only; Generated control: Text field with a
+  Browse button; see 5.1
 
 Fields available on **every** type (display only, never change validation):
 
@@ -376,17 +417,40 @@ The catalogue audit (plugins#80, #81) lists API gaps that block shipped or
 planned extensions. Priority is by how many extensions each unblocks, and
 whether it is a small additive change at level 4.
 
-| # | Wish | Plan | Level | Status |
-| - | - | - | - | - |
-| 1 | Per-instance configuration | Section 6 | 4 | In review (shell#603) |
-| 2 | Hidden state storage (timers persisting deadlines must not show in generated settings) | Display field `hidden: true` on any setting: stored, validated and readable like any other, never rendered nor counted by Reset all; or a separate `Storage` facade if hidden state must survive Reset | 4 | Next small PR |
-| 3 | `string-list` and `path` setting types | `path` shipped in settings v2; free-form `strings` (list of up to 32 strings of at most 128 chars, text rows) added beside `list` (which is a multi-select over declared options) | 4 | `path` in review (shell#602); `strings` next |
-| 4 | `experience` capability instead of spawning horneroctl | A typed `Experience` facade (read mode; `set(mode)` on a user gesture) over the existing service, declared in `capabilities.providers` | 5 | Designed |
-| 5 | Process failure signal (a missing executable never reports exit) | The host owns a `Run` facade: argv from `processCommands` only, `started`/`failed(reason)`/`finished(code)` signals, a timeout, one place for the not-found case | 5 | Designed; needs a security review as it is the only new process API |
-| 6 | Launcher surface host | Already hosted (`PluginLauncherHost`, shell#250 closed); `commands` (shell#605) adds action rows | 3/4 | Shipped |
-| 7 | Desktop-widget content and scroll contract | Host-provided `UiScrollArea` in PluginKit and a documented rule that content past the frame scrolls instead of clipping | 4 | Next small PR |
-| 8 | Real-shell screenshots in marketplace metadata | Existing `marketplace.screenshots`; the QA VM capture tool should write them | - | Tooling, plugins repo |
-| 9 | Providers: `Power.devices`, calendar, clipboard (consent-gated), game library, frame time | One shared-provider domain each (RFC 0001 section 5b); clipboard and library need an explicit per-extension consent step, not a manifest declaration alone | 5 | Designed; `Power.devices` first (no consent needed) |
+- **1. Per-instance configuration** — Plan: Section 6; Level: 4; Status: In
+  review (shell#603)
+- **2. Hidden state storage (timers persisting deadlines must not show in
+  generated settings)** — Plan: Display field `hidden: true` on any setting:
+  stored, validated and readable like any other, never rendered nor counted by
+  Reset all; or a separate `Storage` facade if hidden state must survive
+  Reset; Level: 4; Status: Next small PR
+- **3. `string-list` and `path` setting types** — Plan: `path` shipped in
+  settings v2; free-form `strings` (list of up to 32 strings of at most 128
+  chars, text rows) added beside `list` (which is a multi-select over declared
+  options); Level: 4; Status: `path` in review (shell#602); `strings` next
+- **4. `experience` capability instead of spawning horneroctl** — Plan: A
+  typed `Experience` facade (read mode; `set(mode)` on a user gesture) over
+  the existing service, declared in `capabilities.providers`; Level: 5;
+  Status: Designed
+- **5. Process failure signal (a missing executable never reports exit)** —
+  Plan: The host owns a `Run` facade: argv from `processCommands` only,
+  `started`/`failed(reason)`/`finished(code)` signals, a timeout, one place
+  for the not-found case; Level: 5; Status: Designed; needs a security review
+  as it is the only new process API
+- **6. Launcher surface host** — Plan: Already hosted (`PluginLauncherHost`,
+  shell#250 closed); `commands` (shell#605) adds action rows; Level: 3/4;
+  Status: Shipped
+- **7. Desktop-widget content and scroll contract** — Plan: Host-provided
+  `UiScrollArea` in PluginKit and a documented rule that content past the
+  frame scrolls instead of clipping; Level: 4; Status: Next small PR
+- **8. Real-shell screenshots in marketplace metadata** — Plan: Existing
+  `marketplace.screenshots`; the QA VM capture tool should write them; Level:
+  -; Status: Tooling, plugins repo
+- **9. Providers: `Power.devices`, calendar, clipboard (consent-gated), game
+  library, frame time** — Plan: One shared-provider domain each (RFC 0001
+  section 5b); clipboard and library need an explicit per-extension consent
+  step, not a manifest declaration alone; Level: 5; Status: Designed;
+  `Power.devices` first (no consent needed)
 
 The ones that unblock shipped extensions (1, 2, 3, 7) are level 4 and
 additive; 4, 5 and 9 introduce new capabilities and ship as level 5 each with
@@ -407,18 +471,23 @@ their own review.
 
 ## 12. Rollout and status
 
-| Item | Repo | Status |
-| - | - | - |
-| This RFC | docs | Proposed (docs#130) |
-| `pluginKit` field, apiLevel 4, validator, schema; settings schema v2 and live preview | shell | In review: shell#602 (CI green) |
-| Per-instance desktop widgets | shell | Draft: shell#603 (stacked on #602) |
-| Commands (launcher, IPC) | shell | Draft: shell#605 (stacked on #603) |
-| Validator, schema and catalogue mirror | plugins | In review: plugins#82 |
-| Quick-setting tiles, Control Center panels | shell | Not started |
-| Hidden settings, `strings`, scroll area (Section 10a 2, 3, 7) | shell | Not started |
-| Notification source, lock-screen card, hooks, new providers | shell | Designed here, not started |
-| Extractions (Section 10) | shell, plugins | Not started |
-| Spanish handbook page | docs | Not started |
+- **This RFC** — Repo: docs; Status: Proposed (docs#130)
+- **`pluginKit` field, apiLevel 4, validator, schema; settings schema v2 and
+  live preview** — Repo: shell; Status: In review: shell#602 (CI green)
+- **Per-instance desktop widgets** — Repo: shell; Status: Draft: shell#603
+  (stacked on #602)
+- **Commands (launcher, IPC)** — Repo: shell; Status: Draft: shell#605
+  (stacked on #603)
+- **Validator, schema and catalogue mirror** — Repo: plugins; Status: In
+  review: plugins#82
+- **Quick-setting tiles, Control Center panels** — Repo: shell; Status: Not
+  started
+- **Hidden settings, `strings`, scroll area (Section 10a 2, 3, 7)** — Repo:
+  shell; Status: Not started
+- **Notification source, lock-screen card, hooks, new providers** — Repo:
+  shell; Status: Designed here, not started
+- **Extractions (Section 10)** — Repo: shell, plugins; Status: Not started
+- **Spanish handbook page** — Repo: docs; Status: Not started
 
 The PR numbers and the exact state are recorded in the tracking issue and in
 `docs/PLUGINS.md` of the Shell, which is the contract; this RFC is the design.
