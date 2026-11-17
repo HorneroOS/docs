@@ -72,7 +72,7 @@ otras:
 | --- | --- | --- |
 | Edición (Desktop, Studio, Gaming) | Qué software hay instalado | La instalación; mirá [Ediciones](../../architecture/editions.md) |
 | Modo de experiencia | Cómo se comporta el sistema | Ajustes → Experience |
-| Preset de layout | Qué barras y rieles existen | [Layouts](../../desktop/layouts.md) |
+| Preset de layout | Qué barras y rieles existen | [Layouts](layouts.md) |
 | Tema | Colores y fondo | [Apariencia](appearance.md) |
 
 Un modo solo activa capacidades que tu edición tiene instaladas. Un gancho
@@ -179,12 +179,13 @@ Los modos de experiencia van por encima de tus opciones de accesibilidad.
 Si activás **Reduce motion** (o tu ajuste de animaciones de todo el
 escritorio lo pide), el nivel de movimiento se fuerza a apagado diga lo que
 diga el modo. El alto contraste mantiene la paleta Signal High Contrast en
-todos los modos.
+todos los modos. Mirá [Popups, foco y movimiento](popups-and-motion.md) para
+los cuatro niveles de movimiento.
 
 ## Más información
 
 - [Arquitectura de los modos de experiencia](../architecture/experience-modes.md)
   — cómo se construyen los perfiles, el estado y el deck.
-- [Layouts](../../desktop/layouts.md) — el catálogo de layouts.
+- [Layouts](layouts.md) — el catálogo de layouts.
 - [RFC 0001](../../development/rfc-0001-hornero-signal.md) — la autoridad de
   diseño, sección 5a (en inglés).

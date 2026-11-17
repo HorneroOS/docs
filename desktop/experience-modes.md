@@ -169,7 +169,9 @@ customisations; use **Reset customisations** to clear those.
 Experience modes sit on top of your accessibility choices. If you turn on
 **Reduce motion** (or your desktop-wide animation setting asks for it), the
 motion level is forced to off whatever the mode says. High contrast keeps
-the Signal High Contrast palette in every mode.
+the Signal High Contrast palette in every mode. See
+[Popups, focus and motion](popups-and-motion.md) for the four motion
+levels.
 
 ## Learn more
 
