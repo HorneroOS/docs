@@ -20,4 +20,5 @@ hardware qualification, a performance claim or a game/application
 compatibility claim.
 
 Spanish: [Ediciones](../es/editions/README.md).
+
 - [Facts for the website](website-facts.md)
