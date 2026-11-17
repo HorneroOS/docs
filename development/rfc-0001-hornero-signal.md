@@ -1,6 +1,9 @@
 # RFC 0001 — Hornero Signal
 
-- **Status** — Accepted (2026-11-16); amended 2026-11-16 (amendment 2:
+- **Status** — Accepted (2026-11-16); **superseded in part** by
+  [RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) (2026-11-17,
+  amendment 3: optional dynamic colour; §1, §3.1 and §9 below are annotated
+  where it applies); amended 2026-11-16 (amendment 2:
   contrast-driven palette tweaks, optional `glow` role, Signal Bezel
   direction; amendment 1:
   WOW + WORK ambition, motion springs, layout catalogue, experience modes,
@@ -11,7 +14,7 @@
   extensions, config (GTK/Qt/terminal/compositor), horneroctl, greeter,
   installer, website, docs, brand
 - **Supersedes** — The Material 3–derived token system (`M3Palette`, `m3*`
-  roles, Material Symbols, wallpaper tonal-spot synthesis) and the "Hornero
+  roles, Material Symbols, Material wallpaper synthesis) and the "Hornero
   199X" optional theme
 - **Tracking** —
   [HorneroOS/.github#28](https://github.com/HorneroOS/.github/issues/28)
@@ -30,6 +33,12 @@ of the M3 machinery.
 Hornero Signal replaces the machinery, not only the colours. This is an
 intentional breaking change. There is **no** Material compatibility layer and
 no parallel legacy system.
+
+Amendment 3: removing the Material machinery does not remove dynamic colour.
+[RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) restores
+wallpaper-derived palettes and variants as an **option**, with a native
+engine that produces the Signal roles of §3.1 directly. The curated palettes
+of §3.2 remain the default and the fallback.
 
 ## 2. Creative direction
 
@@ -124,8 +133,11 @@ generators map from these roles only.
 - `term0`…`term15` — Terminal ANSI palette
 
 Removed with no replacement: all `*Fixed*`, `*_paletteKeyColor`,
-`surfaceTint`, `surfaceVariant`, `onBackground`, tonal-spot "variants",
-"follow wallpaper" synthesis and `materialyoucolor`.
+`surfaceTint`, `surfaceVariant`, `onBackground` and the external Material
+colour library. The Material scheme types and Material "follow wallpaper"
+synthesis are removed; amendment 3 replaces the capability (not the roles or
+the algorithm) with Hornero Chromatic variants and an optional wallpaper
+follow policy, specified in [RFC 0002](rfc-0002-hornero-chromatic.md).
 
 Material → Signal mapping used **once** for the migration (not kept as an
 alias table): `background/surfaceDim/surfaceContainerLowest → ground`,
@@ -432,7 +444,13 @@ credited in NOTICE files where they ship.
   `{"schemaVersion":2,"id":…,"mode":…,"palette":{role:"#RRGGBB"},"terminal":[16]}`
   (`glow` only when the theme defines it), written atomically by
   horneroctl's theme apply path (or the shell for built-ins) and watched by
-  the shell. Wallpapers never recolour the UI.
+  the shell. With a curated theme, wallpapers never change the palette (only
+  Cockpit Clear's per-region choice between the theme's night and day inks
+  follows the wallpaper).
+  Amendment 3: the reserved theme id `hornero-chromatic` selects Hornero
+  Chromatic; horneroctl then writes a generated scheme with the optional,
+  additive `chromatic`, `minSurfaceAlpha` and `clearInk` blocks
+  ([RFC 0002](rfc-0002-hornero-chromatic.md) §8).
 - **Built-in ids** — `hornero-signal-night` (default), `hornero-signal-day`,
   `hornero-signal-contrast`; `hornero-dark/light/199x` selections migrate
   once to night/day/night. The retired `neon-city`, `vapor-dreams`,

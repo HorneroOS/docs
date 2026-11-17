@@ -83,10 +83,10 @@ shadow, in every mode including high contrast. Legibility comes only from
 the foreground:
 
 - **Adaptive ink.** The shell looks at the wallpaper under each bar entry
-  and picks light or dark ink, whichever contrasts more. It only chooses
-  between the theme's own night and day inks: wallpapers never recolour the
-  interface. Video wallpapers and unreadable images fall back to the theme's
-  ink.
+  and picks light or dark ink, whichever contrasts more. It only
+  chooses between the theme's own night and day inks and never adds a
+  background behind the bar, also with the optional Chromatic theme.
+  Video wallpapers and unreadable images fall back to the theme's ink.
 - **Foreground styles.** Pick **Auto**, **Outline**, **Shadow** or
   **Contrast** in the Layout Picker or Settings → Layout. Auto adds a thin
   halo and, over busy areas, a soft shadow. Shadow falls back to Outline
