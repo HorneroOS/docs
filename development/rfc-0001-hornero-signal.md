@@ -5,6 +5,8 @@
   direction; amendment 1:
   WOW + WORK ambition, motion springs, layout catalogue, experience modes,
   instrumentation, integration contracts)
+- **Implementation** — In progress; nothing is validated on a physical
+  host yet. See [Implementation status](#implementation-status).
 - **Scope** — Every first-party HorneroOS surface: shell, PluginKit and
   extensions, config (GTK/Qt/terminal/compositor), horneroctl, greeter,
   installer, website, docs, brand
@@ -442,3 +444,97 @@ credited in NOTICE files where they ship.
   `assets/fonts/hornero-glyphs.ttf` loaded by the shell through
   `Glyph { name }`, with no system icon-font dependency.
 - **Default preset** — `cockpit`; default mode — `everyday`.
+
+## Implementation status
+
+*As of 2026-11-17, from the `main` branches of each repository. This section
+records what is merged and where it was checked. It is not a claim that the
+design is accepted visually: no part of this RFC has been validated on a
+physical host, and only one smoke scenario has run in the QA virtual
+machine.* The mission checklist and discussion live in
+[HorneroOS/.github#28](https://github.com/HorneroOS/.github/issues/28).
+
+### Where each workstream stands
+
+| Workstream (section 6) | Repository | Merged on `main` |
+| --- | --- | --- |
+| W1 Tokens, theme schema v2, themes, generators, Cockpit default | config | [128](https://github.com/HorneroOS/config/pull/128), [133](https://github.com/HorneroOS/config/pull/133), [134](https://github.com/HorneroOS/config/pull/134), [135](https://github.com/HorneroOS/config/pull/135), [136](https://github.com/HorneroOS/config/pull/136) (the last four resync the shell defaults) |
+| W2 Shell foundation, motion tokens, M3 removal | shell | [475](https://github.com/HorneroOS/shell/pull/475) |
+| Anchored-surface solver and popouts (section 4) | shell | [477](https://github.com/HorneroOS/shell/pull/477), [482](https://github.com/HorneroOS/shell/pull/482) |
+| W3 Appearance backend | hornero | [421](https://github.com/HorneroOS/hornero/pull/421), [424](https://github.com/HorneroOS/hornero/pull/424) |
+| W4 Controls, bar, Cockpit default, workspace cells | shell | [483](https://github.com/HorneroOS/shell/pull/483), [484](https://github.com/HorneroOS/shell/pull/484), [494](https://github.com/HorneroOS/shell/pull/494) |
+| W4 Cockpit Clear with adaptive ink | shell | [490](https://github.com/HorneroOS/shell/pull/490) |
+| W4 Launcher, notifications, OSD, session, toasts | shell | [481](https://github.com/HorneroOS/shell/pull/481) |
+| W4 Dashboard, lock, Welcome, sidebar, utilities, background | shell | [492](https://github.com/HorneroOS/shell/pull/492), [493](https://github.com/HorneroOS/shell/pull/493), [497](https://github.com/HorneroOS/shell/pull/497), [499](https://github.com/HorneroOS/shell/pull/499), [500](https://github.com/HorneroOS/shell/pull/500) |
+| W4 Control Center recomposition (in progress) | shell | [488](https://github.com/HorneroOS/shell/pull/488), [489](https://github.com/HorneroOS/shell/pull/489), [491](https://github.com/HorneroOS/shell/pull/491), [495](https://github.com/HorneroOS/shell/pull/495), [501](https://github.com/HorneroOS/shell/pull/501), [504](https://github.com/HorneroOS/shell/pull/504), [506](https://github.com/HorneroOS/shell/pull/506), [508](https://github.com/HorneroOS/shell/pull/508) |
+| W4 Companion and area picker | shell | [496](https://github.com/HorneroOS/shell/pull/496) |
+| Experience modes (section 5a) | shell | [479](https://github.com/HorneroOS/shell/pull/479), [487](https://github.com/HorneroOS/shell/pull/487) |
+| Signal instrument deck (section 5b) | shell | [503](https://github.com/HorneroOS/shell/pull/503), [505](https://github.com/HorneroOS/shell/pull/505), [507](https://github.com/HorneroOS/shell/pull/507) |
+| W5 PluginKit 3 host | shell | [486](https://github.com/HorneroOS/shell/pull/486) |
+| W5 First-party extensions on PluginKit 3 | plugins | [63](https://github.com/HorneroOS/plugins/pull/63), [64](https://github.com/HorneroOS/plugins/pull/64), [65](https://github.com/HorneroOS/plugins/pull/65), [66](https://github.com/HorneroOS/plugins/pull/66), [67](https://github.com/HorneroOS/plugins/pull/67), [68](https://github.com/HorneroOS/plugins/pull/68), [69](https://github.com/HorneroOS/plugins/pull/69) |
+| W6 Greeter | greeter | [44](https://github.com/HorneroOS/greeter/pull/44) |
+| W6 Installer branding | installer | [98](https://github.com/HorneroOS/installer/pull/98), [100](https://github.com/HorneroOS/installer/pull/100) |
+| W7 Website | website | [224](https://github.com/HorneroOS/website/pull/224), [225](https://github.com/HorneroOS/website/pull/225), [226](https://github.com/HorneroOS/website/pull/226), [227](https://github.com/HorneroOS/website/pull/227), [229](https://github.com/HorneroOS/website/pull/229), [230](https://github.com/HorneroOS/website/pull/230) |
+| W8 Docs | docs | [107](https://github.com/HorneroOS/docs/pull/107), [108](https://github.com/HorneroOS/docs/pull/108), [110](https://github.com/HorneroOS/docs/pull/110), [111](https://github.com/HorneroOS/docs/pull/111), [113](https://github.com/HorneroOS/docs/pull/113) and the phase 2 pages |
+| W9 QA tooling | qa | [85](https://github.com/HorneroOS/qa/pull/85), [86](https://github.com/HorneroOS/qa/pull/86) |
+
+Not done, by design or not yet reached:
+
+- The rest of the Control Center panes and a few surfaces (layout picker,
+  window info, polkit, and the companion UI), tracked in
+  [shell#485](https://github.com/HorneroOS/shell/issues/485), and the
+  remaining experience-mode evidence in
+  [shell#478](https://github.com/HorneroOS/shell/issues/478).
+- A `horneroctl` mode command group (section 5a). The shell's own interface
+  is the only way to change modes today.
+- The website product-data refresh and a fresh QA image minted from the
+  merged mains.
+- Every item in section 7.1 that needs the real host.
+
+### Where each part was validated
+
+"Offscreen / CI" means automated tests, schema and contrast checks, static
+scans and offscreen QML renders that ran in CI or on a developer machine
+without a compositor. "QA VM" means the disposable guest in
+[HorneroOS/qa](https://github.com/HorneroOS/qa). "Host" means a real desktop
+session on physical hardware.
+
+| Area | Offscreen / CI | QA VM | Host |
+| --- | --- | --- | --- |
+| Theme schema, palettes and contrast | Yes | No | No |
+| Shell foundation, glyphs, static M3 scan | Yes | No | No |
+| Placement solver | Yes | No | No |
+| Popout geometry, motion timing, perf | Offscreen tests | No | No |
+| Bar, Cockpit, Cockpit Clear | Offscreen renders | No | No |
+| Launcher, OSD, session, lock, Welcome | Offscreen renders | No | No |
+| Control Center panes | Offscreen renders | No | No |
+| Experience profiles, state and deck solver | Yes | No | No |
+| Experience page and Signal deck visuals | Offscreen tests | No | No |
+| Per-mode idle processor cost | No | No | No |
+| PluginKit 3 host and 36 extensions | Validators, offscreen | No | No |
+| `horneroctl` appearance backend | Unit tests | No | No |
+| Greeter and installer branding | CI | No | No |
+| Website | Build, a11y gate, browser captures | No | No |
+| Desktop reaches ready on a Signal image | n/a | Smoke only | No |
+
+The one QA VM result is the `smoke/desktop-ready` scenario, which passed on
+an image built from earlier Signal mains (it loaded the live Signal scheme
+and a desktop capture was inspected by a person). It does not cover the
+surfaces merged since. Cockpit Clear has not been checked over real
+wallpapers, the anchored popouts have not been timed on a compositor, and
+no preset has been captured at the resolutions and scales listed in
+section 7.1. Until that evidence exists, treat the visual claims in the
+user pages as intent, not result.
+
+### Definition of done (section 7)
+
+| Criterion | State |
+| --- | --- |
+| No Material references in first-party code | Gated in shell and plugins |
+| Contrast tests for every shipped theme | In config (`test_contrast.sh`) |
+| Solver edge, scale, multi-monitor tests | In shell tests |
+| Cockpit and presets captured on the host | Not done |
+| VM install reaches first boot in Cockpit | Not done |
+
+The Material scan is gated in the shell and plugins repositories only; the
+other repositories are not yet gated by a static scan.
