@@ -1,9 +1,11 @@
 # Fondos
 
 Usá **Ajustes → Apariencia → Fondo** para trabajar con el fondo del
-escritorio. Un fondo es solo la imagen detrás de tus ventanas: nunca cambia
-los colores de la interfaz. Los colores salen del [tema](appearance.md)
-elegido, así que podés combinar cualquier imagen con cualquier tema.
+escritorio. Un fondo es solo la imagen detrás de tus ventanas: por defecto
+nunca cambia los colores de la interfaz. Los colores salen del
+[tema](appearance.md) elegido, así que podés combinar cualquier imagen con
+cualquier tema. Para derivar colores de un fondo a propósito, usá
+[Hornero Chromatic](chromatic.md).
 
 > **Development.** Los colores independientes del fondo llegaron con
 > [Hornero Signal](hornero-signal.md) en noviembre de 2026. Las ISO Preview

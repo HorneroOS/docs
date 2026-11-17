@@ -14,8 +14,13 @@ instrucciones para colaboradores de ese repositorio antes de editar.
 - [Design language](../../development/design-language.md) — identidad de
   producto compartida, principios de interfaz y fuentes de diseño
   autorizadas entre repositorios.
+- [Contrato de interacción](interaction-contract.md),
+  [RFC 0002: Hornero Chromatic](rfc-0002-hornero-chromatic.md),
+  [estudio Cozy Hackerpunk](signal-cozy-hackerpunk-study.md) y
+  [auditoría de calidad visual](visual-quality-audit.md) — traducciones al
+  español de las páginas de diseño.
 - [Guía de extensiones](../../development/extensions.md) y
-  [contrato de interacción](../../development/interaction-contract.md) —
+  [contrato de interacción en inglés](../../development/interaction-contract.md) —
   PluginKit 3, manifest v3, glifos, widgets de escritorio y reglas de
   popups y movimiento (solo en inglés por ahora).
 - [Testing](../../development/testing.md) — elegí chequeos enfocados y
