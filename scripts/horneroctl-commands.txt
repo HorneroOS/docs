@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@daa03b0af8751e16e3902a9600662a7a6e192156
+# horneroctl command paths, generated from HorneroOS/hornero@c550e25623decbf0692971f0edb6c937e766d54e
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 agent
 agent config
@@ -219,6 +219,17 @@ lock
 lock now
 lock status
 lock update
+mode
+mode get
+mode list
+mode reset
+mode set
+mode set everyday
+mode set focus
+mode set gaming
+mode set signal
+mode set studio
+mode status
 package
 package check
 package deps
