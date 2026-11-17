@@ -26,6 +26,8 @@ contributor instructions before editing.
   evidence classes, graphical acceptance, signing and how releases are built.
 - [Interaction contract for extension authors](interaction-contract.md) —
   popups, focus, Escape and motion rules extensions must follow.
+- [PluginKit 4: the extension platform](pluginkit-platform.md) — author tour of
+  the contribution surfaces, settings schema v2 and per-instance widgets.
 - [Extensions authoring guide](extensions.md) — PluginKit 3 and manifest
   v3, the Signal Theme and glyphs, surfaces, desktop widgets, providers,
   settings, translations, trust model, the catalogue of 36, and a

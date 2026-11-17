@@ -8,6 +8,9 @@ instrucciones para colaboradores de ese repositorio antes de editar.
 
 - [Arquitectura](../architecture/README.md) — encontrá al dueño de un
   cambio.
+- [PluginKit 4: la plataforma de extensiones](pluginkit-platform.md) —
+  recorrido por las superficies de contribución, ajustes tipados y widgets por
+  instancia.
 - [Design language](../../development/design-language.md) — identidad de
   producto compartida, principios de interfaz y fuentes de diseño
   autorizadas entre repositorios.
