@@ -29,6 +29,8 @@ registra qué revisiones de componentes se compusieron juntas.
   de madurez.
 - [Sistema de apariencia](../../architecture/appearance-system.md) —
   responsabilidades de temas, fondos, paleta y toolkits.
+- [Modos de experiencia](experience-modes.md) — cómo se combinan los modos
+  con la edición, el layout y el tema, y cómo se arma el deck Signal.
 - [Actualizaciones y entrega](../../architecture/updates-delivery.md) —
   cómo se relacionan el código fuente, los paquetes y las composiciones
   probadas.
