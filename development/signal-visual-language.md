@@ -863,7 +863,97 @@ tricks.
 - Validate everything here on the host per RFC §7.1. The concept renders
   above are design intent only.
 
-## 17. Specimen sources
+## 17. Atmosphere
+
+Addendum (2026-11-17, mission rule: retrofuturist, cyberpunk, cosy, kawaii, never
+childish). Signal is an instrument; the atmosphere is the lamp that is left on
+beside it. It is a thin, optional layer drawn over the existing surfaces; the
+Bezel, the roles and the glow rules above are unchanged, and every render in
+this document stays correct with the layer removed. The shell implements it in
+`services/Atmosphere.qml`, `services/atmosphere.js` and
+`components/atmosphere/`; every value is a setting under
+`appearance.atmosphere.*` (Control Center, Appearance, Atmosphere) with reset.
+
+### 17.1 Light
+
+- **Lamp** — one warm radial wash from a corner of the surface (launcher: top
+  edge; dashboard and Control Center rail: top left; OSD: top right; session
+  menu: left; lock and Welcome: bottom left and top right). Peak alpha 14 % at
+  knob 1, hard ceiling 20 %; colour is the `lamp` chip. It is a wash of light,
+  not an emissive halo, so it is outside the 40 % halo limit of section 9, but
+  it takes a lease from the same glow budget (at most three items, one slot
+  always reserved for the on-air bar and scope traces) and is simply left out
+  when the budget is spent.
+- **Soft inner highlight** — a 1 px warm line under the top edge that fades out
+  toward both ends, plus a 28 px wash below it. Peak 7 %, ceiling 10 %.
+- **Vignette** — a radial darkening that is transparent over the middle 62 %
+  and reaches at most 30 % of `shadow` in the corners. Dark themes only.
+- **Grain and scanlines** — sit under the content so text and glyphs stay
+  crisp. Grain is an unbiased 128 px tile at up to 14 %; scanlines are the
+  section 10 lines (1 px in 3, warm white) at up to 6 %, off by default, dark
+  themes only.
+- **Day themes** keep a half-strength lamp and the inner highlight, and drop
+  vignette and scanlines.
+- **Never** — on text, focus rings or critical notifications; animated;
+  following the cursor; in High Contrast; in Focus, Gaming or Studio mode.
+  Notification cards get the inner highlight only (no lamp per card).
+
+### 17.2 Accent chips and the mascot
+
+Two derived accent chips extend the palette without changing a palette file:
+`lamp` (the palette's `glow`, falling back to `signal`, slid toward `blush` by
+the warmth knob) and `blush` (a dusty rose from `alert` and the palette's
+magenta terminal slot). Both are pulled toward `ink` until they reach 4.5:1 on
+all six surfaces, so the contrast gates hold for custom and Chromatic palettes.
+A theme may later ship them as optional roles; nothing depends on that.
+
+The mascot is the hornero as a 16 x 14 pixel sprite, drawn in palette colours
+(rufous back from `signal` warmed by `alert`, belly from `ink` in dark themes
+and a warm tint in day themes, a `blush` cheek). It appears in empty states
+(launcher with no results, notification docks), greetings (dashboard station
+card, lock screen) and the session menu footer, blinks once every seven
+seconds unless motion is reduced, and is hidden from assistive technology. One
+mascot per surface, never beside an error.
+
+### 17.3 Microcopy
+
+Two voices, both complete for every key: `plain` (neutral) and `cozy`. Cozy
+rules: at most 48 characters, no exclamation or question marks, no emoji or
+kaomoji, no pet names, nothing that blames the user, and the plain wording
+remains the accessible name where it matters. Examples: "All quiet in the
+nest" for an empty notification dock, "Nothing by that name yet" for an empty
+search, "Good evening. Settle in" on the dashboard. Time-of-day greetings
+refresh every five minutes.
+
+### 17.4 Typography and motion polish
+
+IBM Plex Sans for reading, Plex Sans Condensed for display numerals, Plex Mono
+for channel labels, unchanged. Fixed-width figures (OpenType `tnum`) on
+readouts and clocks so digits never shift their neighbours; display clocks are
+tracked about 1.5 % tighter. Atmosphere layers fade in with the `fade`
+duration; the only scale in this section is the 1.0 to 0.98 settle of empty
+states, well inside the 4 % spring limit, and all of it is static under
+reduced motion.
+
+### 17.5 Control
+
+| Control | Key | Range | Factory |
+| ------- | --- | ----- | ------: |
+| Atmosphere | `enabled` | on/off | on |
+| Lamp light | `lamp` | 0 to 1.5 | 0.8 |
+| Lamp tint | `warmth` | 0 to 1 | 0.2 |
+| Soft inner highlight | `innerLight` | 0 to 1.5 | 0.8 |
+| Vignette | `vignette` | 0 to 1 | 0.4 |
+| Film grain | `grain` | 0 to 1 | 0.3 |
+| Scanlines | `scanlines` | 0 to 1 | 0 |
+| Hornero mascot | `mascot` | on/off | on |
+| Microcopy voice | `tone` | cozy, plain | cozy |
+
+Look > Cozy sets the atmosphere knobs together with the scalar tokens (lamp
+1.2, tint 0.45, highlight 1.1, vignette 0.5, grain 0.4); Look > Hornero is the
+factory row. See shell `docs/CUSTOMISATION.md`.
+
+## 18. Specimen sources
 
 The specimens were authored as one HTML/CSS page and rendered with Playwright
 (headless Chromium, 1920×1080, scale 1). Wallpapers come from
