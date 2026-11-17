@@ -55,6 +55,26 @@ Una extensión que lee `hostInstanceId` y lo enlaza a `Settings.instanceId`
 puede declarar `instances: true`. La persona puede entonces agregar, duplicar,
 renombrar y quitar instancias; quitar una borra sus ajustes, posición y tamaño.
 
+## Niveles de PluginKit
+
+`schemaVersion` sigue en `3`. El nivel de capacidades del kit instalado
+(`PluginKitInfo.apiLevel`) es contra lo que se compara el entero opcional
+`"pluginKit"` del manifiesto (por defecto `3`).
+
+- **Nivel 3 (Signal)** — tema, glifos, las superficies de barra, dashboard,
+  escritorio, fondo, lanzador y ajustes, ajustes tipados (booleano, entero,
+  número, texto, enum) y las fachadas de datos.
+- **Nivel 4 (Platform)** — comandos, mosaicos de ajuste rápido y paneles
+  (estos dos están en revisión), esquema de ajustes v2 con vista previa en
+  vivo, ajustes ocultos, `strings` y `UiScrollArea` (en revisión), y widgets
+  de escritorio por instancia.
+
+El validador calcula el nivel que el manifiesto realmente necesita y rechaza
+un paquete que declare menos. En ejecución el Shell omite un paquete que
+necesita un kit más nuevo, avisa a la persona que actualice y sigue cargando
+los demás. El `docs/PLUGINS.md` del Shell es el contrato; esta página es el
+recorrido.
+
 ## Confianza
 
 Nada de esto es un sandbox. El QML de la extensión corre dentro del proceso con

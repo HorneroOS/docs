@@ -50,6 +50,25 @@ An extension that reads `hostInstanceId` and binds it to `Settings.instanceId`
 may declare `instances: true`. The person can then add, duplicate, rename and
 remove instances; removing one deletes its settings, position and size.
 
+## PluginKit levels
+
+`schemaVersion` stays `3`. The capability level of the installed kit
+(`PluginKitInfo.apiLevel`) is what a manifest's optional top-level
+`"pluginKit"` integer is checked against (default `3`).
+
+- **Level 3 (Signal)** — theme, glyphs, the bar, dashboard, desktop,
+  background, launcher and settings surfaces, typed settings (boolean,
+  integer, number, string, enum) and the data facades.
+- **Level 4 (Platform)** — commands, quick-setting tiles and panels (the
+  last two are in review), settings schema v2 with a live preview, hidden
+  settings, `strings` and `UiScrollArea` (in review), and per-instance
+  desktop widgets.
+
+The validator works out the level a manifest actually needs and refuses a
+package that declares less. At runtime the Shell skips a package that needs a
+newer kit, tells the person to update, and keeps loading the others.
+The Shell's `docs/PLUGINS.md` is the contract; this page is the tour.
+
 ## Trust
 
 None of this is a sandbox. Extension QML runs in-process with your
