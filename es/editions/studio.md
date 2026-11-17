@@ -56,12 +56,19 @@ governors, y se niegan a pisar un archivo personal con el mismo nombre.
   se aplicó nada
 - **El modo es Balanced por defecto y Low Latency se rechaza sin `--yes`**:
   Dónde: escenario de VM `studio/audio-mode-opt-in`
+- **apply, revert y rechazo de tocar un archivo personal contra un PipeWire
+  vivo (quantum 1024/1024/2048 a 128/64/256 y de vuelta exacto)**: Dónde:
+  escenarios de VM `studio/audio-apply-live`, `studio/audio-revert-live`,
+  `studio/audio-foreign-file-live` (sin hardware de audio en la VM)
+- **Tabla de decisión del hook (aplica solo con un cambio deliberado)**:
+  Dónde: pruebas node offscreen, CI
 - **Preset Studio y perfil de experiencia**: Dónde: CI + offscreen
 
 ## No validado
 
-- `studio audio apply` contra un PipeWire vivo: no se ejecutó en un equipo
-  ni en una VM (solo falsos).
+- `studio audio apply` en un equipo real con una interfaz real: solo se
+  ejecutó contra el PipeWire de una VM descartable sin hardware de audio
+  (driver Dummy).
 - Ninguna interfaz real (en el equipo inspeccionado se vio una Focusrite
   Scarlett 2i2 en ALSA; no se midió latencia, operación sin xruns ni
   loopback).
