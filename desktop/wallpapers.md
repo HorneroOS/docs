@@ -1,9 +1,10 @@
 # Wallpapers
 
 Use **Settings → Appearance → Background** to work with the desktop
-background. A wallpaper is only the image behind your windows: it never
-changes interface colours. Colours come from the selected
-[theme](appearance.md), so you can pair any image with any theme.
+background. A wallpaper is only the image behind your windows: by default it
+never changes interface colours. Colours come from the selected
+[theme](appearance.md), so you can pair any image with any theme. To derive
+colours from a wallpaper on purpose, use [Hornero Chromatic](chromatic.md).
 
 > **Development.** Wallpaper-independent colours arrived with
 > [Hornero Signal](hornero-signal.md) in November 2026. Preview ISOs up to

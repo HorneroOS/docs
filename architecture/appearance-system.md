@@ -66,8 +66,9 @@ The live scheme is
 For curated themes, wallpapers never feed this flow and the wallpaper
 pointer is a separate file the shell watches for the image only. The
 optional **Hornero Chromatic** theme (`hornero-chromatic`,
-[RFC 0002](../development/rfc-0002-hornero-chromatic.md), not yet
-implemented) adds one step in front of the same writer: horneroctl runs the
+[RFC 0002](../development/rfc-0002-hornero-chromatic.md), implemented on
+`main`; user guide: [Hornero Chromatic](../desktop/chromatic.md))
+adds one step in front of the same writer: horneroctl runs the
 native `hornero-chromatic` helper (shipped with the shell) to synthesise the
 Signal roles from the wallpaper, an image or a chosen colour, validates them
 against config's gate table and then writes the live scheme and every output

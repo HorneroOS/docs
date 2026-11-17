@@ -95,17 +95,20 @@ shell's theme.
 
 ## Wallpapers
 
-A wallpaper never changes colours. Each theme names a default wallpaper and
-collection; you can pick any other image without affecting the palette. See
+A wallpaper never changes colours unless you choose to. Each theme names a
+default wallpaper and collection; you can pick any other image without
+affecting the palette. To derive the palette from a wallpaper, an image or a
+colour, use the optional [Hornero Chromatic](chromatic.md) section. See
 [Wallpapers](wallpapers.md).
 
 ## Coming from an earlier preview
 
 Hornero Dark, Hornero Light, Hornero 199X, Neon City, Vapor Dreams, Soft
 Morning and Warm Sunset are retired. A saved selection that names one of
-them migrates once to Signal Night or Signal Day. Wallpaper colour
-generation, scheme variants and the accent override were removed. After
-updating, run:
+them migrates once to Signal Night or Signal Day. The old
+Material-style wallpaper colour generation was removed; its replacement is
+[Hornero Chromatic](chromatic.md), with its own variants. After updating,
+run:
 
 ```sh
 horneroctl appearance sync --dry-run

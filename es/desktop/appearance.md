@@ -98,17 +98,20 @@ el tema de la shell.
 
 ## Fondos
 
-Un fondo nunca cambia los colores. Cada tema nombra un fondo y una
-colección por defecto; podés elegir cualquier otra imagen sin afectar la
-paleta. Mirá [Fondos](wallpapers.md).
+Un fondo nunca cambia los colores, salvo que vos lo decidas. Cada tema
+nombra un fondo y una colección por defecto; podés elegir cualquier otra
+imagen sin afectar la paleta. Para derivar la paleta de un fondo, una imagen
+o un color, usá la sección opcional [Hornero Chromatic](chromatic.md). Mirá
+[Fondos](wallpapers.md).
 
 ## Si venís de una preview anterior
 
 Hornero Dark, Hornero Light, Hornero 199X, Neon City, Vapor Dreams, Soft
 Morning y Warm Sunset se retiraron. Una selección guardada que nombre
 alguno de ellos se migra una sola vez a Signal Night o Signal Day. Se
-eliminaron la generación de colores a partir del fondo, las variantes de
-esquema y el ajuste de acento. Después de actualizar, corré:
+eliminó la antigua generación de colores estilo Material a partir del
+fondo; su reemplazo es [Hornero Chromatic](chromatic.md), con sus propias
+variantes. Después de actualizar, corré:
 
 ```sh
 horneroctl appearance sync --dry-run
