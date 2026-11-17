@@ -22,6 +22,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | --- | --- |
 | Understand release and installation status | [Getting started](getting-started/README.md) |
 | Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) · [Apps and workflows](applications/README.md) |
+| Know what Desktop, Studio and Gaming really offer, verified and not | [Editions](editions/README.md) |
 | Learn the Hornero Signal look: themes, type, accessibility | [Hornero Signal](desktop/hornero-signal.md) |
 | Change themes, colors, or wallpaper | [Appearance](desktop/appearance.md) · [Wallpapers](desktop/wallpapers.md) |
 | Choose a bar arrangement | [Layouts](desktop/layouts.md) |

@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@c550e25623decbf0692971f0edb6c937e766d54e
+# horneroctl command paths, generated from HorneroOS/hornero@650fae7724f481a2254eeab552759841742fa387
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 agent
 agent config
@@ -156,6 +156,7 @@ config validate
 doctor
 gaming
 gaming doctor
+gaming launch-options
 gaming selection
 gaming selection set
 gaming selection show
@@ -269,6 +270,10 @@ shell status
 shell stop
 studio
 studio app
+studio audio
+studio audio apply
+studio audio revert
+studio audio status
 studio doctor
 studio jobs
 studio jobs cancel
