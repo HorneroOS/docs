@@ -14,6 +14,7 @@ Center contains persistent system and shell settings.
 | Change how the desktop behaves: Focus, Signal, Gaming | [Experience modes](experience-modes.md) |
 | Change or understand a wallpaper | [Wallpapers](wallpapers.md) |
 | Choose or troubleshoot a session compositor | [Wayland compositors](compositors.md) |
+| Understand popups, Escape and reduced motion | [Popups, focus and motion](popups-and-motion.md) |
 | Move between rails, bars, islands, or docks | [Layouts](layouts.md) |
 | Lock, restart, or shut down the desktop session | [Session menu](session-menu.md) |
 | Use the keyboard efficiently | [Shortcuts](shortcuts.md) |

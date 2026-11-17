@@ -16,6 +16,8 @@ contributor instructions before editing.
 - [Testing](testing.md) — select focused checks and graphical acceptance.
 - [Quality assurance and release engineering](quality-and-releases.md) —
   evidence classes, graphical acceptance, signing and how releases are built.
+- [Interaction contract for extension authors](interaction-contract.md) —
+  popups, focus, Escape and motion rules extensions must follow.
 - [Extensions 2.0 authoring guide](extensions.md) — manifest v2,
   PluginKit, surfaces, settings, translations, trust model, and a
   complete worked example extension.
