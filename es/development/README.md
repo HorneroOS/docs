@@ -19,10 +19,8 @@ instrucciones para colaboradores de ese repositorio antes de editar.
   [estudio Cozy Hackerpunk](signal-cozy-hackerpunk-study.md) y
   [auditoría de calidad visual](visual-quality-audit.md) — traducciones al
   español de las páginas de diseño.
-- [Guía de extensiones](../../development/extensions.md) y
-  [contrato de interacción en inglés](../../development/interaction-contract.md) —
-  PluginKit 3, manifest v3, glifos, widgets de escritorio y reglas de
-  popups y movimiento (solo en inglés por ahora).
+- [Guía de extensiones](../../development/extensions.md) — PluginKit 3,
+  manifest v3, glifos y widgets de escritorio (solo en inglés por ahora).
 - [Testing](../../development/testing.md) — elegí chequeos enfocados y
   aceptación gráfica.
 - [Calidad y releases](../../development/quality-and-releases.md) —
