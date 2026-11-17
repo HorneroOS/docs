@@ -27,7 +27,11 @@ blocked on approved audio fixtures.
 - **Render jobs**: What it does: Allow-listed ffmpeg and Blender jobs, never
   overwriting output; Command: `horneroctl studio jobs submit ...`
 - **Experience mode**: What it does: Stable canvas, no glow, popups held under
-  fullscreen; Command: `horneroctl mode set studio`
+  fullscreen; a deliberate switch into Studio (you, or `horneroctl mode set
+  studio`) applies the Low Latency profile and leaving Studio reverts it;
+  automatic switches, reset and shell start never apply it. The Experience
+  pane shows the real status (quantum, xruns, DSP load) or "unavailable";
+  Command: `horneroctl mode set studio`
 
 Low Latency values are a **proposal**, not measured support for your
 interface. A quantum is a scheduling period, not round-trip latency. If you
@@ -55,12 +59,18 @@ See [Studio audio](../applications/studio-audio.md).
   PipeWire 1.6 host (read-only)**: Where: host, read-only; nothing applied
 - **Mode intent is Balanced by default and Low Latency refuses without
   `--yes`**: Where: QA VM scenario `studio/audio-mode-opt-in`
+- **apply, revert and refusal to touch a personal file against a live
+  PipeWire (quantum 1024/1024/2048 to 128/64/256 and back exactly)**: Where:
+  QA VM scenarios `studio/audio-apply-live`, `studio/audio-revert-live`,
+  `studio/audio-foreign-file-live` (no audio hardware in the guest)
+- **Mode hook decision table (apply only on deliberate switch)**: Where:
+  offscreen node tests, CI
 - **Studio preset and experience profile**: Where: CI + offscreen
 
 ## Not validated
 
-- `studio audio apply` against a live PipeWire: not run on a host or VM
-  (fakes only).
+- `studio audio apply` on a real host with a real interface: only run on a
+  disposable VM PipeWire with no audio hardware (Dummy driver).
 - Any real interface (a Focusrite Scarlett 2i2 was visible in ALSA on the
   inspected host; no latency, xrun-free operation or loopback measurement
   was done).
