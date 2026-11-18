@@ -91,7 +91,7 @@ sections of the active layout is under Bars.
 | Page | What it covers | Id |
 | --- | --- | --- |
 | System | System information and diagnostics | `system` |
-| Updates | Available updates, dependencies and recovery | `updates` |
+| Updates & backups | Updates, update history and rollback | `updates` |
 | Session | Session menu behaviour and keybinds | `session` |
 
 ## Where to find common tasks
@@ -105,5 +105,8 @@ sections of the active layout is under Bars.
 - Enable or inspect an extension, or recover from a broken one with safe
   mode: Extensions. See the
   [extensions authoring guide](../development/extensions.md).
+- Undo an update or return to an earlier system state: Updates & backups →
+  Update history & rollback. See
+  [Updates and system rollback](updates-and-rollback.md).
 - Check configuration problems: System → Diagnostics, or
   `horneroctl doctor`.

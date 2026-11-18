@@ -138,6 +138,10 @@ configuration are not touched by any step above.
   packages automatically. Install or remove them explicitly.
 - **No rollback.** There is no snapshot integration yet. Btrfs
   subvolumes exist, but no snapshot tool is installed by default.
+  Later previews set up [system rollback](../desktop/updates-and-rollback.md)
+  on fresh Btrfs installs only; a migrated preview24 system is not
+  converted and can roll back only Hornero settings and the Chromatic
+  palette.
 - **Graphics drivers are out of scope.** NVIDIA and hybrid-GPU systems
   keep their existing driver stack; this guide was validated on VM
   graphics only, not on physical GPU hardware.

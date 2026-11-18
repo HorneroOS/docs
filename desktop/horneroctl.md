@@ -70,6 +70,28 @@ remain available and the AUR lane is explicitly marked as unchecked. A dry run
 shows which commands would run without invoking either query. A full system
 upgrade is a separate, explicit operation: `horneroctl package upgrade`.
 
+## Updates and system rollback (Preview)
+
+On a Btrfs install with the snapshot layout, `horneroctl package upgrade
+--yes` saves a restore point first: a labelled pre/post system snapshot
+pair around the upgrade, linked to your Hornero settings and Chromatic
+palette. `recovery list` shows restore points and `recovery rollback`
+returns to one after a dry run:
+
+```sh
+horneroctl recovery list
+horneroctl recovery rollback 42 --dry-run
+horneroctl recovery rollback 42 --yes
+horneroctl recovery doctor
+```
+
+Add `--system-only` to keep your current Hornero settings, or pass
+`--no-snapshot` to `package upgrade` to skip the restore point. On ext4
+and other non-Btrfs installs only Hornero settings and the Chromatic
+palette can be rolled back. See
+[Updates and system rollback](updates-and-rollback.md) for the full
+guide, including the boot menu and kernel updates.
+
 ## Edition and compositor information (Preview)
 
 Development builds that include the edition-profile command can report the
@@ -93,7 +115,9 @@ in Preview and may not be present in the released `horneroctl` package yet.
 `horneroctl config snapshot list` shows saved snapshots. Create or restore a
 snapshot only after reviewing its dry run and selecting the intended target.
 `horneroctl config show <key>` reads one materialized value; `config paths`
-shows which files are active.
+shows which files are active. A configuration snapshot covers Hornero
+settings only; it is not a system snapshot. System restore points are
+described in [Updates and system rollback](updates-and-rollback.md).
 
 The CLI does not rewrite data from another product or a retired path
 namespace. To recover a broken Hornero configuration, inspect

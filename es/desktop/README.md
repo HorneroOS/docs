@@ -24,6 +24,7 @@ los ajustes persistentes del sistema y de la shell.
 | Abrir archivos o lanzar aplicaciones | [Apps cotidianas](../../desktop/everyday-apps.md) |
 | Entender cómo encajan las aplicaciones configuradas | [Apps y flujos](../applications/README.md) |
 | Abrir una página de Ajustes o automatizar un cambio | [horneroctl](../../desktop/horneroctl.md) |
+| Actualizar con seguridad o deshacer una actualización | [Actualizaciones y vuelta atrás del sistema](updates-and-rollback.md) |
 
 ## Superficies del escritorio
 

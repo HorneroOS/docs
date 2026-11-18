@@ -78,6 +78,25 @@ horneroctl appearance doctor
 colores, así que es esperable que la paleta no combine con la imagen; las
 previews anteriores todavía generan los colores a partir del fondo.
 
+## Una actualización rompió algo
+
+En una instalación con Btrfs, cada actualización hecha desde el Centro de
+control o con `horneroctl package upgrade` guarda antes un punto de
+restauración. Listalos y previsualizá la vuelta atrás antes de cambiar
+nada:
+
+```sh
+horneroctl recovery list
+horneroctl recovery rollback 42 --dry-run
+```
+
+Si el escritorio ya no arranca, elegí la instantánea de antes de la
+actualización en el menú **HorneroOS snapshots** de GRUB y después hacela
+permanente. Mirá
+[Actualizaciones y vuelta atrás del sistema](../desktop/updates-and-rollback.md)
+para todos los pasos, las instalaciones con ext4 y las actualizaciones
+del kernel.
+
 ## Red y Bluetooth
 
 Chequeá que el adaptador sea visible para el sistema operativo y después

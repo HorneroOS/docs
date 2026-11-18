@@ -72,6 +72,22 @@ does. With Hornero Signal a wallpaper change never changes colours, so a
 palette that does not match the image is expected; older previews still
 generate colours from the wallpaper.
 
+## An update broke something
+
+On a Btrfs install, every update made through Control Center or
+`horneroctl package upgrade` saves a restore point first. List them and
+preview going back before changing anything:
+
+```sh
+horneroctl recovery list
+horneroctl recovery rollback 42 --dry-run
+```
+
+If the desktop no longer starts, choose the pre-update snapshot from the
+GRUB **HorneroOS snapshots** menu, then make it permanent. See
+[Updates and system rollback](../desktop/updates-and-rollback.md) for
+every step, ext4 installs and kernel updates.
+
 ## Network and Bluetooth
 
 Check that the adapter is visible to the operating system, then open the

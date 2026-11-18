@@ -29,6 +29,7 @@ implementación quedan en los repositorios de la
 | Bloquear, reiniciar o apagar la sesión | [Menú de sesión](../desktop/session-menu.md) |
 | Buscar un atajo de teclado | [Atajos](../desktop/shortcuts.md) |
 | Automatizar o inspeccionar el sistema desde una terminal | [horneroctl](../desktop/horneroctl.md) |
+| Actualizar con seguridad o deshacer una actualización que salió mal | [Actualizaciones y vuelta atrás](desktop/updates-and-rollback.md) |
 | Diagnosticar problemas de gráficos o dispositivos | [Hardware](hardware/README.md) · [Solución de problemas](troubleshooting/README.md) |
 | Entender las ediciones y los límites del sistema | [Arquitectura](architecture/README.md) |
 | Compilar, probar o contribuir | [Desarrollo](development/README.md) |

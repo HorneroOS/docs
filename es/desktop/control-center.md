@@ -96,7 +96,7 @@ las secciones del layout activo está en Bars.
 | Página | Qué cubre | Id |
 | --- | --- | --- |
 | System | Información del sistema y diagnóstico | `system` |
-| Updates | Actualizaciones, dependencias y recuperación | `updates` |
+| Updates & backups | Actualizaciones, historial y vuelta atrás | `updates` |
 | Session | Comportamiento y atajos del menú de sesión | `session` |
 
 ## Dónde encontrar tareas comunes
@@ -111,5 +111,8 @@ las secciones del layout activo está en Bars.
   modo seguro: Extensions. Mirá la
   [guía de autoría de extensiones](../../development/extensions.md) (en
   inglés).
+- Deshacer una actualización o volver a un estado anterior del sistema:
+  Updates & backups → Update history & rollback. Mirá
+  [Actualizaciones y vuelta atrás del sistema](updates-and-rollback.md).
 - Revisar problemas de configuración: System → Diagnostics, o
   `horneroctl doctor`.
