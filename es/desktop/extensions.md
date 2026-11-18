@@ -2,7 +2,7 @@
 
 Las extensiones suman widgets, elementos de barra, resultados del lanzador y
 paneles al escritorio. En **Centro de control > Extensions** explorás el
-catálogo oficial y las instalás, actualizás, volvés atrás, quitás, activás y
+catálogo oficial y las instalás, actualizás, revertís, quitás, activás y
 desactivás. No hace falta una terminal.
 
 > **Development.** Esta página describe la tienda de Extensions en la rama
@@ -22,8 +22,8 @@ confiás.
 
 Instalar y activar son pasos separados a propósito:
 
-- **Instalar** copia los archivos de la extensión después de compararlos con
-  el hash SHA-256 del catálogo. No se ejecuta nada.
+- **Instalar** copia los archivos de la extensión después de compararlos con el
+  hash SHA-256 del catálogo. No se ejecuta nada.
 - **Activar** la ejecuta. Este es el paso que necesita tu confianza.
 
 ## Explorar el catálogo
@@ -38,28 +38,32 @@ muestra:
   red al que se puede conectar, datos compartidos que lee (por ejemplo el uso de
   CPU o el reloj) y configuración que guarda. Los programas y hosts vienen con
   el motivo, como "Lista tus contenedores con podman ps (solo lectura)".
-- **Historial**: El cambio más nuevo; **More** muestra el historial completo, la
+- **Historial**: El cambio más nuevo; **Más** muestra el historial completo, la
   compatibilidad y los hashes.
 - **Captura**: Una captura del catálogo, comparada con su hash antes de
   mostrarse.
 
 La búsqueda filtra el catálogo por nombre, autor, categoría o ubicación.
 
-## Instalar, actualizar, volver atrás, quitar
+## Instalar, actualizar, revertir, quitar
+
+Los nombres de los botones siguen el idioma del shell; acá aparecen como se
+ven con el shell en español.
 
 Cada acción lleva dos clics. El primero te cuenta en palabras simples qué va
-a pasar; el segundo lo hace. **Cancel** la deshace antes de empezar.
+a pasar; el segundo lo hace. **Cancelar** la deshace antes de empezar.
 
-- **Install…** y después **Confirm install**: Copia los archivos verificados. La
-  extensión queda apagada.
-- **Update…** y después **Confirm update**: Reemplaza los archivos por la
-  versión del catálogo y guarda la actual. Si estaba activada, sigue activada.
-- **Roll back…** y después **Confirm rollback**: Restaura la versión anterior
+- **Instalar…** y después **Confirmar instalación**: Copia los archivos
+  verificados. La extensión queda apagada.
+- **Actualizar…** y después **Confirmar actualización**: Reemplaza los archivos
+  por la versión del catálogo y guarda la actual. Si estaba activada, sigue
+  activada.
+- **Revertir…** y después **Confirmar reversión**: Restaura la versión anterior
   guardada. Solo aparece después de una actualización.
-- **Remove…** y después **Confirm remove**: Borra los archivos, la versión
+- **Quitar…** y después **Confirmar quitar**: Borra los archivos, la versión
   anterior guardada y el registro de instalación. Su configuración se conserva,
   así que al reinstalarla vuelve.
-- **Enable…** y después **Confirm enable**: Ejecuta la extensión.
+- **Activar…** y después **Confirmar activación**: Ejecuta la extensión.
 
 Mientras una acción corre, una franja arriba de la página dice qué está
 pasando y hace cuánto, por ejemplo *Instalando Hornero Pomodoro… descargando
@@ -75,7 +79,7 @@ actualizarlo, así nunca recibís código que no revisaste.
 ## Costo
 
 Las extensiones instaladas muestran cuánto tardaron en cargar (por ejemplo
-*Carga 42 ms*). **Details** suma el costo medido de los datos compartidos que
+*Carga 42 ms*). **Detalles** suma el costo medido de los datos compartidos que
 leen, como "system: 0.02% de un núcleo (2 s, 0.4 ms, compartido entre 2)".
 
 Hornero no muestra un número de CPU o memoria por extensión. Todas corren
@@ -84,14 +88,15 @@ repartirlo, y la página lo dice en lugar de adivinar.
 
 ## Preferencias
 
-Al lado de **Refresh catalogue**:
+Al lado de **Actualizar catálogo**:
 
-- **Fetch on open** (activado por defecto): carga el catálogo al abrir la
+- **Cargar al abrir** (activado por defecto): carga el catálogo al abrir la
   página. Si lo apagás, abrir Extensions no hace ningún pedido de red; usá
-  **Refresh catalogue** cuando quieras explorar.
-- **Show cost** (activado por defecto): muestra tiempos de carga y costos.
-- **Store language**: *System* (por defecto), *English* o *Español* para las
-  líneas de permisos, las indicaciones y el progreso del catálogo.
+  **Actualizar catálogo** cuando quieras explorar.
+- **Mostrar costo** (activado por defecto): muestra tiempos de carga y costos.
+- **Idioma de la tienda**: *Idioma del shell* (por defecto), *English* o
+  *Español* para las líneas de permisos, las indicaciones y el progreso del
+  catálogo.
 
 ## Desde una terminal
 
@@ -104,7 +109,7 @@ de horneroctl (en inglés).
 
 ## Si una extensión rompe el escritorio
 
-Usá **Turn safe mode on (recovery)** arriba de Extensions. En modo seguro no
-se carga ninguna extensión, así que podés desactivar o quitar la que falla y
-volver a apagar el modo seguro. Para escribir tu propia extensión, mirá la
+Usá **Activar modo seguro (recuperación)** arriba de Extensions. En modo
+seguro no se carga ninguna extensión, así que podés desactivar o quitar la que
+falla y volver a apagar el modo seguro. Para escribir tu propia extensión, mirá la
 [guía de autoría de extensiones](../../development/extensions.md) (en inglés).

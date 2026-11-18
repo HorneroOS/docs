@@ -88,7 +88,7 @@ Next to **Refresh catalogue**:
   Turn it off and opening Extensions makes no network request; use **Refresh
   catalogue** when you want to browse.
 - **Show cost** (on by default): show load times and cost lines.
-- **Store language**: *System* (default), *English* or *Español* for the
+- **Store language**: *Shell language* (default), *English* or *Español* for the
   catalogue's permission lines, guidance and progress.
 
 ## From a terminal
