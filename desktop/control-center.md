@@ -102,8 +102,8 @@ sections of the active layout is under Bars.
 - Switch Focus, Signal or Gaming: Experience.
 - Move to another bar layout: Layout, or the Layout Picker with
   **Super + Shift + B**.
-- Enable or inspect an extension, or recover from a broken one with safe
-  mode: Extensions. See the
-  [extensions authoring guide](../development/extensions.md).
+- Install, update, remove, enable or inspect an extension, or recover from a
+  broken one with safe mode: Extensions. See [Extensions](extensions.md) and
+  the [extensions authoring guide](../development/extensions.md).
 - Check configuration problems: System → Diagnostics, or
   `horneroctl doctor`.

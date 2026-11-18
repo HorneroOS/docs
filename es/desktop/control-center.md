@@ -107,8 +107,9 @@ las secciones del layout activo está en Bars.
 - Pasar a Focus, Signal o Gaming: Experience.
 - Cambiar a otro layout de barra: Layout, o el selector de layouts con
   **Super + Shift + B**.
-- Habilitar o inspeccionar una extensión, o recuperarte de una rota con el
-  modo seguro: Extensions. Mirá la
+- Instalar, actualizar, quitar, habilitar o inspeccionar una extensión, o
+  recuperarte de una rota con el modo seguro: Extensions. Mirá
+  [Extensiones](extensions.md) y la
   [guía de autoría de extensiones](../../development/extensions.md) (en
   inglés).
 - Revisar problemas de configuración: System → Diagnostics, o
