@@ -416,6 +416,14 @@ hidden or unmapped surfaces. Plots shift on each sample with no tween.
   surface visibly originates from its trigger with animations off.
 - **Floating popouts** (from floating, island or dock bars) keep a 4 px gap
   and all four borders; the notch is drawn on the edge facing the trigger.
+- **Machined fillet** — where an attached popout or drawer meets the bar or
+  the frame, a small concave quarter arc (radius `border.fillet`, default 6,
+  0 = the flush square junction) lets the surface grow out of the bezel, as
+  if milled from the same plate. The 1 px `rule` runs continuously from the
+  frame's edge line through the arc into the surface border. Free corners
+  keep radius `small`. No fillet next to a floating or clear bar (the 4 px
+  gap rule above applies) or on a bare screen edge with no frame and no bar.
+  Arcs only: no shader, blob or liquid merge.
 - **Registration tick** — a 2 × 10 px `signal` tick on the leading top corner
   when the surface has keyboard focus (RFC §2).
 - **Header** — eyebrow with an optional channel number on the left
