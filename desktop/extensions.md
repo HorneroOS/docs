@@ -7,8 +7,9 @@ do not need a terminal.
 
 > **Development.** This page describes the Extensions store on Shell `main`
 > together with the companion horneroctl and catalogue changes (November
-> 2026). It was checked on a real Hyprland desktop with a test extension; the
-> wording and layout can still change.
+> 2026). The full flow was exercised with a test extension in an offscreen
+> run of the real page; it has not been checked on a physical desktop yet,
+> and the wording and layout can still change.
 
 ## What an extension can do
 

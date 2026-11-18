@@ -7,8 +7,10 @@ desactivás. No hace falta una terminal.
 
 > **Development.** Esta página describe la tienda de Extensions en la rama
 > `main` de Shell junto con los cambios de horneroctl y del catálogo que la
-> acompañan (noviembre de 2026). Se probó en un escritorio Hyprland real con
-> una extensión de prueba; los textos y la disposición todavía pueden cambiar.
+> acompañan (noviembre de 2026). El recorrido completo se probó con una
+> extensión de prueba en una ejecución offscreen de la página real; todavía no
+> se revisó en un escritorio físico, y los textos y la disposición pueden
+> cambiar.
 
 ## Qué puede hacer una extensión
 
