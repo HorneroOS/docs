@@ -14,6 +14,7 @@ los ajustes persistentes del sistema y de la shell.
 | Elegir un aspecto coordinado | [Temas y apariencia](appearance.md) |
 | Colorear el escritorio desde un fondo o un color | [Hornero Chromatic](chromatic.md) |
 | Encontrar un ajuste en el Centro de control | [Mapa del Centro de control](control-center.md) |
+| Instalar, actualizar o quitar una extensión | [Extensiones](extensions.md) |
 | Cambiar cómo se comporta el escritorio: Focus, Signal, Gaming | [Modos de experiencia](experience-modes.md) |
 | Cambiar o entender un fondo | [Fondos](wallpapers.md) |
 | Elegir o solucionar un compositor de sesión | [Compositores Wayland](../../desktop/compositors.md) |

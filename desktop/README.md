@@ -13,6 +13,7 @@ Center contains persistent system and shell settings.
 | Pick a coordinated look | [Themes and appearance](appearance.md) |
 | Colour the desktop from a wallpaper or a colour | [Hornero Chromatic](chromatic.md) |
 | Find a setting in the Control Center | [Control Center map](control-center.md) |
+| Install, update or remove an extension | [Extensions](extensions.md) |
 | Change how the desktop behaves: Focus, Signal, Gaming | [Experience modes](experience-modes.md) |
 | Change or understand a wallpaper | [Wallpapers](wallpapers.md) |
 | Choose or troubleshoot a session compositor | [Wayland compositors](compositors.md) |
