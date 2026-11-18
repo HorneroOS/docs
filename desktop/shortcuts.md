@@ -27,7 +27,7 @@ which lists every bind your session runs right now (see
 
 | Shortcut | Action |
 | --- | --- |
-| `Super + H/J/K/L` or arrow keys | Focus a neighboring window |
+| `Super + H/J/K` or arrow keys | Focus a neighboring window |
 | `Super + Shift + H/J/K/L` or arrow keys | Move the focused window |
 | `Super + Space` | Toggle floating for the focused window |
 | `Super + M` | Toggle fullscreen |
@@ -39,6 +39,9 @@ which lists every bind your session runs right now (see
 | `Super + Tab` / `Super + Shift + Tab` | Move to next / previous workspace |
 | `Super + S` | Toggle the scratch workspace |
 | `Super + O` | Workspace overview (optional plugin) |
+
+`Super + L` locks the session, so focus moves right with `Super + Right`
+(the same as in Niri).
 
 In the scrolling window layout, `Super + Alt + H/L` moves across
 columns;

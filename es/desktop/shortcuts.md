@@ -30,7 +30,7 @@ pantalla.
 
 | Atajo | Acción |
 | --- | --- |
-| `Super + H/J/K/L` o flechas | Pasar el foco a una ventana vecina |
+| `Super + H/J/K` o flechas | Pasar el foco a una ventana vecina |
 | `Super + Shift + H/J/K/L` o flechas | Mover la ventana con foco |
 | `Super + Space` | Alternar flotante en la ventana con foco |
 | `Super + M` | Alternar pantalla completa |
@@ -42,6 +42,9 @@ pantalla.
 | `Super + Tab` / `Super + Shift + Tab` | Espacio siguiente / anterior |
 | `Super + S` | Alternar el espacio auxiliar (scratch) |
 | `Super + O` | Vista general de espacios (plugin opcional) |
+
+`Super + L` bloquea la sesión, así que el foco va a la derecha con
+`Super + →` (igual que en Niri).
 
 En el diseño con desplazamiento, `Super + Alt + H/L` se mueve entre columnas y
 `Super + Alt + -/=` cambia el ancho de la columna activa. La
