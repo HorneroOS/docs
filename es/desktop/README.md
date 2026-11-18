@@ -21,7 +21,7 @@ los ajustes persistentes del sistema y de la shell.
 | Entender popups, Escape y movimiento reducido | [Popups, foco y movimiento](popups-and-motion.md) |
 | Moverte entre rieles, barras, islas o docks | [Layouts](layouts.md) |
 | Bloquear, reiniciar o apagar la sesión | [Menú de sesión](../../desktop/session-menu.md) |
-| Usar bien el teclado | [Atajos](../../desktop/shortcuts.md) |
+| Usar bien el teclado | [Atajos](shortcuts.md) |
 | Abrir archivos o lanzar aplicaciones | [Apps cotidianas](../../desktop/everyday-apps.md) |
 | Entender cómo encajan las aplicaciones configuradas | [Apps y flujos](../applications/README.md) |
 | Abrir una página de Ajustes o automatizar un cambio | [horneroctl](../../desktop/horneroctl.md) |

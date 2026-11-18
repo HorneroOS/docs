@@ -2,8 +2,10 @@
 
 `Super` means the Windows/Meta key. The configured bindings can vary with the
 release and user configuration; this quick reference follows the current
-Hornero Hyprland defaults. Open the built-in help with **Super + /**, or ask
-the CLI to show it with `horneroctl hardware keyboard keys`.
+Hornero Hyprland defaults. Press **Super + /** to open the keybinding overlay,
+which lists every bind your session runs right now (see
+[Keybinding overlay](#keybinding-overlay)), or ask the CLI with
+`horneroctl hardware keyboard rebind list`.
 
 ## Shell and applications
 
@@ -25,7 +27,7 @@ the CLI to show it with `horneroctl hardware keyboard keys`.
 
 | Shortcut | Action |
 | --- | --- |
-| `Super + H/J/K/L` or arrow keys | Focus a neighboring window |
+| `Super + H/J/K` or arrow keys | Focus a neighboring window |
 | `Super + Shift + H/J/K/L` or arrow keys | Move the focused window |
 | `Super + Space` | Toggle floating for the focused window |
 | `Super + M` | Toggle fullscreen |
@@ -37,6 +39,9 @@ the CLI to show it with `horneroctl hardware keyboard keys`.
 | `Super + Tab` / `Super + Shift + Tab` | Move to next / previous workspace |
 | `Super + S` | Toggle the scratch workspace |
 | `Super + O` | Workspace overview (optional plugin) |
+
+`Super + L` locks the session, so focus moves right with `Super + Right`
+(the same as in Niri).
 
 In the scrolling window layout, `Super + Alt + H/L` moves across
 columns;
@@ -92,24 +97,57 @@ never edited) and take effect on Hyprland config reload
 (**Super + Shift + R**) or restart; already-open windows are
 unaffected.
 
+## Keybinding overlay
+
+**Super + /** opens an overlay with every active bind, read live from
+Hyprland and grouped by purpose (applications, windows, focus, workspaces,
+media, screenshots, system, mouse, your personal binds, plugins). Type to
+filter. Search matches keys, actions and group names in English or
+Spanish.
+
+| Key | Action |
+| --- | --- |
+| Up / Down | Move the highlight |
+| Enter | Run the highlighted bind |
+| Ctrl+E | Rebind it in place: press the new combo |
+| Ctrl+D | Disable it |
+| Ctrl+Z | Undo the last change |
+| Escape | Clear the search, then close |
+
+When you rebind, the overlay records the next combo you press, even one
+that is already taken. A taken combo is named with its group before
+anything is saved. Press **S** to swap the two binds, **R** to try
+another combo, or **Enter** to save a free combo. Changes apply
+immediately and Undo puts back exactly what was there.
+
+The summon key is an ordinary bind. To use **Super + K** as Omarchy
+does, rebind the "keyboard keys" entry to Super + K and swap it with
+focus-up. **Control Center › Keybinds** has the overlay settings (Enter
+runs, close after running, show submap and mouse binds, compact rows) and
+the same editor.
+
 ## Rebinding
 
-Open **Control Center › Keybinds** and choose **Rebind** next to a
-binding, or use the CLI:
+Use the overlay, **Control Center › Keybinds**, or the CLI:
 
 ```sh
-horneroctl hardware keyboard rebind status
+horneroctl hardware keyboard rebind list --json
 horneroctl hardware keyboard rebind set \
   --old "SUPER + Return" --new "SUPER + F13" --yes
+horneroctl hardware keyboard rebind set \
+  --old "SUPER + K" --new "SUPER + J" --swap --yes
+horneroctl hardware keyboard rebind set --old "SUPER + K" --new none --yes
+horneroctl hardware keyboard rebind undo --yes
 horneroctl hardware keyboard rebind reset --yes
 ```
 
-Rebinds are stored as `unbind`/`bind` pairs in your
-`keybindings-user.conf`, sourced after the factory defaults; the
-factory file is never edited, changes apply live, and `reset`
-restores the defaults. `keys` always lists the effective set,
-including user overrides. Sessions using the Lua configuration are
-read-only here.
+On the factory Lua configuration, rebinds go to the generated
+`~/.config/hypr/hornero-keybinds.lua`. It holds data only, and the config's
+`keybindings-overlay.lua` applies it before any bind loads. Neither the
+factory `keybindings.lua` nor your `keybindings-user.lua` is edited, and
+unbind/bind pairs in your personal file follow a rebind. Undo snapshots
+live in `~/.local/state/hornero/keybinds/undo` (last 20). Older hyprlang
+configurations keep `unbind`/`bind` pairs in `keybindings-user.conf`.
 
 ## Accessibility
 
@@ -128,6 +166,6 @@ The status command names where the effective size came from
 Hyprland does not expose the live size back.
 
 The source of truth for factory bindings is
-[HorneroOS/config's keybinding file](https://github.com/HorneroOS/config/blob/main/desktop/hypr/hyprland.conf.d/keybindings.conf).
+[HorneroOS/config's keybinding file](https://github.com/HorneroOS/config/blob/main/desktop/hypr/hyprland.lua.d/keybindings.lua).
 For how these shortcuts launch the configured programs, see
 [Apps and workflows](../applications/README.md).
