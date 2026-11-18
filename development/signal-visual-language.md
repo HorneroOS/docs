@@ -579,8 +579,14 @@ and `standard` levels; `reduced` and `off` move both edges together.
   large). Dashboard home frames scan in staggered 24 ms from 60 ms, in
   reading order; tab content size changes and the pane slide use `settle`.
 - **Notifications** — new card: clip from the stack's anchor edge plus 6 px,
-  `enter` 160 ms; existing cards reflow with `settle` 320 ms; dismissal
-  `exit` 90 ms then reflow.
+  `enter` 160 ms; existing cards reflow with `settle` 320 ms. A swiped card
+  leaves in its swipe direction (`exit` with travel = card width, 240 ms). A
+  timed-out or closed card keeps the 90 ms `exit` fade. Either way the cards
+  below close the gap with `settle`. An expiring card shows its timeout as a
+  2 px `signal` line on its anchor edge that drains with the timeout and
+  freezes while the card is hovered or dragged (`notifs.timeoutTick`, on by
+  default). Critical cards do not expire and have no line. Reduced: 4 px
+  travel plus the fade; off: the capped fade, and the line steps in quarters.
 - **OSD** (volume, brightness) — if the bar segment is visible, the OSD is a
   popout from that segment; otherwise it appears above the bottom bar.
   `enter` 90 ms, hold 1200 ms, `exit` 90 ms.
