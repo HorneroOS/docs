@@ -426,6 +426,17 @@ hidden or unmapped surfaces. Plots shift on each sample with no tween.
   `signalWell` fill with `onSignalWell` content and an `ACTIVE` eyebrow.
 - **Width** — 320–420 px for popouts; content dictates height up to the
   usable screen height minus the gutter, then the body scrolls (RFC §4).
+- **Rack rhythm** — composed surfaces (dashboard, bar popouts, Control
+  Center hubs) use one cadence: 8 between items inside a module, 12 between
+  modules, 16 surface inset, 24 for a section break (1 px `rule`, 8 px
+  margins). Every gap and inset is a spacing or padding token, never a
+  literal, and frame heights are content plus tokens. Density comes from
+  the size of the cells, not from how close they sit.
+- **Density presets** — Appearance › Scales offers Compact (0.75), Cosy
+  (1.0, default) and Airy (1.25). A preset writes the spacing and padding
+  scales together so the rhythm keeps its ratios; the sliders stay as fine
+  control and any other pair reads as Custom. Compact is the preset for
+  768 px-high screens.
 
 ### 7.2 Elevation
 
@@ -503,6 +514,29 @@ Settle curves animate position, size and shape only — never opacity or
 colour. For travel over 200 px use `enter` instead, so overshoot never
 exceeds 8 px.
 
+**Curve styles.** The 4 % ceiling stays the default. Appearance › Look ›
+Motion style offers three spatial personalities; opacity and colour never
+overshoot in any of them:
+
+| Style    | `settle`              | `settleFast`         | Peak overshoot |
+| -------- | --------------------- | -------------------- | -------------- |
+| Smooth   | `0.32, 1.24, 0.42, 1` | `0.34, 1.3, 0.5, 1`  | 1.9 % / 3.0 %  |
+| Snappy   | `standard`            | `standard`           | 0              |
+| Lively   | `0.3, 1.4, 0.4, 1`    | `0.34, 1.42, 0.5, 1` | 5.3 % / 5.8 %  |
+
+Smooth is the default. Lively is the spring style
+(`appearance.anim.curveStyle: "lively"`), capped at 6 % overshoot: an
+instrument needle settling, never a bouncing jelly. The 8 px rule above
+applies to every style, using that style's overshoot. No cross-screen
+springs.
+
+**Leading and trailing edges.** An indicator that travels (dashboard tab
+bar, workspace plate) may move its two edges separately: the edge toward
+the target uses `settleFast`, the far edge the same curve over
+`settleFast × trailRatio` (`appearance.anim.trailRatio`, 1.0–2.5, default
+1.6), so it stretches toward the target and catches up. Only at the `full`
+and `standard` levels; `reduced` and `off` move both edges together.
+
 ![Concept render: popout open storyboard](assets/signal-visual-language/concept-motion-popout.png)
 
 ### 11.1 Popouts from bars (trigger-origin morph)
@@ -533,7 +567,9 @@ exceeds 8 px.
 - **Launcher** — frame morphs from the Hornero mark, `settle` 320 ms;
   results stagger 16 ms, at most six.
 - **Dashboard and drawers** (large surfaces) — `sweep` 360 ms clip wipe from
-  the anchor edge plus 6 px travel; no settle (travel too large).
+  the anchor edge plus 6 px travel; no settle on the sheet (travel too
+  large). Dashboard home frames scan in staggered 24 ms from 60 ms, in
+  reading order; tab content size changes and the pane slide use `settle`.
 - **Notifications** — new card: clip from the stack's anchor edge plus 6 px,
   `enter` 160 ms; existing cards reflow with `settle` 320 ms; dismissal
   `exit` 90 ms then reflow.
