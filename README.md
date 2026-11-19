@@ -1,5 +1,8 @@
 # Hornero OS documentation
 
+[![lint](https://github.com/HorneroOS/docs/actions/workflows/lint.yml/badge.svg)](https://github.com/HorneroOS/docs/actions/workflows/lint.yml)
+[![License: MIT](https://img.shields.io/github/license/HorneroOS/docs)](LICENSE)
+
 Find a guide by the task you are trying to complete. This repository is the
 user and contributor handbook; implementation contracts stay with the
 [Shell](https://github.com/HorneroOS/shell), [CLI](https://github.com/HorneroOS/hornero),
@@ -35,6 +38,13 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | Build, test, or contribute | [Development](development/README.md) |
 | Write a shell extension | [Extensions 2.0 authoring guide](development/extensions.md) |
 | Design an interface for HorneroOS | [Design language](development/design-language.md) |
+
+![Keybindings overlay listing live Hyprland binds with search,
+Essential Applications group expanded.](https://www.horneroos.com/captures/cap-shell-08.png)
+
+*The keybindings overlay, read live from Hyprland — see
+[Shortcuts](desktop/shortcuts.md). Real capture; the same capture is
+reused intentionally from that guide, not a new copy.*
 
 ## How these docs stay accurate
 
@@ -81,3 +91,13 @@ the Spanish page when a translation exists and falls back to English
 ## License
 
 [MIT](LICENSE).
+
+---
+
+[Website](https://www.horneroos.com) ·
+[Docs](https://www.horneroos.com/docs) ·
+[`HorneroOS/shell`](https://github.com/HorneroOS/shell) ·
+[`HorneroOS/hornero`](https://github.com/HorneroOS/hornero) ·
+[`HorneroOS/config`](https://github.com/HorneroOS/config) ·
+[Issues](https://github.com/HorneroOS/docs/issues) ·
+[License](LICENSE)

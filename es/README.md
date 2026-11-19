@@ -1,5 +1,8 @@
 # Documentación de Hornero OS
 
+[![lint](https://github.com/HorneroOS/docs/actions/workflows/lint.yml/badge.svg)](https://github.com/HorneroOS/docs/actions/workflows/lint.yml)
+[![Licencia: MIT](https://img.shields.io/github/license/HorneroOS/docs)](../LICENSE)
+
 Buscá una guía según la tarea que querés completar. Este repositorio es el
 manual de usuarias, usuarios y colaboradores; los contratos de
 implementación quedan en los repositorios de la
@@ -34,6 +37,13 @@ implementación quedan en los repositorios de la
 | Entender las ediciones y los límites del sistema | [Arquitectura](architecture/README.md) |
 | Compilar, probar o contribuir | [Desarrollo](development/README.md) |
 | Diseñar una interfaz para HorneroOS | [Design language](../development/design-language.md) |
+
+![Overlay de atajos de teclado con los binds vivos de Hyprland y
+buscador, grupo Essential Applications expandido.](https://www.horneroos.com/captures/cap-shell-08.png)
+
+*El overlay de atajos, leído en vivo desde Hyprland — ver
+[Atajos](../desktop/shortcuts.md). Captura real; se reutiliza
+intencionalmente la misma captura de esa guía, no es una copia nueva.*
 
 ## Cómo se mantiene precisa esta documentación
 
@@ -80,3 +90,13 @@ copia.
 ## Licencia
 
 [MIT](../LICENSE).
+
+---
+
+[Sitio web](https://www.horneroos.com) ·
+[Docs](https://www.horneroos.com/docs) ·
+[`HorneroOS/shell`](https://github.com/HorneroOS/shell) ·
+[`HorneroOS/hornero`](https://github.com/HorneroOS/hornero) ·
+[`HorneroOS/config`](https://github.com/HorneroOS/config) ·
+[Issues](https://github.com/HorneroOS/docs/issues) ·
+[Licencia](../LICENSE)
