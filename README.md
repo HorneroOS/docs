@@ -29,6 +29,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | Lock, restart, or shut down the desktop session | [Session menu](desktop/session-menu.md) |
 | Find a keyboard shortcut | [Shortcuts](desktop/shortcuts.md) |
 | Automate or inspect the system from a terminal | [horneroctl](desktop/horneroctl.md) |
+| Update the system and understand recovery limits | [Updates and recovery: no system rollback yet](desktop/updates-and-rollback.md) |
 | Diagnose graphics or device problems | [Hardware](hardware/README.md) · [Troubleshooting](troubleshooting/README.md) |
 | Understand editions and system boundaries | [Architecture](architecture/README.md) |
 | Build, test, or contribute | [Development](development/README.md) |

@@ -136,8 +136,12 @@ configuration are not touched by any step above.
 - **No edition reconciliation.** If a future release changes the
   edition composition, installed systems do not gain or lose edition
   packages automatically. Install or remove them explicitly.
-- **No rollback.** There is no snapshot integration yet. Btrfs
-  subvolumes exist, but no snapshot tool is installed by default.
+- **No rollback.** There is still no HorneroOS system rollback on
+  any install type. Fresh Btrfs installs in later previews gain a
+  snapshot-store layout, and snapshot tools only with an opt-in
+  capability that is off by default; neither is a rollback, and a
+  migrated preview24 system is not converted. See
+  [Updates and recovery: no system rollback yet](../desktop/updates-and-rollback.md).
 - **Graphics drivers are out of scope.** NVIDIA and hybrid-GPU systems
   keep their existing driver stack; this guide was validated on VM
   graphics only, not on physical GPU hardware.

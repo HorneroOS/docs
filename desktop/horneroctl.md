@@ -88,12 +88,31 @@ not infer an edition from packages that happen to be installed. Systems
 without the profile record are reported as **unrecorded**. This capability is
 in Preview and may not be present in the released `horneroctl` package yet.
 
+## Updates and recovery readiness
+
+There is no HorneroOS system rollback today, and no command creates
+or restores an operating-system snapshot. `horneroctl package
+upgrade --yes` is a full system upgrade with no snapshot step. The
+only recovery subcommand is read-only:
+
+```sh
+horneroctl recovery doctor
+horneroctl recovery doctor --json
+```
+
+It probes the shipped snapshot backend (currently `none`), the root
+filesystem, the `/.snapshots` store, snapper and its timers.
+Readiness is not proof that a restore works. See
+[Updates and recovery: no system rollback yet](updates-and-rollback.md).
+
 ## Configuration recovery
 
 `horneroctl config snapshot list` shows saved snapshots. Create or restore a
 snapshot only after reviewing its dry run and selecting the intended target.
 `horneroctl config show <key>` reads one materialized value; `config paths`
-shows which files are active.
+shows which files are active. A configuration snapshot archives
+Hornero settings only; it is never a system snapshot or an OS
+rollback.
 
 The CLI does not rewrite data from another product or a retired path
 namespace. To recover a broken Hornero configuration, inspect

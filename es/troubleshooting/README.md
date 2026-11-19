@@ -78,6 +78,31 @@ horneroctl appearance doctor
 colores, así que es esperable que la paleta no combine con la imagen; las
 previews anteriores todavía generan los colores a partir del fondo.
 
+## Una actualización rompió algo
+
+HorneroOS hoy no tiene vuelta atrás del sistema: ninguna actualización
+guarda un punto de restauración del sistema y ningún comando restaura
+el sistema operativo. No busques un comando recovery list o de vuelta
+atrás; no existe. Corré el chequeo de preparación de solo lectura y
+guardá su salida para un reporte:
+
+```sh
+horneroctl recovery doctor
+```
+
+Si solo salieron mal los ajustes de Hornero o los colores,
+previsualizá restaurar una instantánea de configuración — eso cubre
+solo ajustes, nunca paquetes, arranque ni kernel:
+
+```sh
+horneroctl config snapshot list
+horneroctl config snapshot restore <id> --dry-run
+```
+
+Mirá [Actualizaciones y recuperación: todavía no hay vuelta atrás del sistema](../desktop/updates-and-rollback.md)
+para ver qué existe, el procedimiento manual de Btrfs y sus límites de
+mismo kernel, y las notas de ext4, systemd-boot y LUKS.
+
 ## Red y Bluetooth
 
 Chequeá que el adaptador sea visible para el sistema operativo y después

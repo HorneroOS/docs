@@ -96,7 +96,7 @@ las secciones del layout activo está en Bars.
 | Página | Qué cubre | Id |
 | --- | --- | --- |
 | System | Información del sistema y diagnóstico | `system` |
-| Updates | Actualizaciones, dependencias y recuperación | `updates` |
+| Updates | Actualizaciones, copias y recuperación | `updates` |
 | Session | Comportamiento y atajos del menú de sesión | `session` |
 
 ## Dónde encontrar tareas comunes
@@ -112,5 +112,9 @@ las secciones del layout activo está en Bars.
   [Extensiones](extensions.md) y la
   [guía de autoría de extensiones](../../development/extensions.md) (en
   inglés).
+- Actualizar el sistema, restaurar ajustes de Hornero desde una
+  instantánea de configuración o una copia, o chequear la preparación
+  para recuperación: Updates. HorneroOS hoy no tiene vuelta atrás del
+  sistema; mirá [Actualizaciones y recuperación](updates-and-rollback.md).
 - Revisar problemas de configuración: System → Diagnostics, o
   `horneroctl doctor`.

@@ -91,7 +91,7 @@ sections of the active layout is under Bars.
 | Page | What it covers | Id |
 | --- | --- | --- |
 | System | System information and diagnostics | `system` |
-| Updates | Available updates, dependencies and recovery | `updates` |
+| Updates | Updates, backups, config snapshots, recovery status | `updates` |
 | Session | Session menu behaviour and keybinds | `session` |
 
 ## Where to find common tasks
@@ -105,5 +105,9 @@ sections of the active layout is under Bars.
 - Install, update, remove, enable or inspect an extension, or recover from a
   broken one with safe mode: Extensions. See [Extensions](extensions.md) and
   the [extensions authoring guide](../development/extensions.md).
+- Update the system, restore Hornero settings from a config snapshot or
+  backup, or check recovery readiness: Updates. HorneroOS has no
+  system rollback today; see
+  [Updates and recovery](updates-and-rollback.md).
 - Check configuration problems: System → Diagnostics, or
   `horneroctl doctor`.
