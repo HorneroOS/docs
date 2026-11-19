@@ -24,6 +24,7 @@ Center contains persistent system and shell settings.
 | Open files or launch applications | [Everyday apps](everyday-apps.md) |
 | Learn how the configured applications fit together | [Apps and workflows](../applications/README.md) |
 | Open a Settings page or automate a change | [horneroctl](horneroctl.md) |
+| Update the system and understand recovery limits | [Updates and recovery: no system rollback yet](updates-and-rollback.md) |
 
 ## Desktop surfaces
 

@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@420c73c0d7db34ae5569788311c94fc1915ad157
+# horneroctl command paths, generated from HorneroOS/hornero@0618004b3280038ff3868d7b372cf0ad7e0be67b
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 agent
 agent config
@@ -70,9 +70,11 @@ appearance scheme status
 appearance set-gtk
 appearance set-gtk-color-scheme
 appearance set-icons
+appearance set-qt
 appearance set-wallpaper
 appearance status
 appearance sync
+appearance sync-qt
 appearance theme
 appearance theme apply
 appearance theme get
@@ -161,7 +163,9 @@ config
 config default-apps
 config default-apps list
 config default-apps set
+config export
 config gui
+config import
 config materialize
 config paths
 config refresh-hypr

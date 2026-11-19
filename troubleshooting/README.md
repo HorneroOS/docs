@@ -72,6 +72,30 @@ does. With Hornero Signal a wallpaper change never changes colours, so a
 palette that does not match the image is expected; older previews still
 generate colours from the wallpaper.
 
+## An update broke something
+
+HorneroOS has no system rollback today: no update saves a system
+restore point, and no command restores the operating system. Do not
+look for a recovery list or rollback command; it does not exist. Run
+the read-only readiness check and keep its output for a report:
+
+```sh
+horneroctl recovery doctor
+```
+
+If only Hornero settings or colours went wrong, preview restoring a
+configuration snapshot instead — that covers settings only, never
+packages, boot or kernel:
+
+```sh
+horneroctl config snapshot list
+horneroctl config snapshot restore <id> --dry-run
+```
+
+See [Updates and recovery: no system rollback yet](../desktop/updates-and-rollback.md)
+for what exists, the manual Btrfs procedure and its same-kernel
+limits, and ext4, systemd-boot and LUKS notes.
+
 ## Network and Bluetooth
 
 Check that the adapter is visible to the operating system, then open the
