@@ -28,6 +28,14 @@ applies; the theme details and the
 [troubleshooting guide](../troubleshooting/README.md) show what is missing.
 Hornero does not silently download third-party themes.
 
+![Settings, Appearance page with the Chromatic section open. The preview
+pane shows the sampled colours and checked contrast ratios for text,
+muted text and accent.](https://www.horneroos.com/captures/cap-appearance-01.png)
+
+*Settings → Appearance. The live preview checks contrast (15.5:1 for text
+here) before anything is applied. Running-desktop capture from the
+maintainer's machine, 19 November 2026.*
+
 From a terminal, inspect before applying:
 
 ```sh

@@ -46,6 +46,15 @@ file.
 
 Packaged wallpapers install under `/usr/share/hornero/wallpapers/`.
 
+![An empty desktop over the Patagonia wallpaper: snow peaks and a
+glacier above a still lake at dusk, with the top and bottom shell bars
+visible.](https://www.horneroos.com/captures/cap-theme-05.png)
+
+*The Patagonia Original applied. The photograph's creator, source and
+licence are recorded in Config's wallpaper credits, linked above.
+Running-desktop capture from the maintainer's machine,
+19 November 2026.*
+
 The retired Hornero Dark, Light and 199X artwork is no longer shipped.
 
 ## Optional and personal wallpaper collections

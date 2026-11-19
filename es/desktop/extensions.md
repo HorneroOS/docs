@@ -45,6 +45,16 @@ muestra:
 
 La búsqueda filtra el catálogo por nombre, autor, categoría o ubicación.
 
+![Ajustes, página Extensions. Un aviso explica que las extensiones
+activadas se ejecutan con tu usuario y sin sandbox. Debajo hay una
+tarjeta instalada que muestra su estado, un botón para activarla,
+otro para actualizarla y uno para
+quitarla.](https://www.horneroos.com/captures/cap-cc-07.png)
+
+*Ajustes → Extensions: primero el aviso de confianza, después cada
+extensión con su estado y acciones. Captura real del escritorio en el
+equipo del maintainer, 19 de noviembre de 2026.*
+
 ## Instalar, actualizar, revertir, quitar
 
 Los nombres de los botones siguen el idioma del shell; acá aparecen como se

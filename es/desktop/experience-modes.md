@@ -30,6 +30,15 @@ Everyday es el modo con el que arranca una instalación nueva. Cada modo es un
 conjunto de campos que podés ver y cambiar de a uno (mirá
 [Personalizar un modo](#personalizar-un-modo)).
 
+![Ajustes, página Experience con los cinco modos y un resumen de una
+línea por modo. Everyday aparece activo; Focus, Signal, Gaming y
+Studio tienen un botón Switch cada
+uno.](https://www.horneroos.com/captures/cap-cc-04.png)
+
+*Ajustes → Experience: los cinco modos, qué hace cada uno y un cambio
+directo a cada modo. Captura real del escritorio en el equipo del
+maintainer, 19 de noviembre de 2026.*
+
 ### Qué hace cada modo
 
 - **Focus** reduce el movimiento, muestra solo íconos en la barra, retiene las
@@ -153,6 +162,15 @@ Apagá un instrumento para Signal o restaurá el deck de fábrica (**Reset
 deck**) desde Ajustes → Experience, y movelos o cambiales el tamaño con
 **Edit widgets**. Los cambios se guardan solo para Signal y no tocan los
 widgets de tu escritorio Everyday.
+
+![Un escritorio en modo Signal con paneles de instrumentos a ambos
+lados: scope de red, fase lunar y un deck de audio sin actividad a la
+izquierda, medidores del sistema a la derecha, y el centro
+libre.](https://www.horneroos.com/captures/cap-deck-01.png)
+
+*El deck de instrumentos Signal en reposo: el deck de audio indica que
+no suena nada porque no suena nada. Captura real del escritorio en el
+equipo del maintainer, 19 de noviembre de 2026.*
 
 ## Personalizar un modo
 

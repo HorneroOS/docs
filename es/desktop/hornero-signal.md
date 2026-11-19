@@ -100,6 +100,16 @@ siguen saliendo de tu tema de íconos (Papirus por defecto).
 - Los radios son chicos (3–8 px), los bordes son líneas finas y no hay
   desenfoque de vidrio detrás de las superficies por defecto.
 
+![Un panel de escritorio con instrumentos etiquetados: carga y
+temperatura del procesador y de gráficos, barras por núcleo, memoria,
+almacenamiento y red, cada lectura impresa junto a su
+medidor.](https://www.horneroos.com/captures/cap-signal-01.png)
+
+*Instrumentos Signal en el escritorio: medidores segmentados con el
+valor impreso al lado. Las lecturas son del equipo del maintainer,
+capturadas el 19 de noviembre de 2026; son un ejemplo, no un
+requisito.*
+
 ## Accesibilidad
 
 - **Alto contraste**: **Ajustes → Accesibilidad → Alto contraste** pasa la

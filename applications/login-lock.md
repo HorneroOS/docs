@@ -11,6 +11,14 @@ idle timers in the configured session and may request a lock before display
 power or sleep actions. The host must have the corresponding Hyprland tools
 and system services installed.
 
+![The locked session screen: a large clock and date over a dark
+background, a password field in a small panel, and a notifications
+card that stays unreadable until unlock.](https://www.horneroos.com/captures/cap-lock-01.png)
+
+*The session lock screen (Hyprlock) on the maintainer's machine —
+their username is the one shown. This is the lock screen, not the
+login greeter. Capture, 19 November 2026.*
+
 If the screen does not lock, check the Shell and Hyprland session first:
 
 ```sh
@@ -19,6 +27,15 @@ horneroctl shell logs --lines 100
 ```
 
 Do not run a second locker in parallel with the active session locker.
+
+![Settings, Lock screen page with switches for hiding notifications
+while locked, recolouring the logo, fingerprint unlock with an attempt
+count, the brand hairline, the 12-hour clock and the lock panel
+width.](https://www.horneroos.com/captures/cap-cc-12.png)
+
+*Settings → Lock Screen: privacy, fingerprint and appearance of the
+next lock. Running-desktop capture from the maintainer's machine,
+19 November 2026.*
 
 ## Hornero Greeter
 

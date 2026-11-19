@@ -68,6 +68,16 @@ loader, Steam, GameMode, Gamescope, MangoHud, audio/portal, controllers,
 recovery readiness). It never claims game compatibility, hardware
 qualification, measured performance, or latency.
 
+![Settings, Gaming page with the Gaming doctor results. A notice
+states that Gaming is in Preview and installs nothing until you
+confirm; below it, nineteen of twenty readiness checks pass, each with
+a short plain-language detail.](https://www.horneroos.com/captures/cap-cc-14.png)
+
+*The same readiness checks in Settings → Gaming. Gaming is a Preview
+edition: this reports readiness only and installs nothing.
+Running-desktop capture from the maintainer's machine,
+19 November 2026.*
+
 ## Honest limits
 
 - Kernel-level anti-cheat is unsupported. Easy Anti-Cheat and BattlEye

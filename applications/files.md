@@ -21,13 +21,19 @@ These are integrated workflows, not bundled archive or terminal programs.
 
 Upstream: [Thunar documentation](https://docs.xfce.org/xfce/thunar/start).
 
-The sample below shows several distinct Hornero wallpaper directions,
-including Patagonia, Fin del Mundo, Neon City, Vapor Dreams, and Soft Morning.
-The sample files are public wallpaper assets from the
-[dotfiles repository](https://github.com/ulises-jeremias/dotfiles), not a
-claim that Thunar or these wallpapers are part of the Hornero base package.
+The capture below shows both managers side by side over the same
+staged demonstration folder: Thunar's icon view on the left, Yazi's
+keyboard-driven columns on the right. The folder is demo content from
+the maintainer's machine, not part of the Hornero base package.
 
-![Thunar shows a mixed-color Hornero wallpaper folder with Patagonia, Beagle Channel, Neon City, Vapor Dreams, and Morning Lake thumbnails.](/images/apps/thunar-wallpapers.webp)
+![Thunar and Yazi side by side over the same folder. Thunar shows
+folder icons and a README file on the left; Yazi shows the directory
+tree, the current folder's entries and an empty preview column on the
+right.](https://www.horneroos.com/captures/cap-term-06.png)
+
+*Thunar (left) and Yazi (right) over one staged demo folder.
+Running-desktop capture from the maintainer's machine,
+19 November 2026.*
 
 ## Yazi for keyboard-driven browsing
 
@@ -59,9 +65,8 @@ profile adds `g` directory shortcuts, `D D` to move items to trash, and
 `Alt + T` to open a selection in Thunar. Preview support depends on optional
 host tools such as `ffmpegthumbnailer`, `poppler`, and ImageMagick; a missing
 preview does not mean the file is missing. Yazi upstream:
-[documentation](https://yazi-rs.github.io/docs/).
-
-![Yazi previews a Beagle Channel dusk wallpaper beside a keyboard-driven file list that includes Patagonia, Neon City, Vapor Dreams, and Morning Lake.](/images/apps/yazi-wallpapers.webp)
+[documentation](https://yazi-rs.github.io/docs/). In the capture
+above, Yazi's preview column is empty because a folder is selected.
 
 ## File opening and archives
 

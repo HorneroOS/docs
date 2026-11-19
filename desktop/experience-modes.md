@@ -26,6 +26,14 @@ Everyday is the mode a fresh install starts in. Each mode is a bundle of
 fields you can inspect and change one by one (see
 [Customise a mode](#customise-a-mode)).
 
+![Settings, Experience page listing the five modes with a one-line
+summary each. Everyday is marked active; Focus, Signal, Gaming and
+Studio each offer a Switch button.](https://www.horneroos.com/captures/cap-cc-04.png)
+
+*Settings → Experience: the five modes, what each one does, and one
+Switch per mode. Running-desktop capture from the maintainer's
+machine, 19 November 2026.*
+
 ### What each mode does
 
 - **Focus** reduces motion, shows only icons on the bar, holds
@@ -144,6 +152,15 @@ Turn an instrument off for Signal or restore the factory deck
 (**Reset deck**) from Settings → Experience, and move or resize instruments
 with **Edit widgets**. Moves are stored for Signal only
 and leave your Everyday desktop widgets alone.
+
+![A desktop in Signal mode with instrument panels on both sides:
+network scope, moon phase and an idle audio deck on the left, system
+insight meters on the right, and the middle left
+open.](https://www.horneroos.com/captures/cap-deck-01.png)
+
+*The Signal instrument deck at rest — the audio deck reads "Nothing
+playing" because nothing is. Running-desktop capture from the
+maintainer's machine, 19 November 2026.*
 
 ## Customise a mode
 

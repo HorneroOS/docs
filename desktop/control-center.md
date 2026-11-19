@@ -22,6 +22,15 @@ categories in the left rail; the page id in the last column is what
   fonts or transparency; Enter opens the match. See
   [Popups, focus and motion](popups-and-motion.md#find-a-setting).
 
+![The Control Center open on the Appearance page. The left rail lists
+the Connections, Look & feel and Desktop pages; the preview pane shows
+the Hornero Signal Night theme with its contrast
+ratios.](https://www.horneroos.com/captures/cap-cc-01.png)
+
+*The Control Center with Appearance open: categories in the left rail,
+the selected page in the middle, a live preview on the right.
+Running-desktop capture from the maintainer's machine, 19 November 2026.*
+
 ## Connections
 
 | Page | What it covers | Id |
@@ -57,6 +66,14 @@ Appearance is covered in [Themes and appearance](appearance.md) and
 Layout presets are described in [Layouts](layouts.md). Reordering the
 sections of the active layout is under Bars.
 
+![Settings, Bars page for the Cockpit layout. The top bar sections are
+grouped as Left, Center and Right, each entry with reorder arrows and
+an on/off switch.](https://www.horneroos.com/captures/cap-cc-03.png)
+
+*Settings → Bars: reorder or hide what each bar of the active layout
+shows. Running-desktop capture from the maintainer's machine,
+19 November 2026.*
+
 ## Sound & alerts
 
 | Page | What it covers | Id |
@@ -85,6 +102,14 @@ sections of the active layout is under Bars.
 | Gaming | Gaming readiness, profiles and gaming mode | `gaming` |
 | Terminal | The terminal used by Hornero launch actions | `terminal` |
 | Extensions | Extensions, their trust and load state | `extensions` |
+
+![The Javi panel open on the desktop, showing the Ask, Agent and Chat
+tabs, one question sent, and an empty activity area that reads "No
+activity yet."](https://www.horneroos.com/captures/cap-javi-08.png)
+
+*Javi, the desktop companion, idle with no activity yet: questions,
+approvals and artifacts appear in this panel. Running-desktop capture
+from the maintainer's machine, 19 November 2026.*
 
 ## System
 

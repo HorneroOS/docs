@@ -36,6 +36,15 @@ the bottom strip; popups from the strip open up and stop below the top rail.
 Popups from Cockpit Clear are opaque cards, since there is no bar slab to
 attach to.
 
+![Settings, Notifications page. It holds the do-not-disturb switch,
+the auto-expire time, the timeout line option, and the popup position
+on the top edge: left, centre or right.](https://www.horneroos.com/captures/cap-cc-11.png)
+
+*Notification popups have their own page: Settings → Notifications
+sets how long they stay and where on the top edge they appear.
+Running-desktop capture from the maintainer's machine,
+19 November 2026.*
+
 ## Opening and closing
 
 - **Hover.** Resting on a bar item for about a tenth of a second opens its

@@ -36,6 +36,16 @@ vuelta. Si oís chasquidos o `studio audio status` cuenta xruns, ejecutá
 no piden root, no tocan privilegios de tiempo real, kernel, IRQ ni
 governors, y se niegan a pisar un archivo personal con el mismo nombre.
 
+![Krita y Kdenlive abiertos uno al lado del otro. Krita muestra un
+lienzo en blanco sin guardar, con sus presets de pinceles; Kdenlive
+muestra un proyecto vacío, sin medios importados y con la línea de
+tiempo vacía.](https://www.horneroos.com/captures/cap-studio-03.png)
+
+*Aplicaciones creativas instaladas y abiertas, con proyectos en blanco
+y sin guardar. Estar presentes no certifica ningún flujo; mirá "No
+validado" más abajo. Captura real del escritorio en el equipo del
+maintainer, 19 de noviembre de 2026.*
+
 ### Flujo: monitoreo de baja latencia con una interfaz USB
 
 1. `horneroctl studio doctor` (las advertencias son honestas: lo no

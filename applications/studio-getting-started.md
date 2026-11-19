@@ -32,6 +32,16 @@ the installer and later `horneroctl` lifecycle steps consume, and you
 can change it at any time — removing a workload never deletes your
 files, settings, or projects.
 
+![Settings, Studio page with the Studio doctor results. Nine of ten
+checks pass; the PipeWire xrun check is marked FAIL and reports xruns
+counted since the audio nodes started, suggesting a larger quantum or
+Balanced mode.](https://www.horneroos.com/captures/cap-cc-13.png)
+
+*Settings → Studio runs the same doctor: honest results, including a
+fail. Here the xrun check fails on the maintainer's machine and says
+so. Studio is a Preview edition. Running-desktop capture,
+19 November 2026.*
+
 ## 2. Make the desktop yours
 
 Apply the **Studio** layout preset from the layout picker if you want
@@ -62,6 +72,15 @@ Create your first project in your application of choice inside
 `~/Studio/Projects`, keep source media in `Assets`, and point render
 output at `Scratch`. That separation is what lets caches be cleaned
 and projects be backed up without thinking twice.
+
+![REAPER open with a vocal recording template: named tracks for
+backing, vocal bus and lead vocals, a mixer along the bottom, an empty
+timeline and the transport stopped. The title bar shows an evaluation
+licence.](https://www.horneroos.com/captures/cap-mode-05.png)
+
+*A REAPER vocal template ready to record — a template, not a recorded
+session, running under its evaluation licence on the maintainer's
+machine. Capture, 19 November 2026.*
 
 ## 5. Know the boundaries before you need them
 

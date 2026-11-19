@@ -96,6 +96,17 @@ id, una tarjeta para listar y crear instantáneas de configuración,
 un chequeo de dependencias y una receta de programación de copias
 que se imprime y nunca se instala por vos.
 
+![Ajustes, página Updates & backups. La zona de actualizaciones del
+sistema todavía está consultando, la de copias de seguridad informa
+que no hay ninguna guardada y abajo están las acciones de restauración
+de instantáneas de configuración y de
+dependencias.](https://www.horneroos.com/captures/cap-cc-10.png)
+
+*Ajustes → Updates en un equipo sin copias de seguridad todavía. Nada
+de esta página es una vuelta atrás del sistema, como explica esta
+guía. Captura real del escritorio en el equipo del maintainer,
+19 de noviembre de 2026.*
+
 ### Instantáneas de configuración
 
 Las instantáneas de configuración son archivos de ajustes. No son

@@ -66,6 +66,16 @@ horneroctl studio doctor
 horneroctl studio selection show --json
 ```
 
+![A terminal showing studio doctor output with the Low Latency mode
+recorded. Two checks are marked WARN: xruns counted since the audio
+nodes started, and the low-latency profile being active, with the
+command that reverts it.](https://www.horneroos.com/captures/cap-studio-04.png)
+
+*`horneroctl studio doctor` with Low Latency recorded: the warnings
+stay visible, including the xrun count. Quantum values are a
+scheduling period, not measured latency. Capture from the maintainer's
+machine, 19 November 2026.*
+
 ## Routing
 
 - Use WirePlumber-aware tools (`wpctl`, `qpwgraph`, or your DAW's
