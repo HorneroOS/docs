@@ -103,6 +103,16 @@ default).
 - Radii are small (3–8 px), borders are hairlines, and there is no glass
   blur behind surfaces by default.
 
+![A desktop panel of labelled instruments: processor and graphics
+load and temperature readings, per-core bars, memory, storage and
+network traces, each reading printed next to its
+meter.](https://www.horneroos.com/captures/cap-signal-01.png)
+
+*Signal instruments on the desktop: segmented meters with the value
+printed beside each one. The readings are from the maintainer's
+machine, captured 19 November 2026; they are an example, not a
+requirement.*
+
 ## Accessibility
 
 - **High contrast** — **Settings → Accessibility → High contrast** switches

@@ -19,6 +19,15 @@ whether a preset uses a side rail, one or two horizontal bars, clear surfaces,
 separate islands, or a dock. Select a preview to apply it; use Escape to leave
 without applying.
 
+![Settings, Layout page showing a grid of bar-arrangement presets with
+topology thumbnails. Cockpit, described as top plus bottom, is marked
+as the active layout.](https://www.horneroos.com/captures/cap-cc-02.png)
+
+*Settings → Layout: pick a bar arrangement; it applies at once. This
+capture is from the maintainer's machine (19 November 2026) and predates
+the catalogue trim described below, so its grid still lists presets
+that have since been removed.*
+
 ## Presets
 
 Hornero ships fourteen presets. **Cockpit is the factory default** on every
@@ -62,6 +71,14 @@ What each one is for:
 Polybar and Waybar influenced some topologies; the shell uses one
 Quickshell layout system rather than separate historical bar
 implementations.
+
+![A desktop with a full-height bar on the left edge holding workspace
+numbers, a clock and status icons, over a cityscape wallpaper. No
+windows are open.](https://www.horneroos.com/captures/cap-layout-01.png)
+
+*Hornero Left applied: every control sits on the left rail and the rest
+of the screen is left to windows. Running-desktop capture from the
+maintainer's machine, 19 November 2026.*
 
 ### Presets that were removed
 

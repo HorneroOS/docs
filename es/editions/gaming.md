@@ -48,6 +48,16 @@ shell no agrega reglas.
   (`--gamescope --width --height --refresh --fullscreen`) es una plantilla,
   no una recomendación.
 
+![Ajustes, página Gaming con los resultados del Gaming doctor. Un
+aviso indica que Gaming está en Preview y que nada se instala hasta
+confirmarlo; debajo aprueban diecinueve de veinte comprobaciones, cada
+una con un detalle en lenguaje llano.](https://www.horneroos.com/captures/cap-cc-14.png)
+
+*Preparación gamer verificada con honestidad en Ajustes → Gaming
+(Preview): la detección es una pista, no una garantía de que un juego
+funcione. Captura real del escritorio en el equipo del maintainer,
+19 de noviembre de 2026.*
+
 ### Flujo: un juego con Proton (por ejemplo Cyberpunk 2077)
 
 1. `horneroctl gaming doctor` y corregí cualquier `FAIL` (típicos:

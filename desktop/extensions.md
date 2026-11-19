@@ -42,6 +42,15 @@ The catalogue opens below your installed extensions. Each card shows:
 
 Search filters the catalogue by name, author, category or placement.
 
+![Settings, Extensions page. A notice explains that enabled extensions
+run as your user without a sandbox. Below, an installed extension card
+shows its state, an available update, and Enable, Update and Remove
+actions.](https://www.horneroos.com/captures/cap-cc-07.png)
+
+*Settings → Extensions: the trust warning comes first, then each
+extension with its state and actions. Running-desktop capture from the
+maintainer's machine, 19 November 2026.*
+
 ## Install, update, roll back, remove
 
 Each action takes two clicks. The first shows what will happen in plain words;

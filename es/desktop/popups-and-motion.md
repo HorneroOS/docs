@@ -39,6 +39,16 @@ abajo y nunca llegan a la tira inferior; los de la tira abren hacia arriba
 y se detienen debajo del riel superior. Los popups de Cockpit Clear son
 tarjetas opacas, porque no hay placa de barra a la que pegarse.
 
+![Ajustes, página Notifications: el interruptor de no molestar, el
+tiempo de expiración automática, la opción de línea de tiempo y la
+posición del popup en el borde superior, a la izquierda, al centro o a
+la derecha.](https://www.horneroos.com/captures/cap-cc-11.png)
+
+*Los popups de notificaciones tienen página propia: Ajustes →
+Notifications define cuánto tiempo permanecen y en qué parte del borde
+superior aparecen. Captura real del escritorio en el equipo del
+maintainer, 19 de noviembre de 2026.*
+
 ## Abrir y cerrar
 
 - **Hover.** Apoyarte sobre un ítem de la barra alrededor de una décima de

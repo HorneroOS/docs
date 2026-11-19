@@ -50,6 +50,15 @@ run the corresponding CLI command directly; see `horneroctl <command> --help`.
 | Read Shell logs | `horneroctl shell logs --lines 100` |
 | Read current key bindings | `horneroctl hardware keyboard keys` |
 
+![A terminal showing doctor output: fourteen checks listed with OK
+marks, covering the Wayland session, the selected terminal, the shell
+configuration paths and the Qt themes, ending with "all 14 checks
+passed".](https://www.horneroos.com/captures/cap-term-04.png)
+
+*Example `doctor` output on the maintainer's machine — the paths shown
+are that machine's home directory; yours will differ. Capture,
+19 November 2026.*
+
 ## Check for updates (Development Preview)
 
 Development builds with AUR-aware update checks report repository packages

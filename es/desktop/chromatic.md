@@ -44,6 +44,16 @@ terminal) con la paleta candidata, así ves el resultado antes de aplicarlo.
    paleta anterior y no escribe nada.
 4. **Aplicá** cuando te guste.
 
+![Ajustes, Apariencia, sección Chromatic siguiendo el fondo actual. Se
+listan cinco colores extraídos con sus valores hexadecimales y el panel
+de vista previa muestra la paleta candidata con sus proporciones de
+contraste.](https://www.horneroos.com/captures/cap-chroma-07.png)
+
+*Chromatic leyendo el fondo actual: los colores extraídos a la
+izquierda, la paleta previsualizada y su contraste verificado a la
+derecha. Captura real del escritorio en el equipo del maintainer,
+19 de noviembre de 2026.*
+
 Desde una terminal, el mismo flujo es:
 
 ```sh

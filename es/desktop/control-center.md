@@ -27,6 +27,16 @@ página de la última columna es lo que abre
 Los nombres de las páginas se muestran en inglés, tal como aparecen en
 pantalla.
 
+![El Centro de control abierto en la página Appearance. La columna
+izquierda lista las páginas de Conexiones, Aspecto y Escritorio; el
+panel de vista previa muestra el tema Hornero Signal Night con sus
+proporciones de contraste.](https://www.horneroos.com/captures/cap-cc-01.png)
+
+*El Centro de control con Appearance abierto: categorías en la columna
+izquierda, página actual en el medio, vista previa en vivo a la
+derecha. Captura real del escritorio en el equipo del maintainer,
+19 de noviembre de 2026.*
+
 ## Conexiones
 
 | Página | Qué cubre | Id |
@@ -62,6 +72,15 @@ Appearance está explicada en [Temas y apariencia](appearance.md) y
 Los presets de layout están descritos en [Layouts](layouts.md). Reordenar
 las secciones del layout activo está en Bars.
 
+![Ajustes, página Bars para el layout Cockpit. Las secciones de la barra
+superior están agrupadas en Left, Center y Right, cada entrada con
+flechas para reordenar y un interruptor para activarla o
+desactivarla.](https://www.horneroos.com/captures/cap-cc-03.png)
+
+*Ajustes → Bars: reordená u ocultá lo que muestra cada barra del layout
+activo. Captura real del escritorio en el equipo del maintainer,
+19 de noviembre de 2026.*
+
 ## Sonido y alertas
 
 | Página | Qué cubre | Id |
@@ -90,6 +109,14 @@ las secciones del layout activo está en Bars.
 | Gaming | Preparación para juegos, perfiles y modo gaming | `gaming` |
 | Terminal | La terminal que usan las acciones de Hornero | `terminal` |
 | Extensions | Extensiones, su confianza y estado de carga | `extensions` |
+
+![El panel de Javi abierto en el escritorio, con las pestañas Ask,
+Agent y Chat, una pregunta enviada y el área de actividad vacía con el
+texto "No activity yet".](https://www.horneroos.com/captures/cap-javi-08.png)
+
+*Javi, el companion del escritorio, sin actividad todavía: preguntas,
+aprobaciones y artefactos aparecen en este panel. Captura real del
+escritorio en el equipo del maintainer, 19 de noviembre de 2026.*
 
 ## Sistema
 

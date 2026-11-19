@@ -82,6 +82,16 @@ described next: backups, a config-snapshot restore by id, a config
 snapshot list/create card, a dependency check and a backup-schedule
 recipe that is printed, never installed for you.
 
+![Settings, Updates & backups page. The system updates area is still
+checking, the backups area says "No backups yet", and the
+configuration snapshot restore and dependency actions are
+below.](https://www.horneroos.com/captures/cap-cc-10.png)
+
+*Settings → Updates on a machine with no backups saved yet. Nothing on
+this page is a system rollback, as this guide explains.
+Running-desktop capture from the maintainer's machine,
+19 November 2026.*
+
 ### Configuration snapshots
 
 Configuration snapshots are settings archives. They are not system

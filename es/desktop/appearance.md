@@ -30,6 +30,15 @@ aspecto se aplica igual; los detalles del tema y la
 [guía de solución de problemas](../troubleshooting/README.md) muestran qué
 falta. Hornero no descarga temas de terceros sin avisar.
 
+![Ajustes, página Apariencia con la sección Chromatic abierta. El panel
+de vista previa muestra los colores extraídos y las proporciones de
+contraste verificadas para texto, texto atenuado y
+acento.](https://www.horneroos.com/captures/cap-appearance-01.png)
+
+*Ajustes → Apariencia. La vista previa verifica el contraste (15,5:1
+para el texto acá) antes de aplicar nada. Captura real del escritorio
+en el equipo del maintainer, 19 de noviembre de 2026.*
+
 Desde una terminal, inspeccioná antes de aplicar:
 
 ```sh

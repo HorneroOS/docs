@@ -42,6 +42,15 @@ using the candidate palette, so you see the result before applying it.
    palette and writes nothing.
 4. **Apply** when you like it.
 
+![Settings, Appearance, Chromatic section following the current
+wallpaper. Five sampled colours with hex values are listed, and the
+preview pane shows the candidate palette with its contrast
+ratios.](https://www.horneroos.com/captures/cap-chroma-07.png)
+
+*Chromatic reading the current wallpaper: sampled colours on the left,
+the previewed palette and its checked contrast ratios on the right.
+Running-desktop capture from the maintainer's machine, 19 November 2026.*
+
 From a terminal, the same flow is:
 
 ```sh

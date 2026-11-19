@@ -105,6 +105,14 @@ media, screenshots, system, mouse, your personal binds, plugins). Type to
 filter. Search matches keys, actions and group names in English or
 Spanish.
 
+![The keybindings overlay listing the Essential Applications group:
+key combinations on the left, the command each one runs on the right,
+and a search box at the top.](https://www.horneroos.com/captures/cap-shell-08.png)
+
+*The keybinding overlay, summoned with Super + / and read live from
+Hyprland. Running-desktop capture from the maintainer's machine,
+19 November 2026.*
+
 | Key | Action |
 | --- | --- |
 | Up / Down | Move the highlight |

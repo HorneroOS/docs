@@ -46,6 +46,15 @@ archivo legible.
   `~/.local/share/hornero/wallpapers/<colección>/`; no incluyen imágenes.
 
 Los fondos empaquetados se instalan en `/usr/share/hornero/wallpapers/`.
+
+![Un escritorio vacío sobre el fondo Patagonia: picos nevados y un
+glaciar sobre un lago calmo al atardecer, con las barras superior e
+inferior de la Shell visibles.](https://www.horneroos.com/captures/cap-theme-05.png)
+
+*El Original Patagonia aplicado. La autoría, la fuente y la licencia
+de la fotografía figuran en los créditos de Config enlazados arriba.
+Captura real del escritorio en el equipo del maintainer,
+19 de noviembre de 2026.*
 Las ilustraciones retiradas de Hornero Dark, Light y 199X ya no se
 distribuyen.
 

@@ -20,6 +20,16 @@ topología muestran si un preset usa un riel lateral, una o dos barras
 horizontales, superficies claras, islas separadas o un dock. Elegí una vista
 previa para aplicarla; con Escape salís sin aplicar.
 
+![Ajustes, página Layout con una grilla de presets de disposición de
+barras y sus miniaturas de topología. Cockpit, descrito como superior
+más inferior, está marcado como layout
+activo.](https://www.horneroos.com/captures/cap-cc-02.png)
+
+*Ajustes → Layout: elegí una disposición de barras; se aplica en el
+momento. La captura es del equipo del maintainer (19 de noviembre de
+2026) y es anterior a la reducción del catálogo, por eso todavía lista
+presets ya eliminados.*
+
 ## Presets
 
 Hornero trae catorce presets. **Cockpit es el valor de fábrica** en todas las
@@ -66,6 +76,15 @@ Para qué sirve cada uno:
 Polybar y Waybar influyeron en algunas topologías; la shell usa un solo
 sistema de layouts de Quickshell en lugar de implementaciones de barra
 históricas separadas.
+
+![Un escritorio con una barra vertical completa en el borde izquierdo
+con los números de espacios de trabajo, un reloj e íconos de estado,
+sobre un fondo de ciudad. No hay ventanas
+abiertas.](https://www.horneroos.com/captures/cap-layout-01.png)
+
+*Hornero Left aplicado: todos los controles en el riel izquierdo y el
+resto de la pantalla para las ventanas. Captura real del escritorio en
+el equipo del maintainer, 19 de noviembre de 2026.*
 
 ### Presets que se eliminaron
 

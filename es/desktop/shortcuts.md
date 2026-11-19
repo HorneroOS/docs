@@ -88,6 +88,14 @@ trabajo, multimedia, capturas, sistema, mouse, tus atajos personales y
 plugins. Escribí para filtrar. La búsqueda encuentra teclas, acciones y
 nombres de grupo en inglés o en castellano ("foco", "ventanas", "capturas").
 
+![El panel de atajos con el grupo Essential Applications: las
+combinaciones de teclas a la izquierda, el comando que ejecuta cada
+una a la derecha y un buscador arriba.](https://www.horneroos.com/captures/cap-shell-08.png)
+
+*El panel de atajos, convocado con Super + / y leído en vivo de
+Hyprland. Captura real del escritorio en el equipo del maintainer,
+19 de noviembre de 2026.*
+
 | Tecla | Acción |
 | --- | --- |
 | Arriba / Abajo | Mover la selección |

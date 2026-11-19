@@ -41,6 +41,15 @@ need no root, never change realtime privileges, kernel, IRQ or governors,
 and refuse to overwrite a personal file of the same name.
 See [Studio audio](../applications/studio-audio.md).
 
+![Krita and Kdenlive open side by side. Krita shows a blank unsaved
+canvas with its brush presets; Kdenlive shows an empty project with no
+media imported and an empty timeline.](https://www.horneroos.com/captures/cap-studio-03.png)
+
+*Creative applications installed and open — with blank, unsaved
+projects. Presence is not a certified workflow; see "Not validated"
+below. Running-desktop capture from the maintainer's machine,
+19 November 2026.*
+
 ### Workflow: low-latency monitoring on a USB interface
 
 1. `horneroctl studio doctor` (warnings are honest: unavailable stays
