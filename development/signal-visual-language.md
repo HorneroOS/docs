@@ -90,7 +90,7 @@ modules by short hairlines; changing numbers sit in `sunken` readout wells;
 the instrumentation panel is an oscilloscope with a graticule and a phosphor
 trace. Amber marks only what is live.
 
-![Concept render: direction A, Bezel](assets/signal-visual-language/concept-direction-a-bezel.png)
+*Concept render removed (2026-11-20): Concept render: direction A, Bezel. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ### 2.2 B — Carta
 
@@ -99,7 +99,7 @@ value), workspaces sit on a ruler with an amber index triangle, panels are
 dot-grid sheets with dimension lines and a title block, and a celeste leader
 line ties the popout to its trigger.
 
-![Concept render: direction B, Carta](assets/signal-visual-language/concept-direction-b-carta.png)
+*Concept render removed (2026-11-20): Concept render: direction B, Carta. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ### 2.3 C — Transmisión
 
@@ -108,7 +108,7 @@ seconds, tally-lamp workspaces with a soft amber glow, a "MIC LIVE" tally,
 console channel strips with scribble strips in the audio popout, and a
 multiviewer telemetry panel with programme/preview labels.
 
-![Concept render: direction C, Transmisión](assets/signal-visual-language/concept-direction-c-transmision.png)
+*Concept render removed (2026-11-20): Concept render: direction C, Transmisión. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ### 2.4 Comparison
 
@@ -148,11 +148,11 @@ carried over.
 
 Signal Night, Everyday mode, final palette (§3):
 
-![Concept render: final direction, Signal Night](assets/signal-visual-language/concept-final-night.png)
+*Concept render removed (2026-11-20): Concept render: final direction, Signal Night. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 Signal Day over Patagonia (Perito Moreno, ThartmannWiki, CC BY-SA 4.0):
 
-![Concept render: final direction, Signal Day](assets/signal-visual-language/concept-final-day.png)
+*Concept render removed (2026-11-20): Concept render: final direction, Signal Day. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ## 3. Palette changes and contrast
 
@@ -545,7 +545,7 @@ the target uses `settleFast`, the far edge the same curve over
 1.6), so it stretches toward the target and catches up. Only at the `full`
 and `standard` levels; `reduced` and `off` move both edges together.
 
-![Concept render: popout open storyboard](assets/signal-visual-language/concept-motion-popout.png)
+*Concept render removed (2026-11-20): Concept render: popout open storyboard. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ### 11.1 Popouts from bars (trigger-origin morph)
 
@@ -634,7 +634,7 @@ Cockpit Clear uses the Cockpit anatomy with **no bar background at all**: no
 fill, tint, slab, blur, scrim or backdrop shadow (RFC §5.1). Legibility comes
 only from treatments applied to the foreground glyphs themselves.
 
-![Concept render: Cockpit Clear over Iguazú](assets/signal-visual-language/concept-cockpit-clear-iguazu.png)
+*Concept render removed (2026-11-20): Concept render: Cockpit Clear over Iguazú. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ### 12.1 Adaptive ink
 
@@ -685,7 +685,7 @@ mandatory. Worst case with the halo composited over the opposite extreme
 Every text role therefore keeps at least 4.5:1 against its own halo on any
 wallpaper.
 
-![Concept render: Cockpit Clear strips over five wallpaper classes](assets/signal-visual-language/concept-cockpit-clear-strips.png)
+*Concept render removed (2026-11-20): Concept render: Cockpit Clear strips over five wallpaper classes. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ### 12.3 Foreground styles
 
