@@ -24,6 +24,9 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | If you want to… | Start here |
 | --- | --- |
 | Understand release and installation status | [Getting started](getting-started/README.md) |
+| Install and take the first steps | [Installing step by step](getting-started/install-step-by-step.md) · [Post-install](applications/post-install-first-steps.md) |
+| Boot a fallback kernel, fix NVIDIA, play, or record | [Kernel and fallback](desktop/kernel-and-fallback.md) · [Hybrid graphics](hardware/hybrid-graphics-nvidia.md) · [Gaming](applications/gaming-proton-gamemode.md) · [Studio audio](applications/studio-low-latency.md) |
+| Know what is tested and what is not | [Tested and untested](hardware/tested-and-untested.md) · [Troubleshooting by symptom](troubleshooting/by-symptom.md) |
 | Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) · [Apps and workflows](applications/README.md) |
 | Know what Desktop, Studio and Gaming really offer, verified and not | [Editions](editions/README.md) |
 | Learn the Hornero Signal look: themes, type, accessibility | [Hornero Signal](desktop/hornero-signal.md) |

@@ -26,6 +26,7 @@ los ajustes persistentes del sistema y de la shell.
 | Entender cómo encajan las aplicaciones configuradas | [Apps y flujos](../applications/README.md) |
 | Abrir una página de Ajustes o automatizar un cambio | [horneroctl](../../desktop/horneroctl.md) |
 | Actualizar el sistema y entender los límites de recuperación | [Actualizaciones y recuperación: todavía no hay vuelta atrás del sistema](updates-and-rollback.md) |
+| Arrancar kernel principal o de respaldo | [Kernel y arranque de respaldo](kernel-and-fallback.md) |
 
 ## Superficies del escritorio
 

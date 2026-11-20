@@ -1,5 +1,9 @@
 # Primeros pasos
 
+Guía de instalación en orden:
+[Instalar HorneroOS paso a paso](install-step-by-step.md), y después
+[Primeros pasos después de instalar](../applications/post-install-first-steps.md).
+
 ## Sabé qué hay disponible
 
 HorneroOS publica una ISO Preview firmada: **v0.2.0-preview32**, una sola

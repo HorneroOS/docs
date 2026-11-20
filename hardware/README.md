@@ -54,6 +54,9 @@ See [how to report a bug](../development/README.md#report-a-bug).
 
 ## More device guides
 
+- [Hybrid graphics and NVIDIA](hybrid-graphics-nvidia.md)
+- [Hardware: tested, VM-only and untested](tested-and-untested.md)
+
 - [Network](../troubleshooting/README.md#network-and-bluetooth)
 - [Display and graphics](../troubleshooting/README.md#display-and-graphics)
 - [Shell and Settings diagnostics](../troubleshooting/README.md)

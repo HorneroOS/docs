@@ -25,6 +25,7 @@ Center contains persistent system and shell settings.
 | Learn how the configured applications fit together | [Apps and workflows](../applications/README.md) |
 | Open a Settings page or automate a change | [horneroctl](horneroctl.md) |
 | Update the system and understand recovery limits | [Updates and recovery: no system rollback yet](updates-and-rollback.md) |
+| Boot a main or fallback kernel | [Kernel and fallback boot](kernel-and-fallback.md) |
 
 ## Desktop surfaces
 
