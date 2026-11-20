@@ -86,7 +86,7 @@ about the series. The transferable principles that the evidence does support:
 
 ## 4. Three coherent directions compared
 
-![Concept render: three directions](assets/signal-cozy-hackerpunk/concept-cozy-three-directions.png)
+*Concept render removed (2026-11-20): Concept render: three directions. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 | Criterion                          | A Bezel Cálido | B Taller | C Noche Norteña |
 | ---------------------------------- | -------------- | -------- | --------------- |
@@ -115,7 +115,7 @@ default surface colour.
 
 ## 5. The chosen direction
 
-![Concept render: Signal Dusk desktop](assets/signal-cozy-hackerpunk/concept-cozy-dusk-desktop.png)
+*Concept render removed (2026-11-20): Concept render: Signal Dusk desktop. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 ### 5.1 Emotional atmosphere
 
@@ -139,7 +139,7 @@ carried by the mascot and a few soft touches, never by the structure.
 - Chromatic still derives palettes from wallpapers (RFC 0002); warm bias is a
   Chromatic policy item for the palettes owner, not a fork.
 
-![Concept render: Dusk palette, contrast and type roles](assets/signal-cozy-hackerpunk/concept-cozy-palette-type.png)
+*Concept render removed (2026-11-20): Concept render: Dusk palette, contrast and type roles. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
 Measured on Dusk: `ink` ≥ 10.2:1 and `inkMuted` ≥ 6.2:1 on every surface,
 `signal` ≥ 5.7:1, `ruleStrong` ≥ 3.3:1 on `lifted`. `alert` is 4.36:1 on

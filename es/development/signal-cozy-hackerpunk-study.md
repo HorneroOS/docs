@@ -105,7 +105,7 @@ transferibles que la evidencia sí respalda:
 
 ## 4. Comparación de tres direcciones coherentes
 
-![Render conceptual: tres direcciones](../../development/assets/signal-cozy-hackerpunk/concept-cozy-three-directions.png)
+*Render conceptual eliminado (2026-11-20): Render conceptual: tres direcciones. Capturas reales: [Showroom](https://horneroos.com/showroom/).*
 
 - **Encaja con Signal, extiende en vez de reemplazar** — A Bezel Cálido: 5;
   B Taller: 3; C Noche Norteña: 1
@@ -138,7 +138,7 @@ especiales, nunca como color de superficie por defecto.
 
 ## 5. La dirección elegida
 
-![Render conceptual: escritorio Signal Dusk](../../development/assets/signal-cozy-hackerpunk/concept-cozy-dusk-desktop.png)
+*Render conceptual eliminado (2026-11-20): Render conceptual: escritorio Signal Dusk. Capturas reales: [Showroom](https://horneroos.com/showroom/).*
 
 ### 5.1 Atmósfera emocional
 
@@ -165,7 +165,7 @@ toques suaves, nunca la estructura.
   el sesgo cálido es un tema de política de Chromatic para quien tenga a su
   cargo las paletas, no una bifurcación.
 
-![Render conceptual: paleta Dusk, contraste y roles tipográficos](../../development/assets/signal-cozy-hackerpunk/concept-cozy-palette-type.png)
+*Render conceptual eliminado (2026-11-20): Render conceptual: paleta Dusk, contraste y roles tipográficos. Capturas reales: [Showroom](https://horneroos.com/showroom/).*
 
 Medido en Dusk: `ink` ≥ 10.2:1 y `inkMuted` ≥ 6.2:1 sobre todas las
 superficies, `signal` ≥ 5.7:1, `ruleStrong` ≥ 3.3:1 sobre `lifted`. `alert`
