@@ -4,7 +4,7 @@ Gaming es Desktop más un modo de experiencia Gaming, diagnósticos y ayudas
 para Steam, Proton, Feral GameMode, Gamescope y MangoHud. El objetivo es no
 estorbar a tu juego.
 
-**Madurez: Preview.** La sesión Gamescope para handhelds está rotulada como
+**Madurez: Supported.** La sesión Gamescope para handhelds está rotulada como
 Experimental y sin calificar en ningún dispositivo. Ningún juego está
 certificado.
 
@@ -49,12 +49,12 @@ shell no agrega reglas.
   no una recomendación.
 
 ![Ajustes, página Gaming con los resultados del Gaming doctor. Un
-aviso indica que Gaming está en Preview y que nada se instala hasta
+aviso indica que Gaming está en Supported y que nada se instala hasta
 confirmarlo; debajo aprueban diecinueve de veinte comprobaciones, cada
 una con un detalle en lenguaje llano.](https://www.horneroos.com/captures/cap-cc-14.png)
 
 *Preparación gamer verificada con honestidad en Ajustes → Gaming
-(Preview): la detección es una pista, no una garantía de que un juego
+(Supported): la detección es una pista, no una garantía de que un juego
 funcione. Captura real del escritorio en el equipo del maintainer,
 19 de noviembre de 2026.*
 

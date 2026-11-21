@@ -13,7 +13,7 @@ implementación quedan en los repositorios de la
 > HorneroOS es una familia de sistemas operativos basada en Arch, en
 > desarrollo. Su edición Desktop es Wayland-first, con Hyprland como
 > compositor validado por defecto y Niri como backend experimental. Hay
-> publicada una ISO Preview firmada (Desktop, Studio y Gaming Preview,
+> publicada una ISO actual firmada (Desktop, Studio y Gaming,
 > v0.2.0-preview32); no es una release estable ni soportada, y la propia
 > v0.2.0-preview32 todavía no tiene validación ni aceptación en hardware
 > físico. La [página de releases](https://horneroos.com/releases) y el

@@ -5,7 +5,7 @@ music, video, streaming, graphics, photography, 3D, game development, maker
 CAD), a Studio experience mode, Studio diagnostics and a reversible
 PipeWire Low Latency profile.
 
-**Maturity: Preview.** Package selection and diagnostics exist; no
+**Maturity: Supported.** Package selection and diagnostics exist; no
 application workflow is certified on physical hardware, and hardware QA is
 blocked on approved audio fixtures.
 

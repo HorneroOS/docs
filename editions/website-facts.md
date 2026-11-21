@@ -29,5 +29,5 @@ folder; if a claim is not listed, do not publish it.
 
 ## Maturity labels
 
-Desktop Preview, Studio Preview, Gaming Preview; Gamescope handheld session
+Desktop, Studio, Gaming (Supported); Gamescope handheld session
 and VR Experimental; Wine/Lutris/Bottles Planned.

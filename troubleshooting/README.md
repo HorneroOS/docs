@@ -138,7 +138,7 @@ session merely to test a theme.
 
 ## Installation failures
 
-If the Preview ISO does not boot, the Calamares installer fails, or the
+If the current ISO does not boot, the Calamares installer fails, or the
 first boot of that ISO does not reach a login, report it in the
 [HorneroOS/installer issue chooser](https://github.com/HorneroOS/installer/issues/new/choose)
 with the ISO name, your firmware (UEFI or BIOS), whether the disk is

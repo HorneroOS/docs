@@ -146,7 +146,7 @@ una sesión gráfica solo para probar un tema.
 
 ## Fallos de instalación
 
-Si la ISO Preview no arranca, el instalador Calamares falla, o el primer
+Si la ISO actual no arranca, el instalador Calamares falla, o el primer
 arranque de esa ISO no llega a un login, reportalo en el
 [selector de issues de HorneroOS/installer](https://github.com/HorneroOS/installer/issues/new/choose)
 con el nombre de la ISO, tu firmware (UEFI o BIOS), si el disco está

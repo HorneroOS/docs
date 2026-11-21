@@ -8,7 +8,7 @@ Reemplaza la apariencia derivada de Material 3 que la shell heredó de
 Caelestia.
 
 > **Development.** Hornero Signal está en las ramas `main` de Shell, Config
-> y `horneroctl` desde noviembre de 2026. Las ISO Preview hasta la
+> y `horneroctl` desde noviembre de 2026. Las ISO actual hasta la
 > v0.2.0-preview32 inclusive todavía traen el sistema de apariencia
 > anterior. Varias superficies de la shell (popouts, barras, páginas del
 > Centro de control) se siguen rediseñando; esta página describe solo lo

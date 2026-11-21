@@ -8,7 +8,7 @@ cualquier tema. Para derivar colores de un fondo a propósito, usá
 [Hornero Chromatic](chromatic.md).
 
 > **Development.** Los colores independientes del fondo llegaron con
-> [Hornero Signal](hornero-signal.md) en noviembre de 2026. Las ISO Preview
+> [Hornero Signal](hornero-signal.md) en noviembre de 2026. Las ISO actual
 > hasta la v0.2.0-preview32 todavía generan los colores de la shell a
 > partir del fondo.
 

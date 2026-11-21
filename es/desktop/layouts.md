@@ -7,7 +7,7 @@ de ventanas del compositor. Así se mantienen separadas dos elecciones útiles:
 
 > **Development.** El catálogo de 14 presets, el valor por defecto Cockpit y
 > Cockpit Clear están en la rama `main` de Shell y Config desde noviembre de
-> 2026. Las ISO Preview hasta la v0.2.0-preview32 inclusive traen el
+> 2026. Las ISO actual hasta la v0.2.0-preview32 inclusive traen el
 > catálogo anterior de quince presets. El catálogo está cubierto por las
 > pruebas automáticas de Shell (esquema de presets, ubicación y
 > comportamiento de las barras, ejecutadas sin pantalla y en modo

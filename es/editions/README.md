@@ -7,11 +7,11 @@ un **tema** cambian cómo se ve. Se componen: edición × modo × layout × tema
 ([arquitectura](../architecture/README.md),
 [modos de experiencia](../desktop/experience-modes.md)).
 
-- **Desktop**: Lema: Construí tu mundo; Madurez: Preview; Página:
+- **Desktop**: Lema: Construí tu mundo; Madurez: Supported; Página:
   [Desktop](desktop.md)
-- **Studio**: Lema: Hacé algo real; Madurez: Preview; Página:
+- **Studio**: Lema: Hacé algo real; Madurez: Supported; Página:
   [Studio](studio.md)
-- **Gaming**: Lema: Jugá a tu manera; Madurez: Preview, extras experimentales
+- **Gaming**: Lema: Jugá a tu manera; Madurez: Supported, extras experimentales
   rotulados; Página: [Gaming](gaming.md)
 
 Cada página separa **qué se verificó y dónde** de **qué no está validado**.

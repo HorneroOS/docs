@@ -6,7 +6,7 @@ y [Hardware: probado, solo VM y no probado](tested-and-untested.md).
 Hornero se construye sobre Arch Linux y Hyprland. Por eso, el soporte de
 dispositivos depende del kernel, el firmware, los drivers y la
 configuración del dispositivo en la máquina. El instalador provisional
-Calamares de la ISO Preview no selecciona ni configura un perfil de
+Calamares de la ISO actual no selecciona ni configura un perfil de
 hardware de Hornero por vos, y todavía no existe validación en hardware
 físico.
 

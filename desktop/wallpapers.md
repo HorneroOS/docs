@@ -7,7 +7,7 @@ never changes interface colours. Colours come from the selected
 colours from a wallpaper on purpose, use [Hornero Chromatic](chromatic.md).
 
 > **Development.** Wallpaper-independent colours arrived with
-> [Hornero Signal](hornero-signal.md) in November 2026. Preview ISOs up to
+> [Hornero Signal](hornero-signal.md) in November 2026. current ISOs up to
 > v0.2.0-preview32 still generate shell colours from the wallpaper.
 
 ## Set a local wallpaper

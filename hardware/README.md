@@ -2,7 +2,7 @@
 
 Hornero is built on Arch Linux and Hyprland. Device support therefore depends
 on the kernel, firmware, drivers, and device configuration on the machine.
-The Preview ISO's provisional Calamares installer does not select or
+The current ISO's provisional Calamares installer does not select or
 configure a Hornero hardware profile for you, and no physical-hardware
 validation exists yet.
 

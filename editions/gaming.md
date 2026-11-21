@@ -4,7 +4,7 @@ Gaming is Desktop plus a Gaming experience mode, diagnostics and helpers for
 Steam, Proton, Feral GameMode, Gamescope and MangoHud. The goal is to stay
 out of the way of your game.
 
-**Maturity: Preview.** The experimental Gamescope handheld session is
+**Maturity: Supported.** The experimental Gamescope handheld session is
 labelled Experimental and unqualified on every device. No game is certified.
 
 ## What happens in Gaming mode

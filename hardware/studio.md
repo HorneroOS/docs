@@ -2,7 +2,7 @@
 
 What HorneroOS Studio does and does not claim about creative
 hardware today, and the boundaries every Studio workflow respects.
-Studio is a **Preview** edition: there is no Hornero-tested
+Studio is a **Supported** edition: there is no Hornero-tested
 hardware list, no certified interface, GPU, tablet, or control
 surface yet. Support claims arrive only with HorneroOS/qa
 acceptance evidence.

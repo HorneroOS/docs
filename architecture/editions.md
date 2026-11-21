@@ -23,7 +23,7 @@ Base + desktop + studio                → Studio
 
 The same model feeds the graphical installer. The provisional Calamares
 installer in HorneroOS/installer consumes it to build the published,
-signed v0.2.0-preview32 Preview ISO; Panda Foss's custom installer is
+signed v0.2.0-preview32 current ISO; Panda Foss's custom installer is
 the future official path.
 
 ## Current maturity

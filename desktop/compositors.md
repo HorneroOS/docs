@@ -90,7 +90,7 @@ The Niri config is installed as a fallback at `/etc/niri/config.kdl` and
 materialized under the user's XDG configuration directory. The package does
 not overwrite an existing user config during a running session. Check the
 current [release and install status](https://horneroos.com/install) before
-following package-specific steps. The signed Preview ISO installs through
+following package-specific steps. The signed current ISO installs through
 the provisional Calamares path; there is no supported installer yet.
 
 For diagnostics, `horneroctl doctor` identifies a recognized Niri session.

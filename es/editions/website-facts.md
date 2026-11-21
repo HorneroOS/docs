@@ -10,17 +10,17 @@ publiques.
 ## Se puede decir
 
 - Desktop "Construí tu mundo": el layout, el tema y el modo de experiencia
-  se eligen de forma independiente; Preview.
+  se eligen de forma independiente; Supported.
 - Studio "Hacé algo real": un perfil reversible PipeWire Low Latency
   (`horneroctl studio audio apply|revert|status`) con lectura en vivo de
   xruns y carga de DSP, diagnósticos de Studio, trabajos de render con lista
-  de permitidos, modo Studio; Preview.
+  de permitidos, modo Studio; Supported.
 - Gaming "Jugá a tu manera": un modo que retiene las notificaciones, pausa
   el sondeo, oculta la capa del escritorio, inhibe la inactividad y apaga el
   movimiento y el brillo bajo una ventana a pantalla completa en Hyprland;
   un doctor que revisa Vulkan, los requisitos de Proton, GameMode y,
   opcionalmente, Gamescope y MangoHud; un impresor de opciones de
-  lanzamiento de Steam; Preview, sesión portátil Experimental.
+  lanzamiento de Steam; Supported, sesión portátil Experimental.
 - Las tres ediciones son una sola plataforma: edición x modo x layout x
   tema.
 
@@ -39,5 +39,5 @@ publiques.
 
 ## Etiquetas de madurez
 
-Desktop Preview, Studio Preview, Gaming Preview; la sesión portátil de
+Desktop, Studio, Gaming (Supported); la sesión portátil de
 Gamescope y VR Experimental; Wine/Lutris/Bottles Planificado.
