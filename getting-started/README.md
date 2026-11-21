@@ -81,6 +81,10 @@ list, a dotfiles checkout, or an old wiki page as an installer.
 
 ## After installing
 
+Work through [Installing HorneroOS step by step](install-step-by-step.md)
+for the installer choices in order, then
+[Post-install: your first session](../applications/post-install-first-steps.md).
+
 Systems installed from v0.2.0-preview24 need a one-time manual
 migration before normal updates work; follow
 [Upgrading an existing preview24 installation](upgrading-from-preview24.md).

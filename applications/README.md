@@ -104,6 +104,12 @@ running its provisioning commands.
   opt-in launcher for the Craft applications.
 - [Gaming applications](gaming.md) — verified source, license, and
   support matrix for the Gaming Preview edition.
+- [Post-install: your first session](post-install-first-steps.md) —
+  doctor, updates, config snapshot, mode, and Control Center.
+- [Gaming: Proton, GameMode, Gamescope and MangoHud](gaming-proton-gamemode.md)
+  — run games, measure frame times, and read the honest limits.
+- [Studio: low-latency audio](studio-low-latency.md) — Balanced first,
+  quantum is not latency, and how to revert safely.
 - [Screenshots and recording](capture.md) — screenshot and recording backends.
 - [Connectivity](connectivity.md) — NetworkManager, Bluetooth, and VPN providers.
 - [System utilities](system-utilities.md) — Git, Fastfetch, btop, Cava, and

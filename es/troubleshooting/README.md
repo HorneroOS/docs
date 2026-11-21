@@ -1,5 +1,9 @@
 # Solución de problemas
 
+Para una ruta por síntoma (no arranca, sin red, sin audio, el
+shell no levanta), empezá por
+[Solución de problemas por síntoma](by-symptom.md).
+
 Empezá con diagnósticos de solo lectura. Registrá el error exacto y los
 pasos que lo reproducen antes de cambiar configuración o reinstalar
 paquetes.

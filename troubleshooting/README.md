@@ -1,5 +1,9 @@
 # Troubleshooting
 
+For a symptom-first path (does not boot, no network, no audio,
+shell does not start), start with
+[Troubleshooting by symptom](by-symptom.md).
+
 Start with read-only diagnostics. Record the exact error and the steps that
 reproduce it before changing configuration or reinstalling packages.
 

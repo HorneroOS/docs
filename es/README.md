@@ -25,6 +25,8 @@ implementación quedan en los repositorios de la
 | Si querés… | Empezá acá |
 | --- | --- |
 | Entender el estado de releases e instalación | [Primeros pasos](getting-started/README.md) |
+| Instalar y dar los primeros pasos | [Instalar paso a paso](getting-started/install-step-by-step.md) · [Primeros pasos post-instalación](applications/post-install-first-steps.md) |
+| Conocer qué está probado y qué no | [Probado y no probado](hardware/tested-and-untested.md) · [Problemas por síntoma](troubleshooting/by-symptom.md) |
 | Usar el escritorio, las apps y el Centro de control | [Desktop](desktop/README.md) · [Apps y flujos](applications/README.md) |
 | Conocer el aspecto Hornero Signal: temas, tipografía, accesibilidad | [Hornero Signal](desktop/hornero-signal.md) |
 | Cambiar temas, colores o el fondo | [Apariencia](desktop/appearance.md) · [Fondos](desktop/wallpapers.md) |

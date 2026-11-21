@@ -116,6 +116,12 @@ del producto Hornero no depende de ejecutar sus comandos de provisión.
   recorrido del primer proyecto para la edición Studio Preview.
 - [Audio en Studio](../../applications/studio-audio.md) — configuración
   de modos, ruteo y recuperación para la edición Studio Preview.
+- [Primeros pasos después de instalar](post-install-first-steps.md) —
+  doctor, actualizaciones, snapshot de configuración y modo.
+- [Gaming: Proton, GameMode, Gamescope y MangoHud](gaming-proton-gamemode.md)
+  — correr juegos y leer los límites honestos.
+- [Studio: audio de baja latencia](studio-low-latency.md) — Balanced
+  primero; quantum no es latencia.
 - [Aplicaciones de Gaming](../../applications/gaming.md) — matriz
   verificada de origen, licencia y soporte de la edición Gaming Preview.
 - [Capturas y grabación](../../applications/capture.md) — backends de

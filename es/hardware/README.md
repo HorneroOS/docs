@@ -1,5 +1,8 @@
 # Hardware
 
+Guías nuevas: [Gráficos híbridos y NVIDIA](hybrid-graphics-nvidia.md)
+y [Hardware: probado, solo VM y no probado](tested-and-untested.md).
+
 Hornero se construye sobre Arch Linux y Hyprland. Por eso, el soporte de
 dispositivos depende del kernel, el firmware, los drivers y la
 configuración del dispositivo en la máquina. El instalador provisional
