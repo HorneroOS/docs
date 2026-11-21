@@ -5,7 +5,7 @@ y música, video, streaming, gráficos, fotografía, 3D, desarrollo de juegos,
 CAD), un modo de experiencia Studio, diagnósticos y un perfil PipeWire de
 baja latencia reversible.
 
-**Madurez: Preview.** Existen la selección de paquetes y los diagnósticos;
+**Madurez: Supported.** Existen la selección de paquetes y los diagnósticos;
 ningún flujo de aplicación está certificado en hardware físico y el QA de
 hardware está bloqueado por falta de fixtures de audio aprobados.
 

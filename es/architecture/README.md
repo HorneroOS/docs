@@ -1,8 +1,8 @@
 # Arquitectura
 
 Hornero es un conjunto de repositorios que colaboran con propiedad
-explícita. Los repositorios se componen en la ISO Preview firmada
-publicada v0.2.0-preview32 (Desktop, Studio y Gaming Preview); ningún
+explícita. Los repositorios se componen en la ISO actual firmada
+publicada v0.2.0-preview32 (Desktop, Studio y Gaming); ningún
 repositorio por sí solo es el sistema operativo instalable. El
 [ledger de releases](https://github.com/HorneroOS/hornero/releases)
 registra qué revisiones de componentes se compusieron juntas.

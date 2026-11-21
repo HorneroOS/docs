@@ -8,7 +8,7 @@ catalogue disagree, the catalogue wins and this page is stale.
 
 **Last verified: 2026-11-03** against the
 [Arch package index](https://archlinux.org/packages/). Package presence is
-not Hornero support: Gaming is a **Preview** edition
+not Hornero support: Gaming is a **Supported** edition
 (HorneroOS/hornero#328) that installs from the shared signed ISO
 (VM-validated only), no application below is QA-validated by
 Hornero on physical hardware, and no row promises that a game, launcher,

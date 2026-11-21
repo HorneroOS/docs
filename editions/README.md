@@ -7,11 +7,11 @@ They compose: edition × mode × layout × theme
 ([architecture](../architecture/editions.md),
 [experience modes](../desktop/experience-modes.md)).
 
-- **Desktop**: Tagline: Build your world; Maturity: Preview; Page:
+- **Desktop**: Tagline: Build your world; Maturity: Supported; Page:
   [Desktop](desktop.md)
-- **Studio**: Tagline: Make something real; Maturity: Preview; Page:
+- **Studio**: Tagline: Make something real; Maturity: Supported; Page:
   [Studio](studio.md)
-- **Gaming**: Tagline: Play on your terms; Maturity: Preview, experimental
+- **Gaming**: Tagline: Play on your terms; Maturity: Supported, experimental
   extras labelled; Page: [Gaming](gaming.md)
 
 Each page separates **what was verified and where** from **what is not

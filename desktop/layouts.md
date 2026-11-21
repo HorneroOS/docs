@@ -7,7 +7,7 @@ live** and **how windows are arranged**.
 
 > **Development.** The 14-preset catalogue, the Cockpit default and Cockpit
 > Clear are on the `main` branch of Shell and Config since November 2026.
-> Preview ISOs up to and including v0.2.0-preview32 ship the earlier
+> current ISOs up to and including v0.2.0-preview32 ship the earlier
 > fifteen-preset catalogue. The catalogue is covered by Shell's automated
 > tests (preset schema, placement and bar behaviour, run headless and
 > offscreen). It has not yet been validated visually in a virtual machine

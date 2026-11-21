@@ -5,7 +5,7 @@ backend (Niri experimental), Hornero Signal visuals, 16 layouts, themes,
 experience modes and a plugin system. Studio and Gaming extend it; they do
 not replace it.
 
-**Maturity: Preview.** Installs from the signed preview ISO (see the
+**Maturity: Supported.** Installs from the signed current ISO (see the
 [releases page](https://horneroos.com/releases)); not a stable release.
 
 ## What you can build

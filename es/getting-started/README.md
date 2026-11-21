@@ -6,10 +6,10 @@ Guía de instalación en orden:
 
 ## Sabé qué hay disponible
 
-HorneroOS publica una ISO Preview firmada: **v0.2.0-preview32**, una sola
-imagen x86_64 que instala HorneroOS Desktop, Studio o Gaming Preview con
-especializaciones creativas a elección. Es una preview, no una release
-estable ni soportada.
+HorneroOS publica una ISO actual firmada: **v0.2.0-preview32**, una sola
+imagen x86_64 que instala HorneroOS Desktop, Studio o Gaming con
+especializaciones creativas a elección. Se usa y se mantiene a diario;
+no es una release terminada ni con soporte comercial.
 
 - Descarga: [horneroos.com/install](https://www.horneroos.com/install) o la
   [release v0.2.0-preview32](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview32).
@@ -51,7 +51,7 @@ sha256sum -c horneroos-2026.10-preview32-x86_64.iso.sha256
   Strix G16 está registrada como USER-VERIFIED en preview24 más arreglos
   post-instalación (ver `docs/PELICANO-PARITY.md` en HorneroOS/qa); los
   chequeos especializados como NVENC, corrección Vulkan y captura HDMI
-  siguen NOT SPECIFICALLY TESTED. Studio, Desktop y Gaming son Preview,
+  siguen NOT SPECIFICALLY TESTED. Studio, Desktop y Gaming son Supported,
   no Supported. Server y Agents son ediciones planificadas sin imagen
   instalable. Niri es experimental.
 - Panda Foss está desarrollando el instalador oficial futuro; el camino

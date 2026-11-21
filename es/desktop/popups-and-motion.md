@@ -4,7 +4,7 @@ Cómo se abren los menús, paneles y tooltips, dónde aparecen, cómo se cierran
 y cómo se mueve el escritorio, o deja de moverse, cuando lo pedís.
 
 > **Development.** El contrato de interacción de abajo está en la rama
-> `main` de Shell desde noviembre de 2026. Las ISO Preview hasta la
+> `main` de Shell desde noviembre de 2026. Las ISO actual hasta la
 > v0.2.0-preview32 inclusive se comportan distinto. El solver de ubicación,
 > los niveles de movimiento y la cascada de Escape están cubiertos por las
 > pruebas automáticas de Shell (sin pantalla y en modo offscreen). La

@@ -8,7 +8,7 @@ Day y Signal High Contrast) siguen siendo el valor de fábrica y el respaldo
 cuando algo sale mal.
 
 > **Development.** Chromatic está en las ramas `main` de la shell y de
-> `horneroctl`. Las ISO Preview hasta la v0.2.0-preview32 no lo incluyen. El
+> `horneroctl`. Las ISO actual hasta la v0.2.0-preview32 no lo incluyen. El
 > ajuste de acento (mirá [Ajuste de acento](#ajuste-de-acento)) todavía está
 > en revisión y aún no está en `main`.
 

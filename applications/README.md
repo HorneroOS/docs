@@ -8,7 +8,7 @@ guides explain how those parts connect and what to check when one is missing.
 ## What is part of Hornero?
 
 The current Preview composition ships in the signed v0.2.0-preview32 ISO
-(Desktop, Studio and Gaming Preview, provisional Calamares installer). It brings
+(Desktop, Studio and Gaming, provisional Calamares installer). It brings
 together Hornero Shell, `horneroctl`, and the `hornero-config` package. On
 `main`, Config requires Bash, Git, Python, `polkit-gnome`, and `ttf-ibm-plex`;
 it does not install
@@ -95,7 +95,7 @@ running its provisioning commands.
   editors, PDFs, and image/file associations.
 - [Media and audio](media-audio.md) — PipeWire, volume controls, MPRIS, and players.
 - [Studio applications](studio.md) — verified source, license, and
-  support matrix for the Preview Studio edition.
+  support matrix for the Studio edition.
 - [Studio getting started](studio-getting-started.md) — first
   project walkthrough for the Preview Studio edition.
 - [Studio audio](studio-audio.md) — mode setup, routing, and
@@ -103,7 +103,7 @@ running its provisioning commands.
 - [ArtCraft Launcher](studio-artcraft.md) — experimental, manual
   opt-in launcher for the Craft applications.
 - [Gaming applications](gaming.md) — verified source, license, and
-  support matrix for the Gaming Preview edition.
+  support matrix for the Gaming Supported edition.
 - [Post-install: your first session](post-install-first-steps.md) —
   doctor, updates, config snapshot, mode, and Control Center.
 - [Gaming: Proton, GameMode, Gamescope and MangoHud](gaming-proton-gamemode.md)

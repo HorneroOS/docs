@@ -5,7 +5,7 @@ La edición base: Hornero Shell sobre Wayland, Hyprland como backend validado
 experiencia y un sistema de plugins. Studio y Gaming la extienden; no la
 reemplazan.
 
-**Madurez: Preview.** Se instala desde la ISO preview firmada (ver la
+**Madurez: Supported.** Se instala desde la ISO actual firmada (ver la
 [página de releases](https://horneroos.com/releases)); no es una release
 estable.
 

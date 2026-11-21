@@ -4,7 +4,7 @@ How menus, panels and tooltips open, where they appear, how they close, and
 how the desktop moves — or stops moving — when you ask it to.
 
 > **Development.** The interaction contract below is on the `main` branch of
-> Shell since November 2026. Preview ISOs up to and including
+> Shell since November 2026. current ISOs up to and including
 > v0.2.0-preview32 behave differently. The placement solver, the motion
 > levels and the Escape cascade are covered by Shell's automated tests (run
 > headless and offscreen). Popup geometry, motion timing and the Niri

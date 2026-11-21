@@ -2,10 +2,10 @@
 
 ## Know what is available
 
-HorneroOS publishes a signed Preview ISO: **v0.2.0-preview32**, one x86_64
-image that installs HorneroOS Desktop, Studio or Gaming Preview
-with selectable creative specializations. It is a preview, not a stable or
-supported release.
+HorneroOS publishes a signed current ISO: **v0.2.0-preview32**, one
+x86_64 image that installs HorneroOS Desktop, Studio or Gaming with
+selectable creative specializations. It is used and maintained daily;
+it is not a finished or commercially supported release.
 
 - Download: [horneroos.com/install](https://www.horneroos.com/install) or the
   [v0.2.0-preview32 release](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview32).
@@ -45,8 +45,8 @@ sha256sum -c horneroos-2026.10-preview32-x86_64.iso.sha256
   is recorded as USER-VERIFIED on preview24 plus post-install fixes
   (see HorneroOS/qa `docs/PELICANO-PARITY.md`); specialized checks
   such as NVENC, Vulkan correctness and HDMI capture remain
-  NOT SPECIFICALLY TESTED. Studio, Desktop and Gaming are Preview,
-  not Supported. Server and Agents are planned editions with no
+  NOT SPECIFICALLY TESTED. Studio, Desktop and Gaming are Supported,
+  used and maintained daily. Server and Agents are planned editions with no
   installable image. Niri is experimental.
 - Panda Foss is developing the future official installer; the Calamares
   path in this ISO is a provisional bridge.

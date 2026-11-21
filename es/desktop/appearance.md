@@ -7,7 +7,7 @@ claro u oscuro. Todos los temas usan el lenguaje de diseño
 [Hornero Signal](hornero-signal.md).
 
 > **Development.** Esta página describe Hornero Signal, en las ramas `main`
-> desde noviembre de 2026. Las ISO Preview hasta la v0.2.0-preview32
+> desde noviembre de 2026. Las ISO actual hasta la v0.2.0-preview32
 > todavía traen el sistema de apariencia anterior, generado a partir del
 > fondo.
 

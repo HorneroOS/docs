@@ -10,7 +10,7 @@ falta una.
 ## ¿Qué es parte de Hornero?
 
 La composición Preview actual se distribuye en la ISO firmada
-v0.2.0-preview32 (Desktop, Studio y Gaming Preview, instalador
+v0.2.0-preview32 (Desktop, Studio y Gaming, instalador
 provisional Calamares). Reúne a Hornero Shell, `horneroctl` y el paquete
 `hornero-config`. Config requiere Bash, Git, Python, `polkit-gnome` y
 `ttf-ibm-plex`; no instala una estación de trabajo completa
@@ -123,7 +123,7 @@ del producto Hornero no depende de ejecutar sus comandos de provisión.
 - [Studio: audio de baja latencia](studio-low-latency.md) — Balanced
   primero; quantum no es latencia.
 - [Aplicaciones de Gaming](../../applications/gaming.md) — matriz
-  verificada de origen, licencia y soporte de la edición Gaming Preview.
+  verificada de origen, licencia y soporte de la edición Gaming.
 - [Capturas y grabación](../../applications/capture.md) — backends de
   captura de pantalla y grabación.
 - [Conectividad](../../applications/connectivity.md) — NetworkManager,

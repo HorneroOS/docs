@@ -1,11 +1,11 @@
 # Studio getting started: your first project
 
 New to HorneroOS? Start with [Getting started](../getting-started/README.md)
-to download, verify and install the Preview ISO, then come back here.
+to download, verify and install the current ISO, then come back here.
 
 From a fresh HorneroOS desktop to a first creative project with the
 Studio selection you actually want — nothing more installed than you
-chose. Studio is a **Preview** edition: the Preview ISO installer
+chose. Studio is a **Supported** edition: the Current ISO installer
 installs the applications for the specializations you select, and
 `horneroctl studio` records and applies reviewed configuration
 building blocks. Post-install package changes through `horneroctl`
@@ -39,7 +39,7 @@ Balanced mode.](https://www.horneroos.com/captures/cap-cc-13.png)
 
 *Settings → Studio runs the same doctor: honest results, including a
 fail. Here the xrun check fails on the maintainer's machine and says
-so. Studio is a Preview edition. Running-desktop capture,
+so. Studio is a Supported edition. Running-desktop capture,
 19 November 2026.*
 
 ## 2. Make the desktop yours
