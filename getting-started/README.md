@@ -2,10 +2,10 @@
 
 ## Know what is available
 
-HorneroOS publishes a signed current ISO: **v0.2.0-preview32**, one x86_64
-image that installs HorneroOS Desktop, Studio or Gaming
-with selectable creative specializations. It is used and maintained daily; it is not a finished or
-commercially supported release.
+HorneroOS publishes a signed current ISO: **v0.2.0-preview32**, one
+x86_64 image that installs HorneroOS Desktop, Studio or Gaming with
+selectable creative specializations. It is used and maintained daily;
+it is not a finished or commercially supported release.
 
 - Download: [horneroos.com/install](https://www.horneroos.com/install) or the
   [v0.2.0-preview32 release](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview32).
