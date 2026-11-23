@@ -102,6 +102,9 @@ running its provisioning commands.
   recovery for the Preview Studio edition.
 - [ArtCraft Launcher](studio-artcraft.md) — experimental, manual
   opt-in launcher for the Craft applications.
+- [Studio: AI-assisted creative production](studio-ai-creative.md) —
+  optional Agent Toolkit Creative Studio integration, render jobs,
+  security notes, and uninstall.
 - [Gaming applications](gaming.md) — verified source, license, and
   support matrix for the Gaming Supported edition.
 - [Post-install: your first session](post-install-first-steps.md) —
