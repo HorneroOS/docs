@@ -143,6 +143,13 @@ hard-coded features, with everything customisable from Control Center
 - **13. Theme templates** — Surface: horneroctl theme apply; Contract:
   `theme.templates` (existing); Loaded: CLI only; Multi-instance: No; Level:
   3; Status: Shipped
+- **14. `dashboardTab` page (shell#709)** — Surface: Dashboard top-level tab;
+  Contract: `contributes.dashboardTabs` `{id, title, glyph}` plus a
+  `surfaces.dashboardTab` Item; stable key `<pluginId>:<tabId>`, lazy
+  failure-isolated Loader, `qs ipc call drawers dashboardTab <key>` deep
+  link; Loaded: While the tab (or a neighbour) is selected; Multi-instance:
+  No (max 2 pages per package); Level: 5; Status: Shipped (shell#710);
+  first consumer `hornero-ai-usage` Agents page
 
 Rationale for the order. Rows 3 and 5 (instances and the settings schema) are
 the multiplier: every other contribution is more useful once an extension can
@@ -487,6 +494,8 @@ their own review.
 - **Notification source, lock-screen card, hooks, new providers** — Repo:
   shell; Status: Designed here, not started
 - **Extractions (Section 10)** — Repo: shell, plugins; Status: Not started
+- **Dashboard pages (row 14, apiLevel 5)** — Repo: shell, plugins; Status:
+  Shipped: shell#710 (contract) + plugins Agent Deck (first consumer)
 - **Spanish handbook page** — Repo: docs; Status: Not started
 
 The PR numbers and the exact state are recorded in the tracking issue and in

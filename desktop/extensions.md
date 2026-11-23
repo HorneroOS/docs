@@ -108,6 +108,27 @@ any of them for machine-readable output. The JSON keys, exit codes and error
 codes are listed in horneroctl's
 [plugin lifecycle JSON contract](https://github.com/HorneroOS/hornero/blob/main/docs/PLUGIN_LIFECYCLE_JSON.md).
 
+## Agent Deck: coding-agent subscriptions
+
+**Hornero AI Usage** (Agent Deck) watches the coding agents you are already
+signed into — Claude Code, Codex, Muse Code, Cursor and OpenCode — and
+shows each subscription's real quota windows, resets and plan next to this
+machine's token activity. Nothing to register: enable the extension and the
+agents Hornero finds on the machine appear on their own.
+
+- The **bar** shows the tightest quota you have left; clicking it lists every
+  account. The full picture lives in the **Agents** tab of the Dashboard,
+  beside Media and Performance (the tab comes from the extension and goes
+  away when you disable it).
+- A quota is shown only when its provider reports one. **Unknown never means
+  0% used**, stale numbers say so, and account-wide figures are never added
+  to this machine's activity. There are no invented limits, resets or costs.
+- Sign-ins stay put: quota checks run read-only inside `horneroctl` with the
+  login each tool already stored. Nothing is re-entered, refreshed or
+  switched, no model call is made just to measure, and the extension itself
+  never touches credentials or the network. Check by hand any time with
+  `horneroctl agent usage`.
+
 ## If an extension breaks the desktop
 
 Use **Turn safe mode on (recovery)** at the top of Extensions. No extension
