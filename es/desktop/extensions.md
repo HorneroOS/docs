@@ -117,6 +117,29 @@ códigos de salida y los códigos de error están en el
 [contrato JSON del ciclo de vida de plugins](https://github.com/HorneroOS/hornero/blob/main/docs/PLUGIN_LIFECYCLE_JSON.md)
 de horneroctl (en inglés).
 
+## Agent Deck: suscripciones de agentes de código
+
+**Hornero AI Usage** (Agent Deck) vigila los agentes de código en los que ya
+iniciaste sesión —Claude Code, Codex, Muse Code, Cursor y OpenCode— y
+muestra las ventanas de cuota reales, los restablecimientos y el plan de cada
+suscripción junto a la actividad de tokens de esta máquina. No hay nada que
+registrar: activás la extensión y los agentes que Hornero encuentra aparecen
+solos.
+
+- La **barra** muestra la cuota más justa que te queda; al hacer clic se ven
+  todas las cuentas. El panorama completo está en la solapa **Agentes** del
+  Dashboard, junto a Media y Performance (la solapa viene de la extensión y
+  desaparece cuando la desactivás).
+- Una cuota se muestra solo cuando su proveedor la reporta. **Desconocida
+  nunca significa 0% usado**, los datos viejos lo dicen, y las cifras de toda
+  la cuenta nunca se suman a la actividad de esta máquina. No hay límites,
+  restablecimientos ni costos inventados.
+- Las sesiones quedan como están: las comprobaciones corren de solo lectura
+  dentro de `horneroctl`, con la sesión que cada herramienta ya guardó. Nada
+  se vuelve a cargar, refrescar ni cambiar, no se hace ninguna llamada al
+  modelo solo para medir, y la extensión nunca toca credenciales ni la red.
+  Comprobalo a mano cuando quieras con `horneroctl agent usage`.
+
 ## Si una extensión rompe el escritorio
 
 Usá **Activar modo seguro (recuperación)** arriba de Extensions. En modo
