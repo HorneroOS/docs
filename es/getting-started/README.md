@@ -74,10 +74,12 @@ con el nombre de la ISO, tu firmware (UEFI o BIOS), si el disco está
 cifrado y el paso donde falló.
 
 Los componentes individuales también están empaquetados para quien ya
-usa Arch Linux y Hyprland. Ese camino AUR es una alternativa para un
-sistema Arch existente; la ISO es el camino de instalación principal. No
-trates una lista de paquetes, un checkout de dotfiles ni una página vieja
-de wiki como si fueran un instalador.
+usa Arch Linux y Hyprland. Ese camino AUR es una alternativa soportada
+para un sistema Arch existente: seguí [Instalar HorneroOS sobre un Arch
+Linux existente](install-on-arch.md) para los paquetes, la
+configuración inicial que nunca sobrescribe y el camino de vuelta. No
+trates una lista pelada de paquetes, un checkout de dotfiles ni una
+página vieja de wiki como si fueran un instalador.
 
 ## Explorá antes de instalar
 
