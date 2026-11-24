@@ -67,8 +67,10 @@ the ISO name, your firmware (UEFI or BIOS), whether the disk is
 encrypted, and the step where it failed.
 
 Individual components are also packaged for people already running Arch
-Linux and Hyprland. That AUR path is an alternative for an existing Arch
-system; the ISO is the primary installation path. Do not treat a package
+Linux and Hyprland. That AUR path is a supported alternative for an
+existing Arch system — follow [Installing HorneroOS on an existing Arch
+Linux system](install-on-arch.md) for the packages, the missing-only
+first-time setup and the rollback path. Do not treat a bare package
 list, a dotfiles checkout, or an old wiki page as an installer.
 
 ## Explore before installing
