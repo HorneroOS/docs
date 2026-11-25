@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@0618004b3280038ff3868d7b372cf0ad7e0be67b
+# horneroctl command paths, generated from HorneroOS/hornero@17187ad7c77cb341996f1a27c5b642807a228c6e
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 agent
 agent config
@@ -182,6 +182,12 @@ gaming launch-options
 gaming selection
 gaming selection set
 gaming selection show
+github
+github export
+github inbox
+github refresh
+github stats
+github status
 hardware
 hardware battery
 hardware battery monitor

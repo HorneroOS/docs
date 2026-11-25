@@ -129,6 +129,32 @@ agents Hornero finds on the machine appear on their own.
   never touches credentials or the network. Check by hand any time with
   `horneroctl agent usage`.
 
+## Dev Pulse: GitHub development activity
+
+**Hornero Dev Pulse** (`hornero-github-stats`) shows what you have been
+building: contributions GitHub recognizes, pull requests created and
+merged, issues, reviews, and an actionable inbox (open PRs, review
+requests, assigned issues, failing checks), with an optional side-by-side
+against Agent Deck. Nothing to configure: it reuses the GitHub CLI
+session you already have.
+
+- Install `gh` once (`sudo pacman -S github-cli`) and sign in with
+  `gh auth login`. Dev Pulse never asks for a token, and no token is
+  ever shown, logged or cached — check the raw data any time with
+  `horneroctl github status`, `horneroctl github stats` and
+  `horneroctl github inbox`.
+- The **bar** shows open PRs, failing checks and review requests; the
+  full panel is the **Dev Pulse** tab of the Dashboard. Windows of
+  7/30/90/365 days, plus optional organization/repository filters in
+  the extension settings.
+- Numbers are real or absent: unknown metrics are omitted, never
+  zero-filled, and totals come from GitHub's own counts by actual
+  event date. The Agent Deck comparison only places AI activity and
+  GitHub activity in the same period — no pull request is attributed
+  to an agent from timing alone.
+- Reports stay local: `horneroctl github export --format markdown
+  --output report.md` (`--public-only` drops private repositories).
+
 ## If an extension breaks the desktop
 
 Use **Turn safe mode on (recovery)** at the top of Extensions. No extension

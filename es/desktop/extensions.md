@@ -140,6 +140,34 @@ solos.
   modelo solo para medir, y la extensión nunca toca credenciales ni la red.
   Comprobalo a mano cuando quieras con `horneroctl agent usage`.
 
+## Dev Pulse: actividad de desarrollo en GitHub
+
+**Hornero Dev Pulse** (`hornero-github-stats`) muestra lo que estuviste
+construyendo: contribuciones que GitHub reconoce, pull requests creados
+y mergeados, issues, revisiones y una bandeja accionable (PRs abiertos,
+pedidos de revisión, issues asignados, checks fallando), con una
+comparación opcional junto a Agent Deck. Nada que configurar: reusa la
+sesión de GitHub CLI que ya tenés.
+
+- Instalá `gh` una vez (`sudo pacman -S github-cli`) e iniciá sesión
+  con `gh auth login`. Dev Pulse nunca pide un token, y ningún token
+  se muestra, registra ni guarda — revisá los datos crudos cuando
+  quieras con `horneroctl github status`, `horneroctl github stats`
+  y `horneroctl github inbox`.
+- La **barra** muestra PRs abiertos, checks fallando y pedidos de
+  revisión; el panel completo es la pestaña **Dev Pulse** del
+  Dashboard. Ventanas de 7/30/90/365 días, más filtros opcionales de
+  organización/repositorio en los ajustes de la extensión.
+- Los números son reales o no están: las métricas desconocidas se
+  omiten, nunca se ponen en cero, y los totales vienen de los conteos
+  de GitHub por fecha real del evento. La comparación con Agent Deck
+  solo ubica la actividad de IA y de GitHub en el mismo período —
+  ningún pull request se atribuye a un agente solo por coincidencia
+  temporal.
+- Los reportes quedan locales: `horneroctl github export --format
+  markdown --output report.md` (`--public-only` omite repositorios
+  privados).
+
 ## Si una extensión rompe el escritorio
 
 Usá **Activar modo seguro (recuperación)** arriba de Extensions. En modo
