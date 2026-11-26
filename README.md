@@ -10,7 +10,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 
 > HorneroOS is an Arch-based operating-system family in development. Its
 > Desktop edition is Wayland-first, with Hyprland as the default validated
-> compositor and Niri as an experimental backend. A signed current ISO
+> compositor and Niri as an experimental backend. A signed preview ISO
 > (Desktop, Studio and Gaming, v0.2.0-preview32) is published;
 > it is not a
 > stable or supported release, and v0.2.0-preview32 itself has no
@@ -25,6 +25,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | --- | --- |
 | Understand release and installation status | [Getting started](getting-started/README.md) |
 | Install and take the first steps | [Installing step by step](getting-started/install-step-by-step.md) · [Post-install](applications/post-install-first-steps.md) |
+| Install on an existing Arch Linux system | [Install on Arch](getting-started/install-on-arch.md) |
 | Boot a fallback kernel, fix NVIDIA, play, or record | [Kernel and fallback](desktop/kernel-and-fallback.md) · [Hybrid graphics](hardware/hybrid-graphics-nvidia.md) · [Gaming](applications/gaming-proton-gamemode.md) · [Studio audio](applications/studio-low-latency.md) |
 | Know what is tested and what is not | [Tested and untested](hardware/tested-and-untested.md) · [Troubleshooting by symptom](troubleshooting/by-symptom.md) |
 | Use the desktop, apps, and Control Center | [Desktop](desktop/README.md) · [Apps and workflows](applications/README.md) |
@@ -36,6 +37,7 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | Find a keyboard shortcut | [Shortcuts](desktop/shortcuts.md) |
 | Automate or inspect the system from a terminal | [horneroctl](desktop/horneroctl.md) |
 | Update the system and understand recovery limits | [Updates and recovery: no system rollback yet](desktop/updates-and-rollback.md) |
+| Understand security, encryption, and trust boundaries | [Security and privacy](security/README.md) |
 | Diagnose graphics or device problems | [Hardware](hardware/README.md) · [Troubleshooting](troubleshooting/README.md) |
 | Understand editions and system boundaries | [Architecture](architecture/README.md) |
 | Build, test, or contribute | [Development](development/README.md) |
@@ -75,6 +77,8 @@ content; the website does not maintain a second copy.
   catalog and the paths that connect those tools to Hornero.
 - [horneroctl](desktop/horneroctl.md) — supported command-line entry points.
 - [Hardware](hardware/README.md) — device diagnostics and graphics guidance.
+- [Security and privacy](security/README.md) — disk encryption, Secure Boot,
+  firewall, release signing, and trust boundaries.
 - [Troubleshooting](troubleshooting/README.md) — recover from common failures.
 - [Architecture](architecture/README.md) — editions, ownership, and data flow.
 - [Development](development/README.md) — code, QA, and contribution paths.

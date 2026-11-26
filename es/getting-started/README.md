@@ -6,14 +6,14 @@ Guía de instalación en orden:
 
 ## Sabé qué hay disponible
 
-HorneroOS publica una ISO actual firmada: **v0.2.0-preview32**, una sola
+HorneroOS publica una ISO preview firmada: **v0.2.0-preview32**, una sola
 imagen x86_64 que instala HorneroOS Desktop, Studio o Gaming con
 especializaciones creativas a elección. Se usa y se mantiene a diario;
 no es una release terminada ni con soporte comercial.
 
 - Descarga: [horneroos.com/install](https://www.horneroos.com/install) o la
   [release v0.2.0-preview32](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview32).
-- ISO: `horneroos-2026.10-preview32-x86_64.iso` (2.8 GB, alojada en Vercel
+- ISO: `horneroos-2026.10-preview32-x86_64.iso` (2.7 GB, alojada en Vercel
   Blob porque supera el límite de 2 GB por asset de GitHub).
 - SHA-256: `b8cd0f8604bc69f7d2112fb8bccd97115d32d197e9c92c62e02faf5de6345aec`
 - Firma: firma GPG desacoplada de la clave de releases de HorneroOS
@@ -51,9 +51,10 @@ sha256sum -c horneroos-2026.10-preview32-x86_64.iso.sha256
   Strix G16 está registrada como USER-VERIFIED en preview24 más arreglos
   post-instalación (ver `docs/PELICANO-PARITY.md` en HorneroOS/qa); los
   chequeos especializados como NVENC, corrección Vulkan y captura HDMI
-  siguen NOT SPECIFICALLY TESTED. Studio, Desktop y Gaming son Supported,
-  no Supported. Server y Agents son ediciones planificadas sin imagen
-  instalable. Niri es experimental.
+  siguen NOT SPECIFICALLY TESTED. Desktop, Studio y Gaming son ediciones
+  **Preview** — se usan y mantienen a diario, todavía sin validación en
+  hardware físico para v0.2.0-preview32. Server y Agents son ediciones
+  planificadas sin imagen instalable. Niri es experimental.
 - Panda Foss está desarrollando el instalador oficial futuro; el camino
   Calamares de esta ISO es un puente provisional.
 
@@ -83,12 +84,12 @@ página vieja de wiki como si fueran un instalador.
 
 ## Explorá antes de instalar
 
-- Mirá capturas reales del producto en el [Showroom](https://github.com/HorneroOS/website/tree/main/src/content/showroom).
-- Compará los [temas](https://github.com/HorneroOS/website/blob/main/src/pages/themes.astro)
-  y los [layouts de barra](https://github.com/HorneroOS/website/blob/main/src/pages/layouts.astro)
+- Mirá capturas reales del producto en el [Showroom](https://horneroos.com/showroom/).
+- Compará los [temas](https://horneroos.com/themes/)
+  y los [layouts de barra](https://horneroos.com/layouts/)
   disponibles.
 - Leé los [fundamentos del escritorio](../desktop/README.md), los
-  [atajos](../../desktop/shortcuts.md) y la
+  [atajos](../desktop/shortcuts.md) y la
   [apariencia](../desktop/appearance.md).
 
 ## Después de instalar

@@ -2,14 +2,14 @@
 
 ## Know what is available
 
-HorneroOS publishes a signed current ISO: **v0.2.0-preview32**, one
+HorneroOS publishes a signed preview ISO: **v0.2.0-preview32**, one
 x86_64 image that installs HorneroOS Desktop, Studio or Gaming with
 selectable creative specializations. It is used and maintained daily;
 it is not a finished or commercially supported release.
 
 - Download: [horneroos.com/install](https://www.horneroos.com/install) or the
   [v0.2.0-preview32 release](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview32).
-- ISO: `horneroos-2026.10-preview32-x86_64.iso` (2.8 GB, hosted on Vercel
+- ISO: `horneroos-2026.10-preview32-x86_64.iso` (2.7 GB, hosted on Vercel
   Blob because it exceeds GitHub's 2 GB asset limit).
 - SHA-256: `b8cd0f8604bc69f7d2112fb8bccd97115d32d197e9c92c62e02faf5de6345aec`
 - Signature: detached GPG signature from the HorneroOS releases key
@@ -45,9 +45,10 @@ sha256sum -c horneroos-2026.10-preview32-x86_64.iso.sha256
   is recorded as USER-VERIFIED on preview24 plus post-install fixes
   (see HorneroOS/qa `docs/PELICANO-PARITY.md`); specialized checks
   such as NVENC, Vulkan correctness and HDMI capture remain
-  NOT SPECIFICALLY TESTED. Studio, Desktop and Gaming are Supported,
-  used and maintained daily. Server and Agents are planned editions with no
-  installable image. Niri is experimental.
+  NOT SPECIFICALLY TESTED. Desktop, Studio and Gaming are **Preview**
+  editions — used and maintained daily, with no physical-hardware
+  validation on v0.2.0-preview32 yet. Server and Agents are planned
+  editions with no installable image. Niri is experimental.
 - Panda Foss is developing the future official installer; the Calamares
   path in this ISO is a provisional bridge.
 
@@ -75,9 +76,9 @@ list, a dotfiles checkout, or an old wiki page as an installer.
 
 ## Explore before installing
 
-- See real product captures in the [Showroom](https://github.com/HorneroOS/website/tree/main/src/content/showroom).
-- Compare the available [themes](https://github.com/HorneroOS/website/blob/main/src/pages/themes.astro)
-  and [bar layouts](https://github.com/HorneroOS/website/blob/main/src/pages/layouts.astro).
+- See real product captures in the [Showroom](https://horneroos.com/showroom/).
+- Compare the available [themes](https://horneroos.com/themes/)
+  and [bar layouts](https://horneroos.com/layouts/).
 - Read [desktop basics](../desktop/README.md), [shortcuts](../desktop/shortcuts.md),
   and [appearance](../desktop/appearance.md).
 

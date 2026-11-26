@@ -6,7 +6,7 @@ default wallpaper, GTK theme, icon theme and light or dark mode. All themes
 use the [Hornero Signal](hornero-signal.md) design language.
 
 > **Development.** This page describes Hornero Signal, on the `main`
-> branches since November 2026. current ISOs up to v0.2.0-preview32 still
+> branches since November 2026. Current ISOs up to v0.2.0-preview32 still
 > ship the previous, wallpaper-generated appearance system.
 
 ## Pick a theme
