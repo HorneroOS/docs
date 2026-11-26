@@ -8,7 +8,7 @@ wallpaper, an image or a colour you choose, and build a complete
 and the fallback whenever anything goes wrong.
 
 > **Development.** Chromatic is on the `main` branches of the Shell and
-> `horneroctl`. current ISOs up to v0.2.0-preview32 do not include it. The
+> `horneroctl`. Current ISOs up to v0.2.0-preview32 do not include it. The
 > accent override (see [Accent override](#accent-override)) is still in
 > review and is not on `main` yet.
 

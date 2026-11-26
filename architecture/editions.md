@@ -23,7 +23,7 @@ Base + desktop + studio                → Studio
 
 The same model feeds the graphical installer. The provisional Calamares
 installer in HorneroOS/installer consumes it to build the published,
-signed v0.2.0-preview32 current ISO; Panda Foss's custom installer is
+signed v0.2.0-preview32 preview ISO; Panda Foss's custom installer is
 the future official path.
 
 ## Current maturity
@@ -31,6 +31,9 @@ the future official path.
 - **Desktop — Preview.** Real desktop product and package composition;
   installs from the signed preview32 ISO via the provisional Calamares
   path.
+- **Gaming — Preview.** Installs from the same signed preview32 ISO with
+  gaming tooling; physical-hardware validation on preview32 is still
+  pending.
 - **Hyprland — Supported.** Validated default desktop session.
 - **Niri — Experimental.** A single-output VM journey is verified. See
   [Wayland compositors](../desktop/compositors.md) for the gaps.

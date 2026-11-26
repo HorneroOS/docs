@@ -53,7 +53,7 @@ Config:
 
 - **Hyprland** ejecuta la sesión de escritorio configurada. Hornero
   Config provee sus valores por defecto; ver
-  [atajos](../../desktop/shortcuts.md).
+  [atajos](../desktop/shortcuts.md).
 - **Quickshell / Hornero Shell** es dueña de las barras, el lanzador, el
   Dashboard, las notificaciones, el OSD y el Centro de control. Ver la
   [guía del escritorio](../desktop/README.md) y la

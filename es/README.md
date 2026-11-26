@@ -13,7 +13,7 @@ implementación quedan en los repositorios de la
 > HorneroOS es una familia de sistemas operativos basada en Arch, en
 > desarrollo. Su edición Desktop es Wayland-first, con Hyprland como
 > compositor validado por defecto y Niri como backend experimental. Hay
-> publicada una ISO actual firmada (Desktop, Studio y Gaming,
+> publicada una ISO preview firmada (Desktop, Studio y Gaming,
 > v0.2.0-preview32); no es una release estable ni soportada, y la propia
 > v0.2.0-preview32 todavía no tiene validación ni aceptación en hardware
 > físico. La [página de releases](https://horneroos.com/releases) y el
@@ -26,15 +26,17 @@ implementación quedan en los repositorios de la
 | --- | --- |
 | Entender el estado de releases e instalación | [Primeros pasos](getting-started/README.md) |
 | Instalar y dar los primeros pasos | [Instalar paso a paso](getting-started/install-step-by-step.md) · [Primeros pasos post-instalación](applications/post-install-first-steps.md) |
+| Instalar sobre un Arch Linux existente | [Instalar en Arch](getting-started/install-on-arch.md) |
 | Conocer qué está probado y qué no | [Probado y no probado](hardware/tested-and-untested.md) · [Problemas por síntoma](troubleshooting/by-symptom.md) |
 | Usar el escritorio, las apps y el Centro de control | [Desktop](desktop/README.md) · [Apps y flujos](applications/README.md) |
 | Conocer el aspecto Hornero Signal: temas, tipografía, accesibilidad | [Hornero Signal](desktop/hornero-signal.md) |
 | Cambiar temas, colores o el fondo | [Apariencia](desktop/appearance.md) · [Fondos](desktop/wallpapers.md) |
 | Elegir una disposición de barra | [Layouts](desktop/layouts.md) |
 | Bloquear, reiniciar o apagar la sesión | [Menú de sesión](../desktop/session-menu.md) |
-| Buscar un atajo de teclado | [Atajos](../desktop/shortcuts.md) |
+| Buscar un atajo de teclado | [Atajos](desktop/shortcuts.md) |
 | Automatizar o inspeccionar el sistema desde una terminal | [horneroctl](../desktop/horneroctl.md) |
 | Actualizar el sistema y entender los límites de recuperación | [Actualizaciones y recuperación: todavía no hay vuelta atrás del sistema](desktop/updates-and-rollback.md) |
+| Entender seguridad, cifrado y límites de confianza | [Seguridad y privacidad](security/README.md) |
 | Diagnosticar problemas de gráficos o dispositivos | [Hardware](hardware/README.md) · [Solución de problemas](troubleshooting/README.md) |
 | Entender las ediciones y los límites del sistema | [Arquitectura](architecture/README.md) |
 | Compilar, probar o contribuir | [Desarrollo](development/README.md) |
@@ -44,7 +46,7 @@ implementación quedan en los repositorios de la
 buscador, grupo Essential Applications expandido.](https://www.horneroos.com/captures/cap-shell-08.png)
 
 *El overlay de atajos, leído en vivo desde Hyprland — ver
-[Atajos](../desktop/shortcuts.md). Captura real; se reutiliza
+[Atajos](desktop/shortcuts.md). Captura real; se reutiliza
 intencionalmente la misma captura de esa guía, no es una copia nueva.*
 
 ## Cómo se mantiene precisa esta documentación
@@ -77,6 +79,8 @@ copia.
   comandos soportados.
 - [Hardware](hardware/README.md) — diagnóstico de dispositivos y guía de
   gráficos.
+- [Seguridad y privacidad](security/README.md) — cifrado de disco, Secure
+  Boot, firewall, firma de releases y límites de confianza.
 - [Solución de problemas](troubleshooting/README.md) — recuperate de los
   fallos comunes.
 - [Arquitectura](architecture/README.md) — ediciones, propiedad y flujo de

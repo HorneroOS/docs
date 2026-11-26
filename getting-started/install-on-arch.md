@@ -35,7 +35,8 @@ backup is still free:
 
 ```sh
 tar -czf ~/hornero-pre-adopt-$(date +%F).tar.gz \
-  ~/.config/hypr ~/.config/ghostty ~/.config/environment.d 2>/dev/null
+  ~/.config/hypr ~/.config/kitty ~/.config/ghostty \
+  ~/.config/environment.d 2>/dev/null
 ```
 
 GPU drivers stay your responsibility, exactly as on plain Arch:
@@ -168,7 +169,7 @@ Your own files were never touched, so there is nothing to restore.
 - **`horneroctl doctor` reports missing tools:** install the named
   package and re-run; doctor distinguishes hard requirements from
   optional creative tooling.
-- **Two notification daemons or bars at once:**expected when
+- **Two notification daemons or bars at once:** expected when
   another desktop component autostarts alongside Hornero Shell.
   Disable the autostart of the one you do not want; HorneroOS does
   not stop foreign processes for you.

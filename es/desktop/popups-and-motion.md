@@ -4,7 +4,7 @@ Cómo se abren los menús, paneles y tooltips, dónde aparecen, cómo se cierran
 y cómo se mueve el escritorio, o deja de moverse, cuando lo pedís.
 
 > **Development.** El contrato de interacción de abajo está en la rama
-> `main` de Shell desde noviembre de 2026. Las ISO actual hasta la
+> `main` de Shell desde noviembre de 2026. Las ISO preview hasta la
 > v0.2.0-preview32 inclusive se comportan distinto. El solver de ubicación,
 > los niveles de movimiento y la cascada de Escape están cubiertos por las
 > pruebas automáticas de Shell (sin pantalla y en modo offscreen). La
@@ -133,9 +133,8 @@ pulsa en reposo.
 
 ## Más información
 
-- [Contrato de interacción para autores de extensiones](../../development/interaction-contract.md)
-  — las reglas de ubicación y movimiento que debe seguir una superficie (en
-  inglés).
+- [Contrato de interacción para autores de extensiones](../development/interaction-contract.md)
+  — las reglas de ubicación y movimiento que debe seguir una superficie.
 - [Referencia de interacción de Shell](https://github.com/HorneroOS/shell/blob/main/docs/INTERACTION.md)
   — la tabla completa de cierre por superficie y los detalles del focus grab.
 - [Hornero Signal](hornero-signal.md) — el lenguaje visual, incluida la

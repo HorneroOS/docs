@@ -20,6 +20,64 @@ horneroctl shell preset apply cockpit --dry-run
 horneroctl shell preset apply cockpit --yes
 ```
 
+## Command groups
+
+`horneroctl` organizes its subcommands into 27 top-level groups:
+
+- `agent` — manage local AI coding agents, defaults, config, and usage
+  (`horneroctl agent list`).
+- `appearance` — themes, Chromatic palettes, GTK/Qt sync, night mode, and
+  colors (`horneroctl appearance status --json`).
+- `apps` — app launcher, switcher, git-status watcher, toggles, and
+  performance (`horneroctl apps toggle launcher`).
+- `assistant` — Hornero assistant gateway, sessions, tools, policy, and
+  prompts (`horneroctl assistant status`).
+- `backup` — create, list, restore, and schedule user backups
+  (`horneroctl backup list`).
+- `bluetooth` — inspect and control Bluetooth state
+  (`horneroctl bluetooth`).
+- `capture` — screenshots, screen recording, and clipboard capture
+  (`horneroctl capture status`).
+- `completion` — generate shell completion scripts for `bash`, `fish`, and
+  `zsh` (`horneroctl completion bash`).
+- `config` — Control Center GUI, paths, validation, snapshots, and default
+  apps (`horneroctl config validate`).
+- `doctor` — run system and session health checks (`horneroctl doctor`).
+- `gaming` — Gaming edition diagnostics, launch options, and selections
+  (`horneroctl gaming doctor`).
+- `github` — GitHub inbox, status, stats, and export
+  (`horneroctl github status`).
+- `hardware` — battery, brightness, keyboard, microphone, and network
+  controls (`horneroctl hardware battery status`).
+- `help` — print CLI help for any command group (`horneroctl help`).
+- `hypr` — Hyprland animations, cursor, input, layouts, monitors, and
+  plugins (`horneroctl hypr monitors list`).
+- `lock` — lock screen control and status (`horneroctl lock status`).
+- `mode` — switch or inspect desktop experience modes
+  (`horneroctl mode list`).
+- `package` — query repository/AUR updates, dependencies, and upgrades
+  (`horneroctl package check`).
+- `plugin` — browse PluginKit catalog, enable/disable, or scaffold plugins
+  (`horneroctl plugin catalog`).
+- `power` — lock, logout, suspend, reboot, shutdown, and power status
+  (`horneroctl power status`).
+- `recovery` — read-only snapshot and recovery readiness diagnostics
+  (`horneroctl recovery doctor`).
+- `shell` — start, stop, restart, inspect logs, IPC, and bar presets
+  (`horneroctl shell status`).
+- `studio` — Studio audio profiles, jobs, modes, apps, and diagnostics
+  (`horneroctl studio doctor`).
+- `system` — installed edition profile and active compositor info
+  (`horneroctl system info`).
+- `version` — print the `horneroctl` version (`horneroctl version`).
+- `wallpaper` — inspect or change the active wallpaper
+  (`horneroctl wallpaper current`).
+- `welcome` — open, reset, or configure the Welcome Center on login
+  (`horneroctl welcome status`).
+
+Run `horneroctl <group> --help` to inspect every subcommand and flag in a
+group.
+
 ## Open a Settings page
 
 The CLI can open Control Center directly to a pane:
@@ -59,12 +117,12 @@ passed".](https://www.horneroos.com/captures/cap-term-04.png)
 are that machine's home directory; yours will differ. Capture,
 19 November 2026.*
 
-## Check for updates (Development Preview)
+## Check for updates
 
-Development builds with AUR-aware update checks report repository packages
-through `checkupdates` and AUR packages through `yay -Qua` or `paru -Qua` when
-one of those helpers is installed. These checks only query package state; they
-do not install or upgrade packages. The AUR query has a 30-second limit.
+AUR-aware update checks report repository packages through `checkupdates` and
+AUR packages through `yay -Qua` or `paru -Qua` when one of those helpers is
+installed. These checks only query package state; they do not install or
+upgrade packages. The AUR query has a 30-second limit.
 
 ```sh
 horneroctl package check
@@ -79,11 +137,10 @@ remain available and the AUR lane is explicitly marked as unchecked. A dry run
 shows which commands would run without invoking either query. A full system
 upgrade is a separate, explicit operation: `horneroctl package upgrade`.
 
-## Edition and compositor information (Preview)
+## Edition and compositor information
 
-Development builds that include the edition-profile command can report the
-installed composition separately from the compositor active in the current
-session:
+`horneroctl system info` reports the installed composition separately from
+the compositor active in the current session:
 
 ```sh
 horneroctl system info
@@ -94,8 +151,7 @@ The command reads the profile record installed by a HorneroOS composition. It
 reports the edition, package sets, configured compositor, maturity, and source
 revision, alongside the compositor detected in the running session. It does
 not infer an edition from packages that happen to be installed. Systems
-without the profile record are reported as **unrecorded**. This capability is
-in Preview and may not be present in the released `horneroctl` package yet.
+without the profile record are reported as **unrecorded**.
 
 ## Updates and recovery readiness
 
