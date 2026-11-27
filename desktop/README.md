@@ -15,6 +15,7 @@ Center contains persistent system and shell settings.
 | Find a setting in the Control Center | [Control Center map](control-center.md) |
 | Install, update or remove an extension | [Extensions](extensions.md) |
 | Change how the desktop behaves: Focus, Signal, Gaming | [Experience modes](experience-modes.md) |
+| Capture, apply, and sync universal workspace configurations | [Profiles and snapshots](profiles-snapshots.md) |
 | Change or understand a wallpaper | [Wallpapers](wallpapers.md) |
 | Choose or troubleshoot a session compositor | [Wayland compositors](compositors.md) |
 | Understand popups, Escape and reduced motion | [Popups, focus and motion](popups-and-motion.md) |

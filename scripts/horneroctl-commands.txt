@@ -1,5 +1,5 @@
-# horneroctl command paths, generated from HorneroOS/hornero@10078375a835dadcf05da0d1c35034caa9d58408
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
+# horneroctl command paths, generated from HorneroOS/hornero@10078375a835dadcf05da0d1c35034caa9d58408
 agent
 agent config
 agent config apply
@@ -305,6 +305,17 @@ power reboot
 power shutdown
 power status
 power suspend
+profile
+profile apply
+profile capture
+profile delete
+profile diff
+profile export
+profile import
+profile launch-apps
+profile list
+profile revert
+profile show
 recovery
 recovery doctor
 shell
@@ -341,6 +352,12 @@ studio mode audio
 studio mode performance
 studio mode restore
 studio mode show
+studio routing
+studio routing disable
+studio routing enable
+studio routing fix-volume
+studio routing move-stream
+studio routing status
 studio selection
 studio selection set
 studio selection show

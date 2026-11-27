@@ -1,5 +1,8 @@
 # Studio audio setup, routing, and recovery
 
+> [!NOTE]
+> You can capture your complete studio audio configuration along with experience and routing into a switchable snapshot profile using `horneroctl profile capture` or via `Control Center → Profiles`. See [Profiles and snapshots](../desktop/profiles-snapshots.md).
+
 How Studio audio works on HorneroOS: the mode contract, the portable
 policy profiles, day-to-day routing, and how to recover when something
 sounds wrong. Studio is a **Supported** edition — this guide describes

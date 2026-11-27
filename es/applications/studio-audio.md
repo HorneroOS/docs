@@ -1,5 +1,8 @@
 # Audio en Studio: configuración, ruteo y recuperación
 
+> [!NOTE]
+> Podés capturar tu configuración completa de audio de Studio junto con la experiencia y el ruteo en un perfil de instantánea conmutable usando `horneroctl profile capture` o desde el `Centro de control → Perfiles`. Mirá [Perfiles e instantáneas](../desktop/profiles-snapshots.md).
+
 Cómo funciona el audio de Studio en HorneroOS: el contrato de modos, los
 perfiles portables de política, el ruteo diario y cómo recuperarte cuando algo
 suena mal. Studio es una edición **Soportada** — esta guía describe los

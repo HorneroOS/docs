@@ -1,5 +1,8 @@
 # Studio: ruteo en vivo para micrófono, guitarra, DAW, Discord y OBS
 
+> [!TIP]
+> **Atajo rápido:** ¡También podés habilitar estos kits de enrutamiento virtual en 1 clic desde `Centro de control → Studio` o con `horneroctl studio routing enable` (por ejemplo, `live-call`, `browser-backing`, `reaper-low-latency`), enrutar streams directamente desde `Centro de control → Audio`, y guardar toda la configuración como un perfil de espacio de trabajo conmutable mediante `Centro de control → Perfiles` o `horneroctl profile capture`! Mirá [Perfiles e instantáneas](../desktop/profiles-snapshots.md).
+
 Una guía práctica y 100% reversible en HorneroOS Studio para mezclar un
 micrófono en vivo, una guitarra eléctrica pasando por un DAW (como REAPER
 sobre `pipewire-jack`) y audio opcional del navegador hacia Discord y OBS
