@@ -163,62 +163,54 @@ Signal Day sobre Patagonia (Perito Moreno, ThartmannWiki, CC BY-SA 4.0):
 *Render conceptual quitado (2026-11-20): Render conceptual: dirección final,
 Signal Day. Capturas reales: [Showroom](https://horneroos.com/showroom/).*
 
-## 3. Cambios de paleta y contraste
+## 3. Paleta y contraste (Enmienda 3 de la RFC 0001)
 
-Las paletas insignia de la RFC pasan AA sobre `base`, `panel` y `raised`, que
-es lo que afirma la RFC. Este lenguaje pone números en pozos `sunken` y dibuja
-límites `ruleStrong` sobre tooltips `lifted`, donde algunos roles fallan.
-Cambios de valor propuestos, para que W1 (config) los adopte mediante una
-enmienda a la RFC:
-
-| Tema | Rol | RFC | Propuesto |
-| --- | --- | --- | --- |
-| Night | `ruleStrong` | `#66707B` | `#707A85` |
-| Day | `ruleStrong` | `#857F73` | `#736D62` |
-| Day | `signal` | `#9A5100` | `#8F4B00` |
-| Day | `cue` | `#1D6894` | `#1A5F88` |
-| Day | `focus` | `#1D6894` | `#1A5F88` |
-| Day | `phosphor` | `#2A7341` | `#256A3B` |
-| Day | `alert` | `#B0371F` | `#A8341C` |
+Las paletas insignia de la RFC pasan AA sobre `sunken`, `base`, `panel` y
+`raised`, y `ruleStrong` pasa 3:1 sobre `base`, `panel` y tooltips `lifted`.
+Signal Night usa grafito frío de hora azul (`#0C1016`..`#2C3947`) con tinta
+blanco hueso (`#E6EBF1`/`#A9B7C6`); Signal Day usa cerámica blanca luminosa y
+aluminio pálido (`#E8EDF4`..`#FFFFFF`) con tinta pizarra oscura
+(`#283344`/`#505E70`), ámbar profundo (`#864700`), celeste profundo
+(`#145D86`), menta (`#1E6448`) y rosa-carmesí (`#9C293E`).
 
 Contraste mínimo de cada rol en las seis superficies (`ground`, `sunken`,
 `base`, `panel`, `raised`, `lifted`), calculado con la fórmula de luminancia
 relativa WCAG 2.x:
 
-| Tema | Rol | Valor | Mín | Peor sup. | Mín RFC |
-| --- | --- | --- | --- | --- | --- |
-| Night | `ink` | `#ECE6DA` | 10.75 | lifted | igual |
-| Night | `inkMuted` | `#A8ABAD` | 5.78 | lifted | igual |
-| Night | `ruleStrong` | `#707A85` | 3.06 | lifted | 2.65 |
-| Night | `signal` | `#F2A33A` | 6.41 | lifted | igual |
-| Night | `cue` | `#7EC1EA` | 6.81 | lifted | igual |
-| Night | `phosphor` | `#8BD49A` | 7.62 | lifted | igual |
-| Night | `alert` | `#F0705A` | 4.56 | lifted | igual |
-| Day | `ink` | `#1B1E22` | 11.55 | sunken | igual |
-| Day | `inkMuted` | `#4E545B` | 5.28 | sunken | igual |
-| Day | `ruleStrong` | `#736D62` | 3.54 | sunken | 2.75 |
-| Day | `signal` | `#8F4B00` | 4.57 | sunken | 4.08 |
-| Day | `cue` | `#1A5F88` | 4.77 | sunken | 4.19 |
-| Day | `phosphor` | `#256A3B` | 4.53 | sunken | 4.00 |
-| Day | `alert` | `#A8341C` | 4.57 | sunken | 4.25 |
+| Tema  | Rol          | Valor     | Mín   | Peor sup. | `base` |
+| ----- | ------------ | --------- | ----- | --------- | ------ |
+| Night | `ink`        | `#E6EBF1` | 9.82  | lifted    | 14.45  |
+| Night | `inkMuted`   | `#A9B7C6` | 5.76  | lifted    | 8.48   |
+| Night | `ruleStrong` | `#8393A6` | 3.75  | lifted    | 5.52   |
+| Night | `signal`     | `#F2AC52` | 6.06  | lifted    | 8.91   |
+| Night | `cue`        | `#8BCEF0` | 6.83  | lifted    | 10.05  |
+| Night | `phosphor`   | `#8DDBAF` | 7.22  | lifted    | 10.63  |
+| Night | `alert`      | `#FF8494` | 5.04  | lifted    | 7.41   |
+| Day   | `ink`        | `#283344` | 10.16 | sunken    | 11.34  |
+| Day   | `inkMuted`   | `#505E70` | 5.27  | sunken    | 5.88   |
+| Day   | `ruleStrong` | `#7A8798` | 2.91  | sunken    | 3.25   |
+| Day   | `signal`     | `#864700` | 5.74  | sunken    | 6.41   |
+| Day   | `cue`        | `#145D86` | 5.69  | sunken    | 6.35   |
+| Day   | `phosphor`   | `#1E6448` | 5.63  | sunken    | 6.29   |
+| Day   | `alert`      | `#9C293E` | 5.98  | sunken    | 6.67   |
 
-Pares que cambian con la propuesta, tema Day: `onSignal` `#FFFFFF` sobre
-`signal` 6.62; `onCue` sobre `cue` 6.92; `#FFFFFF` sobre `phosphor` 6.56;
-`onAlert` sobre `alert` 6.62; `signal` sobre `signalWell` 5.03. En Night,
-`onSignal` sobre `signal` sigue en 8.90.
+Pares `on*`: en Day, `onSignal` `#FFFFFF` sobre `signal` 7.20; `onCue` sobre
+`cue` 7.14; `onPhosphor` sobre `phosphor` 7.07; `onAlert` sobre `alert` 7.50;
+`signal` sobre `signalWell` 6.05. En Night, `onSignal` sobre `signal` es 9.39.
 
-`inkFaint` sigue siendo solo decorativo (mínimo Night 3.04, Day 2.76). Nada en
-este lenguaje lo usa para texto que una persona necesite leer, incluido el
-contexto de encabezado de popout, que usa `inkMuted`.
+`inkFaint` sigue siendo solo decorativo y para estados deshabilitados (Night
+4.04 sobre `lifted`, Day 4.19 sobre `sunken` / 4.67 sobre `base`). Nada en
+este lenguaje lo usa para texto que una persona necesite leer, incluidos
+contexto de encabezado de popout, horarios, epígrafes y ayudas, que usan
+`inkMuted`.
 
-### 3.1 Rol propuesto: `glow`
+### 3.1 Rol `glow`
 
-Se propone un nuevo rol para el acento luminoso (§9): `glow` = `#FFB650` en
-Night (7.67:1 sobre `lifted`, 10.65:1 detrás de `onSignal`), e igual a `signal`
-en Day, donde nunca se renderiza glow. Es un color de emisión para halos,
-nunca un color de texto ni relleno. Hasta que la RFC lo sume, las
-implementaciones usan `signal` (o `phosphor` para trazas) con los límites de
-alfa en §9; nada en este documento depende de que el rol exista.
+`glow` es `#FFC06B` en Night (7.29:1 sobre `lifted`, 10.73:1 sobre `base`) y
+`#864700` (igual a `signal`) en Day, donde nunca se renderiza glow. Es un
+color de emisión para halos (§9), nunca un color de texto ni relleno. Cuando
+una paleta omite `glow`, las implementaciones caen a `signal` (o `phosphor`
+para trazas) con los límites de alfa en §9.
 
 ## 4. Anatomía de barra
 
@@ -690,10 +682,10 @@ Iguazú. Capturas reales: [Showroom](https://horneroos.com/showroom/).*
    2 px de margen.
 2. Calculá la luminancia relativa media de la región y su desviación estándar.
 3. Elegí la **polaridad** que dé el mayor contraste contra la media:
-   - *light* — roles Night: `ink` `#ECE6DA`, `inkMuted` `#A8ABAD`, acento en
-     vivo `#FFB650`, `alert` `#F0705A`; halo `ground` `#0C0F13`.
-   - *dark* — roles Day: `ink` `#1B1E22`, `inkMuted` `#4E545B`, `signal`
-     `#8F4B00`, `alert` `#A8341C`; halo `#FFFFFF`.
+   - *light* — roles Night: `ink` `#E6EBF1`, `inkMuted` `#A9B7C6`, acento en
+     vivo `#FFC06B`, `alert` `#FF8494`; halo `ground` `#0C1016`.
+   - *dark* — roles Day: `ink` `#283344`, `inkMuted` `#505E70`, `signal`
+     `#864700`, `alert` `#9C293E`; halo `#FFFFFF`.
 4. Dibujá cada glifo con un **halo** de 1 px en el color del halo al 88 % de
    alfa (un contorno de texto, no una caja). Cuando la desviación de
    luminancia de la región supera 0.12 (fondos detallados) sumá una sombra
@@ -728,8 +720,8 @@ opuesto (halo oscuro al 88 % sobre blanco, halo blanco al 88 % sobre negro):
 
 | Polaridad | `ink` | `inkMuted` | Acento vivo | `alert` |
 | --- | --- | --- | --- | --- |
-| Clara | 11.30 | 6.08 | 8.06 | 4.79 |
-| Oscura | 12.67 | 5.80 | 5.01 | 5.01 |
+| Clara | 11.59 | 6.80 | 8.60 | 5.94 |
+| Oscura | 9.69 | 5.03 | 5.48 | 5.70 |
 
 Cada rol de texto mantiene por lo tanto al menos 4.5:1 contra su propio halo
 sobre cualquier fondo.

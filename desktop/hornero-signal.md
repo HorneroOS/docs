@@ -33,24 +33,31 @@ outlines pass 3:1. Meaning is never carried by colour alone.
 ## Themes
 
 Every theme provides the same set of named roles, so any theme works
-everywhere. The catalogue has 20 themes:
+everywhere. The catalogue has 24 themes:
 
-- **Hornero Signal** — Signal Night (factory default), Signal Day and
-  Signal High Contrast.
-- **Hornero Originals** — Buenos Aires Nocturno, Cuyo, Fin del Mundo,
-  Iberá, Iguazú, Pampa, Patagonia, Quebrada and Sierras.
+- **Hornero Signal** — Signal Night (factory default), Signal Day, Signal
+  Dusk and Signal High Contrast.
+- **Hornero Originals** — Buenos Aires Nocturno, Ceibo, Cuyo, Fin del Mundo,
+  Glaciar, Iberá, Iguazú, Jacarandá, Pampa, Patagonia, Quebrada and Sierras.
 - **Community ports** — Catppuccin Latte, Catppuccin Mocha, Everforest,
   Gruvbox, Landscape, Monochrome, Nord Dreams and Rosé Pine.
 
-The three Signal themes and the Originals in more detail:
+The four Signal themes and the Originals in more detail:
 
-- **Signal Night** — cool graphite instrument panels, warm phosphor-cream
-  text, amber signal and celeste cue.
-- **Signal Day** — warm technical-drawing paper with ink-black text.
+- **Signal Night** — cool blue-hour graphite instrument panels, crisp
+  off-white text, amber live signal and celeste focus cue.
+- **Signal Day** — luminous white ceramic and pale aluminum instrument
+  panels, dark slate text, deep amber signal and deep celeste cue.
+- **Signal Dusk** — warm workshop charcoal-aubergine panels, cream text,
+  copper signal and cyan cue.
 - **Signal High Contrast** — pure black ground, white text and outlines,
-  brighter amber and celeste.
-- **Hornero Originals** — regional palettes tinted by a place in Argentina,
-  each paired with a credited photograph of that place.
+  brighter amber signal and celeste cue.
+- **Hornero Originals** — regional palettes inspired by places and flora in
+  Argentina, spanning dark themes, warm stone and highland paper themes
+  (Cuyo, Quebrada and Sierras) and cool ceramic Light originals (**Ceibo**
+  neutral porcelain with coral-rose signal, **Glaciar** ice-white ceramic
+  with celeste and turquoise, and **Jacarandá** porcelain-lavender with
+  indigo-slate ink).
 
 Choose a theme in **Settings → Appearance → Themes**, or see
 [Appearance](appearance.md) for the terminal commands.

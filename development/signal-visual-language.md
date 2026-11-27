@@ -154,61 +154,53 @@ Signal Day over Patagonia (Perito Moreno, ThartmannWiki, CC BY-SA 4.0):
 
 *Concept render removed (2026-11-20): Concept render: final direction, Signal Day. Real captures: [Showroom](https://horneroos.com/showroom/).*
 
-## 3. Palette changes and contrast
+## 3. Palette and contrast (RFC 0001 Amendment 3)
 
-The RFC flagship palettes pass AA on `base`, `panel` and `raised`, which is
-what the RFC claims. This language puts numbers in `sunken` wells and draws
-`ruleStrong` boundaries on `lifted` tooltips, where some roles fail. Proposed
-value changes, for W1 (config) to adopt through an RFC amendment:
-
-| Theme | Role         | RFC       | Proposed  |
-| ----- | ------------ | --------- | --------- |
-| Night | `ruleStrong` | `#66707B` | `#707A85` |
-| Day   | `ruleStrong` | `#857F73` | `#736D62` |
-| Day   | `signal`     | `#9A5100` | `#8F4B00` |
-| Day   | `cue`        | `#1D6894` | `#1A5F88` |
-| Day   | `focus`      | `#1D6894` | `#1A5F88` |
-| Day   | `phosphor`   | `#2A7341` | `#256A3B` |
-| Day   | `alert`      | `#B0371F` | `#A8341C` |
+The RFC flagship palettes pass AA on `sunken`, `base`, `panel` and `raised`,
+and `ruleStrong` passes 3:1 on `base`, `panel` and `lifted` tooltips. Signal
+Night uses cool blue-hour graphite (`#0C1016`..`#2C3947`) with off-white ink
+(`#E6EBF1`/`#A9B7C6`); Signal Day uses luminous white ceramic and pale aluminum
+(`#E8EDF4`..`#FFFFFF`) with dark slate ink (`#283344`/`#505E70`), deep amber
+(`#864700`), deep celeste (`#145D86`), mint (`#1E6448`) and rose-crimson
+(`#9C293E`).
 
 Minimum contrast of each role across all six surfaces (`ground`, `sunken`,
 `base`, `panel`, `raised`, `lifted`), computed with the WCAG 2.x relative
 luminance formula:
 
-| Theme | Role         | Value     | Min   | Worst surface | RFC min |
-| ----- | ------------ | --------- | ----- | ------------- | ------- |
-| Night | `ink`        | `#ECE6DA` | 10.75 | lifted        | same    |
-| Night | `inkMuted`   | `#A8ABAD` | 5.78  | lifted        | same    |
-| Night | `ruleStrong` | `#707A85` | 3.06  | lifted        | 2.65    |
-| Night | `signal`     | `#F2A33A` | 6.41  | lifted        | same    |
-| Night | `cue`        | `#7EC1EA` | 6.81  | lifted        | same    |
-| Night | `phosphor`   | `#8BD49A` | 7.62  | lifted        | same    |
-| Night | `alert`      | `#F0705A` | 4.56  | lifted        | same    |
-| Day   | `ink`        | `#1B1E22` | 11.55 | sunken        | same    |
-| Day   | `inkMuted`   | `#4E545B` | 5.28  | sunken        | same    |
-| Day   | `ruleStrong` | `#736D62` | 3.54  | sunken        | 2.75    |
-| Day   | `signal`     | `#8F4B00` | 4.57  | sunken        | 4.08    |
-| Day   | `cue`        | `#1A5F88` | 4.77  | sunken        | 4.19    |
-| Day   | `phosphor`   | `#256A3B` | 4.53  | sunken        | 4.00    |
-| Day   | `alert`      | `#A8341C` | 4.57  | sunken        | 4.25    |
+| Theme | Role         | Value     | Min   | Worst surface | `base` |
+| ----- | ------------ | --------- | ----- | ------------- | ------ |
+| Night | `ink`        | `#E6EBF1` | 9.82  | lifted        | 14.45  |
+| Night | `inkMuted`   | `#A9B7C6` | 5.76  | lifted        | 8.48   |
+| Night | `ruleStrong` | `#8393A6` | 3.75  | lifted        | 5.52   |
+| Night | `signal`     | `#F2AC52` | 6.06  | lifted        | 8.91   |
+| Night | `cue`        | `#8BCEF0` | 6.83  | lifted        | 10.05  |
+| Night | `phosphor`   | `#8DDBAF` | 7.22  | lifted        | 10.63  |
+| Night | `alert`      | `#FF8494` | 5.04  | lifted        | 7.41   |
+| Day   | `ink`        | `#283344` | 10.16 | sunken        | 11.34  |
+| Day   | `inkMuted`   | `#505E70` | 5.27  | sunken        | 5.88   |
+| Day   | `ruleStrong` | `#7A8798` | 2.91  | sunken        | 3.25   |
+| Day   | `signal`     | `#864700` | 5.74  | sunken        | 6.41   |
+| Day   | `cue`        | `#145D86` | 5.69  | sunken        | 6.35   |
+| Day   | `phosphor`   | `#1E6448` | 5.63  | sunken        | 6.29   |
+| Day   | `alert`      | `#9C293E` | 5.98  | sunken        | 6.67   |
 
-Pairs that change with the proposal, Day theme: `onSignal` `#FFFFFF` on
-`signal` 6.62; `onCue` on `cue` 6.92; `#FFFFFF` on `phosphor` 6.56;
-`onAlert` on `alert` 6.62; `signal` on `signalWell` 5.03. Night `onSignal` on
-`signal` stays 8.90.
+Foreground `on*` pairs: Day `onSignal` `#FFFFFF` on `signal` 7.20, `onCue` on
+`cue` 7.14, `onPhosphor` on `phosphor` 7.07, `onAlert` on `alert` 7.50,
+`signal` on `signalWell` 6.05. Night `onSignal` on `signal` is 9.39.
 
-`inkFaint` stays decorative only (Night 3.04, Day 2.76 minimum). Nothing in
-this language uses it for text a person needs to read, including popout
-header context, which uses `inkMuted`.
+`inkFaint` stays decorative and disabled-only (Night 4.04 on `lifted`, Day
+4.19 on `sunken` / 4.67 on `base`). Nothing in this language uses it for text
+a person needs to read, including popout header context, timestamps, captions
+and hints, which use `inkMuted`.
 
-### 3.1 Proposed role: `glow`
+### 3.1 `glow` role
 
-One new role is proposed for the luminous accent (§9): `glow` = `#FFB650`
-in Night (7.67:1 on `lifted`, 10.65:1 behind `onSignal`), and equal to
-`signal` in Day, where glow is never rendered. It is an emission colour for
-halos, never a text or fill colour. Until the RFC adds it, implementations use
-`signal` (or `phosphor` for traces) at the alpha limits in §9; nothing in this
-document depends on the role existing.
+`glow` is `#FFC06B` in Night (7.29:1 on `lifted`, 10.73:1 on `base`) and
+`#864700` (equal to `signal`) in Day, where glow is never rendered. It is an
+emission colour for halos (§9), never a text or fill colour. When a palette
+omits `glow`, implementations fall back to `signal` (or `phosphor` for scope
+traces) at the alpha limits in §9.
 
 ## 4. Bar anatomy
 
@@ -302,7 +294,7 @@ Thickness in px by logical height (rounded; floor 24):
 <!-- markdownlint-disable MD013 -->
 
 | Preset | Style | Margin | 720p | 768p | 960p | 1080p | 1440p | 2160p |
-|---|---|---|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cockpit top / bottom | inset | 6 | 32 / 24 | 32 / 25 | 33 / 25 | 34 / 26 | 35 / 27 | 37 / 29 |
 | Cockpit Clear | inset | 6 | 32 / 24 | 32 / 25 | 33 / 25 | 34 / 26 | 35 / 27 | 37 / 29 |
 | Horizon top / bottom | inset | 6 | 30 / 24 | 30 / 25 | 31 / 25 | 32 / 26 | 33 / 27 | 35 / 29 |
@@ -643,10 +635,10 @@ only from treatments applied to the foreground glyphs themselves.
    value, meter and workspace cell, padded by 2 px.
 2. Compute the region's mean relative luminance and its standard deviation.
 3. Choose the **polarity** that gives the larger contrast against the mean:
-   - *light* — Night roles: `ink` `#ECE6DA`, `inkMuted` `#A8ABAD`, live
-     accent `#FFB650`, `alert` `#F0705A`; halo `ground` `#0C0F13`.
-   - *dark* — Day roles: `ink` `#1B1E22`, `inkMuted` `#4E545B`, `signal`
-     `#8F4B00`, `alert` `#A8341C`; halo `#FFFFFF`.
+   - *light* — Night roles: `ink` `#E6EBF1`, `inkMuted` `#A9B7C6`, live
+     accent `#FFC06B`, `alert` `#FF8494`; halo `ground` `#0C1016`.
+   - *dark* — Day roles: `ink` `#283344`, `inkMuted` `#505E70`, `signal`
+     `#864700`, `alert` `#9C293E`; halo `#FFFFFF`.
 4. Draw every glyph with a 1 px **halo** in the halo colour at 88 % alpha
    (a text outline, not a box). When the region's luminance deviation
    exceeds 0.12 (detailed wallpapers) add a soft 4 px glyph shadow in the
@@ -679,8 +671,8 @@ mandatory. Worst case with the halo composited over the opposite extreme
 
 | Polarity | `ink` | `inkMuted` | Live accent | `alert` |
 | -------- | ----- | ---------- | ----------- | ------- |
-| Light    | 11.30 | 6.08       | 8.06        | 4.79    |
-| Dark     | 12.67 | 5.80       | 5.01        | 5.01    |
+| Light    | 11.59 | 6.80       | 8.60        | 5.94    |
+| Dark     | 9.69  | 5.03       | 5.48        | 5.70    |
 
 Every text role therefore keeps at least 4.5:1 against its own halo on any
 wallpaper.
@@ -746,24 +738,24 @@ Verdicts for every file in
 "Remove" means delete the preset file and migrate an existing selection once
 to the named survivor.
 
-| Preset          | Verdict  | Becomes                            |
-| --------------- | -------- | ---------------------------------- |
-| cockpit         | Keep     | Flagship, factory default          |
-| cockpit-clear   | Keep     | Cockpit with no backdrop           |
-| horizon         | Redesign | Single instrument line             |
-| islands         | Redesign | Three rack modules                 |
-| floating-island | Redesign | Compact floating module (restored) |
-| cozy-minimal    | Redesign | Minimal floating strip             |
-| dock-bottom     | Redesign | Console dock                       |
-| classic-top     | Keep     | Conventional single bar            |
-| classic-bottom  | Keep     | Edge variant of classic-top        |
-| minimal-top     | Redesign | Focus layout, absorbs productivity |
+| Preset          | Verdict  | Becomes                                  |
+| --------------- | -------- | ---------------------------------------- |
+| cockpit         | Keep     | Flagship, factory default                |
+| cockpit-clear   | Keep     | Cockpit with no backdrop                 |
+| horizon         | Redesign | Single instrument line                   |
+| islands         | Redesign | Three rack modules                       |
+| floating-island | Redesign | Compact floating module (restored)       |
+| cozy-minimal    | Redesign | Minimal floating strip                   |
+| dock-bottom     | Redesign | Console dock                             |
+| classic-top     | Keep     | Conventional single bar                  |
+| classic-bottom  | Keep     | Edge variant of classic-top              |
+| minimal-top     | Redesign | Focus layout, absorbs productivity       |
 | productivity    | Redesign | Calm focused-work composition (restored) |
-| minimal-left    | Redesign | Instrument rail                    |
-| studio          | Redesign | Studio mode layout                 |
-| gaming          | Redesign | Gaming mode layout                 |
-| hornero-left    | Keep     | Caelestia-inspired left rail       |
-| hornero-right   | Keep     | Caelestia-inspired right rail      |
+| minimal-left    | Redesign | Instrument rail                          |
+| studio          | Redesign | Studio mode layout                       |
+| gaming          | Redesign | Gaming mode layout                       |
+| hornero-left    | Keep     | Caelestia-inspired left rail             |
+| hornero-right   | Keep     | Caelestia-inspired right rail            |
 
 Sixteen presets ship; each has a distinct composition and purpose. Floating
 Island and Productivity were removed in the first audit and restored after

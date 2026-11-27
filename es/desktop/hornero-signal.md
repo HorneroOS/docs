@@ -37,35 +37,52 @@ depende solo del color.
 ## Temas
 
 Todos los temas definen el mismo conjunto de roles con nombre, así que
-cualquier tema funciona en todos lados. El catálogo tiene 20 temas:
+cualquier tema funciona en todos lados. El catálogo tiene 24 temas:
 
-- **Hornero Signal**: Signal Night (valor de fábrica), Signal Day y
-  Signal High Contrast.
-- **Hornero Originals**: Buenos Aires Nocturno, Cuyo, Fin del Mundo, Iberá,
-  Iguazú, Pampa, Patagonia, Quebrada y Sierras.
+- **Hornero Signal**: Signal Night (valor de fábrica), Signal Day, Signal
+  Dusk y Signal High Contrast.
+- **Hornero Originals**: Buenos Aires Nocturno, Ceibo, Cuyo, Fin del Mundo,
+  Glaciar, Iberá, Iguazú, Jacarandá, Pampa, Patagonia, Quebrada y Sierras.
 - **Ports de la comunidad**: Catppuccin Latte, Catppuccin Mocha,
   Everforest, Gruvbox, Landscape, Monochrome, Nord Dreams y Rosé Pine.
 
-Los tres temas Signal y los Originals, con más detalle:
+Los cuatro temas Signal y los Originals, con más detalle:
 
-- **Signal Night**: paneles de instrumental en grafito frío, texto crema
-  fósforo cálido, señal ámbar y cue celeste.
-- **Signal Day**: papel cálido de dibujo técnico con texto negro tinta.
+- **Signal Night**: paneles de instrumental en grafito frío de hora azul,
+  texto blanco hueso nítido, señal ámbar y cue celeste.
+- **Signal Day**: paneles de cerámica blanca luminosa y aluminio pálido,
+  texto pizarra oscuro, señal ámbar profunda y cue celeste profundo.
+- **Signal Dusk**: paneles cálidos de carbón-berenjena de taller, texto
+  crema, señal cobre y cue cian.
 - **Signal High Contrast**: fondo negro puro, texto y contornos blancos,
-  ámbar y celeste más brillantes.
-- **Hornero Originals**: paletas regionales teñidas por un lugar de la
-  Argentina, cada una con una fotografía acreditada de ese lugar.
+  señal ámbar y cue celeste más brillantes.
+- **Hornero Originals**: paletas regionales inspiradas en lugares y flora de
+  la Argentina, incluyendo temas oscuros, temas claros de piedra y papel
+  cálido de sierra (Cuyo, Quebrada y Sierras) y originales claros de
+  cerámica fría (**Ceibo** en porcelana neutra con señal rosa-coral,
+  **Glaciar** en cerámica blanco-hielo con celeste y turquesa, y
+  **Jacarandá** en porcelana-lavanda con tinta índigo-pizarra).
 
 Elegí un tema en **Ajustes → Apariencia → Temas**, o mirá
 [Apariencia](appearance.md) para los comandos de terminal.
 
-## Los fondos nunca cambian los colores
+## Los fondos cambian los colores solo si elegís Chromatic
 
-El tema decide todos los colores. Cambiar el fondo cambia solo la imagen
-detrás de tus ventanas; la shell, las apps y las terminales mantienen la
-paleta del tema. Las previews anteriores de HorneroOS generaban colores a
-partir del fondo; ese comportamiento se eliminó. Mirá
-[Fondos](wallpapers.md).
+El tema decide todos los colores. Con un tema curado (Signal Night, Signal
+Day, Signal Dusk, Signal High Contrast o un tema del catálogo), cambiar el
+fondo nunca cambia la paleta: la shell, las apps y las terminales mantienen
+los colores del tema. La única excepción es Cockpit Clear, cuyo texto de
+barra alterna entre las tintas noche y día del propio tema para seguir
+legible sobre la imagen nueva. Mirá [Fondos](wallpapers.md).
+
+**Hornero Chromatic** es un tema dinámico opcional que arma una paleta
+Signal completa desde tu fondo, una imagen o un color que elijas, con
+variantes como equilibrada, vibrante, apagada o neón. Conserva la estructura
+Signal y sus reglas de legibilidad. En la shell, el interruptor de Alto
+contraste siempre lo pisa; las apps y terminales conservan la paleta
+Chromatic. Está especificado en la
+[RFC 0002](../development/rfc-0002-hornero-chromatic.md) y todavía no fue
+publicado.
 
 ## Tipografía y glifos
 
