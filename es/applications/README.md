@@ -126,6 +126,9 @@ del producto Hornero no depende de ejecutar sus comandos de provisión.
   — correr juegos y leer los límites honestos.
 - [Studio: audio de baja latencia](studio-low-latency.md) — Balanced
   primero; quantum no es latencia.
+- [Studio: ruteo en vivo](studio-live-routing.md) — configuración
+  reversible para mic, guitarra, DAW, Discord, OBS y pista del
+  navegador.
 - [Aplicaciones de Gaming](gaming.md) — matriz
   verificada de origen, licencia y soporte de la edición Gaming.
 - [Capturas y grabación](capture.md) — backends de

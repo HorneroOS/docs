@@ -86,6 +86,8 @@ maintainer, 19 de noviembre de 2026.*
   legado `pipewire-media-session` no forma parte de Studio.
 - Los dispositivos Bluetooth y de consumo siguen la política de sesión por
   defecto; cambiar a un modo de Studio nunca los reprioriza.
+- Para un ruteo reversible de micrófono, guitarra, DAW, Discord, OBS y
+  pista del navegador, mirá [Studio: ruteo en vivo](studio-live-routing.md).
 
 ## Recuperación
 
