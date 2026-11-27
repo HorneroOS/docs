@@ -113,7 +113,7 @@ mirá `horneroctl <comando> --help`.
 | Chequear la consistencia del tema | `horneroctl appearance doctor` |
 | Listar los temas instalados | `horneroctl appearance theme list` |
 | Ver el fondo de pantalla actual | `horneroctl wallpaper current` |
-| Listar e inspeccionar presets de la shell | `horneroctl shell preset list --full` |
+| Listar presets de la shell | `horneroctl shell preset list --full` |
 | Leer logs de la Shell | `horneroctl shell logs --lines 100` |
 | Leer los atajos de teclado actuales | `horneroctl hardware keyboard keys` |
 

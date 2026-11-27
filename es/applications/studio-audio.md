@@ -20,9 +20,9 @@ Contratos fuente, en orden de propiedad:
 | Modo | Cuándo | Qué cambia |
 | --- | --- | --- |
 | Balanced (por defecto) | Siempre seguro | Nada; sigue al dispositivo |
-| Baja Latencia (opt-in) | Rutas cortas de monitoreo | Propuesta de quantum de 128 cuadros |
+| Baja Latencia (opt-in) | Rutas cortas de monitoreo | Quantum de 128 cuadros |
 | Avanzado (opt-in) | Calibración por interfaz | Tus valores medidos |
-| Rendimiento Temporal | Renders y exportaciones largas | Perfil de energía temporal |
+| Rendimiento Temporal | Renders y exportaciones | Perfil de energía temporal |
 
 Detalles de los modos:
 

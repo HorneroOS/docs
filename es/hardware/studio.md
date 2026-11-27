@@ -10,7 +10,7 @@ soporte llegan recién con evidencia de aceptación de HorneroOS/qa.
 
 | Área | Hoy | Evidencia necesaria |
 | --- | --- | --- |
-| Interfaces de audio | Valores por defecto de PipeWire | Fixtures de loopback de QA |
+| Audio | Valores por defecto de PipeWire | Fixtures de loopback de QA |
 | GPUs | Drivers upstream de Arch | Matriz de capacidades de QA |
 | Pantallas | Shell por salida | Fixtures de pantallas de QA |
 | Tabletas/MIDI/superficies | Stack upstream | Escenarios de dispositivos de QA |

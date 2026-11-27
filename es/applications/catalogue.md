@@ -23,7 +23,7 @@ la tarea. Por ejemplo, **Kitty**, **Alacritty**, **Ghostty**, **terminal**,
 
 ## Terminal y línea de comandos
 
-| App o herramienta | Estado y comportamiento en Hornero | Configuración / flujo |
+| App o herramienta | Estado en Hornero | Configuración / flujo |
 | --- | --- | --- |
 | Kitty | Paquete opcional del host elegido como terminal por defecto de fábrica. Hornero provee valores de sistema; **Super + E** usa la terminal configurada, incluyendo Kitty, Alacritty o Ghostty. | [`~/.config/kitty/kitty.conf`](terminal.md#kitty), [Guía de terminal](terminal.md), [manual de Kitty](https://sw.kovidgoyal.net/kitty/) |
 | Alacritty | Alternativa opcional con respaldo empaquetado `/etc/alacritty/alacritty.toml` e import de la paleta del tema aplicado. La configuración de usuario puede sobrescribir el respaldo. | [Guía de Alacritty](terminal.md#alacritty), [referencia de configuración](https://alacritty.org/config-alacritty.html) |
@@ -37,7 +37,7 @@ la tarea. Por ejemplo, **Kitty**, **Alacritty**, **Ghostty**, **terminal**,
 
 ## Archivos, navegación y documentos
 
-| App o herramienta | Estado y comportamiento en Hornero | Configuración / flujo |
+| App o herramienta | Estado en Hornero | Configuración / flujo |
 | --- | --- | --- |
 | Thunar | Gestor de archivos opcional. Config agrega acciones de teclado útiles e integraciones contextuales; **Super + F** sigue la asociación `FileManager` del host. | [Archivos](files.md#thunar-para-gestión-visual-de-archivos), [documentación de Thunar](https://docs.xfce.org/xfce/thunar/start) |
 | Yazi | Gestor de archivos en terminal opcional, no es dependencia de Hornero Config. **Super + E** lo abre en la terminal configurada cuando está instalado; las herramientas de vista previa son opcionales. | [Archivos](files.md#yazi-para-navegar-desde-el-teclado), [documentación de Yazi](https://yazi-rs.github.io/docs/) |

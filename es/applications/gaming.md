@@ -21,12 +21,12 @@ paquete fijo:
 
 | Perfil | Significado | Estado |
 | --- | --- | --- |
-| Desktop Gaming | Perfil por defecto de gaming de escritorio | Preview (validado en VM) |
+| Desktop Gaming | Perfil por defecto de gaming | Preview (en VM) |
 | Handheld | Sesión centrada en control | Planificado — sin calificar |
 | Streaming | Captura y grabación con OBS Studio | Preview (validado en VM) |
 | Multi-Launcher | Lutris, Bottles y runners de Wine | Planificado |
 | VR | Camino SteamVR | Experimental — solo referencia |
-| Advanced Compatibility | Opt-ins gestionados por el usuario para Proton/Wine | Planificado |
+| Advanced Compatibility | Opt-ins del usuario para Proton/Wine | Planificado |
 
 ## Matriz
 
