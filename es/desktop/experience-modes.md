@@ -206,5 +206,5 @@ los cuatro niveles de movimiento.
 - [Arquitectura de los modos de experiencia](../architecture/experience-modes.md)
   — cómo se construyen los perfiles, el estado y el deck.
 - [Layouts](layouts.md) — el catálogo de layouts.
-- [RFC 0001](../../development/rfc-0001-hornero-signal.md) — la autoridad de
-  diseño, sección 5a (en inglés).
+- [RFC 0001](../development/rfc-0001-hornero-signal.md) — la autoridad de
+  diseño, sección 5a.

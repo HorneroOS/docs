@@ -4,7 +4,7 @@
 widget en unos pocos lugares" en una plataforma: una extensión contribuye a
 superficies con nombre mediante contratos tipados, con ajustes que el Centro de
 control dibuja por ella. La autoridad de diseño es el
-[RFC 0003](../../development/rfc-0003-pluginkit-contribution-surfaces.md); el
+[RFC 0003](rfc-0003-pluginkit-contribution-surfaces.md); el
 contrato normativo es `docs/PLUGINS.md` en `HorneroOS/shell`. Esta página es el
 recorrido para autoras y autores. Estado: al escribirla, los cambios del Shell
 están en revisión; nada de lo que sigue está en un Shell publicado hasta que se

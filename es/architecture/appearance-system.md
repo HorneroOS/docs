@@ -4,7 +4,7 @@ Esta página describe la propiedad y el flujo de datos para colaboradores. Para
 el modelo de usuario, empezá por [Hornero Signal](../desktop/hornero-signal.md),
 [Apariencia](../desktop/appearance.md) y [Fondos](../desktop/wallpapers.md). La
 autoridad de diseño es
-[RFC 0001 — Hornero Signal](../../development/rfc-0001-hornero-signal.md); los
+[RFC 0001 — Hornero Signal](../development/rfc-0001-hornero-signal.md); los
 nombres de tokens, familias tipográficas, la API de glifos, los nombres de
 movimiento y el contrato de superficies ancladas solo cambian enmendándola.
 

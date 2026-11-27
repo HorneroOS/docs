@@ -8,9 +8,9 @@ movimiento del shell. Esta página es el resumen para autores del conjunto de
 reglas; la implementación y las tablas completas viven en el repositorio del
 Shell ([`docs/INTERACTION.md`][interaction] y [`docs/PLUGINS.md`][plugins]).
 La autoridad de diseño es la sección 4 (superficies ancladas) y la sección 3.6
-(movimiento) de [RFC 0001](../../development/rfc-0001-hornero-signal.md), y las
+(movimiento) de [RFC 0001](rfc-0001-hornero-signal.md), y las
 secciones 7 y 11 de
-[Signal Visual Language](../../development/signal-visual-language.md). Para lo
+[Signal Visual Language](signal-visual-language.md). Para lo
 que experimenta una persona, mirá
 [Popups, foco y movimiento](../desktop/popups-and-motion.md).
 
@@ -119,7 +119,7 @@ Reglas que verifica la revisión:
   o usá los proveedores compartidos en lugar de tus propios temporizadores.
   En Gaming y Focus la capa de escritorio no instancia ningún widget, así que
   un widget de escritorio tiene que liberar todo cuando se destruye. Mirá
-  [Extensiones](../../development/extensions.md#shared-data-providers).
+  [Extensiones](extensions.md#proveedores-y-permisos).
 
 ## Lista de verificación
 

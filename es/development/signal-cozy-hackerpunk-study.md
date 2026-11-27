@@ -5,7 +5,7 @@
 > que es la canónica.
 
 - **Estado** — Dirección aceptada (2026-11-17) para
-  [RFC 0001 — Hornero Signal](../../development/rfc-0001-hornero-signal.md),
+  [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md),
   enmienda 4
 - **Seguimiento** —
   [HorneroOS/.github#28](https://github.com/HorneroOS/.github/issues/28)
@@ -17,7 +17,7 @@ La dirección en una línea: **Cozy Hackerpunk, retrofuturismo argentino,
 computación personal.** Signal Bezel sigue siendo la estructura; suma una
 lámpara cálida, detalles de lugar habitado y una voz tipográfica más afilada.
 Es una evolución de
-[Signal Visual Language](../../development/signal-visual-language.md), no un
+[Signal Visual Language](signal-visual-language.md), no un
 reinicio.
 
 > **Todas las imágenes de acá son renders conceptuales originales** (muestras

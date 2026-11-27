@@ -8,9 +8,9 @@
 - **Seguimiento** —
   [HorneroOS/.github#28](https://github.com/HorneroOS/.github/issues/28) y el
   issue de seguimiento de la auditoría visual enlazado desde ahí
-- **Autoridad de diseño** — [RFC 0001](../../development/rfc-0001-hornero-signal.md)
+- **Autoridad de diseño** — [RFC 0001](rfc-0001-hornero-signal.md)
   con sus enmiendas y
-  [Signal Visual Language](../../development/signal-visual-language.md)
+  [Signal Visual Language](signal-visual-language.md)
 - **Audiencia** — mantenedores que deciden qué bloquea el lanzamiento de
   Signal, contribuyentes que toman trabajo visual
 

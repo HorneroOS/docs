@@ -157,4 +157,4 @@ el proceso privado de reporte en
 
 Para las recetas de herramientas de seguridad específicas de una máquina de
 la antigua wiki de dotfiles, ver la
-[disposición de la documentación](../../development/dotfiles-wiki-disposition.md).
+[disposición de la documentación](../development/dotfiles-wiki-disposition.md).

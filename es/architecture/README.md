@@ -21,7 +21,7 @@ registra qué revisiones de componentes se compusieron juntas.
 
 ## Guías
 
-- [Design language](../../development/design-language.md) — identidad de
+- [Lenguaje de diseño](../development/design-language.md) — identidad de
   producto compartida, principios de interfaz y el mapa de repositorios
   para las decisiones de diseño.
 - [Ediciones y composición de paquetes](editions.md) —
