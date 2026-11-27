@@ -4,7 +4,9 @@
 > [versión en inglés](../../development/rfc-0002-hornero-chromatic.md),
 > que es la canónica.
 
-- **Estado** — Aceptado (2026-11-17)
+- **Estado** — Aceptado (2026-11-17); enmendado el 2026-11-27 (Algoritmo v3,
+  `kAlgorithm = 3`: desacoplamiento de política de superficie en §4.5, §4.6,
+  §6, §8, §10 y §13.1)
 - **Implementación** — No iniciada. Nada de este RFC está implementado ni
   validado todavía; ver [Despliegue](#16-despliegue-y-migración).
 - **Enmienda** — [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md):
@@ -306,13 +308,14 @@ elegir otra.
 ### 4.5 La estructura de Signal es fija
 
 Las paletas curadas son una escalera de luminosidad con temperatura
-dividida: Signal Night combina superficies de grafito frío (matiz ≈ 256°)
-con tinta cálida (≈ 85°); Signal Day combina papel cálido (≈ 87°) con
-tinta fría (≈ 252°). Chromatic conserva la **escalera** (elevación,
-niveles de tinta, fuerza de las reglas) y la **temperatura dividida**, y
-toma de la imagen **solo el matiz y el croma**. El modelo de referencia de
-estas reglas reproduce Signal Night a partir de una semilla ámbar con un
-CIE76 ΔE medio de 3.3.
+dividida: Signal Night combina superficies de grafito frío de hora azul
+(matiz ≈ 256°) con tinta cálida (≈ 85°); Signal Day combina cerámica blanca
+fría y aluminio pálido (≈ 248°) con tinta pizarra oscura (≈ 256°). Chromatic
+conserva la **escalera** (elevación, niveles de tinta, fuerza de las reglas)
+y, bajo el Algoritmo v3 (`kAlgorithm = 3`), desacopla la **política de
+superficie** de la síntesis de acentos para que `balanced`, `muted` y
+`high-contrast` mantengan superficies neutras frías de la casa por defecto en
+lugar de teñirse con la semilla del fondo.
 
 Objetivos de luminosidad OKLCH (antes del solver):
 
@@ -344,10 +347,35 @@ tope en 1.0).
 Con matiz primario `hp`, croma `cp`, matiz secundario `hs` (opcional),
 matiz neutro `hn` y los parámetros de variante del §6:
 
-- **Superficies** (`ground` … `lifted`, `rule`, `ruleStrong`): matiz `hn`,
-  croma `sC × k` con `k` = 0.75, 0.85, 1.0, 1.1, 1.25, 1.3, 1.3, 1.4.
-- **Niveles de tinta**: matiz `hn + 180°`, croma `iC` (`ink`) e `iC / 2`
-  (`inkMuted`, `inkFaint`).
+- **Superficies y tinta (Algoritmo v3, `kAlgorithm = 3`)**: resueltas por
+  una `SurfacePolicy` dedicada (`HouseNeutral`, `WallpaperTinted` o
+  `PureNeutral`) a partir de `(variant, surfaceTint, mode, seed/neutralHue)`:
+  - `HouseNeutral` (por defecto para `balanced`, `muted` y `high-contrast`
+    oscuro): fija las superficies al grafito frío Signal en oscuro
+    (`kHouseNeutralDark = 256°`, tinta `kHouseInkDark = 85°`) y aluminio
+    pálido / cerámica blanca fría en claro (`kHouseNeutralLight = 248°`,
+    tinta pizarra `kHouseInkLight = 256°`), independiente de `r.chroma`.
+  - `PureNeutral` (por defecto para `monochrome` y `high-contrast` claro):
+    superficies y tinta con croma cero, independientes de `r.chroma`.
+  - `WallpaperTinted` (por defecto para `vibrant`, `expressive`, `neon`,
+    `faithful`, o `surfaceTint: "tinted"` explícito): toma el matiz `hn` con
+    una **protección de matiz cálido/oliva** en `vibrant`, `expressive` y
+    `neon` (peso cero en `[35°, 115°]` con hombros lineales en `[20°, 35°)` y
+    `(115°, 130°]`, evitando paneles marrones, espresso, durazno u oliva
+    pantanoso; croma de tinta complementaria topeado en `0.006` cuando
+    `outH ∈ [240°, 310°]` teñiría la tinta de amarillo-oliva). `faithful`
+    conserva el `neutralHue` literal sin el recorte cálido/oliva. El croma
+    de superficie y tinta escala suavemente con `0.5 + 0.5 × r.chroma`
+    (`0.75..1.25`).
+  - **Rampas de elevación conscientes de la polaridad**: en oscuro sube el
+    croma (`ground 0.75, sunken 0.85, base 1.00, panel 1.10, raised 1.25,
+    lifted 1.30, rule 1.30, ruleStrong 1.40`); en claro aplica una
+    **reducción progresiva hacia el blanco cerámico** (`ground 1.00, sunken
+    1.10, base 0.65, panel 0.35, raised 0.15, lifted 0.00, rule 1.20,
+    ruleStrong 1.00`).
+  - Bajo `WallpaperTinted`, la tinta usa `hn + 180°` con croma `iC` (`ink`) y
+    `iC / 2` (`inkMuted`, `inkFaint`). Bajo `HouseNeutral`, oscuro usa
+    `kHouseInkDark` (`85°`) y claro usa `kHouseInkLight` (`256°`).
 - **Anclas de estado** conservan su significado en todo fondo: `alert`
   matiz 29° y `phosphor` matiz 150°, cada una rotada hacia `hp` una cuarta
   parte de la diferencia de matiz, con tope en el `harm` de la variante
@@ -489,43 +517,56 @@ matices de semilla de 20°–110°, `cool` para 180°–300°, si no `neutral`).
 
 ## 6. Variantes
 
-Las variantes son conjuntos de parámetros para §4.6–§4.8. `sC` croma de
-superficie, `iC` croma de tinta, `aC` rango de croma de acento, `r`
-rotación del cue, `harm`/`term` topes de matiz.
+Las variantes son conjuntos de parámetros para §4.6–§4.8. Bajo el Algoritmo
+v3 (`kAlgorithm = 3`), cada variante define cromas de superficie/tinta por
+modo `(sC_dark, sC_light)` e `(iC_dark, iC_light)`, una `SurfacePolicy` por
+defecto, comportamiento de la protección cálido/oliva, rango de croma de
+acento `aC`, rotación del cue `r` y topes de matiz `harm`/`term`:
 
-- `balanced` (por defecto) — Linaje: tonal spot; `sC`: 0.016; `iC`: 0.014;
-  `aC`: 0.09–0.15; `r`: 165°; `harm` / `term`: 10° / 10°; Comportamiento:
-  carácter de Signal Night/Day con otro matiz; superficies tranquilas, un
-  acento confiado
-- `vibrant` — Linaje: vibrant; `sC`: 0.028; `iC`: 0.014; `aC`: 0.14–gamut;
-  `r`: 165°; `harm` / `term`: 12° / 15°; Comportamiento: acentos más
-  fuertes y cromo teñido
-- `expressive` — Linaje: expressive, fruit salad, rainbow; `sC`: 0.022;
-  `iC`: 0.016; `aC`: 0.11–0.17; `r`: 120°; `harm` / `term`: 20° / 20°;
-  Comportamiento: cue triádico salvo que la imagen tenga un segundo matiz;
-  colores de estado más armonizados
-- `faithful` — Linaje: fidelity, content; `sC`: 0.020; `iC`: 0.012; `aC`:
-  croma de la semilla; `r`: 165°; `harm` / `term`: 8° / 8°;
-  Comportamiento: `signal` es la semilla misma cuando pasa los gates; las
-  superficies toman el matiz dominante de la imagen
-- `muted` — Linaje: neutral; `sC`: 0.008; `iC`: 0.008; `aC`: 0.05–0.08;
-  `r`: 165°; `harm` / `term`: 5° / 5°; Comportamiento: cromo casi neutro,
+- `balanced` (por defecto) — Linaje: tonal spot; Política: `HouseNeutral`;
+  `sC`: `0.012` / `0.004`; `iC`: `0.012` / `0.007`; `aC`: `0.09–0.15`; `r`:
+  165°; `harm` / `term`: 10° / 10°; Comportamiento: superficies de grafito
+  Signal Night y cerámica clara combinadas con un acento confiado del fondo
+- `vibrant` — Linaje: vibrant; Política: `WallpaperTinted` (protección
+  cálido/oliva activa); `sC`: `0.024` / `0.010`; `iC`: `0.012` / `0.008`;
+  `aC`: `0.14–gamut`; `r`: 165°; `harm` / `term`: 12° / 15°; Comportamiento:
+  acentos más fuertes y cromo teñido protegido con reducción clara
+- `expressive` — Linaje: expressive, fruit salad, rainbow; Política:
+  `WallpaperTinted` (protección cálido/oliva activa); `sC`: `0.020` /
+  `0.008`; `iC`: `0.014` / `0.008`; `aC`: `0.11–0.17`; `r`: 120°; `harm` /
+  `term`: 20° / 20°; Comportamiento: cue triádico salvo que la imagen tenga
+  un segundo matiz; colores de estado más armonizados
+- `faithful` — Linaje: fidelity, content; Política: `WallpaperTinted`
+  (conserva el `neutralHue` literal, sin recorte cálido/oliva); `sC`:
+  `0.020` / `0.012`; `iC`: `0.010` / `0.008`; `aC`: croma de la semilla;
+  `r`: 165°; `harm` / `term`: 8° / 8°; Comportamiento: `signal` es la
+  semilla misma cuando pasa los gates; las superficies respetan el matiz
+  neutro dominante con reducción clara
+- `muted` — Linaje: neutral; Política: `HouseNeutral`; `sC`: `0.006` /
+  `0.002`; `iC`: `0.006` / `0.004`; `aC`: `0.05–0.08`; `r`: 165°; `harm` /
+  `term`: 5° / 5°; Comportamiento: grafito/cerámica de la casa más quieto,
   acentos suaves
-- `monochrome` — Linaje: monochrome; `sC`: 0; `iC`: 0; `aC`: 0.035; `r`:
-  165°; `harm` / `term`: 0 / 0; Comportamiento: cromo y tinta neutros; los
-  acentos susurran el matiz de la semilla; los colores de estado conservan
-  su significado; sin `glow`
-- `high-contrast` — `sC`: 0.006; `iC`: 0; `aC`: 0.12–0.17; `r`: 165°;
-  `harm` / `term`: 5° / 5°; Comportamiento: gates `maximum`, fondo más
-  profundo, tinta más brillante; sin `glow`; sin translucidez
-- `neon` — `sC`: 0.030; `iC`: 0.020; `aC`: 0.16–gamut; `r`: 180°; `harm` /
-  `term`: 0 / 0; Comportamiento: solo oscuro (un pedido claro devuelve
-  oscuro con un motivo); cue complementario, terminal saturada, `glow` al
-  gamut; presupuesto de glow sin cambios
+- `monochrome` — Linaje: monochrome; Política: `PureNeutral`; `sC`: `0` / `0`;
+  `iC`: `0` / `0`; `aC`: `0.035`; `r`: 165°; `harm` / `term`: 0 / 0;
+  Comportamiento: cromo y tinta grises puros; los acentos susurran el matiz
+  de la semilla; los colores de estado conservan su significado; sin `glow`
+- `high-contrast` — Política: `HouseNeutral` (oscuro) / `PureNeutral`
+  (claro); `sC`: `0.005` / `0`; `iC`: `0` / `0`; `aC`: `0.12–0.17`; `r`:
+  165°; `harm` / `term`: 5° / 5°; Comportamiento: gates `maximum`, fondo más
+  profundo, tinta más brillante, cero tinte cálido/oliva; sin `glow`; sin
+  translucidez
+- `neon` — Política: `WallpaperTinted` (protección cálido/oliva activa);
+  `sC`: `0.028` / `—`; `iC`: `0.016` / `—`; `aC`: `0.16–gamut`; `r`: 180°;
+  `harm` / `term`: 0 / 0; Comportamiento: solo oscuro (un pedido claro
+  devuelve oscuro con un motivo); cue complementario, terminal saturada,
+  `glow` al gamut; presupuesto de glow sin cambios
 
-Perillas ortogonales: `surfaceDepth` (`standard` / `deep`), escala de
-`chroma` (0.5–1.5, multiplica `sC`, `iC` y `aC`), `hueShift` (−180° a
-180°, aplicado a las semillas).
+Perillas ortogonales: `surfaceDepth` (`standard` / `deep`), `surfaceTint`
+(`auto` | `neutral` | `tinted`, por defecto `auto`: usa la política de cada
+variante, `neutral` fuerza `HouseNeutral`/`PureNeutral`, `tinted` fuerza
+`WallpaperTinted` desacoplado de `chroma`), escala de `chroma` (`0.5–1.5`,
+escala los acentos directamente sin enturbiar las superficies `HouseNeutral`)
+y `hueShift` (`−180°` a `180°`, aplicado a las semillas).
 
 Reglas fijas para toda variante: el presupuesto de glow (enmienda 2 del
 RFC 0001), sin glow en las barras Cockpit Clear, movimiento y anatomía
@@ -561,7 +602,7 @@ sigue en 2 y los lectores existentes las ignoran.
   "chromatic": {
     "version": 1,
     "engine": "1.0.0",
-    "algorithm": 1,
+    "algorithm": 3,
     "fingerprint": "sha256:…",
     "request": {
       "source": "wallpaper",
@@ -596,7 +637,9 @@ sigue en 2 y los lectores existentes las ignoran.
 
 `hornero-chromatic` es un id de tema reservado sin directorio de
 catálogo. Los temas curados siguen escribiendo el documento sin los tres
-bloques opcionales.
+bloques opcionales. Bajo `kAlgorithm = 3`, `request.surfaceTint` (`"auto"` |
+`"neutral"` | `"tinted"`) se omite cuando vale `"auto"` para que los pedidos
+serializados por defecto sigan siendo compatibles con `shell.default.json`.
 
 ### 8.2 Archivos de tema (`theme.json`)
 
@@ -766,7 +809,8 @@ interfaz se versiona con `schemaVersion` en su salida.
   analysis, inference}`
 - `generate (--source PATH | --seed HEX…) [request flags] [--current-mode
   M]` — `{schemaVersion, engine, request, analysis, inference, scheme,
-  gates, adjustments, fingerprint}`
+  gates, adjustments, fingerprint}` (`--surface-tint auto|neutral|tinted`,
+  por defecto `auto`, define `surfaceTint` en el Algoritmo v3)
 - `validate --scheme FILE [--level L]` — `{schemaVersion, passed, rows}`
 - `variants` — `{schemaVersion, variants}`
 - `version` — `{schemaVersion, engine, algorithm, qt, formats, ffmpeg}`
@@ -861,7 +905,8 @@ adónde va.
   `analyse(source) → ChromaticJob`, `generate(request) → ChromaticJob`,
   `contrast(a, b) → real`, `ensureContrast(fg, bg, min) → color`.
 - `ChromaticRequest` (objeto de valor): `source`, `seeds`, `variant`,
-  `mode`, `contrast`, `surfaceDepth`, `chroma`, `hueShift`, `currentMode`.
+  `mode`, `contrast`, `surfaceDepth`, `surfaceTint`, `chroma`, `hueShift`,
+  `currentMode`.
 - `ChromaticJob`: `running`, `cancel()`, señales `finished(result)` y
   `failed(code, message)`. Un job cancelado nunca emite.
 - `ChromaticResult`: `scheme` (objeto JS con la forma del §8.1),

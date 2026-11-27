@@ -2,12 +2,14 @@
 
 - **Status** — Accepted (2026-11-16); **superseded in part** by
   [RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) (2026-11-17,
-  amendment 3: optional dynamic colour; §1, §3.1 and §9 below are annotated
-  where it applies); amended 2026-11-17 (amendment 4: Cozy Hackerpunk
-  atmosphere, see the end of this document); amended 2026-11-16 (amendment 2:
-  contrast-driven palette tweaks, optional `glow` role, Signal Bezel
-  direction; amendment 1:
-  WOW + WORK ambition, motion springs, layout catalogue, experience modes,
+  optional dynamic colour; §1, §3.1 and §9 below are annotated where it
+  applies); amended 2026-11-27 (amendment 3: Hornero Signal Design Renaissance
+  — Cool Ceramic Day, Blue-Hour Graphite Night, `inkFaint` discipline and
+  curated Argentine Light originals, see the end of this document); amended
+  2026-11-17 (amendment 4: Cozy Hackerpunk atmosphere, see the end of this
+  document); amended 2026-11-16 (amendment 2: contrast-driven palette tweaks,
+  optional `glow` role, Signal Bezel direction; amendment 1: WOW + WORK
+  ambition, motion springs, layout catalogue, experience modes,
   instrumentation, integration contracts)
 - **Implementation** — In progress; nothing is validated on a physical
   host yet. See [Implementation status](#implementation-status).
@@ -35,7 +37,7 @@ Hornero Signal replaces the machinery, not only the colours. This is an
 intentional breaking change. There is **no** Material compatibility layer and
 no parallel legacy system.
 
-Amendment 3: removing the Material machinery does not remove dynamic colour.
+RFC 0002: removing the Material machinery does not remove dynamic colour.
 [RFC 0002 — Hornero Chromatic](rfc-0002-hornero-chromatic.md) restores
 wallpaper-derived palettes and variants as an **option**, with a native
 engine that produces the Signal roles of §3.1 directly. The curated palettes
@@ -116,7 +118,9 @@ generators map from these roles only.
 - `lifted` — Highest elevation, tooltips, pressed states
 - `ink` — Primary text and glyphs
 - `inkMuted` — Secondary text, eyebrows, inactive glyphs
-- `inkFaint` — Disabled / decorative only — never essential text
+- `inkFaint` — Disabled controls and decorative marks only (ticks, dimension
+  rules, `/` separators) — **never** essential or readable text (use
+  `inkMuted` for readable secondary text, labels, captions and hints)
 - `rule` — Hairline separators inside a surface
 - `ruleStrong` — Control boundaries, outlines that must pass 3:1
 - `signal` / `onSignal` — Primary action, live/active state (amber)
@@ -136,7 +140,7 @@ generators map from these roles only.
 Removed with no replacement: all `*Fixed*`, `*_paletteKeyColor`,
 `surfaceTint`, `surfaceVariant`, `onBackground` and the external Material
 colour library. The Material scheme types and Material "follow wallpaper"
-synthesis are removed; amendment 3 replaces the capability (not the roles or
+synthesis are removed; RFC 0002 replaces the capability (not the roles or
 the algorithm) with Hornero Chromatic variants and an optional wallpaper
 follow policy, specified in [RFC 0002](rfc-0002-hornero-chromatic.md).
 
@@ -152,46 +156,47 @@ alias table): `background/surfaceDim/surfaceContainerLowest → ground`,
 
 ### 3.2 Flagship palettes
 
-`hornero-signal-night` is the factory default: cool graphite instrument
-panels with warm phosphor-cream ink. `hornero-signal-day` is warm
-technical-drawing paper with ink-black text.
+`hornero-signal-night` is the factory default: cool blue-hour graphite
+instrument panels with crisp off-white ink, amber live signal and celeste
+focus cue. `hornero-signal-day` is luminous white ceramic and pale aluminum
+instrument panels with dark slate ink, deep amber signal and deep celeste cue.
 
 | Role             | Signal Night | Signal Day |
 | ---------------- | ------------ | ---------- |
-| `ground`         | `#0C0F13`    | `#E6E1D5`  |
-| `sunken`         | `#101419`    | `#DCD6C8`  |
-| `base`           | `#13171D`    | `#F2EEE5`  |
-| `panel`          | `#181D24`    | `#F7F4EE`  |
-| `raised`         | `#1F252E`    | `#FBF9F5`  |
-| `lifted`         | `#283039`    | `#FFFFFF`  |
-| `ink`            | `#ECE6DA`    | `#1B1E22`  |
-| `inkMuted`       | `#A8ABAD`    | `#4E545B`  |
-| `inkFaint`       | `#737980`    | `#7A8086`  |
-| `rule`           | `#2C333C`    | `#D3CCBD`  |
-| `ruleStrong`     | `#707A85`    | `#736D62`  |
-| `focus`          | `#7EC1EA`    | `#1A5F88`  |
-| `signal`         | `#F2A33A`    | `#8F4B00`  |
-| `onSignal`       | `#1A1205`    | `#FFFFFF`  |
-| `signalWell`     | `#3A2A12`    | `#F6DDB8`  |
-| `onSignalWell`   | `#FFD9A3`    | `#3D2200`  |
-| `cue`            | `#7EC1EA`    | `#1A5F88`  |
-| `onCue`          | `#06151F`    | `#FFFFFF`  |
-| `cueWell`        | `#16303F`    | `#D3E7F3`  |
-| `onCueWell`      | `#CDE8F8`    | `#0B2E44`  |
-| `phosphor`       | `#8BD49A`    | `#256A3B`  |
-| `onPhosphor`     | `#07170C`    | `#FFFFFF`  |
-| `phosphorWell`   | `#173222`    | `#D5EBD9`  |
-| `onPhosphorWell` | `#CDEFD4`    | `#0E2E17`  |
-| `alert`          | `#F0705A`    | `#A8341C`  |
-| `onAlert`        | `#1E0905`    | `#FFFFFF`  |
-| `alertWell`      | `#3D1A14`    | `#F7D7D0`  |
-| `onAlertWell`    | `#FFD3CA`    | `#4A1209`  |
-| `inverse`        | `#ECE6DA`    | `#1B1E22`  |
-| `onInverse`      | `#181D24`    | `#F2EEE5`  |
-| `inverseSignal`  | `#8A5200`    | `#F2A33A`  |
+| `ground`         | `#0C1016`    | `#E8EDF4`  |
+| `sunken`         | `#10151C`    | `#E0E6EF`  |
+| `base`           | `#141B24`    | `#EEF2F7`  |
+| `panel`          | `#1B2430`    | `#F5F8FC`  |
+| `raised`         | `#24303D`    | `#FCFCFE`  |
+| `lifted`         | `#2C3947`    | `#FFFFFF`  |
+| `ink`            | `#E6EBF1`    | `#283344`  |
+| `inkMuted`       | `#A9B7C6`    | `#505E70`  |
+| `inkFaint`       | `#8999AB`    | `#606D80`  |
+| `rule`           | `#2D3B4B`    | `#D2DAE6`  |
+| `ruleStrong`     | `#8393A6`    | `#7A8798`  |
+| `focus`          | `#8BCEF0`    | `#145D86`  |
+| `signal`         | `#F2AC52`    | `#864700`  |
+| `onSignal`       | `#1E1304`    | `#FFFFFF`  |
+| `signalWell`     | `#3D2B12`    | `#FCE9C8`  |
+| `onSignalWell`   | `#FFE0B0`    | `#432300`  |
+| `cue`            | `#8BCEF0`    | `#145D86`  |
+| `onCue`          | `#071A26`    | `#FFFFFF`  |
+| `cueWell`        | `#163345`    | `#D8EEF9`  |
+| `onCueWell`      | `#D6EFFC`    | `#0B334B`  |
+| `phosphor`       | `#8DDBAF`    | `#1E6448`  |
+| `onPhosphor`     | `#071D12`    | `#FFFFFF`  |
+| `phosphorWell`   | `#153425`    | `#D6F4E8`  |
+| `onPhosphorWell` | `#D1F5E0`    | `#0E3425`  |
+| `alert`          | `#FF8494`    | `#9C293E`  |
+| `onAlert`        | `#24070C`    | `#FFFFFF`  |
+| `alertWell`      | `#421922`    | `#FADDE4`  |
+| `onAlertWell`    | `#FFD6DC`    | `#4E111E`  |
+| `inverse`        | `#E6EBF1`    | `#283344`  |
+| `onInverse`      | `#1B2430`    | `#F5F8FC`  |
+| `inverseSignal`  | `#864700`    | `#F2AC52`  |
 | `scrim`          | `#000000`    | `#000000`  |
 | `shadow`         | `#000000`    | `#000000`  |
-| `glow`           | `#FFB650`    | `#8F4B00`  |
+| `glow`           | `#FFC06B`    | `#864700`  |
 
 **Signal High Contrast** keeps the roles, uses `#000000` ground, `#FFFFFF`
 ink, `#FFC247` signal, `#8FD3FF` cue and pure white `ruleStrong`.
@@ -200,14 +205,14 @@ Other catalogue themes (regional Argentina photo themes, community ports)
 remain valid **if** they provide a complete schema-v2 role set that passes the
 contrast tests. Themes that only existed as M3 seeds are removed or ported.
 
-Amendment 2: values above were tightened so every text role also passes
-4.5:1 on `sunken` readout wells and `ruleStrong` passes 3:1 on `lifted`
-tooltips. `glow` is an optional role (default: `signal`) for luminous
-accents: only on live telemetry traces and, in the `signal` experience mode,
-the active on-air bar and on-air chips; blur ≤ 4 px, alpha ≤ 40 %, at most
-three glowing items on screen, never animated, disabled in day themes, high
-contrast, `focus` and `gaming` modes and on Cockpit Clear bars. Validation
-extends to `sunken` and `lifted`.
+Amendment 2 tightened contrast on `sunken` readout wells and `lifted` tooltips
+and added the optional `glow` role (default: `signal`) for luminous accents:
+only on live telemetry traces and, in the `signal` experience mode, the active
+on-air bar and on-air chips; blur ≤ 4 px, alpha ≤ 40 %, at most three glowing
+items on screen, never animated, disabled in day themes, high contrast,
+`focus` and `gaming` modes and on Cockpit Clear bars. Amendment 3 (see below)
+later refined the Night and Day flagship hexes to blue-hour graphite and white
+ceramic / pale aluminum.
 
 ### 3.3 Typography
 
@@ -448,7 +453,7 @@ credited in NOTICE files where they ship.
   the shell. With a curated theme, wallpapers never change the palette (only
   Cockpit Clear's per-region choice between the theme's night and day inks
   follows the wallpaper).
-  Amendment 3: the reserved theme id `hornero-chromatic` selects Hornero
+  RFC 0002: the reserved theme id `hornero-chromatic` selects Hornero
   Chromatic; horneroctl then writes a generated scheme with the optional,
   additive `chromatic`, `minSurfaceAlpha` and `clearInk` blocks
   ([RFC 0002](rfc-0002-hornero-chromatic.md) §8).
@@ -582,3 +587,55 @@ structure; this amendment changes atmosphere, not contracts.
   plain voice always one switch away.
 - **Originality.** The reference series informs principles only; no
   third-party character, artwork, logo or prop is used (study §2).
+
+## Amendment 3 — Hornero Signal Design Renaissance (2026-11-27)
+
+Direction: **Cool Ceramic Day, Blue-Hour Graphite Night and Curated Argentine
+Light Originals**. Role names (§3.1), typography (§3.3), glyphs (§3.4),
+geometry (§3.5) and motion (§3.6) are unchanged; this amendment refines the
+flagship Night and Day palettes, clarifies Light catalogue roles and enforces
+`inkFaint` discipline.
+
+- **Design rationale for Signal Day (`hornero-signal-day`).** Earlier Signal
+  Day (`#F2EEE5`, OKLCH `C = 0.013, h = 86.8°`) carried a warm yellowish
+  technical-drawing paper cast and sat close to the warm Light originals.
+  Amendment 3 replaces that cast with luminous white ceramic and pale
+  aluminum instrument panels (`#E8EDF4` `ground` through `#FFFFFF` `lifted`,
+  `C ≤ 0.004`), dark slate ink (`#283344` / `#505E70`), deep amber
+  (`#864700`), deep celeste (`#145D86`), mint (`#1E6448`) and rose-crimson
+  (`#9C293E`).
+- **Blue-hour refinement for Signal Night (`hornero-signal-night`).** Deepens
+  Night to cool blue-hour graphite (`#0C1016`..`#2C3947`) with crisp
+  off-white ink (`#E6EBF1` / `#A9B7C6`), amber (`#F2AC52`), celeste
+  (`#8BCEF0`), mint (`#8DDBAF`), rose-coral (`#FF8494`) and `glow`
+  (`#FFC06B`), sharpening separation from neutral-slate community themes.
+- **Dusk and High Contrast preserved.** `hornero-signal-dusk` remains the
+  warm workshop copper/charcoal dark flagship; `hornero-signal-contrast`
+  remains the protected AAA-passing high-contrast palette (`#000000` ground,
+  `#FFFFFF` ink, `#FFC247` signal, `#8FD3FF` cue, `#FFFFFF` `ruleStrong`).
+- **Warm paper preserved explicitly.** The warm drafting and highland paper
+  aesthetic is preserved intentionally in `sierras` (`#F3EDDD`, warm
+  dry-grass paper) and `quebrada` (rose-terracotta stone paper) instead of
+  tinting the flagship Day palette.
+- **Curated Argentine Light originals.** Three Light originals join
+  `hornero-originals`:
+  - `jacaranda` (**Jacarandá**, order 10) — Buenos Aires spring in bloom: cool
+    porcelain-lavender ceramic panels (`#EAE7F3`..`#FFFFFF`), deep indigo-slate
+    ink (`#2B2640`), lavender-violet `signal` (`#6538A6`) and celeste `cue`
+    (`#185E8A`).
+  - `glaciar` (**Glaciar**, order 11) — Patagonian glacier ice: cool
+    ice-white ceramic panels (`#E3EFF5`..`#FFFFFF`), deep fjord-slate ink
+    (`#1F3240`), celeste `signal` (`#0E5D7E`) and turquoise-mint `cue`
+    (`#0F6466`).
+  - `ceibo` (**Ceibo**, order 12) — National blossom in daylight: neutral
+    porcelain surfaces (`#ECE9EE`..`#FFFFFF`), deep plum-slate ink
+    (`#2E2630`), coral-rose `signal` (`#9E2A48`) and botanical mint
+    `phosphor` (`#1F6644`).
+- **`inkFaint` discipline.** Reaffirms §3.1: `inkFaint` is reserved strictly
+  for disabled controls and decorative hairlines, tick marks, dimension rules
+  and `/` separators. Essential or readable text (timestamps, captions,
+  metadata, placeholders, validation copy and hints) must use `inkMuted` or
+  `ink`.
+- **Single-source built-in sync.** Built-in fallbacks (`Signal.qml`,
+  `cover.js`, `Signal.js`, `global.css`) and brand assets must match the
+  canonical `hornero-signal-{night,day,contrast}/theme.json` definitions.

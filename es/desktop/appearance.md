@@ -13,13 +13,17 @@ claro u oscuro. Todos los temas usan el lenguaje de diseño
 
 ## Elegí un tema
 
-El catálogo tiene **20 temas**, todos con paletas Signal completas:
+El catálogo tiene **24 temas**, todos con paletas Signal completas:
 
-- **Hornero Signal**: Signal Night (valor de fábrica), Signal Day y Signal
-  High Contrast.
-- **Hornero Originals**: Buenos Aires Nocturno, Cuyo, Fin del Mundo, Iberá,
-  Iguazú, Pampa, Patagonia, Quebrada y Sierras; paletas regionales, cada
-  una con una fotografía acreditada.
+- **Hornero Signal**: Signal Night (valor de fábrica, grafito frío de hora
+  azul), Signal Day (cerámica blanca y aluminio pálido), Signal Dusk (carbón
+  y cobre cálido de taller) y Signal High Contrast (fondo negro puro con
+  tinta blanca).
+- **Hornero Originals**: Buenos Aires Nocturno, Ceibo, Cuyo, Fin del Mundo,
+  Glaciar, Iberá, Iguazú, Jacarandá, Pampa, Patagonia, Quebrada y Sierras;
+  paletas regionales que incluyen originales claros en cerámica fría
+  (**Ceibo**, **Glaciar**, **Jacarandá**) y piedra o papel cálido
+  (**Quebrada**, **Sierras**).
 - **Ports de la comunidad**: Catppuccin Latte, Catppuccin Mocha,
   Everforest, Gruvbox, Landscape, Monochrome, Nord Dreams y Rosé Pine,
   llevados a los roles de Signal.
@@ -50,7 +54,7 @@ horneroctl appearance theme get
 ```
 
 Usá `apply` para cualquier tema instalado. `set` es el cambio verificado
-entre los tres temas Signal incorporados: después chequea que el esquema y
+entre los temas Signal incorporados: después chequea que el esquema y
 GTK coincidan y, si no, intenta volver al tema incorporado anterior:
 
 ```sh
@@ -83,10 +87,12 @@ horneroctl appearance colors status
 
 ## Claro y oscuro
 
-Cada tema tiene un modo fijo: Signal Day, Cuyo, Quebrada, Sierras y
-Catppuccin Latte son claros; el resto son oscuros. Para pasar de claro a
-oscuro, elegí un tema del otro modo; para el par principal, alterná entre
-Signal Night y Signal Day.
+Cada tema tiene un modo fijo: Signal Day, Ceibo, Cuyo, Glaciar, Jacarandá,
+Quebrada, Sierras y Catppuccin Latte son claros; el resto son oscuros. Para
+paneles claros de cerámica fría elegí Signal Day, Ceibo, Glaciar o
+Jacarandá; para papel cálido de sierra elegí Quebrada o Sierras. Para pasar
+de claro a oscuro, elegí un tema del otro modo; para el par principal,
+alterná entre Signal Night y Signal Day.
 
 La preferencia de esquema de color de GTK es un ajuste aparte que les
 indica a las apps GTK y libadwaita qué variante preferir. Inspeccionala o

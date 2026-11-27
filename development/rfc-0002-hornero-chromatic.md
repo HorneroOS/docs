@@ -1,6 +1,8 @@
 # RFC 0002 — Hornero Chromatic
 
-- **Status** — Accepted (2026-11-17)
+- **Status** — Accepted (2026-11-17); amended 2026-11-27 (Algorithm v3,
+  `kAlgorithm = 3`: Surface Policy decoupling in §4.5, §4.6, §6, §8, §10 and
+  §13.1)
 - **Implementation** — Not started. Nothing in this RFC is implemented or
   validated yet; see [Rollout](#16-rollout-and-migration).
 - **Amends** — [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md):
@@ -269,12 +271,13 @@ Up to five ranked seeds are reported so the user can pick another one.
 ### 4.5 The Signal structure is fixed
 
 The curated palettes are a lightness ladder with a split temperature: Signal
-Night pairs cool graphite surfaces (hue ≈ 256°) with warm ink (≈ 85°);
-Signal Day pairs warm paper (≈ 87°) with cool ink (≈ 252°). Chromatic keeps
-the **ladder** (elevation, ink tiers, rule strength) and the **split
-temperature**, and takes only **hue and chroma** from the image. The
-reference model of these rules reproduces Signal Night from an amber seed
-within a mean CIE76 ΔE of 3.3.
+Night pairs cool blue-hour graphite surfaces (hue ≈ 256°) with warm ink
+(≈ 85°); Signal Day pairs cool white ceramic and pale aluminum (≈ 248°) with
+dark slate ink (≈ 256°). Chromatic keeps the **ladder** (elevation, ink
+tiers, rule strength) and, under Algorithm v3 (`kAlgorithm = 3`), decouples
+**surface policy** from accent synthesis so `balanced`, `muted` and
+`high-contrast` hold cool-neutral house surfaces by default instead of taking
+wallpaper-seed casts.
 
 OKLCH lightness targets (before the solver):
 
@@ -305,10 +308,33 @@ surface ladder by 0.03 and raises the light one by 0.015 (capped at 1.0).
 With primary hue `hp`, chroma `cp`, secondary hue `hs` (optional), neutral
 hue `hn` and the variant parameters of §6:
 
-- **Surfaces** (`ground` … `lifted`, `rule`, `ruleStrong`): hue `hn`,
-  chroma `sC × k` with `k` = 0.75, 0.85, 1.0, 1.1, 1.25, 1.3, 1.3, 1.4.
-- **Ink tiers**: hue `hn + 180°`, chroma `iC` (`ink`) and `iC / 2`
-  (`inkMuted`, `inkFaint`).
+- **Surfaces & ink (Algorithm v3, `kAlgorithm = 3`)**: resolved by a
+  dedicated `SurfacePolicy` (`HouseNeutral`, `WallpaperTinted` or
+  `PureNeutral`) from `(variant, surfaceTint, mode, seed/neutralHue)`:
+  - `HouseNeutral` (default for `balanced`, `muted`, and Dark
+    `high-contrast`): fixes surfaces to cool Signal graphite in Dark
+    (`kHouseNeutralDark = 256°`, ink `kHouseInkDark = 85°`) and cool pale
+    aluminum / white ceramic in Light (`kHouseNeutralLight = 248°`, slate ink
+    `kHouseInkLight = 256°`), independent of `r.chroma`.
+  - `PureNeutral` (default for `monochrome` and Light `high-contrast`):
+    zero-chroma surfaces and ink, independent of `r.chroma`.
+  - `WallpaperTinted` (default for `vibrant`, `expressive`, `neon`,
+    `faithful`, or explicit `surfaceTint: "tinted"`): takes hue `hn` with a
+    **warm/olive surface hue guard** on `vibrant`, `expressive` and `neon`
+    (zero tint weight across `[35°, 115°]` with linear shoulders over
+    `[20°, 35°)` and `(115°, 130°]`, preventing brown, espresso, peach or
+    swampy olive panels; complementary ink chroma capped at `0.006` when
+    `outH ∈ [240°, 310°]` would cast ink yellow-olive). `faithful` preserves
+    the literal `neutralHue` without the warm/olive clamp. Surface and ink
+    chroma scale gently with `0.5 + 0.5 × r.chroma` (`0.75..1.25`).
+  - **Polarity-aware elevation ramps**: Dark ramps chroma upward
+    (`ground 0.75, sunken 0.85, base 1.00, panel 1.10, raised 1.25, lifted
+    1.30, rule 1.30, ruleStrong 1.40`); Light applies a **downward chroma
+    taper** toward white ceramic (`ground 1.00, sunken 1.10, base 0.65, panel
+    0.35, raised 0.15, lifted 0.00, rule 1.20, ruleStrong 1.00`).
+  - Under `WallpaperTinted`, ink uses `hn + 180°` at chroma `iC` (`ink`) and
+    `iC / 2` (`inkMuted`, `inkFaint`). Under `HouseNeutral`, Dark uses
+    `kHouseInkDark` (`85°`) and Light uses `kHouseInkLight` (`256°`).
 - **Status anchors** keep their meaning on every wallpaper: `alert` hue 29°
   and `phosphor` hue 150°, each rotated toward `hp` by a quarter of the hue
   difference, capped at the variant's `harm` (≤ 20°).
@@ -440,37 +466,53 @@ balanced · warm amber · calm"), plus chroma class (`grey`, `soft`, `rich`,
 
 ## 6. Variants
 
-Variants are parameter sets for §4.6–§4.8. `sC` surface chroma, `iC` ink
-chroma, `aC` accent chroma range, `r` cue rotation, `harm`/`term` hue caps.
+Variants are parameter sets for §4.6–§4.8. Under Algorithm v3
+(`kAlgorithm = 3`), each variant defines mode-specific surface/ink chromas
+`(sC_dark, sC_light)` and `(iC_dark, iC_light)`, a default `SurfacePolicy`,
+warm/olive guard behaviour, accent chroma range `aC`, cue rotation `r`, and
+`harm`/`term` hue caps:
 
-- `balanced` (default) — Lineage: tonal spot; `sC`: 0.016; `iC`: 0.014; `aC`:
-  0.09–0.15; `r`: 165°; `harm` / `term`: 10° / 10°; Behaviour: Signal Night/Day
-  character re-hued; quiet surfaces, one confident accent
-- `vibrant` — Lineage: vibrant; `sC`: 0.028; `iC`: 0.014; `aC`: 0.14–gamut; `r`:
-  165°; `harm` / `term`: 12° / 15°; Behaviour: Stronger accents and tinted
-  chrome
-- `expressive` — Lineage: expressive, fruit salad, rainbow; `sC`: 0.022; `iC`:
-  0.016; `aC`: 0.11–0.17; `r`: 120°; `harm` / `term`: 20° / 20°; Behaviour:
-  Triadic cue unless the image has a second hue; more harmonised status colours
-- `faithful` — Lineage: fidelity, content; `sC`: 0.020; `iC`: 0.012; `aC`: seed
-  chroma; `r`: 165°; `harm` / `term`: 8° / 8°; Behaviour: `signal` is the seed
-  itself when it passes the gates; surfaces take the image's dominant hue
-- `muted` — Lineage: neutral; `sC`: 0.008; `iC`: 0.008; `aC`: 0.05–0.08; `r`:
-  165°; `harm` / `term`: 5° / 5°; Behaviour: Near-neutral chrome, soft accents
-- `monochrome` — Lineage: monochrome; `sC`: 0; `iC`: 0; `aC`: 0.035; `r`: 165°;
-  `harm` / `term`: 0 / 0; Behaviour: Neutral chrome and ink; accents whisper the
-  seed hue; status colours keep their meaning; no `glow`
-- `high-contrast` — `sC`: 0.006; `iC`: 0; `aC`: 0.12–0.17; `r`: 165°; `harm` /
-  `term`: 5° / 5°; Behaviour: `maximum` gates, deeper ground, brighter ink; no
-  `glow`; no translucency
-- `neon` — `sC`: 0.030; `iC`: 0.020; `aC`: 0.16–gamut; `r`: 180°; `harm` /
-  `term`: 0 / 0; Behaviour: Dark only (a light request returns dark with a
-  reason); complementary cue, saturated terminal, `glow` at gamut; glow budget
-  unchanged
+- `balanced` (default) — Lineage: tonal spot; Policy: `HouseNeutral`;
+  `sC`: `0.012` / `0.004`; `iC`: `0.012` / `0.007`; `aC`: `0.09–0.15`; `r`:
+  165°; `harm` / `term`: 10° / 10°; Behaviour: Signal Night graphite and
+  Light ceramic surfaces paired with one confident wallpaper accent
+- `vibrant` — Lineage: vibrant; Policy: `WallpaperTinted` (warm/olive guard
+  active); `sC`: `0.024` / `0.010`; `iC`: `0.012` / `0.008`; `aC`:
+  `0.14–gamut`; `r`: 165°; `harm` / `term`: 12° / 15°; Behaviour: stronger
+  accents and guarded tinted chrome with Light downward taper
+- `expressive` — Lineage: expressive, fruit salad, rainbow; Policy:
+  `WallpaperTinted` (warm/olive guard active); `sC`: `0.020` / `0.008`; `iC`:
+  `0.014` / `0.008`; `aC`: `0.11–0.17`; `r`: 120°; `harm` / `term`: 20° /
+  20°; Behaviour: triadic cue unless the image has a second hue; more
+  harmonised status colours
+- `faithful` — Lineage: fidelity, content; Policy: `WallpaperTinted` (literal
+  `neutralHue` preserved, no warm/olive clamp); `sC`: `0.020` / `0.012`;
+  `iC`: `0.010` / `0.008`; `aC`: seed chroma; `r`: 165°; `harm` / `term`:
+  8° / 8°; Behaviour: `signal` is the seed itself when it passes the gates;
+  surfaces honour the image's dominant neutral hue with Light taper
+- `muted` — Lineage: neutral; Policy: `HouseNeutral`; `sC`: `0.006` /
+  `0.002`; `iC`: `0.006` / `0.004`; `aC`: `0.05–0.08`; `r`: 165°; `harm` /
+  `term`: 5° / 5°; Behaviour: quieter house graphite/ceramic, soft accents
+- `monochrome` — Lineage: monochrome; Policy: `PureNeutral`; `sC`: `0` / `0`;
+  `iC`: `0` / `0`; `aC`: `0.035`; `r`: 165°; `harm` / `term`: 0 / 0;
+  Behaviour: pure grey chrome and ink; accents whisper the seed hue; status
+  colours keep their meaning; no `glow`
+- `high-contrast` — Policy: `HouseNeutral` (Dark) / `PureNeutral` (Light);
+  `sC`: `0.005` / `0`; `iC`: `0` / `0`; `aC`: `0.12–0.17`; `r`: 165°;
+  `harm` / `term`: 5° / 5°; Behaviour: `maximum` gates, deeper ground,
+  brighter ink, zero warm/olive cast; no `glow`; no translucency
+- `neon` — Policy: `WallpaperTinted` (warm/olive guard active); `sC`:
+  `0.028` / `—`; `iC`: `0.016` / `—`; `aC`: `0.16–gamut`; `r`: 180°; `harm` /
+  `term`: 0 / 0; Behaviour: dark only (a light request returns dark with a
+  reason); complementary cue, saturated terminal, `glow` at gamut; glow
+  budget unchanged
 
-Orthogonal knobs: `surfaceDepth` (`standard` / `deep`), `chroma` scale
-(0.5–1.5, multiplies `sC`, `iC` and `aC`), `hueShift` (−180° to 180°,
-applied to the seeds).
+Orthogonal knobs: `surfaceDepth` (`standard` / `deep`), `surfaceTint`
+(`auto` | `neutral` | `tinted`, default `auto`: selects each variant's
+default policy, `neutral` forces `HouseNeutral`/`PureNeutral`, `tinted` forces
+`WallpaperTinted` decoupled from `chroma`), `chroma` scale (`0.5–1.5`,
+scales accents directly without muddying `HouseNeutral` surfaces), and
+`hueShift` (`−180°` to `180°`, applied to the seeds).
 
 Fixed rules for every variant: the glow budget (RFC 0001 amendment 2), no
 glow on Cockpit Clear bars, motion and anatomy untouched.
@@ -505,7 +547,7 @@ existing readers ignore them.
   "chromatic": {
     "version": 1,
     "engine": "1.0.0",
-    "algorithm": 1,
+    "algorithm": 3,
     "fingerprint": "sha256:…",
     "request": {
       "source": "wallpaper",
@@ -516,7 +558,11 @@ existing readers ignore them.
       "chroma": 1.0,
       "hueShift": 0
     },
-    "resolved": { "mode": "dark", "variant": "balanced", "contrast": "standard" },
+    "resolved": {
+      "mode": "dark",
+      "variant": "balanced",
+      "contrast": "standard"
+    },
     "seeds": ["#D98A3A", "#3A7FD9"],
     "sourceKey": "sha256:…"
   },
@@ -536,6 +582,9 @@ existing readers ignore them.
 
 `hornero-chromatic` is a reserved theme id with no catalogue directory.
 Curated themes keep writing the document without the three optional blocks.
+Under `kAlgorithm = 3`, `request.surfaceTint` (`"auto"` | `"neutral"` |
+`"tinted"`) is omitted when `"auto"` so default serialized requests stay
+backward-compatible with `shell.default.json`.
 
 ### 8.2 Theme files (`theme.json`)
 
@@ -693,7 +742,8 @@ versioned by `schemaVersion` in its output.
   analysis, inference}`
 - `generate (--source PATH | --seed HEX…) [request flags] [--current-mode M]` —
   `{schemaVersion, engine, request, analysis, inference, scheme, gates,
-  adjustments, fingerprint}`
+  adjustments, fingerprint}` (`--surface-tint auto|neutral|tinted`, default
+  `auto`, sets `surfaceTint` on Algorithm v3)
 - `validate --scheme FILE [--level L]` — `{schemaVersion, passed, rows}`
 - `variants` — `{schemaVersion, variants}`
 - `version` — `{schemaVersion, engine, algorithm, qt, formats, ffmpeg}`
@@ -779,7 +829,8 @@ A template is a text file with placeholders; a manifest says where it goes.
   `analyse(source) → ChromaticJob`, `generate(request) → ChromaticJob`,
   `contrast(a, b) → real`, `ensureContrast(fg, bg, min) → color`.
 - `ChromaticRequest` (value object): `source`, `seeds`, `variant`, `mode`,
-  `contrast`, `surfaceDepth`, `chroma`, `hueShift`, `currentMode`.
+  `contrast`, `surfaceDepth`, `surfaceTint`, `chroma`, `hueShift`,
+  `currentMode`.
 - `ChromaticJob`: `running`, `cancel()`, signals `finished(result)` and
   `failed(code, message)`. A cancelled job never emits.
 - `ChromaticResult`: `scheme` (JS object in §8.1 shape), `analysis`,

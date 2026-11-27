@@ -11,13 +11,17 @@ use the [Hornero Signal](hornero-signal.md) design language.
 
 ## Pick a theme
 
-The catalogue has **20 themes**, all complete Signal palettes:
+The catalogue has **24 themes**, all complete Signal palettes:
 
-- **Hornero Signal** — Signal Night (factory default), Signal Day and Signal
-  High Contrast.
-- **Hornero Originals** — Buenos Aires Nocturno, Cuyo, Fin del Mundo, Iberá,
-  Iguazú, Pampa, Patagonia, Quebrada and Sierras: regional palettes, each
-  with a credited photograph.
+- **Hornero Signal** — Signal Night (factory default, cool blue-hour
+  graphite), Signal Day (white ceramic and pale aluminum), Signal Dusk
+  (warm workshop copper/charcoal) and Signal High Contrast (pure black
+  ground with white ink).
+- **Hornero Originals** — Buenos Aires Nocturno, Ceibo, Cuyo, Fin del Mundo,
+  Glaciar, Iberá, Iguazú, Jacarandá, Pampa, Patagonia, Quebrada and Sierras:
+  regional palettes, including cool ceramic Light originals (**Ceibo**,
+  **Glaciar**, **Jacarandá**) and warm paper/stone (**Quebrada**,
+  **Sierras**).
 - **Community ports** — Catppuccin Latte, Catppuccin Mocha, Everforest,
   Gruvbox, Landscape, Monochrome, Nord Dreams and Rosé Pine, mapped to the
   Signal roles.
@@ -47,7 +51,7 @@ horneroctl appearance theme get
 ```
 
 Use `apply` for any installed theme. `set` is the verified switch between
-the three built-in Signal themes: it checks that the scheme and GTK agree
+the built-in Signal themes: it checks that the scheme and GTK agree
 afterwards and makes a best-effort rollback to the previous built-in theme
 if they do not:
 
@@ -80,8 +84,10 @@ horneroctl appearance colors status
 
 ## Light and dark
 
-Each theme has a fixed mode: Signal Day, Cuyo, Quebrada, Sierras and
-Catppuccin Latte are light; the others are dark. To switch between light and
+Each theme has a fixed mode: Signal Day, Ceibo, Cuyo, Glaciar, Jacarandá,
+Quebrada, Sierras and Catppuccin Latte are light; the others are dark. For
+cool ceramic Light panels pick Signal Day, Ceibo, Glaciar or Jacarandá; for
+warm highland paper pick Quebrada or Sierras. To switch between light and
 dark, choose a theme of the other mode — for the flagship pair, switch
 between Signal Night and Signal Day.
 
