@@ -1,7 +1,10 @@
 # Audio en Studio: configuración, ruteo y recuperación
 
 > [!NOTE]
-> Podés capturar tu configuración completa de audio de Studio junto con la experiencia y el ruteo en un perfil de instantánea conmutable usando `horneroctl profile capture` o desde el `Centro de control → Perfiles`. Mirá [Perfiles e instantáneas](../desktop/profiles-snapshots.md).
+> Podés capturar tu configuración completa de audio de Studio junto con la
+> experiencia y el ruteo en un perfil de instantánea conmutable usando
+> `horneroctl profile capture` o desde el `Centro de control → Perfiles`. Mirá
+> [Perfiles e instantáneas](../desktop/profiles-snapshots.md).
 
 Cómo funciona el audio de Studio en HorneroOS: el contrato de modos, los
 perfiles portables de política, el ruteo diario y cómo recuperarte cuando algo
@@ -12,7 +15,7 @@ QA para ninguna interfaz específica.
 Contratos fuente, en orden de propiedad:
 
 - Semántica de modos: HorneroOS/hornero
-  [`editions/catalogue.yaml`](https://github.com/HorneroOS/hornero/blob/main/editions/catalogue.yaml)
+[`editions/catalogue.yaml`](https://github.com/HorneroOS/hornero/blob/main/editions/catalogue.yaml)
   (`studioAudioModes`), resuelto por `scripts/resolve-edition.py`.
 - Valores portables de política: `docs/STUDIO-AUDIO.md` en HorneroOS/config y
   los perfiles `desktop/pipewire` + `desktop/studio-audio`.
@@ -72,7 +75,8 @@ horneroctl studio selection show --json
 ![Una terminal mostrando la salida de studio doctor con el modo Low Latency
 registrado. Dos chequeos aparecen marcados como WARN: los xruns contados desde
 que arrancaron los nodos de audio y el perfil de baja latencia activo, junto
-con el comando que lo revierte.](https://www.horneroos.com/captures/cap-studio-04.png)
+con el comando que lo
+revierte.](https://www.horneroos.com/captures/cap-studio-04.png)
 
 *`horneroctl studio doctor` con Baja Latencia registrado: las advertencias
 quedan visibles, incluyendo el conteo de xruns. Los valores de quantum son un

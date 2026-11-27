@@ -1,7 +1,13 @@
 # Studio: live routing for mic, guitar, DAW, Discord, and OBS
 
 > [!TIP]
-> **Fast-track:** You can also enable these virtual routing kits in 1 click via `Control Center → Studio` or `horneroctl studio routing enable` (e.g. `live-call`, `browser-backing`, `reaper-low-latency`), route streams directly from `Control Center → Audio`, and save the entire setup as a switchable workspace profile via `Control Center → Profiles` or `horneroctl profile capture`! See [Profiles and snapshots](../desktop/profiles-snapshots.md).
+> **Fast-track:** You can also enable these virtual routing kits in 1 click
+> via `Control Center → Studio` or `horneroctl studio routing enable` (e.g.
+> `live-call`, `browser-backing`, `reaper-low-latency`), route streams
+> directly from `Control Center → Audio`, and save the entire setup as a
+> switchable workspace profile via `Control Center → Profiles` or `horneroctl
+> profile capture`! See [Profiles and
+> snapshots](../desktop/profiles-snapshots.md).
 
 A practical, 100%-reversible setup on HorneroOS Studio to mix a live
 microphone, an electric guitar through a DAW (such as REAPER over
@@ -49,7 +55,8 @@ horneroctl studio selection show
 Confirm that your host has the audio stack and user tools installed:
 
 - Core session services: `pipewire`, `pipewire-pulse`, `pipewire-jack`,
-  and `wireplumber` (`systemctl --user status pipewire pipewire-pulse wireplumber`).
+  and `wireplumber` (`systemctl --user status pipewire pipewire-pulse
+wireplumber`).
 - Routing and mixer utilities: `qpwgraph` (patchbay) and `pavucontrol`
   (per-stream PulseAudio/PipeWire mixer).
 - Optional DAW and plugins: `reaper` (proprietary opt-in) and LV2

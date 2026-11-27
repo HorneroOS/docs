@@ -1,7 +1,10 @@
 # Studio audio setup, routing, and recovery
 
 > [!NOTE]
-> You can capture your complete studio audio configuration along with experience and routing into a switchable snapshot profile using `horneroctl profile capture` or via `Control Center → Profiles`. See [Profiles and snapshots](../desktop/profiles-snapshots.md).
+> You can capture your complete studio audio configuration along with
+> experience and routing into a switchable snapshot profile using `horneroctl
+> profile capture` or via `Control Center → Profiles`. See [Profiles and
+> snapshots](../desktop/profiles-snapshots.md).
 
 How Studio audio works on HorneroOS: the mode contract, the portable
 policy profiles, day-to-day routing, and how to recover when something
@@ -12,7 +15,7 @@ QA-validated support for any specific interface.
 Source contracts, in ownership order:
 
 - Mode semantics: HorneroOS/hornero
-  [`editions/catalogue.yaml`](https://github.com/HorneroOS/hornero/blob/main/editions/catalogue.yaml)
+[`editions/catalogue.yaml`](https://github.com/HorneroOS/hornero/blob/main/editions/catalogue.yaml)
   (`studioAudioModes`), resolved by `scripts/resolve-edition.py`.
 - Portable policy values: HorneroOS/config `docs/STUDIO-AUDIO.md` and
   the `desktop/pipewire` + `desktop/studio-audio` profiles.
