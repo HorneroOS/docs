@@ -39,7 +39,7 @@ horneroctl doctor
 
 Si el adaptador ni aparece en el sistema, juntá `lspci -nnk`,
 `lsusb` y sus líneas de kernel. Un adaptador ausente está por
-debajo del escritorio. Mirá [Red y Bluetooth](README.md#network-and-bluetooth).
+debajo del escritorio. Mirá [Red y Bluetooth](README.md#red-y-bluetooth).
 
 ## Sin audio
 
@@ -52,7 +52,7 @@ systemctl --user status pipewire wireplumber
 Confirmá primero el dispositivo correcto en Settings → Sound.
 Si activaste un drop-in Studio de baja latencia, quitalo y
 reiniciá los servicios como en
-[Audio Studio](../../applications/studio-audio.md#recovery) antes de
+[Audio Studio](../applications/studio-audio.md#recuperación) antes de
 cambiar otra cosa.
 
 ## El shell no levanta o un panel de Settings sale vacío
@@ -66,7 +66,7 @@ horneroctl config validate
 Guardá el primer error de import o carga QML del log. No
 reinicies la sesión gráfica en loop ni borres ajustes de usuario
 para que un panel cargue. Mirá
-[El shell falta](README.md#the-shell-is-missing-or-not-responding).
+[El shell falta](README.md#la-shell-no-está-o-no-responde).
 
 ## Un juego no arranca
 

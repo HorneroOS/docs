@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@17187ad7c77cb341996f1a27c5b642807a228c6e
+# horneroctl command paths, generated from HorneroOS/hornero@1ec0773c39064b0bfa3e9ebd297ea216833ae2af
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 agent
 agent config
@@ -116,6 +116,14 @@ apps toggle redshift
 apps toggle session
 apps toggle sidebar
 apps toggle utilities
+apps tui
+apps tui add
+apps tui list
+apps tui remove
+apps webapp
+apps webapp add
+apps webapp list
+apps webapp remove
 assistant
 assistant approve
 assistant ask
@@ -150,6 +158,11 @@ backup list
 backup restore
 backup schedule
 bluetooth
+bluetooth devices
+bluetooth doctor
+bluetooth power
+bluetooth restart
+bluetooth status
 capture
 capture clipboard
 capture record
@@ -192,6 +205,12 @@ hardware
 hardware battery
 hardware battery monitor
 hardware battery status
+hardware bluetooth
+hardware bluetooth devices
+hardware bluetooth doctor
+hardware bluetooth power
+hardware bluetooth restart
+hardware bluetooth status
 hardware brightness
 hardware brightness down
 hardware brightness set
@@ -206,6 +225,7 @@ hardware mic
 hardware mic status
 hardware mic toggle
 hardware network
+hardware rollcall
 help
 hypr
 hypr animations
@@ -270,8 +290,13 @@ plugin catalog
 plugin community
 plugin disable
 plugin enable
+plugin install
 plugin install-local
+plugin list
 plugin new
+plugin remove
+plugin trust
+plugin validate
 power
 power lock
 power logout

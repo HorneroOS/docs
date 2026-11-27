@@ -17,14 +17,14 @@ los ajustes persistentes del sistema y de la shell.
 | Instalar, actualizar o quitar una extensión | [Extensiones](extensions.md) |
 | Cambiar cómo se comporta el escritorio: Focus, Signal, Gaming | [Modos de experiencia](experience-modes.md) |
 | Cambiar o entender un fondo | [Fondos](wallpapers.md) |
-| Elegir o solucionar un compositor de sesión | [Compositores Wayland](../../desktop/compositors.md) |
+| Elegir o solucionar un compositor de sesión | [Compositores Wayland](compositors.md) |
 | Entender popups, Escape y movimiento reducido | [Popups, foco y movimiento](popups-and-motion.md) |
 | Moverte entre rieles, barras, islas o docks | [Layouts](layouts.md) |
-| Bloquear, reiniciar o apagar la sesión | [Menú de sesión](../../desktop/session-menu.md) |
+| Bloquear, reiniciar o apagar la sesión | [Menú de sesión](session-menu.md) |
 | Usar bien el teclado | [Atajos](shortcuts.md) |
-| Abrir archivos o lanzar aplicaciones | [Apps cotidianas](../../desktop/everyday-apps.md) |
+| Abrir archivos o lanzar aplicaciones | [Apps cotidianas](everyday-apps.md) |
 | Entender cómo encajan las aplicaciones configuradas | [Apps y flujos](../applications/README.md) |
-| Abrir una página de Ajustes o automatizar un cambio | [horneroctl](../../desktop/horneroctl.md) |
+| Abrir una página de Ajustes o automatizar un cambio | [horneroctl](horneroctl.md) |
 | Actualizar el sistema y entender los límites de recuperación | [Actualizaciones y recuperación: todavía no hay vuelta atrás del sistema](updates-and-rollback.md) |
 | Arrancar kernel principal o de respaldo | [Kernel y arranque de respaldo](kernel-and-fallback.md) |
 
@@ -40,7 +40,7 @@ los ajustes persistentes del sistema y de la shell.
 - **Notificaciones, OSD y menú de sesión** tienen trabajos distintos: las
   notificaciones guardan eventos accionables, el OSD refleja cambios de
   hardware de corta vida y el
-  [menú de sesión](../../desktop/session-menu.md) contiene las acciones de
+  [menú de sesión](session-menu.md) contiene las acciones de
   bloqueo y energía.
 - El **Companion** es un personaje chico de la shell, no una fuente de
   actividad del sistema.
@@ -50,7 +50,7 @@ sus contratos de foco de teclado viven en el
 [repositorio Shell](https://github.com/HorneroOS/shell/tree/main/docs).
 
 HorneroOS Desktop es Wayland-first. Hyprland es el valor por defecto
-validado; [Niri es experimental](../../desktop/compositors.md) y tiene una
+validado; [Niri es experimental](compositors.md) y tiene una
 superficie de funciones verificada menor. La misma identidad de Hornero
 Shell abarca ambos backends donde las capacidades están implementadas.
 

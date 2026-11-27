@@ -65,7 +65,7 @@ maintainer, 19 de noviembre de 2026.*
   Studio. Un ajuste opcional le pide al stack de audio el perfil de baja
   latencia mientras el modo está activo y restaura tu perfil anterior al
   salir (usa `horneroctl studio mode audio`; mirá
-  [Studio](../../applications/studio.md)).
+  [Studio](../applications/studio.md)).
 
 Hay dos salvaguardas que no se pueden pisar: el brillo y las scanlines están
 siempre apagados en Focus y Gaming, y Gaming nunca anima. El brillo y las
@@ -79,7 +79,7 @@ otras:
 
 | Elección | Qué decide | Dónde la cambiás |
 | --- | --- | --- |
-| Edición (Desktop, Studio, Gaming) | Qué software hay instalado | La instalación; mirá [Ediciones](../../architecture/editions.md) |
+| Edición (Desktop, Studio, Gaming) | Qué software hay instalado | La instalación; mirá [Ediciones](../architecture/editions.md) |
 | Modo de experiencia | Cómo se comporta el sistema | Ajustes → Experience |
 | Preset de layout | Qué barras y rieles existen | [Layouts](layouts.md) |
 | Tema | Colores y fondo | [Apariencia](appearance.md) |

@@ -28,14 +28,14 @@ horneroctl shell preset apply cockpit --yes
   (`horneroctl agent list`).
 - `appearance` — themes, Chromatic palettes, GTK/Qt sync, night mode, and
   colors (`horneroctl appearance status --json`).
-- `apps` — app launcher, switcher, git-status watcher, toggles, and
-  performance (`horneroctl apps toggle launcher`).
-- `assistant` — Hornero assistant gateway, sessions, tools, policy, and
-  prompts (`horneroctl assistant status`).
+- `apps` — app launcher, switcher, git-status watcher, toggles,
+  performance, and XDG WebApp/TUI launchers (`horneroctl apps toggle launcher`).
+- `assistant` — optional Hermes AI assistant gateway, sessions, tools,
+  ABAC policy, workspaces, and prompts (`horneroctl assistant status`).
 - `backup` — create, list, restore, and schedule user backups
   (`horneroctl backup list`).
-- `bluetooth` — inspect and control Bluetooth state
-  (`horneroctl bluetooth`).
+- `bluetooth` — Bluetooth diagnostics, status, devices, power, and service
+  restart (`horneroctl bluetooth doctor`).
 - `capture` — screenshots, screen recording, and clipboard capture
   (`horneroctl capture status`).
 - `completion` — generate shell completion scripts for `bash`, `fish`, and
@@ -45,10 +45,11 @@ horneroctl shell preset apply cockpit --yes
 - `doctor` — run system and session health checks (`horneroctl doctor`).
 - `gaming` — Gaming edition diagnostics, launch options, and selections
   (`horneroctl gaming doctor`).
-- `github` — GitHub inbox, status, stats, and export
-  (`horneroctl github status`).
-- `hardware` — battery, brightness, keyboard, microphone, and network
-  controls (`horneroctl hardware battery status`).
+- `github` — read-only GitHub activity, inbox, status, stats, and export
+  via `gh` (`horneroctl github status`).
+- `hardware` — battery, brightness, keyboard, microphone, network,
+  Bluetooth, and redacted hardware rollcall diagnostics
+  (`horneroctl hardware battery status`).
 - `help` — print CLI help for any command group (`horneroctl help`).
 - `hypr` — Hyprland animations, cursor, input, layouts, monitors, and
   plugins (`horneroctl hypr monitors list`).
@@ -57,7 +58,8 @@ horneroctl shell preset apply cockpit --yes
   (`horneroctl mode list`).
 - `package` — query repository/AUR updates, dependencies, and upgrades
   (`horneroctl package check`).
-- `plugin` — browse PluginKit catalog, enable/disable, or scaffold plugins
+- `plugin` — browse PluginKit catalogs, install, validate, trust,
+  enable/disable, run typed actions, or scaffold plugins
   (`horneroctl plugin catalog`).
 - `power` — lock, logout, suspend, reboot, shutdown, and power status
   (`horneroctl power status`).
@@ -183,6 +185,127 @@ The CLI does not rewrite data from another product or a retired path
 namespace. To recover a broken Hornero configuration, inspect
 `horneroctl config paths`, use a reviewed snapshot, or reset the specific
 user-owned file described by the relevant settings page.
+
+## Assistant and agents
+
+The optional Hermes AI assistant (`assistant`) is disabled by default and never
+required. When enabled, it talks to the local Hermes gateway on
+`http://127.0.0.1:8642` with a user-owned `0600` Bearer key. Nothing is
+auto-approved and nothing runs as root:
+
+```sh
+horneroctl assistant status
+horneroctl assistant health
+horneroctl assistant enable --dry-run
+horneroctl assistant gateway status
+horneroctl assistant tools --json
+horneroctl assistant policy
+horneroctl assistant ask "what updates are available?" --mode ask
+```
+
+Use `horneroctl assistant shell-proposal --command "<cmd>"` to classify command
+risk without executing anything, or
+`horneroctl assistant delegate <agent-id> --workspace <dir> "<task>"` for a
+dry-run handoff proposal.
+
+`horneroctl agent` is a declarative registry of local AI coding CLIs
+(`javi-hermes`, `codex`, `claude-code`, `muse`, `cursor`, `opencode`,
+`veasel`). Inspection commands are read-only, credential contents are never
+read, and `agent launch` prints a dry-run proposal only without executing an
+agent:
+
+```sh
+horneroctl agent list
+horneroctl agent status codex --json
+horneroctl agent doctor
+horneroctl agent usage --json
+horneroctl agent default show
+horneroctl agent launch codex
+horneroctl agent config status
+```
+
+## Plugins, GitHub, and Chromatic
+
+`horneroctl plugin` manages static Quickshell extension packages with ownership
+receipts under XDG state. Newly installed plugins start disabled, non-official
+plugins require explicit `trust` for their current payload hash before
+enabling, and Quickshell QML is not sandboxed:
+
+```sh
+horneroctl plugin catalog
+horneroctl plugin community list --json
+horneroctl plugin list --json
+horneroctl plugin validate ./my-plugin
+horneroctl plugin install-local ./my-plugin --dry-run
+horneroctl plugin trust example-clock --dry-run
+horneroctl plugin enable example-clock --dry-run
+horneroctl plugin action list
+```
+
+`horneroctl github` exposes read-only GitHub development activity (Dev Pulse)
+through the official `gh` CLI. `gh` owns authentication, no token is logged or
+cached, and nothing on GitHub is mutated:
+
+```sh
+horneroctl github status
+horneroctl github stats --days 30 --json
+horneroctl github inbox --json
+horneroctl github refresh --json
+horneroctl github export --format markdown --output report.md --public-only
+```
+
+`horneroctl appearance chromatic` drives Hornero Chromatic to generate
+contrast-gated Signal palettes from the wallpaper, an image, or seed colors,
+with transactional rollback:
+
+```sh
+horneroctl appearance chromatic status
+horneroctl appearance chromatic preview --seed "#D98A3A"
+horneroctl appearance chromatic apply --dry-run
+horneroctl appearance chromatic rollback --yes
+horneroctl appearance chromatic off --yes
+```
+
+## Studio, hardware rollcall, and WebApp/TUI launchers
+
+`horneroctl studio` provides read-only diagnostics, workload intent recording
+(never installs packages), reversible PipeWire Low Latency drop-ins, temporary
+power-profile modes, and typed allow-listed render jobs:
+
+```sh
+horneroctl studio doctor
+horneroctl studio selection show --json
+horneroctl studio audio status
+horneroctl studio mode show
+horneroctl studio jobs list
+horneroctl studio app show artcraft-launcher --json
+```
+
+`horneroctl hardware rollcall` collects a read-only, redacted hardware report
+across ten diagnostic categories (`wifi`, `bluetooth`, `audio-output`,
+`audio-input`, `panel`, `backlight`, `touchpad`, `graphics`, `battery`,
+`services`), masking MAC addresses and labeled hardware identifiers before
+sharing:
+
+```sh
+horneroctl hardware rollcall --list
+horneroctl hardware rollcall --markdown
+horneroctl hardware rollcall wifi graphics --json
+```
+
+`horneroctl apps webapp` and `horneroctl apps tui` manage Hornero-owned XDG
+`.desktop` entries (`hornero-webapp-<id>.desktop` and
+`hornero-tui-<id>.desktop`) under `$XDG_DATA_HOME/applications` (defaulting to
+`chromium --app=<url>` for webapps and `kitty` for TUI apps):
+
+```sh
+horneroctl apps webapp list
+horneroctl apps webapp add github --name GitHub --url https://github.com
+horneroctl apps webapp remove github
+horneroctl apps tui list
+horneroctl apps tui add lazygit --name Lazygit --command lazygit
+horneroctl apps tui remove lazygit
+```
 
 ## Scripting
 

@@ -25,20 +25,20 @@ Config:
 - **Kitty** — colores de terminal, tipografía y ajustes de teclas;
   seleccionado por defecto para el flujo Yazi con **Super + E**. Esa
   acción sigue a la terminal configurada, incluyendo Alacritty o Ghostty.
-  Ver [Terminal](../../applications/terminal.md).
+  Ver [Terminal](terminal.md).
 - **Alacritty** y **Ghostty** — alternativas opcionales de terminal con
   fallback nativo de Hornero e integración con la paleta del tema.
   No los instala Hornero Config. Ver
-  [Terminal](../../applications/terminal.md).
+  [Terminal](terminal.md).
 - **Thunar** — aceleradores del gestor de archivos, renombrado masivo y
   acciones de contexto. **Super + F** le pide al host que abra su
-  FileManager. Ver [Archivos](../../applications/files.md).
+  FileManager. Ver [Archivos](files.md).
 - **CopyQ** — configuración de la UI del historial del portapapeles y
   colores del tema. Ver
-  [Portapapeles](../../applications/clipboard.md).
+  [Portapapeles](clipboard.md).
 - **Fastfetch**, **btop** y **Cava** — configuración del resumen de
   terminal, el monitor de recursos y el visualizador. Ver
-  [Utilidades del sistema](../../applications/system-utilities.md).
+  [Utilidades del sistema](system-utilities.md).
 - **Git** — valores compartidos y reglas de ignore, sin identidad de
   usuario. Sumá tu propio nombre y email antes de crear commits.
 - **Fontconfig**, **GTK**, **qt6ct** y **Papirus** — valores por defecto
@@ -46,7 +46,7 @@ Config:
   paquetes de íconos externos pueden faltar; Hornero no los descarga. Ver
   [Apariencia](../desktop/appearance.md).
 - **`handlr`** — integración opcional para inspeccionar manejadores de
-  archivos y aplicaciones. [`horneroctl`](../../desktop/horneroctl.md)
+  archivos y aplicaciones. [`horneroctl`](../desktop/horneroctl.md)
   usa `xdg-mime` para actualizar las asociaciones MIME.
 
 ### Servicios y aplicaciones del host
@@ -60,26 +60,26 @@ Config:
   [documentación de la Shell](https://github.com/HorneroOS/shell/tree/main/docs).
 - **`exo-open` y los helpers XDG** inician la terminal, el gestor de
   archivos, el navegador y los manejadores MIME elegidos por el host. Ver
-  [Aplicaciones por defecto](../../applications/default-apps.md).
+  [Aplicaciones por defecto](default-apps.md).
 - **Yazi** no es una dependencia del paquete Config, pero **Super + E**
   lo abre en la terminal configurada. El perfil de estación de trabajo
   personal puede instalar Yazi y helpers de vista previa. Ver
-  [Archivos](../../applications/files.md).
+  [Archivos](files.md).
 - **`cliphist` y `wl-clipboard`** pueden recolectar el historial del
   portapapeles de Wayland; **PipeWire**, `pamixer`, `pavucontrol` y
   `playerctl` proveen la integración de audio y medios del host. Ver
-  [Portapapeles](../../applications/clipboard.md) y
-  [Medios y audio](../../applications/media-audio.md).
+  [Portapapeles](clipboard.md) y
+  [Medios y audio](media-audio.md).
 - **NetworkManager y BlueZ** proveen los servicios de red y Bluetooth del
   host. El Centro de control expone su estado; ver
-  [Conectividad](../../applications/connectivity.md).
+  [Conectividad](connectivity.md).
 - **`sss`, `grim`, `slurp` y GPU Screen Recorder** proveen backends
   opcionales de captura. Ver
-  [Capturas y grabación](../../applications/capture.md).
+  [Capturas y grabación](capture.md).
 - **Hyprlock e Hypridle** soportan el bloqueo y el comportamiento en
   reposo. **SDDM y Hornero Greeter** son componentes de login separados,
   no parte de la composición Preview actual. Ver
-  [Bloqueo y login](../../applications/login-lock.md).
+  [Bloqueo y login](login-lock.md).
 
 ### Aplicaciones opcionales de la estación de trabajo personal
 
@@ -98,39 +98,43 @@ del producto Hornero no depende de ejecutar sus comandos de provisión.
 
 ## Seguí un flujo
 
-- [Terminal](../../applications/terminal.md) — Kitty, Alacritty, Ghostty,
+- [Terminal](terminal.md) — Kitty, Alacritty, Ghostty,
   la shell de la cuenta, Zsh y tmux.
-- [Archivos](../../applications/files.md) — Thunar, Yazi, vistas previas,
+- [Archivos](files.md) — Thunar, Yazi, vistas previas,
   archivos compactados y asociaciones de archivos.
-- [Portapapeles](../../applications/clipboard.md) — CopyQ, historial del
+- [Portapapeles](clipboard.md) — CopyQ, historial del
   portapapeles de Wayland y privacidad.
-- [Aplicaciones por defecto](../../applications/default-apps.md) —
+- [Aplicaciones por defecto](default-apps.md) —
   manejadores de apps del host y tipos MIME.
-- [Navegación, edición y documentos](../../applications/browsing-documents.md) —
+- [Navegación, edición y documentos](browsing-documents.md) —
   navegadores, editores, PDFs y asociaciones de imágenes/archivos.
-- [Medios y audio](../../applications/media-audio.md) — PipeWire,
+- [Medios y audio](media-audio.md) — PipeWire,
   controles de volumen, MPRIS y reproductores.
-- [Aplicaciones de Studio](../../applications/studio.md) — matriz
+- [Aplicaciones de Studio](studio.md) — matriz
   verificada de origen, licencia y soporte de la edición Studio Preview.
-- [Primeros pasos en Studio](../../applications/studio-getting-started.md) —
+- [Primeros pasos en Studio](studio-getting-started.md) —
   recorrido del primer proyecto para la edición Studio Preview.
-- [Audio en Studio](../../applications/studio-audio.md) — configuración
+- [Audio en Studio](studio-audio.md) — configuración
   de modos, ruteo y recuperación para la edición Studio Preview.
+- [Studio: producción creativa asistida por IA](studio-ai-creative.md) —
+  integraciones MCP opcionales y trabajos de render tipados.
+- [ArtCraft Launcher (experimental)](studio-artcraft.md) —
+  aplicación opcional de instalación manual para Studio.
 - [Primeros pasos después de instalar](post-install-first-steps.md) —
   doctor, actualizaciones, snapshot de configuración y modo.
 - [Gaming: Proton, GameMode, Gamescope y MangoHud](gaming-proton-gamemode.md)
   — correr juegos y leer los límites honestos.
 - [Studio: audio de baja latencia](studio-low-latency.md) — Balanced
   primero; quantum no es latencia.
-- [Aplicaciones de Gaming](../../applications/gaming.md) — matriz
+- [Aplicaciones de Gaming](gaming.md) — matriz
   verificada de origen, licencia y soporte de la edición Gaming.
-- [Capturas y grabación](../../applications/capture.md) — backends de
+- [Capturas y grabación](capture.md) — backends de
   captura de pantalla y grabación.
-- [Conectividad](../../applications/connectivity.md) — NetworkManager,
+- [Conectividad](connectivity.md) — NetworkManager,
   Bluetooth y proveedores de VPN.
-- [Utilidades del sistema](../../applications/system-utilities.md) — Git,
+- [Utilidades del sistema](system-utilities.md) — Git,
   Fastfetch, btop, Cava y helpers del host.
-- [Bloqueo y login](../../applications/login-lock.md) — bloqueo de sesión
+- [Bloqueo y login](login-lock.md) — bloqueo de sesión
   versus login de SDDM.
 
 Estas guías describen primero el contrato actual de Hornero. Las
@@ -142,12 +146,12 @@ las rutas viejas y los comandos `dots-*` no son instrucciones actuales.
 
 Para un inventario buscable y con estados etiquetados de aplicaciones y
 servicios integrados, ver el
-[catálogo de aplicaciones](../../applications/catalogue.md). Separa los
+[catálogo de aplicaciones](catalogue.md). Separa los
 componentes de Hornero de las apps opcionales del host y del perfil
 público de la estación de trabajo personal.
 
 El catálogo se organiza alrededor del trabajo que hace la gente:
-[terminal](../../applications/catalogue.md#terminal-and-command-line),
-[archivos y documentos](../../applications/catalogue.md#files-browsing-and-documents),
-[portapapeles, captura y medios](../../applications/catalogue.md#clipboard-capture-audio-and-connectivity),
-y [apariencia y login](../../applications/catalogue.md#appearance-login-and-desktop-support).
+[terminal](catalogue.md#terminal-y-línea-de-comandos),
+[archivos y documentos](catalogue.md#archivos-navegación-y-documentos),
+[portapapeles, captura y medios](catalogue.md#portapapeles-captura-audio-y-conectividad),
+y [apariencia y login](catalogue.md#apariencia-login-y-soporte-del-escritorio).

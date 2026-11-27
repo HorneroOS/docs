@@ -86,7 +86,7 @@ reutilizada de [Layouts](../desktop/layouts.md).*
 
 Instalá aplicaciones opcionales con el flujo de paquetes que tu
 instalación ya usa, y revisá antes el estado en el
-[catálogo de aplicaciones](../../applications/catalogue.md): separa instalado,
+[catálogo de aplicaciones](catalogue.md): separa instalado,
 opt-in y planificado, así un launcher planificado nunca se
 presenta como instalado.
 

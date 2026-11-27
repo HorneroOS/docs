@@ -62,7 +62,7 @@ la compatibilidad de un juego.
 ## Launchers más allá de Steam
 
 Lutris, Bottles, Wine y Heroic están planificados o son solo
-referencia en la [matriz Gaming](../../applications/gaming.md),
+referencia en la [matriz Gaming](gaming.md),
 no soporte Gaming instalado. Que un título funcione en un launcher
 instalado a mano es tu configuración funcionando, no una
 garantía de HorneroOS.
