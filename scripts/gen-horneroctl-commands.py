@@ -59,24 +59,36 @@ def main() -> int:
         if m:
             paths.add(m.group(1))
 
-    # Per-command blocks: `'name' { return 'Usage: ...' }`.
-    for m in re.finditer(r"^\t\t'([a-z][a-z -]*)' \{\n(.*?)^\t\t\}",
-                         src, re.S | re.M):
-        name, body = m.group(1), m.group(2)
-        paths.add(name)
+    # Per-command blocks: `'name' { return 'Usage: ...' }` (including multi-arm matches).
+    for m in re.finditer(
+        r"^\t\t((?:'[a-z][a-z -]*'(?:,\s*\n?\t*)?)+)\s*\{\n(.*?)^\t\t\}",
+        src,
+        re.S | re.M,
+    ):
+        arm_header, body = m.group(1), m.group(2)
+        names = re.findall(r"'([a-z][a-z -]*)'", arm_header)
         usage = re.search(r"Usage: horneroctl ([^\n]*)", body)
-        rest = usage.group(1)[len(name):] if usage else ""
-        is_group, verbs = usage_verbs(rest)
-        if not is_group:
-            continue
-        paths.update(f"{name} {verb}" for verb in verbs)
-        # Indented verb table (two-space indent, lowercase verb first).
-        table = body.split("\n\n", 1)[1] if "\n\n" in body else ""
-        table = re.split(r"\n(?:Options|Examples|Exit codes)", table)[0]
-        for line in table.splitlines():
-            vm = re.match(r"^  ([a-z][a-z0-9-]*)(?:\s|$)", line)
-            if vm and vm.group(1) not in PLACEHOLDERS:
-                paths.add(f"{name} {vm.group(1)}")
+        for name in names:
+            paths.add(name)
+        primary = names[0]
+        if usage and usage.group(1).startswith(primary):
+            rest = usage.group(1)[len(primary):]
+            is_group, verbs = usage_verbs(rest)
+            if is_group:
+                for name in names:
+                    if " " in name and name != primary:
+                        continue
+                    paths.update(f"{name} {verb}" for verb in verbs)
+                # Indented verb table (two-space indent, lowercase verb first).
+                table = body.split("\n\n", 1)[1] if "\n\n" in body else ""
+                table = re.split(r"\n(?:Options|Examples|Exit codes)", table)[0]
+                for line in table.splitlines():
+                    vm = re.match(r"^  ([a-z][a-z0-9-]*)(?:\s|$)", line)
+                    if vm and vm.group(1) not in PLACEHOLDERS:
+                        for name in names:
+                            if " " in name and name != primary:
+                                continue
+                            paths.add(f"{name} {vm.group(1)}")
 
     print(f"# horneroctl command paths, generated from HorneroOS/hornero@{ref}")
     print("# cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py")
