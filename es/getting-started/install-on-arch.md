@@ -106,10 +106,13 @@ Lo que el sembrado nunca hace:
 - Nunca cambia tu display manager, bootloader ni particiones.
 
 Si tu entrada de Hyprland es la de fábrica (sembrada arriba o de
-una cuenta creada tras instalar los paquetes),
-`horneroctl config refresh-hypr` mantiene su lista de módulos al
-día de forma aditiva; tus overrides en `hyprland.lua.d/*-user.lua`
-siguen siendo tuyos.
+una cuenta creada tras instalar los paquetes), `load_factory` lee los
+módulos empaquetados desde `/etc/xdg/hypr/hyprland.lua.d/` para que las
+actualizaciones de paquetes te lleguen solas mientras `load_user`
+respeta tus overrides en `hyprland.lua.d/*-user.lua`;
+`horneroctl config refresh-hypr` mantiene su lista de módulos al día de
+forma aditiva (mirá
+[Compositores Wayland](../desktop/compositors.md#hyprland)).
 
 ## 4. Arrancar el escritorio
 

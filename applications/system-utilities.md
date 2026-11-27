@@ -16,6 +16,9 @@ metadata names tools for which it can provide defaults:
 
 - **Git** — shared defaults and ignore rules in `/etc/xdg/git/`. Add your
   own `user.name` and `user.email`; Hornero deliberately ships no identity.
+  If you use `delta` with
+  [Hornero Chromatic](../desktop/chromatic.md#application-templates), the
+  `delta` template renders `~/.config/git/hornero-chromatic.gitconfig`.
 - **Fastfetch** — terminal system summary. Defaults live in
   `/etc/xdg/fastfetch/`; the personal workstation adds a Hornero text mark.
 - **btop** — interactive CPU, memory, process, and device monitor. Defaults

@@ -93,17 +93,36 @@ contracts.
 
 ## AI agent confinement (bubblewrap)
 
-When HorneroOS launches local AI coding agents or assistant tools through
-`horneroctl agent` / `horneroctl assistant`, confinement relies on
-`bubblewrap` (`bwrap`) namespaces where supported:
+When HorneroOS runs local AI coding agents or assistant tools through
+`horneroctl agent run --sandbox` or `horneroctl assistant`, confinement relies
+on `bubblewrap` (`bwrap`) namespaces where supported:
 
-- Filesystem access is scoped to the declared workspace and explicit
-  read-only system mounts rather than the entire home directory.
-- Network and secret exposure should be treated as explicit opt-ins; never
-  assume an agent sandbox protects against a host kernel vulnerability or
-  overly broad bind mounts.
-- Inspect agent policies and status with `horneroctl assistant policy` and
-  `horneroctl agent status`.
+- **Explicit sandbox gate:** `horneroctl agent run <id> --sandbox` refuses to
+  launch an agent unsandboxed (use `horneroctl agent launch <id>` for a dry-run
+  proposal). It builds a literal, shell-free `bwrap` argv without shell
+  interpolation and never adds auto-approve/YOLO flags.
+- **Workspace cage & namespaces:** unshares PID, UTS, and IPC namespaces with
+  `--die-with-parent`, mounts `/usr`, `/lib`, `/lib64`, `/bin`, `/sbin`, and
+  `/etc` read-only, isolates `/tmp` and `$HOME` on empty `tmpfs` mounts, binds
+  only `--workspace <dir>` (defaulting to the current directory; `/` and
+  `$HOME` or its parents are rejected) and the agent's own config directory
+  (when present and safe) read-write, and sets `--chdir` to the workspace.
+  If the resolved agent binary lives under `$HOME`, that binary is bound
+  read-only.
+- **Credential & browser isolation:** masks `~/.ssh`, `~/.gnupg`, `~/.aws`,
+  `~/.config/gh`, and browser profile directories (`~/.mozilla`,
+  `~/.config/google-chrome`, `~/.config/chromium`, `~/.config/BraveSoftware`)
+  with empty `tmpfs` mounts and refuses workspace or bind paths inside them.
+- **Explicit opt-ins & dry run:** `--no-net` adds `--unshare-net` to block
+  networking; `--allow-git-auth` mounts `~/.ssh`, `~/.config/gh`,
+  `~/.config/git`, and `~/.gitconfig` read-only (plus `$SSH_AUTH_SOCK` when
+  set) while keeping `~/.gnupg` and `~/.aws` masked; `--dry-run` prints the
+  exact `bwrap` command without executing it; and `-- <args>...` forwards
+  trailing arguments verbatim.
+- **Boundary limits:** never assume an agent sandbox protects against a host
+  kernel vulnerability or overly broad workspace paths. Inspect policies and
+  status with `horneroctl assistant policy`, `horneroctl agent status`, and
+  [Assistant and agents](../desktop/horneroctl.md#assistant-and-agents).
 
 ## Location and weather
 

@@ -31,6 +31,33 @@ HorneroOS.
 Mirá [atajos del escritorio](shortcuts.md) y [layouts](layouts.md) para los
 flujos compartidos de la Shell.
 
+### Módulos de fábrica y overrides de usuario
+
+La entrada de Hyprland de Hornero (`~/.config/hypr/hyprland.lua`) separa los
+módulos inmutables empaquetados de las personalizaciones del usuario:
+
+- **Módulos de fábrica (`load_factory`):** módulos como `monitors.lua`,
+  `autostart.lua`, `environment.lua`, `input.lua`, `gestures.lua`,
+  `layout.lua`, `keybindings-overlay.lua`, `helpers.lua`, `keybindings.lua`,
+  `window-rules.lua`, `animations.lua`, `smart-colors.lua`, `plugins.lua` y
+  `static.lua` se cargan desde `/etc/xdg/hypr/hyprland.lua.d/` cuando están
+  empaquetados ahí (se puede pisar con `HORNERO_HYPR_FACTORY_DIR`), con
+  respaldo por archivo a `~/.config/hypr/hyprland.lua.d/` para instalaciones
+  sin paquete. Como `/etc/xdg/hypr/hyprland.lua.d/` tiene prioridad, las
+  actualizaciones de `pacman` llegan a cuentas existentes aunque queden copias
+  viejas de `/etc/skel` en `~/.config/hypr/`.
+- **Hooks de override (`load_user`):** `monitors-user.lua`,
+  `keybindings-user.lua` y `window-rules-user.lua` cargan primero desde tu
+  `~/.config/hypr/hyprland.lua.d/` local, y recurren a `factory_dir` si faltan.
+- **Fijar un módulo de fábrica:** para usar una copia local modificada de un
+  módulo de fábrica, reemplazá su llamada `load_factory("...")` por
+  `load_user("...")` en `~/.config/hypr/hyprland.lua`.
+- **Refrescar una entrada anterior:** `horneroctl config refresh-hypr --dry-run`
+  previsualiza de forma aditiva las líneas de módulos de fábrica faltantes
+  (soporta tanto `load_factory`/`load_user` como entradas `dofile` legadas)
+  conservando tus líneas existentes y archivos `*-user.lua`; `--yes` escribe
+  con respaldo `.pre-refresh`.
+
 ## Niri
 
 Niri es un compositor Wayland experimental de desplazamiento horizontal.

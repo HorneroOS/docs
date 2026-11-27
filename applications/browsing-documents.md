@@ -40,7 +40,10 @@ Replace `org.example.Editor.desktop` with an installed desktop-file ID. The
 command updates that MIME association; it does not set a terminal editor for
 every shell or application. See the
 [Neovim user manual](https://neovim.io/doc/user/) if using the personal
-workstation profile.
+workstation profile. When using
+[Hornero Chromatic](../desktop/chromatic.md#application-templates), it also
+renders `:colorscheme hornero-chromatic` for Neovim and a `hornero-chromatic`
+theme for Helix.
 
 ## PDFs, images, and media files
 

@@ -159,6 +159,45 @@ del tema. Está pendiente de revisión
 llegue, usá la fuente **Color** (`--seed`) con la variante Faithful para
 armar una paleta alrededor del acento que quieras.
 
+## Plantillas de aplicaciones
+
+Además de la Shell, Hyprland, GTK, Qt y los renderizadores integrados de
+terminales, `horneroctl` renderiza plantillas de Chromatic propias de config
+bajo `/usr/share/hornero/chromatic/templates/` (23 manifiestos oficiales que
+cubren terminales, barras, lanzadores, editores y herramientas de diff) cuando
+existe el directorio de configuración de cada app:
+
+- **Neovim (`nvim-colorscheme` y `nvim`):** `nvim-colorscheme` escribe
+  `~/.config/nvim/colors/hornero-chromatic.lua` (grupos de UI, sintaxis, diff,
+  diagnósticos, LSP y Treesitter); activalo con
+  `:colorscheme hornero-chromatic`. La plantilla `nvim` también escribe un
+  módulo de paleta Lua en `~/.config/nvim/lua/hornero_chromatic.lua`.
+- **Helix (`helix`):** escribe `~/.config/helix/themes/hornero-chromatic.toml`
+  con definiciones de UI, diagnósticos, diff, sintaxis y `[palette]`; elegí
+  `theme = "hornero-chromatic"` en `~/.config/helix/config.toml`.
+- **git-delta (`delta`):** escribe `~/.config/git/hornero-chromatic.gitconfig`
+  con un bloque `[delta "hornero-chromatic"]` consciente del modo claro/oscuro
+  más secciones `[color "diff"]`, `[color "branch"]` y `[color "status"]`;
+  incluilo desde `~/.config/git/config.user`:
+
+  ```ini
+  [include]
+    path = ~/.config/git/hornero-chromatic.gitconfig
+  [delta]
+    features = hornero-chromatic
+  ```
+
+Inspeccioná o previsualizá plantillas con `horneroctl`:
+
+```sh
+horneroctl appearance chromatic templates list
+horneroctl appearance chromatic templates render --all
+```
+
+Los manifiestos propios del usuario van en
+`$XDG_CONFIG_HOME/hornero/chromatic/templates.d/*.json`; validalos con
+`horneroctl appearance chromatic templates check <archivo>`.
+
 ## Volver atrás
 
 Cada aplicación es transaccional: Hornero toma una instantánea del estado

@@ -24,8 +24,8 @@ horneroctl shell preset apply cockpit --yes
 
 `horneroctl` organizes its subcommands into 27 top-level groups:
 
-- `agent` — manage local AI coding agents, defaults, config, and usage
-  (`horneroctl agent list`).
+- `agent` — manage local AI coding agents, defaults, config, sandboxed runs,
+  and usage (`horneroctl agent list`).
 - `appearance` — themes, Chromatic palettes, GTK/Qt sync, night mode, and
   colors (`horneroctl appearance status --json`).
 - `apps` — app launcher, switcher, git-status watcher, toggles,
@@ -212,7 +212,18 @@ dry-run handoff proposal.
 (`javi-hermes`, `codex`, `claude-code`, `muse`, `cursor`, `opencode`,
 `veasel`). Inspection commands are read-only, credential contents are never
 read, and `agent launch` prints a dry-run proposal only without executing an
-agent:
+agent.
+
+To execute a registered agent directly, use `horneroctl agent run <id>
+--sandbox`: it refuses to run unsandboxed and launches the CLI inside a
+`bubblewrap` workspace cage with `$HOME` replaced by `tmpfs`, sensitive
+credential and browser directories masked, `--workspace <dir>` (default:
+current directory) and the agent's own config directory bound read-write, and
+no shell interpolation or auto-approve flags. Pass `--no-net` to unshare
+networking, `--allow-git-auth` to mount git/SSH auth read-only (keeping GPG
+and AWS masked), `--dry-run` to inspect the exact `bwrap` argv, and
+`-- <args>...` to forward flags verbatim. See
+[AI agent confinement](../security/README.md#ai-agent-confinement-bubblewrap):
 
 ```sh
 horneroctl agent list
@@ -221,6 +232,9 @@ horneroctl agent doctor
 horneroctl agent usage --json
 horneroctl agent default show
 horneroctl agent launch codex
+horneroctl agent run codex --sandbox --dry-run
+horneroctl agent run claude-code --sandbox --no-net --dry-run
+horneroctl agent run opencode --sandbox -- --help
 horneroctl agent config status
 ```
 

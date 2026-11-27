@@ -736,7 +736,10 @@ schemes alike:
   `gtk-4.0/gtk.css` recolour; GTK theme tree chosen by mode
 - **Qt (qt5ct / qt6ct)** — Template → `qt6ct/colors/hornero-chromatic.conf`,
   existing qt6ct line edit
-- **foot, fuzzel, neovim, zed** — Shipped templates (config)
+- **foot, fuzzel, neovim (`nvim` + `nvim-colorscheme`), helix, delta, zed** —
+  Shipped templates (config; 23 first-party manifests including
+  `:colorscheme hornero-chromatic` for Neovim, Helix themes, and
+  `git-delta`)
 - **User and extension apps** — Templates (§12.2)
 
 New adapters for dynamic output are config-owned **templates** rendered by
