@@ -16,6 +16,7 @@ los ajustes persistentes del sistema y de la shell.
 | Encontrar un ajuste en el Centro de control | [Mapa del Centro de control](control-center.md) |
 | Instalar, actualizar o quitar una extensión | [Extensiones](extensions.md) |
 | Cambiar cómo se comporta el escritorio: Focus, Signal, Gaming | [Modos de experiencia](experience-modes.md) |
+| Capturar, aplicar y sincronizar configuraciones universales del espacio de trabajo | [Perfiles e instantáneas](profiles-snapshots.md) |
 | Cambiar o entender un fondo | [Fondos](wallpapers.md) |
 | Elegir o solucionar un compositor de sesión | [Compositores Wayland](compositors.md) |
 | Entender popups, Escape y movimiento reducido | [Popups, foco y movimiento](popups-and-motion.md) |
