@@ -100,18 +100,39 @@ Ver la [plataforma PluginKit](../development/pluginkit-platform.md) y la
 
 ## Confinamiento de agentes de IA (bubblewrap)
 
-Cuando HorneroOS lanza agentes locales de código o herramientas del asistente
-mediante `horneroctl agent` / `horneroctl assistant`, el confinamiento se
-apoya en espacios de nombres de `bubblewrap` (`bwrap`) donde esté soportado:
+Cuando HorneroOS corre agentes locales de código o herramientas del asistente
+mediante `horneroctl agent run --sandbox` o `horneroctl assistant`, el
+confinamiento se apoya en espacios de nombres de `bubblewrap` (`bwrap`) donde
+esté soportado:
 
-- El acceso al sistema de archivos se acota al espacio de trabajo declarado y
-  a montajes de sistema de solo lectura explícitos, en lugar de todo tu
-  directorio personal.
-- La exposición de red y secretos debe tratarse como opt-in explícito; nunca
-  asumas que el sandbox de un agente protege contra una vulnerabilidad del
-  kernel o montajes demasiado amplios.
-- Inspeccioná las políticas y el estado con `horneroctl assistant policy` y
-  `horneroctl agent status`.
+- **Compuerta explícita de sandbox:** `horneroctl agent run <id> --sandbox` se
+  niega a lanzar un agente sin sandbox (usá `horneroctl agent launch <id>` para
+  una propuesta dry run). Construye un `argv` literal de `bwrap` sin
+  interpolación de shell y nunca agrega flags de autoaprobación/YOLO.
+- **Jaula de workspace y namespaces:** descomparte los namespaces PID, UTS e IPC
+  con `--die-with-parent`, monta `/usr`, `/lib`, `/lib64`, `/bin`, `/sbin` y
+  `/etc` en solo lectura, aísla `/tmp` y `$HOME` en montajes `tmpfs` vacíos,
+  monta en lectura/escritura solo `--workspace <dir>` (por defecto el
+  directorio actual; rechaza `/` y `$HOME` o sus padres) y el directorio de
+  configuración propio del agente (cuando existe y es seguro), y fija `--chdir`
+  al workspace. Si el binario resuelto vive bajo `$HOME`, ese binario se monta
+  en solo lectura.
+- **Aislamiento de credenciales y navegadores:** enmascara `~/.ssh`, `~/.gnupg`,
+  `~/.aws`, `~/.config/gh` y perfiles de navegadores (`~/.mozilla`,
+  `~/.config/google-chrome`, `~/.config/chromium`,
+  `~/.config/BraveSoftware`) con montajes `tmpfs` vacíos y rechaza workspaces
+  o binds dentro de esas rutas.
+- **Opt-ins explícitos y vista previa:** `--no-net` agrega `--unshare-net` para
+  aislar la red; `--allow-git-auth` monta `~/.ssh`, `~/.config/gh`,
+  `~/.config/git` y `~/.gitconfig` en solo lectura (más `$SSH_AUTH_SOCK` si está
+  definido) manteniendo `~/.gnupg` y `~/.aws` enmascarados; `--dry-run` imprime
+  el comando `bwrap` exacto sin ejecutarlo; y `-- <args>...` pasa los
+  argumentos finales de forma literal.
+- **Límites del entorno:** nunca asumas que el sandbox de un agente protege
+  contra una vulnerabilidad del kernel del host o rutas de workspace
+  demasiado amplias. Inspeccioná políticas y estado con
+  `horneroctl assistant policy`, `horneroctl agent status` y
+  [Asistente y agentes](../desktop/horneroctl.md#asistente-y-agentes).
 
 ## Ubicación y clima
 

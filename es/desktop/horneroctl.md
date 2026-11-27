@@ -27,7 +27,7 @@ horneroctl shell preset apply cockpit --yes
 `horneroctl` organiza sus subcomandos en 27 grupos de nivel superior:
 
 - `agent` — gestionar agentes locales de código con IA, valores por defecto,
-  configuración y uso (`horneroctl agent list`).
+  configuración, ejecuciones en sandbox y uso (`horneroctl agent list`).
 - `appearance` — temas, paletas Chromatic, sincronización GTK/Qt, modo noche y
   colores (`horneroctl appearance status --json`).
 - `apps` — lanzador de aplicaciones, switcher, observador `git-status`,
@@ -222,7 +222,19 @@ propuesta de derivación en modo dry run.
 código (`javi-hermes`, `codex`, `claude-code`, `muse`, `cursor`, `opencode`,
 `veasel`). Los comandos de inspección son de solo lectura, nunca se leen los
 contenidos de credenciales y `agent launch` solo imprime una propuesta dry run
-sin ejecutar ningún agente:
+sin ejecutar ningún agente.
+
+Para ejecutar un agente registrado de forma directa, usá `horneroctl agent run
+<id> --sandbox`: se niega a correr sin sandbox y lanza la CLI dentro de una
+jaula de workspace con `bubblewrap`, reemplazando `$HOME` con `tmpfs`,
+enmascarando directorios sensibles de credenciales y navegadores, montando en
+lectura/escritura solo `--workspace <dir>` (por defecto el directorio actual) y
+el directorio de configuración propio del agente, y sin interpolación de shell
+ni flags de autoaprobación. Pasá `--no-net` para aislar la red,
+`--allow-git-auth` para montar credenciales de git/SSH en solo lectura
+(manteniendo GPG y AWS enmascarados), `--dry-run` para ver el argv exacto de
+`bwrap` y `-- <args>...` para reenviar flags textuales. Mirá
+[Confinamiento de agentes de IA](../security/README.md#confinamiento-de-agentes-de-ia-bubblewrap):
 
 ```sh
 horneroctl agent list
@@ -231,6 +243,9 @@ horneroctl agent doctor
 horneroctl agent usage --json
 horneroctl agent default show
 horneroctl agent launch codex
+horneroctl agent run codex --sandbox --dry-run
+horneroctl agent run claude-code --sandbox --no-net --dry-run
+horneroctl agent run opencode --sandbox -- --help
 horneroctl agent config status
 ```
 

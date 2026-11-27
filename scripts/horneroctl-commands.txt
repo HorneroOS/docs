@@ -1,4 +1,4 @@
-# horneroctl command paths, generated from HorneroOS/hornero@1ec0773c39064b0bfa3e9ebd297ea216833ae2af
+# horneroctl command paths, generated from HorneroOS/hornero@10078375a835dadcf05da0d1c35034caa9d58408
 # cli/modules/hornero_cli/help.v by scripts/gen-horneroctl-commands.py
 agent
 agent config
@@ -11,6 +11,7 @@ agent default show
 agent doctor
 agent launch
 agent list
+agent run
 agent status
 agent usage
 appearance

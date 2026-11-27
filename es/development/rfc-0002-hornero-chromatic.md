@@ -814,7 +814,10 @@ esquemas curados como Chromatic:
   elegido por modo
 - **Qt (qt5ct / qt6ct)** — Plantilla → `qt6ct/colors/hornero-chromatic.conf`,
   edición de línea existente de qt6ct
-- **foot, fuzzel, neovim, zed** — Plantillas incluidas (config)
+- **foot, fuzzel, neovim (`nvim` + `nvim-colorscheme`), helix, delta, zed** —
+  Plantillas incluidas (config; 23 manifiestos oficiales que incluyen
+  `:colorscheme hornero-chromatic` para Neovim, temas de Helix y
+  `git-delta`)
 - **Apps de usuario y de extensiones** — Plantillas (§12.2)
 
 Los adaptadores nuevos para salida dinámica son **plantillas** de las que

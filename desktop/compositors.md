@@ -27,6 +27,33 @@ current backend rather than the definition of HorneroOS.
 See [desktop shortcuts](shortcuts.md) and [layouts](layouts.md) for the shared
 Shell workflows.
 
+### Factory modules and user overrides
+
+Hornero's Hyprland entrypoint (`~/.config/hypr/hyprland.lua`) separates
+immutable packaged defaults from personal overrides:
+
+- **Factory modules (`load_factory`):** modules such as `monitors.lua`,
+  `autostart.lua`, `environment.lua`, `input.lua`, `gestures.lua`,
+  `layout.lua`, `keybindings-overlay.lua`, `helpers.lua`, `keybindings.lua`,
+  `window-rules.lua`, `animations.lua`, `smart-colors.lua`, `plugins.lua`, and
+  `static.lua` load from `/etc/xdg/hypr/hyprland.lua.d/` when packaged there
+  (overridable via `HORNERO_HYPR_FACTORY_DIR`), with per-file fallback to
+  `~/.config/hypr/hyprland.lua.d/` for non-packaged runs. Because
+  `/etc/xdg/hypr/hyprland.lua.d/` takes precedence, `pacman` upgrades reach
+  existing users even when stale `/etc/skel` copies remain in `~/.config/hypr/`.
+- **User override hooks (`load_user`):** `monitors-user.lua`,
+  `keybindings-user.lua`, and `window-rules-user.lua` load from your local
+  `~/.config/hypr/hyprland.lua.d/` first, falling back to `factory_dir` if
+  absent.
+- **Pinning a factory module:** to lock a local copy of a factory module,
+  replace its `load_factory("...")` call with `load_user("...")` in
+  `~/.config/hypr/hyprland.lua`.
+- **Refreshing an older entrypoint:** `horneroctl config refresh-hypr --dry-run`
+  previews missing factory module lines additively (supporting both
+  `load_factory`/`load_user` and legacy `dofile` entrypoints) while preserving
+  existing lines and `*-user.lua` files; `--yes` writes with a `.pre-refresh`
+  backup.
+
 ## Niri
 
 Niri is an experimental scrolling Wayland compositor. HorneroOS supplies a

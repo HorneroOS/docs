@@ -149,8 +149,11 @@ horneroctl hardware keyboard rebind undo --yes
 horneroctl hardware keyboard rebind reset --yes
 ```
 
-On the factory Lua configuration, rebinds go to the generated
-`~/.config/hypr/hornero-keybinds.lua`. It holds data only, and the config's
+On the factory Lua configuration, `keybindings.lua` and
+`keybindings-overlay.lua` load via `load_factory` from
+`/etc/xdg/hypr/hyprland.lua.d/`, while `keybindings-user.lua` loads via
+`load_user` from `~/.config/hypr/hyprland.lua.d/`. Rebinds go to the
+generated `~/.config/hypr/hornero-keybinds.lua`. It holds data only, and
 `keybindings-overlay.lua` applies it before any bind loads. Neither the
 factory `keybindings.lua` nor your `keybindings-user.lua` is edited, and
 unbind/bind pairs in your personal file follow a rebind. Undo snapshots

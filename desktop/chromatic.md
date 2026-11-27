@@ -150,6 +150,45 @@ mode and per experience mode, with an optional set of soft warm presets and a
 use the **Colour** source (`--seed`) with the Faithful variant to build a
 palette around the accent you want.
 
+## Application templates
+
+Beyond the Shell, Hyprland, GTK, Qt, and built-in terminal renderers,
+`horneroctl` renders config-owned Chromatic templates under
+`/usr/share/hornero/chromatic/templates/` (23 first-party manifests, covering
+terminals, bars, launchers, editors, and diff tools) when each application's
+config directory exists:
+
+- **Neovim (`nvim-colorscheme` and `nvim`):** `nvim-colorscheme` writes
+  `~/.config/nvim/colors/hornero-chromatic.lua` (UI, syntax, diff, diagnostic,
+  LSP, and Treesitter highlight groups); enable it with
+  `:colorscheme hornero-chromatic`. The `nvim` template also writes a Lua
+  palette module at `~/.config/nvim/lua/hornero_chromatic.lua`.
+- **Helix (`helix`):** writes `~/.config/helix/themes/hornero-chromatic.toml`
+  with UI, diagnostic, diff, syntax, and `[palette]` definitions; select
+  `theme = "hornero-chromatic"` in `~/.config/helix/config.toml`.
+- **git-delta (`delta`):** writes `~/.config/git/hornero-chromatic.gitconfig`
+  with a mode-aware `[delta "hornero-chromatic"]` feature block plus
+  `[color "diff"]`, `[color "branch"]`, and `[color "status"]`; include it
+  from `~/.config/git/config.user`:
+
+  ```ini
+  [include]
+    path = ~/.config/git/hornero-chromatic.gitconfig
+  [delta]
+    features = hornero-chromatic
+  ```
+
+Inspect or preview templates with `horneroctl`:
+
+```sh
+horneroctl appearance chromatic templates list
+horneroctl appearance chromatic templates render --all
+```
+
+Custom user template manifests belong in
+`$XDG_CONFIG_HOME/hornero/chromatic/templates.d/*.json`; validate them with
+`horneroctl appearance chromatic templates check <file>`.
+
 ## Roll back
 
 Every apply is transactional: Hornero snapshots the current state, writes

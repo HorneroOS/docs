@@ -16,7 +16,9 @@ opcionales nombran herramientas para las que puede proveer valores por defecto:
 
 - **Git** — valores compartidos y reglas de ignore en `/etc/xdg/git/`. Sumá
   tus propios `user.name` y `user.email`; Hornero no incluye identidad a
-  propósito.
+  propósito. Si usás `delta` con
+  [Hornero Chromatic](../desktop/chromatic.md#plantillas-de-aplicaciones), la
+  plantilla `delta` renderiza `~/.config/git/hornero-chromatic.gitconfig`.
 - **Fastfetch** — resumen del sistema en terminal. Los valores por defecto
   viven en `/etc/xdg/fastfetch/`; la estación de trabajo personal agrega una
   marca de texto de Hornero.

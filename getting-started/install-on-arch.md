@@ -105,9 +105,12 @@ What seeding never does:
 - It never changes your display manager, bootloader or partitions.
 
 If your Hyprland entrypoint is the factory one (seeded above or
-from an account created after installing the packages),
-`horneroctl config refresh-hypr` keeps its module list current
-additively; your `hyprland.lua.d/*-user.lua` overrides stay yours.
+from an account created after installing the packages), `load_factory`
+reads packaged modules from `/etc/xdg/hypr/hyprland.lua.d/` so package
+upgrades reach you automatically while `load_user` keeps
+`hyprland.lua.d/*-user.lua` overrides yours; `horneroctl config
+refresh-hypr` keeps its module list current additively (see
+[Wayland compositors](../desktop/compositors.md#hyprland)).
 
 ## 4. Start the desktop
 

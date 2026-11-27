@@ -132,14 +132,18 @@ horneroctl hardware keyboard rebind undo --yes
 horneroctl hardware keyboard rebind reset --yes
 ```
 
-En la configuración Lua de fábrica, las reasignaciones se guardan en el
-archivo generado `~/.config/hypr/hornero-keybinds.lua`. Ese archivo solo
-contiene datos, y el `keybindings-overlay.lua` de la configuración lo aplica
-antes de cargar cualquier atajo. No se edita ni el `keybindings.lua` de
-fábrica ni tu `keybindings-user.lua`, y los pares unbind/bind de tu archivo
-personal siguen a la reasignación. Las instantáneas para deshacer quedan en
-`~/.local/state/hornero/keybinds/undo` (las últimas 20). Las configuraciones
-hyprlang anteriores guardan pares `unbind`/`bind` en `keybindings-user.conf`.
+En la configuración Lua de fábrica, `keybindings.lua` y
+`keybindings-overlay.lua` cargan mediante `load_factory` desde
+`/etc/xdg/hypr/hyprland.lua.d/`, mientras que `keybindings-user.lua` carga
+mediante `load_user` desde `~/.config/hypr/hyprland.lua.d/`. Las
+reasignaciones se guardan en el archivo generado
+`~/.config/hypr/hornero-keybinds.lua`. Ese archivo solo contiene datos, y
+`keybindings-overlay.lua` lo aplica antes de cargar cualquier atajo. No se
+edita ni el `keybindings.lua` de fábrica ni tu `keybindings-user.lua`, y los
+pares unbind/bind de tu archivo personal siguen a la reasignación. Las
+instantáneas para deshacer quedan en `~/.local/state/hornero/keybinds/undo`
+(las últimas 20). Las configuraciones hyprlang anteriores guardan pares
+`unbind`/`bind` en `keybindings-user.conf`.
 
 ## Comportamiento de ventanas
 
