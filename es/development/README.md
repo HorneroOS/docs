@@ -11,39 +11,33 @@ instrucciones para colaboradores de ese repositorio antes de editar.
 - [PluginKit 4: la plataforma de extensiones](pluginkit-platform.md) —
   recorrido por las superficies de contribución, ajustes tipados y widgets por
   instancia.
-- [Design language](../../development/design-language.md) — identidad de
-  producto compartida, principios de interfaz y fuentes de diseño
-  autorizadas entre repositorios.
+- [Lenguaje de diseño](design-language.md) — identidad de producto compartida,
+  principios de interfaz y fuentes de diseño autorizadas entre repositorios.
 - [Contrato de interacción](interaction-contract.md),
   [RFC 0002: Hornero Chromatic](rfc-0002-hornero-chromatic.md),
   [estudio Cozy Hackerpunk](signal-cozy-hackerpunk-study.md) y
-  [auditoría de calidad visual](visual-quality-audit.md) — traducciones al
-  español de las páginas de diseño.
-- [Guía de extensiones](../../development/extensions.md) — PluginKit 3,
-  manifest v3, glifos y widgets de escritorio (solo en inglés por ahora).
-- [Testing](../../development/testing.md) — elegí chequeos enfocados y
-  aceptación gráfica.
-- [Calidad y releases](../../development/quality-and-releases.md) —
-  clases de evidencia, aceptación gráfica, firma y cómo se construyen
-  las releases.
-- [Contributing](../../development/contributing.md) — expectativas de
-  ramas, revisión y trabajo entre repositorios.
-- [Internationalization](../../development/i18n.md) — contrato actual de
-  idioma y strings.
-- [Wiki de dotfiles histórica](../../development/dotfiles-wiki-disposition.md) —
-  cómo se evaluó el conocimiento anterior antes de reutilizarlo.
-- [Estudio de experiencia](../../development/experience-reference-study.md) —
-  patrones de producto actuales de proyectos relacionados y las
-  decisiones que HorneroOS toma a partir de ellos.
-- [Matriz competitiva](../../development/competitive-capability-matrix.md) —
-  comparación respaldada por evidencia contra referencias de escritorio
-  upstream.
-- [Asistente Hermes](../../development/hermes-assistant-architecture.md) —
-  el contrato de diseño del asistente opcional de Hornero respaldado por
-  Hermes.
-- [Auditoría de backlog](../../development/backlog-audit-2026-10-19.md) —
-  hallazgos de la auditoría del ecosistema, reconciliación del backlog e
-  índice de issues creadas.
+  [auditoría de calidad visual](visual-quality-audit.md) — páginas de diseño
+  en español.
+- [Guía de extensiones](extensions.md) — PluginKit 3, manifest v3, glifos y
+  widgets de escritorio.
+- [Pruebas](testing.md) — elegí chequeos enfocados y aceptación gráfica.
+- [Calidad y releases](quality-and-releases.md) — clases de evidencia,
+  aceptación gráfica, firma y cómo se construyen las releases.
+- [Contribuir](contributing.md) — expectativas de ramas, revisión y trabajo
+  entre repositorios.
+- [Internacionalización](i18n.md) — contrato actual de idioma y strings.
+- [Wiki de dotfiles histórica](dotfiles-wiki-disposition.md) — cómo se evaluó
+  el conocimiento anterior antes de reutilizarlo.
+- [Estudio de experiencia](experience-reference-study.md) — patrones de
+  producto actuales de proyectos relacionados y las decisiones que HorneroOS
+  toma a partir de ellos.
+- [Matriz competitiva](competitive-capability-matrix.md) — comparación
+  respaldada por evidencia contra referencias de escritorio upstream.
+- [Asistente Hermes](hermes-assistant-architecture.md) — el contrato de diseño
+  del asistente opcional de Hornero respaldado por Hermes.
+- [Auditoría de backlog](backlog-audit-2026-10-19.md) — hallazgos de la
+  auditoría del ecosistema, reconciliación del backlog e índice de issues
+  creadas.
 
 ## Regla de fuente de verdad
 

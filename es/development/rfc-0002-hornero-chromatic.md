@@ -7,7 +7,7 @@
 - **Estado** — Aceptado (2026-11-17)
 - **Implementación** — No iniciada. Nada de este RFC está implementado ni
   validado todavía; ver [Despliegue](#16-despliegue-y-migración).
-- **Enmienda** — [RFC 0001 — Hornero Signal](../../development/rfc-0001-hornero-signal.md):
+- **Enmienda** — [RFC 0001 — Hornero Signal](rfc-0001-hornero-signal.md):
   reemplaza en parte el §1 (la exclusión de la síntesis desde el fondo de
   pantalla), la lista "eliminado sin reemplazo" del §3.1 (variantes, "seguir
   el fondo") y la cláusula "los fondos nunca recolorean la interfaz" del §9.

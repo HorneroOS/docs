@@ -137,8 +137,7 @@ escritorio en el equipo del maintainer, 19 de noviembre de 2026.*
 - Instalar, actualizar, quitar, habilitar o inspeccionar una extensión, o
   recuperarte de una rota con el modo seguro: Extensions. Mirá
   [Extensiones](extensions.md) y la
-  [guía de autoría de extensiones](../../development/extensions.md) (en
-  inglés).
+  [guía de autoría de extensiones](../development/extensions.md).
 - Actualizar el sistema, restaurar ajustes de Hornero desde una
   instantánea de configuración o una copia, o chequear la preparación
   para recuperación: Updates. HorneroOS hoy no tiene vuelta atrás del

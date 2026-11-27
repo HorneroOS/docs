@@ -173,4 +173,4 @@ sesión de GitHub CLI que ya tenés.
 Usá **Activar modo seguro (recuperación)** arriba de Extensions. En modo
 seguro no se carga ninguna extensión, así que podés desactivar o quitar la que
 falla y volver a apagar el modo seguro. Para escribir tu propia extensión,
-mirá la [guía de autoría de extensiones](../../development/extensions.md) (en inglés).
+mirá la [guía de autoría de extensiones](../development/extensions.md).

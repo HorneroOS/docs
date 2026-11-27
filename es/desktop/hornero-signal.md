@@ -162,9 +162,8 @@ apariencia anterior*.
 - [Arquitectura de la apariencia](../architecture/appearance-system.md):
   cómo fluyen los temas desde Config, pasando por `horneroctl`, hasta la
   shell y las apps.
-- [RFC 0001 — Hornero Signal](../../development/rfc-0001-hornero-signal.md)
-  (en inglés): la autoridad de diseño, con roles, paletas, tipografía,
-  glifos, movimiento y el contrato de superficies ancladas.
-- [Signal Visual Language](../../development/signal-visual-language.md)
-  (en inglés): reglas detalladas para barras, medidores, paneles,
-  movimiento y cada layout.
+- [RFC 0001 — Hornero Signal](../development/rfc-0001-hornero-signal.md): la
+  autoridad de diseño, con roles, paletas, tipografía, glifos, movimiento y el
+  contrato de superficies ancladas.
+- [Signal Visual Language](../development/signal-visual-language.md): reglas
+  detalladas para barras, medidores, paneles, movimiento y cada layout.

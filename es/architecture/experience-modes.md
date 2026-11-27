@@ -4,9 +4,9 @@ Esta página explica cómo se construyen los modos de experiencia y quién es
 dueño de cada pieza. Para saber qué hacen por una persona, leé
 [Modos de experiencia](../desktop/experience-modes.md). La autoridad de
 diseño es la
-[RFC 0001](../../development/rfc-0001-hornero-signal.md) sección 5a y el
-[Signal Visual Language](../../development/signal-visual-language.md)
-sección 13 (ambos en inglés). El contrato a nivel código vive en el
+[RFC 0001](../development/rfc-0001-hornero-signal.md) sección 5a y el
+[Signal Visual Language](../development/signal-visual-language.md)
+sección 13. El contrato a nivel código vive en el
 repositorio Shell
 ([`docs/EXPERIENCE.md`](https://github.com/HorneroOS/shell/blob/main/docs/EXPERIENCE.md)
 y [`docs/IPC.md`](https://github.com/HorneroOS/shell/blob/main/docs/IPC.md));
@@ -135,7 +135,7 @@ son widgets de escritorio de PluginKit, no un segundo motor de widgets:
 
 Los proveedores de telemetría compartidos siguen el `telemetry.rateHz` del
 modo (`Theme.telemetryIntervalMs` para las extensiones); mirá los
-[proveedores de datos](../../development/extensions.md#shared-data-providers).
+[proveedores de datos](../development/extensions.md#proveedores-y-permisos).
 
 ## Qué está validado, y dónde
 
@@ -153,5 +153,8 @@ ultrawide de 3440 píxeles muestra seis) salen de las pruebas del solver y de
 un diagrama de layout, no de un render.
 
 La evidencia solo se registra como validada para el lugar donde se produjo.
-La tabla de [estado de implementación de la RFC 0001](../../development/rfc-0001-hornero-signal.md#implementation-status)
+La tabla de
+[estado de implementación de la RFC 0001][rfc1-status]
 lleva el panorama general.
+
+[rfc1-status]: ../development/rfc-0001-hornero-signal.md#estado-de-implementación

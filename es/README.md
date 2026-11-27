@@ -40,7 +40,7 @@ implementación quedan en los repositorios de la
 | Diagnosticar problemas de gráficos o dispositivos | [Hardware](hardware/README.md) · [Solución de problemas](troubleshooting/README.md) |
 | Entender las ediciones y los límites del sistema | [Arquitectura](architecture/README.md) |
 | Compilar, probar o contribuir | [Desarrollo](development/README.md) |
-| Diseñar una interfaz para HorneroOS | [Design language](../development/design-language.md) |
+| Diseñar una interfaz para HorneroOS | [Lenguaje de diseño](development/design-language.md) |
 
 ![Overlay de atajos de teclado con los binds vivos de Hyprland y
 buscador, grupo Essential Applications expandido.](https://www.horneroos.com/captures/cap-shell-08.png)
@@ -87,11 +87,10 @@ copia.
   datos.
 - [Desarrollo](development/README.md) — código, QA y caminos de
   contribución.
-- [Design language](../development/design-language.md) — identidad del
+- [Lenguaje de diseño](development/design-language.md) — identidad del
   producto, principios de UI, mapa de fuentes de verdad y guía para quien
   contribuye al instalador. La autoridad de diseño es la
-  [RFC 0001 — Hornero Signal](../development/rfc-0001-hornero-signal.md)
-  (en inglés).
+  [RFC 0001 — Hornero Signal](development/rfc-0001-hornero-signal.md).
 
 ## Licencia
 

@@ -141,7 +141,7 @@ Estas guías describen primero el contrato actual de Hornero. Las
 elecciones opcionales de la estación de trabajo personal están
 etiquetadas como tales. Los procedimientos históricos de la wiki fueron
 revisados y clasificados en
-[la disposición de fuentes](../../development/dotfiles-wiki-disposition.md);
+[la disposición de fuentes](../development/dotfiles-wiki-disposition.md);
 las rutas viejas y los comandos `dots-*` no son instrucciones actuales.
 
 Para un inventario buscable y con estados etiquetados de aplicaciones y

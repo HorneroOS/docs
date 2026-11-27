@@ -96,7 +96,7 @@ página vieja de wiki como si fueran un instalador.
 
 Los sistemas instalados desde v0.2.0-preview24 necesitan una migración
 manual única antes de que las actualizaciones normales funcionen; seguí
-[Actualizar una instalación preview24 existente](../../getting-started/upgrading-from-preview24.md).
+[Actualizar una instalación preview24 existente](upgrading-from-preview24.md).
 Seguí las notas de release para los cambios en la disponibilidad de
 paquetes. Usá el
 [selector de issues de HorneroOS/installer](https://github.com/HorneroOS/installer/issues/new/choose)
