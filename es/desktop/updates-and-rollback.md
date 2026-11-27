@@ -388,7 +388,7 @@ página no va a describir ninguno.
 ## Relacionado
 
 - [Mapa del Centro de control](control-center.md)
-- [horneroctl](../../desktop/horneroctl.md) (en inglés)
+- [horneroctl](horneroctl.md)
 - [Hornero Chromatic](chromatic.md)
 - [Solución de problemas](../troubleshooting/README.md)
 - [Contrato del backend de instantáneas](https://github.com/HorneroOS/hornero/blob/main/docs/SNAPSHOT_BACKEND_CONTRACT.md)

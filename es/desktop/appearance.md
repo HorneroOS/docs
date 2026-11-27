@@ -137,8 +137,7 @@ color de Signal y una paleta de terminal de 16 colores; los chequeos de
 Config verifican el contraste de cada paquete publicado, y `horneroctl`
 solo lista y aplica paquetes de esquema v2.
 
-La guía de arquitectura (en inglés) explica cómo fluyen los temas desde
+La guía de arquitectura explica cómo fluyen los temas desde
 Config, pasando por `horneroctl`, hasta la shell, GTK, Qt y las terminales:
-[Sistema de apariencia](../../architecture/appearance-system.md). Para los
-detalles de las terminales, mirá
-[Terminal](../../applications/terminal.md) (en inglés).
+[Sistema de apariencia](../architecture/appearance-system.md). Para los
+detalles de las terminales, mirá [Terminal](../applications/terminal.md).

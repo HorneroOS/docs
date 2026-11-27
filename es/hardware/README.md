@@ -37,7 +37,7 @@ Estos comandos inspeccionan el estado. No instalan drivers ni cambian tu
 configuración de arranque.
 
 Para hardware creativo y límites de rendimiento de Studio, ver
-[Hardware de Studio](../../hardware/studio.md).
+[Hardware de Studio](studio.md).
 
 ## NVIDIA y gráficos híbridos
 

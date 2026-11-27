@@ -206,5 +206,5 @@ de cualquier cambio, `horneroctl appearance doctor` verifica que el
 esquema activo sea válido.
 
 Para ver cómo encaja Chromatic en el resto del sistema de apariencia, mirá
-[Sistema de apariencia](../../architecture/appearance-system.md). El diseño
+[Sistema de apariencia](../architecture/appearance-system.md). El diseño
 es la [RFC 0002](../development/rfc-0002-hornero-chromatic.md).

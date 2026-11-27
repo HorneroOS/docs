@@ -32,9 +32,9 @@ implementación quedan en los repositorios de la
 | Conocer el aspecto Hornero Signal: temas, tipografía, accesibilidad | [Hornero Signal](desktop/hornero-signal.md) |
 | Cambiar temas, colores o el fondo | [Apariencia](desktop/appearance.md) · [Fondos](desktop/wallpapers.md) |
 | Elegir una disposición de barra | [Layouts](desktop/layouts.md) |
-| Bloquear, reiniciar o apagar la sesión | [Menú de sesión](../desktop/session-menu.md) |
+| Bloquear, reiniciar o apagar la sesión | [Menú de sesión](desktop/session-menu.md) |
 | Buscar un atajo de teclado | [Atajos](desktop/shortcuts.md) |
-| Automatizar o inspeccionar el sistema desde una terminal | [horneroctl](../desktop/horneroctl.md) |
+| Automatizar o inspeccionar el sistema desde una terminal | [horneroctl](desktop/horneroctl.md) |
 | Actualizar el sistema y entender los límites de recuperación | [Actualizaciones y recuperación: todavía no hay vuelta atrás del sistema](desktop/updates-and-rollback.md) |
 | Entender seguridad, cifrado y límites de confianza | [Seguridad y privacidad](security/README.md) |
 | Diagnosticar problemas de gráficos o dispositivos | [Hardware](hardware/README.md) · [Solución de problemas](troubleshooting/README.md) |
@@ -75,7 +75,7 @@ copia.
   movimiento reducido.
 - [Apps y flujos](applications/README.md) — el catálogo de aplicaciones
   configurado y los caminos que conectan esas herramientas con Hornero.
-- [horneroctl](../desktop/horneroctl.md) — puntos de entrada de línea de
+- [horneroctl](desktop/horneroctl.md) — puntos de entrada de línea de
   comandos soportados.
 - [Hardware](hardware/README.md) — diagnóstico de dispositivos y guía de
   gráficos.

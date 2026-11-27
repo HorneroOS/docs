@@ -24,17 +24,17 @@ registra qué revisiones de componentes se compusieron juntas.
 - [Design language](../../development/design-language.md) — identidad de
   producto compartida, principios de interfaz y el mapa de repositorios
   para las decisiones de diseño.
-- [Ediciones y composición de paquetes](../../architecture/editions.md) —
+- [Ediciones y composición de paquetes](editions.md) —
   el catálogo compartido, el modelo de composición y el límite honesto
   de madurez.
-- [Sistema de apariencia](../../architecture/appearance-system.md) —
+- [Sistema de apariencia](appearance-system.md) —
   responsabilidades de temas, fondos, paleta y toolkits.
 - [Modos de experiencia](experience-modes.md) — cómo se combinan los modos
   con la edición, el layout y el tema, y cómo se arma el deck Signal.
-- [Actualizaciones y entrega](../../architecture/updates-delivery.md) —
+- [Actualizaciones y entrega](updates-delivery.md) —
   cómo se relacionan el código fuente, los paquetes y las composiciones
   probadas.
-- [Energía y rendimiento](../../architecture/power-performance.md) —
+- [Energía y rendimiento](power-performance.md) —
   medición y datos de referencia actuales.
 
 Los contratos detallados quedan cerca de su implementación: ver los

@@ -2,7 +2,7 @@
 
 Un camino que funciona por el audio Studio de HorneroOS: empezá
 confiable, medí tu propia interfaz y recién ahí bajá el quantum.
-Esta guía extiende [Audio Studio](../../applications/studio-audio.md);
+Esta guía extiende [Audio Studio](studio-audio.md);
 esa página es dueña del contrato de modos y de la recuperación.
 
 ## Empezá en Balanced, siempre
@@ -60,7 +60,7 @@ scheduling, no latencia medida. Captura del 19 de noviembre de
 ## Prueba segura de Low Latency
 
 1. Seguí los pasos de copia y reinicio en
-   [Audio Studio](../../applications/studio-audio.md#setup) para activar Low Latency.
+   [Audio Studio](studio-audio.md#configuración) para activar Low Latency.
 2. Reproducí o grabá el mismo material que tu base Balanced.
 3. Clicks, cortes o xruns significan que tu interfaz no sostiene
    ese quantum: volvé a Balanced. Es el comportamiento esperado,
@@ -79,5 +79,5 @@ programas pro se conectan vía `pipewire-jack`.
 
 Quitá el drop-in copiado y reiniciá los servicios de usuario,
 exactamente como en
-[recuperación de Audio Studio](../../applications/studio-audio.md#recovery), y volvé
+[recuperación de Audio Studio](studio-audio.md#recuperación), y volvé
 a correr `horneroctl studio doctor` antes de cambiar otra cosa.
