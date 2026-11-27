@@ -73,7 +73,9 @@ scheduling, no latencia medida. Captura del 19 de noviembre de
 Ruteá con herramientas WirePlumber (`wpctl`, `qpwgraph`, o los
 puertos PipeWire/JACK de tu DAW). HorneroOS no fija reglas por
 dispositivo, así tu ruteo sobrevive a cambios de equipo. Los
-programas pro se conectan vía `pipewire-jack`.
+programas pro se conectan vía `pipewire-jack`. Para un paso a paso
+completo con Discord, OBS y pista del navegador, mirá
+[Studio: ruteo en vivo](studio-live-routing.md).
 
 ## Cuando el audio se rompe
 

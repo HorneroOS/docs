@@ -85,6 +85,8 @@ machine, 19 November 2026.*
   `pipewire-media-session` is not part of Studio.
 - Bluetooth and consumer devices stay on the default session policy;
   switching to a Studio mode never re-prioritises them.
+- For a reversible mic, guitar, DAW, Discord, OBS, and browser backing
+  setup, see [Studio: live routing](studio-live-routing.md).
 
 ## Recovery
 

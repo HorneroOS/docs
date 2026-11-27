@@ -113,6 +113,8 @@ running its provisioning commands.
   — run games, measure frame times, and read the honest limits.
 - [Studio: low-latency audio](studio-low-latency.md) — Balanced first,
   quantum is not latency, and how to revert safely.
+- [Studio: live routing](studio-live-routing.md) — reversible mic,
+  guitar, DAW, Discord, OBS, and browser backing setup.
 - [Screenshots and recording](capture.md) — screenshot and recording backends.
 - [Connectivity](connectivity.md) — NetworkManager, Bluetooth, and VPN providers.
 - [System utilities](system-utilities.md) — Git, Fastfetch, btop, Cava, and

@@ -73,7 +73,9 @@ maintainer's machine, 19 November 2026.*
 Route with WirePlumber-aware tools (`wpctl`, `qpwgraph`, or your
 DAW's PipeWire/JACK ports). HorneroOS sets no device-specific
 rules, so your routing survives device changes. Pro-audio programs
-connect through `pipewire-jack`.
+connect through `pipewire-jack`. For a full multi-bus Discord, OBS, and
+browser backing walkthrough, see
+[Studio: live routing](studio-live-routing.md).
 
 ## When audio breaks
 
