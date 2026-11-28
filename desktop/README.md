@@ -9,6 +9,7 @@ Center contains persistent system and shell settings.
 
 | Task | Guide |
 | --- | --- |
+| Use the First Flight tour, Explore hub, and What's New | [Hornero Welcome](hornero-welcome.md) |
 | Understand the Hornero Signal look | [Hornero Signal](hornero-signal.md) |
 | Pick a coordinated look | [Themes and appearance](appearance.md) |
 | Colour the desktop from a wallpaper or a colour | [Hornero Chromatic](chromatic.md) |

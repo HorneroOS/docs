@@ -26,6 +26,8 @@ records which component revisions were composed together.
   composition model, and honest maturity boundary.
 - [ADR: Hornero Apps architecture](adr-hornero-apps.md) — software store
   architecture, rejected options, and provenance taxonomy.
+- [ADR: Hornero Welcome architecture](adr-hornero-welcome.md) — Signal Flight
+  creative direction, motion tokens, live preview transactions, and v2 state.
 - [Hornero Apps threat model](hornero-apps-threat-model.md) — STRIDE and
   supply-chain policy for Hornero Apps.
 - [Appearance system](appearance-system.md) — theme, wallpaper, palette, and
