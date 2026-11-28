@@ -15,6 +15,7 @@ records which component revisions were composed together.
 | [shell](https://github.com/HorneroOS/shell) | Quickshell UI and live session services: bars, launcher, Dashboard, Settings, notifications, lock, and appearance |
 | [greeter](https://github.com/HorneroOS/greeter) | SDDM theme, Qt/QML assets, and package validation |
 | [qa](https://github.com/HorneroOS/qa) | Isolated graphical acceptance runs and evidence |
+| [playground](https://github.com/HorneroOS/playground) | Ephemeral KVM browser demos, local VM launchers, cloud IaC, and presenter overlay |
 | [docs](https://github.com/HorneroOS/docs) | This user and contributor handbook |
 | [website](https://github.com/HorneroOS/website) | Public product presentation and the rendered view of this handbook |
 
@@ -30,6 +31,11 @@ records which component revisions were composed together.
   creative direction, motion tokens, live preview transactions, and v2 state.
 - [Hornero Apps threat model](hornero-apps-threat-model.md) — STRIDE and
   supply-chain policy for Hornero Apps.
+- [ADR: Hornero Playground architecture](adr-hornero-playground.md) — dedicated
+  `HorneroOS/playground` boundaries, virtualization matrix, and streaming
+  economics.
+- [Hornero Playground threat model](hornero-playground-threat-model.md) —
+  multi-tenant ephemeral KVM STRIDE analysis and incident runbook.
 - [Appearance system](appearance-system.md) — theme, wallpaper, palette, and
   toolkit responsibilities.
 - [Experience modes](experience-modes.md) — how modes compose with

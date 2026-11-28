@@ -84,6 +84,8 @@ página vieja de wiki como si fueran un instalador.
 
 ## Explorá antes de instalar
 
+- Seguí [Probá HorneroOS sin instalar](try-horneroos.md) para sesiones en el
+  navegador, máquinas virtuales locales, Live USB y modo presentador.
 - Mirá capturas reales del producto en el [Showroom](https://horneroos.com/showroom/).
 - Compará los [temas](https://horneroos.com/themes/)
   y los [layouts de barra](https://horneroos.com/layouts/)

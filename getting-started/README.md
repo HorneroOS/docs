@@ -76,6 +76,8 @@ list, a dotfiles checkout, or an old wiki page as an installer.
 
 ## Explore before installing
 
+- Follow [Try HorneroOS without installing](try-horneroos.md) for browser
+  Playground sessions, local virtual machines, Live USB, and Presenter Mode.
 - See real product captures in the [Showroom](https://horneroos.com/showroom/).
 - Compare the available [themes](https://horneroos.com/themes/)
   and [bar layouts](https://horneroos.com/layouts/).

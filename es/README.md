@@ -25,6 +25,7 @@ implementación quedan en los repositorios de la
 | Si querés… | Empezá acá |
 | --- | --- |
 | Entender el estado de releases e instalación | [Primeros pasos](getting-started/README.md) |
+| Probar HorneroOS en navegador, VM o Live USB | [Probar sin instalar](getting-started/try-horneroos.md) |
 | Instalar y dar los primeros pasos | [Instalar paso a paso](getting-started/install-step-by-step.md) · [Primeros pasos post-instalación](applications/post-install-first-steps.md) |
 | Instalar sobre un Arch Linux existente | [Instalar en Arch](getting-started/install-on-arch.md) |
 | Conocer qué está probado y qué no | [Probado y no probado](hardware/tested-and-untested.md) · [Problemas por síntoma](troubleshooting/by-symptom.md) |
