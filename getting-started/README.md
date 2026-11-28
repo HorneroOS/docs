@@ -76,8 +76,13 @@ list, a dotfiles checkout, or an old wiki page as an installer.
 
 ## Explore before installing
 
+- Start with the [Public preview launch guide](public-preview-launch-guide.md)
+  for Windows, macOS (Apple Silicon caveats), and Arch Linux paths, known
+  limitations, practical troubleshooting, and hardware/security reporting.
 - Follow [Try HorneroOS without installing](try-horneroos.md) for browser
   Playground sessions, local virtual machines, Live USB, and Presenter Mode.
+- Review the [v0.2.0-preview42 announcement draft](../releases/v0.2.0-preview42-announcement-draft.md)
+  for launch highlights and the YouTube demonstration checklist.
 - See real product captures in the [Showroom](https://horneroos.com/showroom/).
 - Compare the available [themes](https://horneroos.com/themes/)
   and [bar layouts](https://horneroos.com/layouts/).

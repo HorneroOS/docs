@@ -84,8 +84,15 @@ página vieja de wiki como si fueran un instalador.
 
 ## Explorá antes de instalar
 
+- Empezá por la
+  [Guía de lanzamiento de vista previa pública](public-preview-launch-guide.md)
+  para caminos en Windows, macOS (advertencias de Apple Silicon) y Arch Linux,
+  limitaciones honestas, diagnóstico práctico y reportes de hardware/seguridad.
 - Seguí [Probá HorneroOS sin instalar](try-horneroos.md) para sesiones en el
   navegador, máquinas virtuales locales, Live USB y modo presentador.
+- Revisá el
+  [Borrador de anuncio v0.2.0-preview42](../releases/v0.2.0-preview42-announcement-draft.md)
+  con lo más destacado del lanzamiento y el checklist de video para YouTube.
 - Mirá capturas reales del producto en el [Showroom](https://horneroos.com/showroom/).
 - Compará los [temas](https://horneroos.com/themes/)
   y los [layouts de barra](https://horneroos.com/layouts/)
