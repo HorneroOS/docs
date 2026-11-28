@@ -23,6 +23,7 @@ Center contains persistent system and shell settings.
 | Lock, restart, or shut down the desktop session | [Session menu](session-menu.md) |
 | Use the keyboard efficiently | [Shortcuts](shortcuts.md) |
 | Open files or launch applications | [Everyday apps](everyday-apps.md) |
+| Discover, install, and manage applications | [Hornero Apps](hornero-apps.md) |
 | Learn how the configured applications fit together | [Apps and workflows](../applications/README.md) |
 | Open a Settings page or automate a change | [horneroctl](horneroctl.md) |
 | Update the system and understand recovery limits | [Updates and recovery: no system rollback yet](updates-and-rollback.md) |

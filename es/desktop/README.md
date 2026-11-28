@@ -24,6 +24,7 @@ los ajustes persistentes del sistema y de la shell.
 | Bloquear, reiniciar o apagar la sesión | [Menú de sesión](session-menu.md) |
 | Usar bien el teclado | [Atajos](shortcuts.md) |
 | Abrir archivos o lanzar aplicaciones | [Apps cotidianas](everyday-apps.md) |
+| Descubrir, instalar y administrar aplicaciones | [Hornero Apps](hornero-apps.md) |
 | Entender cómo encajan las aplicaciones configuradas | [Apps y flujos](../applications/README.md) |
 | Abrir una página de Ajustes o automatizar un cambio | [horneroctl](horneroctl.md) |
 | Actualizar el sistema y entender los límites de recuperación | [Actualizaciones y recuperación: todavía no hay vuelta atrás del sistema](updates-and-rollback.md) |

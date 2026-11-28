@@ -333,6 +333,28 @@ shell restart
 shell start
 shell status
 shell stop
+store
+store appimage
+store categories
+store collections
+store doctor
+store gui
+store install
+store installed
+store launch
+store list
+store manifest
+store permissions
+store policy
+store profile-show
+store profiles
+store queue
+store remove
+store search
+store show
+store sources
+store update
+store webapp
 studio
 studio app
 studio audio
