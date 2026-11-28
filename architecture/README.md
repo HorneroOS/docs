@@ -24,6 +24,10 @@ records which component revisions were composed together.
   interface principles, and the repository map for design decisions.
 - [Editions and package composition](editions.md) — the shared catalogue,
   composition model, and honest maturity boundary.
+- [ADR: Hornero Apps architecture](adr-hornero-apps.md) — software store
+  architecture, rejected options, and provenance taxonomy.
+- [Hornero Apps threat model](hornero-apps-threat-model.md) — STRIDE and
+  supply-chain policy for Hornero Apps.
 - [Appearance system](appearance-system.md) — theme, wallpaper, palette, and
   toolkit responsibilities.
 - [Experience modes](experience-modes.md) — how modes compose with

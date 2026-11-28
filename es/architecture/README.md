@@ -27,6 +27,11 @@ registra qué revisiones de componentes se compusieron juntas.
 - [Ediciones y composición de paquetes](editions.md) —
   el catálogo compartido, el modelo de composición y el límite honesto
   de madurez.
+- [ADR: arquitectura de Hornero Apps (en inglés)][adr-apps] —
+  arquitectura de la tienda de software, opciones descartadas y taxonomía
+  de procedencia.
+- [Modelo de amenazas de Hornero Apps (en inglés)][tm-apps] —
+  análisis STRIDE y política de cadena de suministro para Hornero Apps.
 - [Sistema de apariencia](appearance-system.md) —
   responsabilidades de temas, fondos, paleta y toolkits.
 - [Modos de experiencia](experience-modes.md) — cómo se combinan los modos
@@ -43,3 +48,6 @@ documentos de
 [layout](https://github.com/HorneroOS/shell/blob/main/docs/LAYOUTS.md) y
 [foco](https://github.com/HorneroOS/shell/blob/main/docs/FOCUS.md) de la
 Shell.
+
+[adr-apps]: ../../architecture/adr-hornero-apps.md
+[tm-apps]: ../../architecture/hornero-apps-threat-model.md
