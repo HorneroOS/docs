@@ -6,12 +6,14 @@ repartitioning your computer. Every path on
 [`horneroos.com/try`](https://www.horneroos.com/try) runs real HorneroOS
 software, never a mocked browser simulation.
 
-> **Honest status today:** HorneroOS is in active development. The current
-> signed ISO is **v0.2.0-preview32** (`Desktop`, `Studio`, and `Gaming` are
-> **Preview** editions validated in virtual machines, with no physical-hardware
-> certification yet). **Hyprland** is the validated default compositor;
-> **Niri** is experimental; **Server** and **Agents** are planned; and full OS
-> rollback is not shipped yet. See
+> **Honest status today:** HorneroOS is used daily in production across
+> multiple physical workstations and validated in UEFI and Legacy BIOS KVM. The
+> current signed release is **`v0.2.0-preview42`** (`x86_64`), bundling
+> **Hornero Signal**, **Hornero Apps**, **Signal Flight Welcome (`v1.6.0`)**,
+> **Chromatic v3**, and **Calamares `3.4.3`**. **Desktop**, **Studio**, and
+> **Gaming** are **Supported** editions; **Hyprland** (default) and **Niri**
+> are **Supported** Wayland compositors; **Server**, **Agents**, **Labwc**,
+> and full OS root rollback remain **Planned**. See
 > [Editions and package composition](../architecture/editions.md) and
 > [Updates and recovery](../desktop/updates-and-rollback.md).
 
@@ -67,14 +69,24 @@ WebRTC Playground session.
 
 Running HorneroOS in a local virtual machine gives you unlimited time, full
 keyboard control, and smooth performance without touching your host system.
+For `v0.2.0-preview42`, HorneroOS publishes **both** a clean-room preinstalled
+Desktop QCOW2 image and a full live & installable ISO:
 
-> **Image rollout note:** Automated preinstalled `.qcow2.zst` / `.ova` builds
-> are part of the Phase 1 `HorneroOS/playground` + `HorneroOS/installer`
-> pipeline (`installer.lock.yaml`). Whenever a prebuilt VM image is published,
-> verify its checksum and GPG signature first; if you do not see a prebuilt VM
-> archive for the release you want, download the verified `v0.2.0-preview32`
-> ISO from [Getting started](README.md) and boot it directly in any hypervisor
-> below.
+- **Official Preinstalled Desktop QCOW2 (`2.61 GiB`, E2E-validated in UEFI
+  KVM):**
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/vm/horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2.zst`
+  - SHA-256:
+    `c1012413227f407d0a312fad7d7a34f789922303db13c752a9a9ed1a324e13c2`
+- **Official Live & Installable ISO (`3.3 GiB`, UEFI + Legacy BIOS, validated
+  on physical hardware & KVM):**
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/iso/horneroos-2026.11-preview42-x86_64.iso`
+  - SHA-256:
+    `9e494ab5f9783df6a5986385421ec0816b0033d3558d3323248a03e07f2e76a2`
+
+Decompress the `.qcow2.zst` image with `unzstd` (or `zstd -d`) before
+attaching it to QEMU/KVM, Quickemu, or `libvirt`.
 
 ### Verify before booting
 
@@ -98,7 +110,7 @@ accelerates Hyprland, Niri, and Quickshell directly on your host GPU.
 or you can boot directly with OVMF UEFI and VirGL:
 
 ```sh
-./hornero-vm-run.sh horneroos-x86_64.qcow2
+./hornero-vm-run.sh horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2
 ```
 
 If launching QEMU manually with an ISO or preinstalled QCOW2, enable KVM,
@@ -112,7 +124,7 @@ If you use [Quickemu](https://github.com/quickemu-project/quickemu), drop a
 ```sh
 cat <<'EOF' > horneroos.conf
 guest_os="linux"
-disk_img="horneroos/disk.qcow2"
+disk_img="horneroos/horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2"
 disk_size="32G"
 ram="4G"
 cpu_cores="4"
@@ -124,8 +136,8 @@ EOF
 quickemu --vm horneroos.conf
 ```
 
-*(If booting the live ISO instead of a prebuilt disk, add
-`iso="horneroos/horneroos-2026.10-preview32-x86_64.iso"`.)*
+*(If booting the live ISO instead of the prebuilt Desktop QCOW2, add
+`iso="horneroos/horneroos-2026.11-preview42-x86_64.iso"`.)*
 
 ### libvirt / `virt-manager` / GNOME Boxes
 
@@ -168,7 +180,7 @@ Expect noticeably slower animations and higher CPU usage in this mode.
 HorneroOS currently builds **`x86_64` images only**. Because Apple Silicon
 (`M1`–`M4`) Macs cannot hardware-virtualize `x86_64` through
 `Hypervisor.framework`, **UTM falls back to QEMU TCG software CPU emulation**.
-Even with experimental VirGL (`virtio-gpu-gl`), Hyprland, Niri, and Quickshell
+Even with UTM's VirGL renderer (`virtio-gpu-gl`), Hyprland, Niri, and Quickshell
 will feel **painfully slow** on Apple Silicon UTM.
 
 For a real impression of HorneroOS on a Mac, use an x86_64 machine with a
@@ -181,13 +193,13 @@ Live USB or a hosted browser Playground session when available.
 Booting the official signed ISO from a USB stick lets you test real Wi-Fi,
 audio, displays, and input devices in memory without modifying your drives:
 
-1. **Download and verify** `horneroos-2026.10-preview32-x86_64.iso` (`.sig` +
+1. **Download and verify** `horneroos-2026.11-preview42-x86_64.iso` (`.sig` +
    `.sha256`) using the commands in [Getting started](README.md).
 2. **Write to USB** with a trusted graphical writer or `dd` after confirming
    your stick's device name with `lsblk`:
 
    ```sh
-   sudo dd if=horneroos-2026.10-preview32-x86_64.iso of=/dev/sdX bs=4M \
+   sudo dd if=horneroos-2026.11-preview42-x86_64.iso of=/dev/sdX bs=4M \
      status=progress conv=fsync
    ```
 
@@ -204,7 +216,7 @@ audio, displays, and input devices in memory without modifying your drives:
    ```
 
 5. **Install only if you decide to:** Nothing touches your internal disk until
-   you open the provisional Calamares installer and confirm partitioning. Follow
+   you open the Calamares installer and confirm partitioning. Follow
    [Installing HorneroOS step by step](install-step-by-step.md) (or
    [Install on Arch](install-on-arch.md) if you already run Arch Linux).
 

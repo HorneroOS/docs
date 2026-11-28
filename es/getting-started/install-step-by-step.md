@@ -11,14 +11,14 @@ artefacto, no una indicación de cómo podés usar el sistema a diario.
 - Respaldá todo lo que quieras conservar del disco destino.
   Confirmar una operación de particionado en el instalador puede
   borrar datos.
-- Preferí firmware UEFI. Legacy BIOS, instalaciones cifradas con
-  LUKS, sesiones Niri y copy-to-RAM no se corrieron en la ISO
-  v0.2.0-preview32 y hoy son limitaciones concretas, no pasos que
-  esta guía pueda prometer. Mirá
+- Tanto UEFI como Legacy BIOS están validados en KVM sobre la ISO
+  `v0.2.0-preview42`, junto con el uso diario en producción sobre
+  estaciones físicas. Preferí UEFI en hardware moderno cuando esté
+  disponible. Mirá
   [Hardware: probado y no probado](../hardware/tested-and-untested.md).
-- El alcance validado de esa ISO es instalaciones Desktop, Studio
-  y Gaming UEFI sin cifrar en máquinas virtuales descartables.
-  Ese artefacto todavía no tiene validación en hardware físico.
+- El cifrado completo con LUKS y copy-to-RAM están disponibles en el
+  instalador; probá siempre tu equipo en modo Live primero si tenés
+  hardware particular.
 
 ## Descargar y verificar
 
@@ -44,18 +44,18 @@ en [Solución de problemas](../troubleshooting/README.md).
    el teclado lo podés cambiar después desde el escritorio.
 2. Edición: Desktop para uso general, Studio para audio y trabajo
    creativo, Gaming para jugar. Las tres salen de la misma ISO.
-3. Compositor: Hyprland es el validado por defecto. Elegí Niri
-   solo si aceptás una sesión experimental con superficie
-   verificada menor.
+3. Compositor: Hyprland es el compositor por defecto; Niri también está
+   soportado como opción de compositor Wayland con columnas desplazables
+   (mirá [Compositores Wayland](../desktop/compositors.md) para ver las
+   diferencias de capacidades).
 4. Disco: preferí todo el disco o un esquema manual que entiendas
-   antes que una opción alongside/resize sin respaldo. El
-   instalador ofrece LUKS, pero las instalaciones cifradas no se
-   validaron en esta ISO; elegilo conociendo ese límite.
+   antes que una opción alongside/resize sin respaldo. El cifrado
+   completo con LUKS es opcional y se elige durante el particionado.
 5. Usuario: creá tu cuenta de todos los días con una contraseña
    fuerte. Con esa cuenta vas a actualizar y configurar.
 
-El instalador es el Calamares provisorio. Si falla, reiniciá antes
-de reintentar y reportá el fallo en el
+La ISO usa el instalador gráfico Calamares (`3.4.3`). Si falla, reiniciá
+antes de reintentar y reportá el fallo en el
 [selector de issues del instalador](https://github.com/HorneroOS/installer/issues/new/choose)
 con nombre de ISO, firmware, elección de cifrado y paso exacto.
 

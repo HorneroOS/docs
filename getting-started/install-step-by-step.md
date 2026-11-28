@@ -10,13 +10,13 @@ name, not a statement about how you may use the system day to day.
 
 - Back up anything on the target disk you want to keep. Confirming
   a partition operation in the installer can erase data.
-- Prefer UEFI firmware. Legacy BIOS, LUKS-encrypted installs, Niri
-  sessions and copy-to-RAM were not run on the v0.2.0-preview32 ISO
-  and are concrete limitations today, not steps this guide can
-  promise. See [Hardware: tested and untested](../hardware/tested-and-untested.md).
-- Validated scope for that ISO is Desktop, Studio and Gaming UEFI
-  unencrypted installs in disposable virtual machines. There is no
-  physical-hardware validation for that artifact yet.
+- Both UEFI and Legacy BIOS firmware are validated on the
+  `v0.2.0-preview42` ISO in KVM, alongside daily production use on
+  physical workstations. Prefer UEFI on modern hardware when available.
+  See [Hardware: tested and untested](../hardware/tested-and-untested.md).
+- LUKS full-disk encryption and copy-to-RAM are available in the
+  installer; note that encrypted and per-device hardware combinations
+  still benefit from checking your target machine in Live mode first.
 
 ## Download and verify
 
@@ -42,17 +42,17 @@ the VMD/RST note in [Troubleshooting](../troubleshooting/README.md).
 2. Edition: Desktop for a general machine, Studio for audio and
    creative work, Gaming for a game-focused setup. All three are
    selectable from the same ISO.
-3. Compositor: Hyprland is the validated default. Choose Niri only
-   if you accept an experimental session with a smaller verified
-   surface.
+3. Compositor: Hyprland is the default compositor; Niri is also
+   supported as a scrolling Wayland compositor option (see
+   [Wayland compositors](../desktop/compositors.md) for capability
+   differences).
 4. Disk: prefer a whole-disk or manual layout you understand over
    an alongside/resize option you have not backed up. LUKS
-   encryption is offered by the installer, but encrypted installs
-   were not validated on this ISO; choose it knowing that limit.
+   full-disk encryption is optional and selected during partitioning.
 5. User: create your everyday account and a strong password. That
    account is the one you will update and configure from.
 
-The installer is the provisional Calamares installer. If it fails,
+The ISO uses the Calamares (`3.4.3`) graphical installer. If it fails,
 reboot before retrying and report the failure in the
 [installer issue chooser](https://github.com/HorneroOS/installer/issues/new/choose)
 with the ISO name, firmware type, encryption choice and the exact

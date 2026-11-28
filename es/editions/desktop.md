@@ -1,13 +1,14 @@
 # Desktop: construí tu mundo
 
-La edición base: Hornero Shell sobre Wayland, Hyprland como backend validado
-(Niri experimental), visuales Hornero Signal, 16 layouts, temas, modos de
-experiencia y un sistema de plugins. Studio y Gaming la extienden; no la
-reemplazan.
+La edición base: Hornero Shell sobre Wayland, con Hyprland (por defecto) y
+Niri como backends de compositor soportados, visuales Hornero Signal, 14
+layouts, temas, modos de experiencia y un sistema de plugins. Studio y
+Gaming la extienden; no la reemplazan.
 
-**Madurez: Supported.** Se instala desde la ISO actual firmada (ver la
-[página de releases](https://horneroos.com/releases)); no es una release
-estable.
+**Madurez: Supported.** Usada a diario en producción en múltiples estaciones
+físicas y validada en KVM con UEFI y Legacy BIOS. Se instala desde la ISO o
+QCOW2 firmada `v0.2.0-preview42` (ver la
+[página de releases](https://horneroos.com/releases)).
 
 ## Qué podés construir
 
@@ -28,8 +29,10 @@ estable.
 
 ## No validado
 
-- Hardware físico de cualquier tipo.
-- Niri más allá de un recorrido en VM con una sola salida.
+- Cada laptop de terceros, cableado híbrido de GPU o dock externo fuera de
+  las estaciones probadas.
+- Paridad de Niri con funciones exclusivas de Hyprland (ver
+  [Compositores Wayland](../desktop/compositors.md)).
 - Multi-monitor con escalas mixtas y ultrawide (solo capturas parciales).
 - Presupuestos de rendimiento (tiempo de frame, latencia de entrada, CPU en
   reposo) no medidos para todos los layouts.

@@ -6,11 +6,11 @@ primera vez con una configuración tranquila, se convierte en un centro de
 exploración cuando terminás y muestra novedades concisas tras una
 actualización sin hacerte repetir el recorrido inicial.
 
-> **Development.** La CLI `horneroctl welcome` y la ventana inicial de
-> Welcome ya están en `main`, mientras que el rediseño de 3 modos **Signal
-> Flight** (`First Flight`, `Explore Hornero` y `What's New`) avanza en
-> `HorneroOS/shell#751` y `HorneroOS/hornero#506`. Las ISO actuales hasta
-> `v0.2.0-preview32` todavía traen la ventana anterior de 11 páginas.
+> **Estado de release.** La ventana Welcome **Signal Flight** de 3 modos
+> (`v1.6.0` — `First Flight`, `Explore Hornero` y `What's New`) junto con
+> `horneroctl welcome` vienen incluidos en `v0.2.0-preview42` (ISO y QCOW2 de
+> Desktop), además de `main`/AUR. Las versiones anteriores hasta
+> `v0.2.0-preview32` traían la ventana previa de 11 páginas.
 
 ## Tres modos en una sola ventana
 
@@ -130,8 +130,8 @@ instalado en tu máquina:
   **Planned**.)
 - **Play (Gaming):** Muestra la preparación de GameMode a pantalla completa
   (`gamescope` y `mangohud`).
-- **Compositores y ediciones planificadas:** Hyprland es el valor por defecto
-  validado; [Niri](compositors.md) es **Experimental** y oculta funciones
+- **Compositores y ediciones planificadas:** Hyprland es el compositor por
+  defecto; [Niri](compositors.md) está **Soportado** y oculta funciones
   exclusivas de Hyprland. `Labwc` y `Server` están marcados como **Planned** y
   quedan fuera de Welcome.
 

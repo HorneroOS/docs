@@ -9,15 +9,16 @@ demás superficies del escritorio.
 El compositor es una elección de backend, no la identidad del producto. Los
 backends disponibles tienen distintos límites de madurez y capacidades:
 
-- **Hyprland — Soportado.** Valor por defecto validado para HorneroOS Desktop.
-- **Niri — Experimental.** Una sesión real de la Shell funciona en una VM de
-  una sola salida; quedan brechas específicas del compositor y flujos sin
-  verificar.
+- **Hyprland — Soportado.** Compositor por defecto para HorneroOS Desktop.
+- **Niri — Soportado.** Opción de compositor Wayland de columnas desplazables
+  con backend real en Hornero Shell; sus límites específicos de capacidades se
+  detallan abajo.
 - **Labwc — Planificado.** No es una opción de instalación; no hay un backend
   de Hornero implementado.
 
-Desktop en su conjunto sigue en Preview. Un compositor experimental no es una
-promesa de paridad de funciones con Hyprland.
+HorneroOS Desktop es una edición **Soportada** de uso diario. Las diferencias
+entre backends se documentan con claridad en lugar de simular funciones
+exclusivas de Hyprland donde no aplican.
 
 ## Hyprland
 
@@ -60,11 +61,12 @@ módulos inmutables empaquetados de las personalizaciones del usuario:
 
 ## Niri
 
-Niri es un compositor Wayland experimental de desplazamiento horizontal.
-HorneroOS provee una configuración de Niri y un backend de Shell que consume el
-flujo de eventos de Niri para espacios de trabajo, ventanas, foco y
-distribuciones de teclado. El backend usa las acciones de ventana y el selector
-de capturas propios de Niri donde difieren de Hyprland.
+Niri es una opción soportada de compositor Wayland de desplazamiento
+horizontal en HorneroOS. HorneroOS provee una configuración de Niri y un
+backend de Shell que consume el flujo de eventos de Niri para espacios de
+trabajo, ventanas, foco y distribuciones de teclado. El backend usa las
+acciones de ventana y el selector de capturas propios de Niri donde difieren
+de Hyprland.
 
 La configuración actual de Niri parte de los valores por defecto de Niri 26.04
 upstream y rutea los atajos de Hornero hacia la Shell y `horneroctl`:
@@ -104,29 +106,29 @@ OBS y la grabación de pantalla de punta a punta todavía no pasaron aceptación
 gráfica bajo Niri. Un archivo de configuración de portales y paquetes
 instalados por sí solos no prueban un flujo de captura funcionando.
 
-### Comportamiento verificado y límites
+### Comportamiento verificado y límites de capacidades
 
 Se probó un invitado QEMU corriendo Niri 26.04 en 1280×800 con entrada real de
 teclado y puntero. El recorrido verificado cubre el arranque de la Shell, el
-Lanzador, el Dashboard, el Centro de control, Apariencia, un cambio de tema
-(Hornero Light, antes de que Hornero Signal lo reemplazara), Selector de
-layouts/Hornero Left, cambio de espacios de trabajo y la selección de capturas
-de Niri. Es un chequeo de sesión gráfica real, no solo un test del parser de
-configuración.
+Lanzador, el Dashboard, el Centro de control, Apariencia, cambio de tema,
+Selector de layouts/Hornero Left, cambio de espacios de trabajo y la selección
+de capturas de Niri. Es un chequeo de sesión gráfica real, no solo un test del
+parser de configuración.
 
-Todavía falta aceptación gráfica en lo siguiente antes de que Niri deje de ser
-experimental: foco y escalado multimonitor, bloqueo y recuperación de sesión,
-OBS/screencast a través de los portales elegidos, consistencia de temas entre
-apps GTK y Qt, y el resto de las superficies y flujos de la Shell. Hyprland
-sigue siendo la opción más segura cuando esas brechas importan.
+Algunos flujos siguen difiriendo respecto de Hyprland o están sin certificar
+bajo Niri: foco y escalado multimonitor, OBS/screencast a través de los
+portales elegidos, consistencia de temas entre apps GTK y Qt y controles
+exclusivos de Hyprland (espacios especiales, detección de pantalla completa en
+Gaming). Hyprland sigue siendo el valor por defecto cuando dependés de esas
+funciones.
 
 La configuración de Niri se instala como respaldo en `/etc/niri/config.kdl` y
 se materializa bajo el directorio de configuración XDG del usuario. El paquete
 no sobrescribe una configuración de usuario existente durante una sesión
 activa. Revisá el
 [estado actual de releases e instalación](https://horneroos.com/install) antes
-de seguir pasos específicos de paquetes. La ISO firmada actual instala mediante
-el camino provisional Calamares; todavía no hay un instalador soportado.
+de seguir pasos específicos de paquetes. La ISO firmada `v0.2.0-preview42`
+instala mediante el instalador gráfico Calamares (`3.4.3`).
 
 Para diagnósticos, `horneroctl doctor` identifica una sesión Niri reconocida.
 Usá la [guía de configuración de Niri](https://niri-wm.github.io/niri/Configuration%3A-Introduction.html),

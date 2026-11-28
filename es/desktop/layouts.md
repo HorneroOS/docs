@@ -5,15 +5,11 @@ cambian la disposición de las ventanas: eso lo controla el perfil de layout
 de ventanas del compositor. Así se mantienen separadas dos elecciones útiles:
 **dónde viven los controles de la shell** y **cómo se acomodan las ventanas**.
 
-> **Development.** El catálogo de 14 presets, el valor por defecto Cockpit y
-> Cockpit Clear están en la rama `main` de Shell y Config desde noviembre de
-> 2026. Las ISO actual hasta la v0.2.0-preview32 inclusive traen el
-> catálogo anterior de quince presets. El catálogo está cubierto por las
-> pruebas automáticas de Shell (esquema de presets, ubicación y
-> comportamiento de las barras, ejecutadas sin pantalla y en modo
-> offscreen). Todavía no se validó visualmente en una máquina virtual ni en
-> un escritorio físico, y Cockpit Clear no se probó sobre fondos reales en un
-> host real.
+> **Estado de release.** El catálogo de 14 presets, el valor por defecto
+> Cockpit y Cockpit Clear vienen incluidos en `v0.2.0-preview42` (ISO y QCOW2
+> de Desktop) y en `main`/AUR, cubiertos por pruebas automáticas de Shell,
+> verificación en KVM y uso diario en producción. Las ISO anteriores hasta la
+> `v0.2.0-preview32` inclusive traían el catálogo previo de quince presets.
 
 Abrí el selector de layouts con **Super + Shift + B**. Las vistas previas de
 topología muestran si un preset usa un riel lateral, una o dos barras

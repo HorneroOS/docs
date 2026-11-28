@@ -13,8 +13,8 @@ sesión), **Shut down** (apagar), **Hibernate** (hibernar) y **Restart**
 (reiniciar). Los comandos exactos los provee la configuración activa de
 Hornero, así que un sistema puede personalizar su comportamiento.
 
-El atajo por defecto está configurado tanto para la sesión validada de Hyprland
-como para la sesión experimental de Niri. Los atajos del usuario pueden variar;
+El atajo por defecto está configurado tanto para la sesión de Hyprland como
+para la sesión de Niri. Los atajos del usuario pueden variar;
 mirá [Atajos de teclado](shortcuts.md) y
 [soporte de compositores](compositors.md) para el nivel de soporte actual.
 

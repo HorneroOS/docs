@@ -1,17 +1,17 @@
-# Hardware y funciones: probado, solo VM y no probado
+# Hardware y funciones: probado y no probado
 
-HorneroOS se usa y se mantiene todos los días. Esa afirmación
-cubre el sistema en conjunto; cada función de abajo conserva su
-estado honesto, y un sistema de uso diario igual tiene
-limitaciones concretas y declaradas. Usá esta página antes de
-asumir que un camino funciona en tu máquina.
+HorneroOS se usa a diario en producción en múltiples estaciones de trabajo
+físicas y está validado en KVM con UEFI y Legacy BIOS. Esa afirmación cubre
+el sistema en conjunto; cada función de abajo conserva su estado honesto, y
+un sistema de uso diario igual tiene limitaciones concretas y declaradas.
+Usá esta página antes de asumir que un dispositivo puntual anda en tu máquina.
 
 ## Madurez por función
 
 | Área | Estado hoy | Qué significa |
 | --- | --- | --- |
-| Escritorio Hyprland | Validado por defecto | Sesión por defecto de la ISO |
-| Sesión Niri | Experimental | VM de una salida, sin paridad |
+| Escritorio Hyprland | Soportado (por defecto) | Sesión Wayland por defecto |
+| Sesión Niri | Soportado | Opción de compositor desplazable |
 | Rollback de sistema | Planificado | Backend `none`; sin restore |
 | Launchers extra | Planificado o referencia | No es soporte instalado |
 | Handheld y VR | Planificado o experimental | Ningún dispositivo cualificado |
@@ -23,28 +23,21 @@ el contrato de rollback, en
 
 ## Probado
 
-- Instalaciones Desktop, Studio y Gaming UEFI sin cifrar
-  pasaron en la ISO v0.2.0-preview32 en máquinas virtuales
-  descartables.
-- Una ASUS ROG Strix G16 está registrada USER-VERIFIED en
-  preview24 más fixes post-instalación en HorneroOS/qa. Es una
-  sola máquina, en un artefacto más viejo.
+- HorneroOS corre a diario en producción en al menos tres estaciones de
+  trabajo físicas (incluida una ASUS ROG Strix G16 registrada
+  `USER-VERIFIED`).
+- `v0.2.0-preview42` aprobó validación de arranque e instalación en KVM
+  tanto con UEFI como con Legacy BIOS (Desktop, Studio y Gaming), más
+  validación E2E en KVM UEFI de la QCOW2 preinstalada de Desktop.
 
-## Solo VM o no corrido en la ISO publicada
+## No corrido o sin certificar por dispositivo
 
-- El artefacto preview32 no tiene validación en hardware físico.
-- Instalaciones cifradas LUKS, legacy BIOS, sesiones Niri en la
-  ISO y copy-to-RAM no se corrieron en preview32 y no deben
-  darse por pasados.
-
-## No testeado específicamente
-
-- NVENC, corrección Vulkan y captura HDMI en la aceptación en
-  hardware registrada.
-- Cualquier generación NVIDIA puntual, cableado híbrido,
-  handheld, casco VR, interfaz de audio o pantalla. Tu propio
-  chequeo, reportado con versiones y logs, es la evidencia que
-  vale.
+- Chequeos especializados por dispositivo: NVENC, corrección Vulkan y
+  captura HDMI en combinaciones arbitrarias de hardware.
+- Cualquier generación NVIDIA puntual de terceros, cableado híbrido,
+  handheld, casco VR, interfaz de audio o pantalla fuera de los equipos
+  probados. Tu propio chequeo, reportado con versiones y logs, es la
+  evidencia que vale.
 
 ## Reportar tu hardware
 

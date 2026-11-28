@@ -10,9 +10,8 @@ difieren, gana el catálogo y esta página está desactualizada.
 [índice de paquetes de Arch](https://archlinux.org/packages/). La presencia de
 un paquete no equivale a soporte de Hornero: Gaming es una edición
 **Soportada** (HorneroOS/hornero#328) que se instala desde la ISO compartida
-firmada (validada solo en VM), ninguna aplicación de abajo cuenta con
-validación de QA de Hornero en hardware físico y ninguna fila promete que un
-juego, lanzador o driver funcione en algún hardware específico.
+firmada (validada en hardware físico y KVM); ningún juego ni lanzador de
+terceros de abajo está certificado por Hornero en cualquier hardware.
 
 ## Perfiles
 
@@ -21,9 +20,9 @@ paquete fijo:
 
 | Perfil | Significado | Estado |
 | --- | --- | --- |
-| Desktop Gaming | Perfil por defecto de gaming | Preview (en VM) |
+| Desktop Gaming | Perfil por defecto de gaming | Soportado |
 | Handheld | Sesión centrada en control | Planificado — sin calificar |
-| Streaming | Captura y grabación con OBS Studio | Preview (validado en VM) |
+| Streaming | Captura y grabación con OBS Studio | Soportado |
 | Multi-Launcher | Lutris, Bottles y runners de Wine | Planificado |
 | VR | Camino SteamVR | Experimental — solo referencia |
 | Advanced Compatibility | Opt-ins del usuario para Proton/Wine | Planificado |
@@ -32,7 +31,7 @@ paquete fijo:
 
 | Aplicación | Paquetes | Origen | Licencia | Instalación | Estado | Perfiles |
 | --- | --- | --- | --- | --- | --- | --- |
-| Steam | steam | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/steam/) | propietaria (Steam Subscriber Agreement) | pacman-repository-opt-in | Preview — solo opt-in | Desktop Gaming, Handheld, VR |
+| Steam | steam | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/steam/) | propietaria (Steam Subscriber Agreement) | pacman-repository-opt-in | Soportado — solo opt-in | Desktop Gaming, Handheld, VR |
 | Lutris | lutris | [arch-extra](https://archlinux.org/packages/extra/x86_64/lutris/) | open-source (GPL-3.0-or-later) | pacman-repository | Planificado | Multi-Launcher |
 | Bottles | bottles | [AUR](https://aur.archlinux.org/packages/bottles) (manual) | open-source (GPL-3.0-or-later) | manual | Planificado — solo manual | Multi-Launcher |
 | Wine | wine | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/wine/) | open-source (LGPL-2.1-or-later) | pacman-repository | Planificado | Multi-Launcher, Advanced Compatibility |
@@ -69,12 +68,12 @@ preparación de recuperación). Nunca afirma compatibilidad de juegos,
 calificación de hardware, rendimiento medido ni latencia.
 
 ![Ajustes, página Gaming con los resultados de Gaming doctor. Un aviso indica
-que Gaming está en Preview y no instala nada hasta que confirmes; abajo,
-diecinueve de veinte chequeos de preparación pasan, cada uno con un detalle
-corto en lenguaje claro.](https://www.horneroos.com/captures/cap-cc-14.png)
+el estado de preparación de Gaming y no instala nada hasta que confirmes;
+abajo, diecinueve de veinte chequeos pasan, cada uno con un detalle corto en
+lenguaje claro.](https://www.horneroos.com/captures/cap-cc-14.png)
 
 *Los mismos chequeos de preparación en Ajustes → Gaming. Gaming es una edición
-Preview: esto informa preparación únicamente y no instala nada. Captura de
+Soportada: esto informa preparación únicamente y no instala nada. Captura de
 escritorio en vivo en el equipo del maintainer, 19 de noviembre de 2026.*
 
 ## Límites honestos

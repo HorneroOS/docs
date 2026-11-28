@@ -4,13 +4,10 @@ An experience mode changes how the desktop *behaves* right now: how much it
 animates, how dense the bar is, which widgets sit on the desktop and whether
 notifications interrupt you. It never replaces your layout or your theme.
 
-> **Development.** Experience modes are on the `main` branch of Shell since
-> November 2026. Current ISOs up to and including v0.2.0-preview32 do not
-> have them. The behaviour on this page is covered by Shell's automated
-> tests (profile logic, deck layout and the Experience page, run headless
-> and offscreen). It has not yet been validated visually in a virtual
-> machine or on a physical desktop, so treat the look of each mode as
-> unverified until that evidence is published.
+> **Release status.** Experience modes ship in `v0.2.0-preview42` (ISO and
+> Desktop QCOW2) and on `main`/AUR, covered by Shell automated tests, live
+> KVM verification, and daily production workstation use. Earlier ISOs up to
+> `v0.2.0-preview32` did not include them.
 
 ## The five modes
 

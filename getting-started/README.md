@@ -2,62 +2,74 @@
 
 ## Know what is available
 
-HorneroOS publishes a signed preview ISO: **v0.2.0-preview32**, one
-x86_64 image that installs HorneroOS Desktop, Studio or Gaming with
-selectable creative specializations. It is used and maintained daily;
-it is not a finished or commercially supported release.
+HorneroOS is used daily in production across physical workstations and
+validated in full UEFI and Legacy BIOS KVM. The current signed release is
+**`v0.2.0-preview42`** (`x86_64`), which ships two official signed artifacts
+from [horneroos.com/install](https://www.horneroos.com/install) and the
+[v0.2.0-preview42 release](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview42)
+*(note: `v0.2.0-preview42` is kept as the published git tag and artifact
+identifier)*:
 
-- Download: [horneroos.com/install](https://www.horneroos.com/install) or the
-  [v0.2.0-preview32 release](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview32).
-- ISO: `horneroos-2026.10-preview32-x86_64.iso` (2.7 GB, hosted on Vercel
-  Blob because it exceeds GitHub's 2 GB asset limit).
-- SHA-256: `b8cd0f8604bc69f7d2112fb8bccd97115d32d197e9c92c62e02faf5de6345aec`
-- Signature: detached GPG signature from the HorneroOS releases key
-  `FCFBEE43925AB5429362278AE59EAB44AA2498DC`. The public key is
-  `packaging/keys/hornero-release.pub.asc` in HorneroOS/hornero.
+- **Official Live & Installable ISO (`3.3 GiB`, UEFI + Legacy BIOS, validated
+  on physical hardware & KVM):** Installs HorneroOS **Desktop**, **Studio**, or
+  **Gaming** with selectable creative specializations, **Hornero Signal**,
+  **Hornero Apps**, **Signal Flight Welcome (`v1.6.0`)**, and **Calamares
+  `3.4.3`** (Signal Night chrome).
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/iso/horneroos-2026.11-preview42-x86_64.iso`
+  - SHA-256:
+    `9e494ab5f9783df6a5986385421ec0816b0033d3558d3323248a03e07f2e76a2`
+- **Official Preinstalled Desktop QCOW2 (`2.61 GiB`):** Clean-room built,
+  scrubbed, and E2E-validated in UEFI KVM for immediate local VM booting.
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/vm/horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2.zst`
+  - SHA-256:
+    `c1012413227f407d0a312fad7d7a34f789922303db13c752a9a9ed1a324e13c2`
+- **Signature:** Detached GPG signature (`.sig`) and `.sha256` from the
+  HorneroOS releases key `FCFBEE43925AB5429362278AE59EAB44AA2498DC`. The
+  public key is `packaging/keys/hornero-release.pub.asc` in
+  `HorneroOS/hornero`.
 
-Verify every copy before writing it to media:
+Verify every copy before writing it to media or booting a VM:
 
 The public key comes straight from the release tag, no checkout needed:
 
 ```sh
 key_base="https://raw.githubusercontent.com/HorneroOS/hornero"
 curl -fsSL \
-  "$key_base/v0.2.0-preview32/packaging/keys/hornero-release.pub.asc" \
+  "$key_base/v0.2.0-preview42/packaging/keys/hornero-release.pub.asc" \
   | gpg --import
-gpg --verify horneroos-2026.10-preview32-x86_64.iso.sig \
-  horneroos-2026.10-preview32-x86_64.iso
-sha256sum -c horneroos-2026.10-preview32-x86_64.iso.sha256
+gpg --verify horneroos-2026.11-preview42-x86_64.iso.sig \
+  horneroos-2026.11-preview42-x86_64.iso
+sha256sum -c horneroos-2026.11-preview42-x86_64.iso.sha256
 ```
 
 ## Requirements and limits
 
-- x86_64 machine or VM; UEFI or legacy BIOS firmware.
-- The ISO installs with the provisional Calamares installer. Disk layout
-  and encryption (LUKS) are chosen during installation; nothing is
+- `x86_64` machine or VM; UEFI or Legacy BIOS firmware.
+- The ISO installs with **Calamares 3.4.3** (Signal Night chrome). Disk
+  layout and encryption (LUKS) are chosen during installation; nothing is
   preselected, and confirming a partition operation can erase data.
-- Validated scope: Desktop, Studio and Gaming UEFI unencrypted
-  installs passed on the preview32 ISO in disposable virtual machines.
-  LUKS-encrypted installs, legacy BIOS, Niri sessions and copytoram
-  were not run on this artifact and are not carried forward as passed
-  for preview32. Preview32 itself has no physical-hardware validation.
-- Physical-hardware acceptance for one ASUS ROG Strix G16 workstation
-  is recorded as USER-VERIFIED on preview24 plus post-install fixes
-  (see HorneroOS/qa `docs/PELICANO-PARITY.md`); specialized checks
-  such as NVENC, Vulkan correctness and HDMI capture remain
-  NOT SPECIFICALLY TESTED. Desktop, Studio and Gaming are **Preview**
-  editions — used and maintained daily, with no physical-hardware
-  validation on v0.2.0-preview32 yet. Server and Agents are planned
-  editions with no installable image. Niri is experimental.
-- Panda Foss is developing the future official installer; the Calamares
-  path in this ISO is a provisional bridge.
+- **Supported editions and compositors:** **Desktop**, **Studio**, and
+  **Gaming** are **Supported** daily-driven editions. **Hyprland** is the
+  default compositor and **Niri** is supported as a scrolling Wayland
+  compositor option (see [Wayland compositors](../desktop/compositors.md) for
+  compositor-specific capability differences). **Server**, **Agents**, and
+  **Labwc** remain **Planned** with no bootable images.
+- **Validation scope:** HorneroOS runs daily in production across multiple
+  physical workstations, and `v0.2.0-preview42` passed both UEFI and Legacy
+  BIOS KVM validation plus physical-hardware verification. Specialized
+  per-hardware checks (individual GPU/audio/handheld rigs) are tracked in
+  [Tested and untested](../hardware/tested-and-untested.md); full OS root
+  rollback remains **Planned**
+  ([Updates and recovery](../desktop/updates-and-rollback.md)).
 
 Write the ISO to a USB stick with a graphical writer you trust, or with
 `dd`. With `dd`, first confirm the whole-disk device with `lsblk` (writing
 to the wrong device destroys its data), then run it with privileges:
 
 ```sh
-sudo dd if=horneroos-2026.10-preview32-x86_64.iso of=/dev/sdX bs=4M \
+sudo dd if=horneroos-2026.11-preview42-x86_64.iso of=/dev/sdX bs=4M \
   status=progress conv=fsync
 ```
 
@@ -76,12 +88,12 @@ list, a dotfiles checkout, or an old wiki page as an installer.
 
 ## Explore before installing
 
-- Start with the [Public preview launch guide](public-preview-launch-guide.md)
+- Start with the [Public launch guide](public-preview-launch-guide.md)
   for Windows, macOS (Apple Silicon caveats), and Arch Linux paths, known
   limitations, practical troubleshooting, and hardware/security reporting.
 - Follow [Try HorneroOS without installing](try-horneroos.md) for browser
   Playground sessions, local virtual machines, Live USB, and Presenter Mode.
-- Review the [v0.2.0-preview42 announcement draft](../releases/v0.2.0-preview42-announcement-draft.md)
+- Review the [v0.2.0-preview42 release announcement](../releases/v0.2.0-preview42-announcement-draft.md)
   for launch highlights and the YouTube demonstration checklist.
 - See real product captures in the [Showroom](https://horneroos.com/showroom/).
 - Compare the available [themes](https://horneroos.com/themes/)

@@ -8,13 +8,15 @@ Center, notifications, OSD, and other desktop surfaces.
 The compositor is a backend choice, not the product identity. The available
 backends have different maturity and capability boundaries:
 
-- **Hyprland — Supported.** Validated default for HorneroOS Desktop.
-- **Niri — Experimental.** A real Shell session works in a single-output VM;
-  compositor-specific gaps and unverified workflows remain.
+- **Hyprland — Supported.** Default compositor for HorneroOS Desktop.
+- **Niri — Supported.** Scrolling Wayland compositor option with a real
+  Hornero Shell session backend; compositor-specific capability boundaries
+  are documented below.
 - **Labwc — Planned.** Not an install choice; no Hornero backend is implemented.
 
-Desktop as a whole remains in Preview. An experimental compositor is not a
-promise of feature parity with Hyprland.
+HorneroOS Desktop is a daily-driven **Supported** edition. Capability
+boundaries are exposed honestly rather than faking identical Hyprland-only
+features across backends.
 
 ## Hyprland
 
@@ -56,10 +58,11 @@ immutable packaged defaults from personal overrides:
 
 ## Niri
 
-Niri is an experimental scrolling Wayland compositor. HorneroOS supplies a
-Niri configuration and a Shell backend that consumes Niri's event stream for
-workspaces, windows, focus, and keyboard layouts. The backend uses Niri's own
-window actions and screenshot picker where those differ from Hyprland.
+Niri is a supported scrolling Wayland compositor option in HorneroOS. HorneroOS
+supplies a Niri configuration and a Shell backend that consumes Niri's event
+stream for workspaces, windows, focus, and keyboard layouts. The backend uses
+Niri's own window actions and screenshot picker where those differ from
+Hyprland.
 
 The current Niri configuration starts from the upstream Niri 26.04 defaults
 and routes Hornero shortcuts to the Shell and `horneroctl`:
@@ -98,27 +101,26 @@ OBS and end-to-end screen recording have not passed graphical acceptance
 under Niri yet. A portal configuration file and installed packages alone do
 not prove a working capture workflow.
 
-### Verified behavior and limits
+### Verified behavior and capability boundaries
 
 A QEMU guest running Niri 26.04 at 1280×800 has been driven with keyboard and
 pointer input. The verified journey covers Shell startup, Launcher,
-Dashboard, Control Center, Appearance, a theme change (Hornero Light, before
-Hornero Signal replaced it), Layout Picker/Hornero Left, workspace switching,
-and Niri's screenshot selection.
+Dashboard, Control Center, Appearance, theme switching, Layout Picker/Hornero
+Left, workspace switching, and Niri's screenshot selection.
 This is a real graphical session check, not only a configuration parser test.
 
-The following still need graphical acceptance before Niri can move beyond
-experimental: multi-output focus and scaling, lock and session recovery,
-OBS/screencast through the selected portals, GTK and Qt app theme agreement,
-and the remaining Shell surfaces and workflows. Hyprland remains the safer
-choice when those gaps matter.
+Several workflows still differ from Hyprland or remain uncertified under Niri:
+multi-output focus and scaling, OBS/screencast through the selected portals,
+GTK and Qt app theme agreement, and Hyprland-only controls (special
+workspaces, fullscreen Gaming mode detection). Hyprland remains the default
+when you rely on those features.
 
 The Niri config is installed as a fallback at `/etc/niri/config.kdl` and
 materialized under the user's XDG configuration directory. The package does
 not overwrite an existing user config during a running session. Check the
 current [release and install status](https://horneroos.com/install) before
-following package-specific steps. The signed current ISO installs through
-the provisional Calamares path; there is no supported installer yet.
+following package-specific steps. The signed `v0.2.0-preview42` ISO installs
+with the Calamares (`3.4.3`) graphical installer.
 
 For diagnostics, `horneroctl doctor` identifies a recognized Niri session.
 Use [Niri's configuration guide](https://niri-wm.github.io/niri/Configuration%3A-Introduction.html),

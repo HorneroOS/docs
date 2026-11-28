@@ -4,7 +4,7 @@
 > [versión en inglés](../../development/design-language.md), que es la canónica.
 
 Esta guía es el punto de partida compartido para quienes diseñan o implementan
-una interfaz de HorneroOS, incluido el instalador provisional. Reúne la
+una interfaz de HorneroOS, incluido el instalador gráfico (Calamares). Reúne la
 dirección a nivel de producto y apunta al repositorio dueño de cada regla
 concreta. No reemplaza esos contratos de implementación ni crea una segunda
 copia de sus valores cambiantes de tokens.
@@ -28,8 +28,8 @@ experimental.
 Para colaboradores del instalador, usá esta guía para la identidad de producto
 y los principios de interacción, y luego usá los archivos de marca de Config
 para activos oficiales y el catálogo de ediciones para las opciones que el
-instalador puede ofrecer. La marca actual en Calamares es un detalle de
-implementación provisional, no una fuente de verdad separada de marca.
+instalador puede ofrecer. Mantené la marca en Calamares alineada con Hornero
+Signal sin crear una fuente de verdad separada.
 
 ## Carácter del producto
 
@@ -134,17 +134,18 @@ acciones con consecuencias.
 
 ### 5. Sé honesto sobre las capacidades del sistema
 
-- HorneroOS Desktop es Wayland-first. Hyprland y Niri tienen distinta madurez
-  de soporte; el sistema no es sinónimo de ninguno de los dos compositores.
+- HorneroOS Desktop es Wayland-first. Hyprland y Niri exponen distintas
+  capacidades de compositor; el sistema no es sinónimo de ninguno de los dos
+  compositores.
 - Mostrá solo opciones de instalación que puedan instalarse y validarse.
-  Etiquetá caminos preview o experimentales en la opción misma, no solo en un
-  pie de página.
+  Etiquetá opciones planificadas o experimentales en la opción misma, no solo
+  en un pie de página.
 - Degradá con gracia cuando dispositivos opcionales, redes, portales o
   servicios no estén disponibles. Explicá la condición y ofrecé un siguiente
   paso seguro.
 - Usá capturas reales y revisadas del producto para afirmaciones del producto.
-  Marcá claramente el arte conceptual, las recreaciones en navegador y las
-  pantallas provisionales del instalador.
+  Marcá claramente el arte conceptual, las recreaciones en navegador y los
+  bocetos aún no publicados del instalador.
 
 ## Tipografía, íconos e imaginería
 
@@ -194,7 +195,7 @@ prioridad visual.
 | Compositores | [Comp][comp], [Layouts][lay] | Soporte y layout |
 | Login/bloqueo | [Greeter UX][greeter-ux] | Jerarquía auth, teclado |
 | Ediciones | [Catálogo][editions-cat], [Ediciones][arch-ed] | Nombres, madurez |
-| Instalador | [Calamares prov.][cal-brand] | Assets provisionales |
+| Instalador | [Calamares][cal-brand] | Assets Signal Night |
 | Sitio web | [Estilos web][web-style] | Composición, paleta |
 | Evidencia QA | [Escenarios][qa-scen], [Medios][qa-media] | Capturas, pruebas |
 
@@ -202,22 +203,22 @@ El sitio web usa los mismos roles Hornero Signal y familias IBM Plex que el
 escritorio, adaptados a diagramación editorial. No define una paleta aparte
 para el escritorio ni para el instalador.
 
-## Cómo aplicar esta guía al instalador provisional
+## Cómo aplicar esta guía al instalador gráfico
 
 El instalador debe sentirse como HorneroOS por su marca, nomenclatura, idioma,
 colores y tipografía Signal, y por el cuidado en decisiones con consecuencias.
 Sigue siendo una utilidad de instalación, no una shell de escritorio en
 miniatura. Quien lo visite debe poder distinguir qué edición se instala, adónde
-irá, qué cambiará y si una opción es experimental antes de confirmarla.
+irá, qué cambiará y si una opción es planificada o experimental antes de
+confirmarla.
 
 Mantené el trabajo específico de Calamares localizado en su marca y
 configuración de módulos. Preferí un pequeño adaptador desde el catálogo
 compartido de ediciones antes que duplicar verdades de paquetes o capacidades
 en la UI del instalador. Cuando una opción todavía no pueda ejecutarse o
-probarse, etiquetala como no disponible o provisional en lugar de presentarla
-como completa. El instalador provisional es una referencia y superficie de
-integración para el futuro instalador propio; sus colores, capturas y layout
-actuales no invalidan esta guía.
+probarse, etiquetala como no disponible o planificada en lugar de presentarla
+como completa. Mantené la integración de Calamares modular para que cualquier
+futuro instalador propio pueda compartir el mismo catálogo y principios.
 
 Antes de dar por listo un diseño del instalador, validá un flujo completo de
 instalación en un entorno UEFI y BIOS descartable, incluyendo tanto uso por

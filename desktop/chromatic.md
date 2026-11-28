@@ -7,10 +7,10 @@ wallpaper, an image or a colour you choose, and build a complete
 (Signal Night, Signal Day and Signal High Contrast) stay the factory default
 and the fallback whenever anything goes wrong.
 
-> **Development.** Chromatic is on the `main` branches of the Shell and
-> `horneroctl`. Current ISOs up to v0.2.0-preview32 do not include it. The
-> accent override (see [Accent override](#accent-override)) is still in
-> review and is not on `main` yet.
+> **Release status.** Chromatic v3 ships in `v0.2.0-preview42` (ISO and
+> Desktop QCOW2) and on `main`/AUR for both Hornero Shell and `horneroctl`.
+> Earlier ISOs up to `v0.2.0-preview32` did not include it. The accent
+> override (see [Accent override](#accent-override)) remains tracked separately.
 
 ## What it is and what it is not
 

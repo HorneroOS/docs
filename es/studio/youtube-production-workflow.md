@@ -65,7 +65,7 @@ Verificá el modo activo de pantalla antes de grabar:
 
 ```sh
 hyprctl monitors       # En Hyprland
-niri msg outputs       # En Niri (experimental)
+niri msg outputs       # En Niri
 ```
 
 ---
@@ -158,8 +158,10 @@ base (`1920×1080` a `60 FPS`, salvo el escenario Vertical):
 
 > **Regla de verdad del producto:** Al grabar el Escenario 5 (Hornero Apps) o
 > flujos de Niri/Studio/Gaming, indicá en pantalla y en la descripción qué está
-> en **Preview**, qué es **Experimental** (`Niri`) y qué vive en `main` frente
-> a la ISO `v0.2.0-preview32`.
+> **Soportado** (`Desktop`, `Studio`, `Gaming`, `Hyprland`, `Niri` en
+> `v0.2.0-preview42`) frente a lo que sigue **Planificado** (`Server`,
+> `Agents`, `Labwc`, rollback completo de raíz del SO) o sin certificar por
+> dispositivo.
 
 ---
 

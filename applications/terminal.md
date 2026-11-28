@@ -54,9 +54,9 @@ copy/paste bindings:
 | `Ctrl + Shift + Home/End` | Scroll to top / bottom |
 | `Ctrl + L` | Clear the visible screen |
 
-> **Development.** The palette behaviour below is Hornero Signal on `main`.
-> current ISOs up to v0.2.0-preview32 still write wallpaper-generated
-> terminal colours.
+> **Release status.** The palette behaviour below is Hornero Signal, shipped
+> in `v0.2.0-preview42` and on `main`/AUR. Earlier ISOs up to
+> `v0.2.0-preview32` wrote wallpaper-generated terminal colours.
 
 Every theme ships a Kitty palette as `<theme-id>.conf`, and `kitty.conf`
 has a single `include <theme-id>.conf` line (the factory default is

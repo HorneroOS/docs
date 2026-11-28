@@ -65,7 +65,7 @@ Verify the live display mode before hitting Record:
 
 ```sh
 hyprctl monitors       # On Hyprland
-niri msg outputs       # On Niri (experimental)
+niri msg outputs       # On Niri
 ```
 
 ---
@@ -157,8 +157,9 @@ and baseline resolution (`1920×1080` at `60 FPS` unless marked Vertical):
 
 > **Honest product labeling rule:** When recording Scenario 5 (Hornero Apps) or
 > Niri/Studio/Gaming workflows, state on-screen and in video descriptions what
-> is **Preview**, what is **Experimental** (`Niri`), and what is on `main` vs
-> `v0.2.0-preview32` ISO.
+> is **Supported** (`Desktop`, `Studio`, `Gaming`, `Hyprland`, `Niri` in
+> `v0.2.0-preview42`) versus what remains **Planned** (`Server`, `Agents`,
+> `Labwc`, full OS root rollback) or uncertified per-device.
 
 ---
 

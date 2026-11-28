@@ -54,9 +54,10 @@ scrollback y atajos de copiar/pegar:
 | `Ctrl + Shift + Home/End` | Ir arriba / abajo del todo |
 | `Ctrl + L` | Limpiar la pantalla visible |
 
-> **Development.** El comportamiento de paletas de abajo corresponde a Hornero
-> Signal en `main`. Las ISO actuales hasta v0.2.0-preview32 todavía escriben
-> colores de terminal generados desde el fondo de pantalla.
+> **Estado de release.** El comportamiento de paletas de abajo corresponde a
+> Hornero Signal, incluido en `v0.2.0-preview42` y en `main`/AUR. Las ISO
+> anteriores hasta `v0.2.0-preview32` escribían colores de terminal generados
+> desde el fondo de pantalla.
 
 Cada tema trae una paleta de Kitty como `<theme-id>.conf`, y `kitty.conf`
 tiene una sola línea `include <theme-id>.conf` (el valor de fábrica es

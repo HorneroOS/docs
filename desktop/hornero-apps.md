@@ -9,7 +9,7 @@ It combines the Quickshell Hornero Apps interface, Launcher integration,
 Hornero Welcome workstation profiles, and the `horneroctl store` command-line
 engine backed by a signed declarative catalog (`catalog/apps.v1.json`).
 
-> **Preview boundary and rollback:** Hornero Apps does **not** create system
+> **System boundary and rollback:** Hornero Apps does **not** create system
 > snapshots or provide universal OS rollback today. Native Arch installs and
 > upgrades remain one-way operations on disk; see
 > [Updates and recovery](updates-and-rollback.md) before modifying system

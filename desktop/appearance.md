@@ -5,9 +5,10 @@ theme is a complete look: it sets every interface colour and also chooses a
 default wallpaper, GTK theme, icon theme and light or dark mode. All themes
 use the [Hornero Signal](hornero-signal.md) design language.
 
-> **Development.** This page describes Hornero Signal, on the `main`
-> branches since November 2026. Current ISOs up to v0.2.0-preview32 still
-> ship the previous, wallpaper-generated appearance system.
+> **Release status.** This page describes Hornero Signal, shipped in
+> `v0.2.0-preview42` (ISO and Desktop QCOW2) and on `main`/AUR. Earlier ISOs
+> up to `v0.2.0-preview32` shipped the previous, wallpaper-generated
+> appearance system.
 
 ## Pick a theme
 

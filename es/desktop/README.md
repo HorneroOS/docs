@@ -52,10 +52,11 @@ Estas superficies son parte del paquete de la shell. Su implementación y
 sus contratos de foco de teclado viven en el
 [repositorio Shell](https://github.com/HorneroOS/shell/tree/main/docs).
 
-HorneroOS Desktop es Wayland-first. Hyprland es el valor por defecto
-validado; [Niri es experimental](compositors.md) y tiene una
-superficie de funciones verificada menor. La misma identidad de Hornero
-Shell abarca ambos backends donde las capacidades están implementadas.
+HorneroOS Desktop es Wayland-first. Hyprland es el compositor por defecto;
+[Niri también está soportado](compositors.md) como opción de compositor
+Wayland con columnas desplazables y límites propios documentados. La misma
+identidad de Hornero Shell abarca ambos backends donde las capacidades están
+implementadas.
 
 ## Límites de configuración
 

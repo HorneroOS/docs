@@ -46,10 +46,10 @@ Center contains persistent system and shell settings.
 These surfaces are part of the shell package. Their implementation and
 keyboard focus contracts live in the [Shell repository](https://github.com/HorneroOS/shell/tree/main/docs).
 
-HorneroOS Desktop is Wayland-first. Hyprland is the validated default;
-[Niri is experimental](compositors.md) and has a smaller verified feature
-surface. The same Hornero Shell identity spans both backends where capabilities
-are implemented.
+HorneroOS Desktop is Wayland-first. Hyprland is the default compositor;
+[Niri is also supported](compositors.md) as a scrolling Wayland compositor
+option with compositor-specific capability boundaries. The same Hornero
+Shell identity spans both backends where capabilities are implemented.
 
 ## Configuration boundaries
 

@@ -9,7 +9,7 @@ chose. Studio is a **Supported** edition: the Current ISO installer
 installs the applications for the specializations you select, and
 `horneroctl studio` records and applies reviewed configuration
 building blocks. Post-install package changes through `horneroctl`
-remain recorded intent in this preview, and no step here claims
+remain recorded intent today, and no step here claims
 otherwise.
 
 ## 1. Pick your workloads

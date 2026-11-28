@@ -21,31 +21,31 @@ Base + server + agent-host             → Agents
 Base + desktop + studio                → Studio
 ```
 
-The same model feeds the graphical installer. The provisional Calamares
-installer in HorneroOS/installer consumes it to build the published,
-signed v0.2.0-preview32 preview ISO; Panda Foss's custom installer is
-the future official path.
+The same model feeds the graphical installer. The Calamares (`3.4.3`)
+installer in `HorneroOS/installer` consumes it to build the published,
+signed `v0.2.0-preview42` ISO and preinstalled Desktop QCOW2.
 
 ## Current maturity
 
-- **Desktop — Preview.** Real desktop product and package composition;
-  installs from the signed preview32 ISO via the provisional Calamares
-  path.
-- **Gaming — Preview.** Installs from the same signed preview32 ISO with
-  gaming tooling; physical-hardware validation on preview32 is still
-  pending.
-- **Hyprland — Supported.** Validated default desktop session.
-- **Niri — Experimental.** A single-output VM journey is verified. See
-  [Wayland compositors](../desktop/compositors.md) for the gaps.
+- **Desktop — Supported.** Daily-driven desktop product and package
+  composition; installs from the signed `v0.2.0-preview42` ISO or runs from
+  the Desktop QCOW2.
+- **Gaming — Supported.** Installs from the same signed `v0.2.0-preview42`
+  ISO with gaming tooling; daily-driven and validated in KVM and on physical
+  workstations (individual games and handhelds remain uncertified).
+- **Hyprland — Supported.** Default desktop compositor session.
+- **Niri — Supported.** Scrolling Wayland compositor option with a real
+  Shell backend. See [Wayland compositors](../desktop/compositors.md) for
+  compositor-specific capability boundaries.
 - **Server — Planned.** A headless package set is described; a bootable image
   and full remote-administration acceptance are not available.
 - **Agents — Planned.** Rootless Podman and systemd Quadlet are the direction;
   Hermes provisioning, isolation, secrets, lifecycle, and recovery are not
   certified.
-- **Studio — Preview.** Installs from the same signed preview32 ISO with
-  selectable creative specializations; audio, capture, editing, hardware
-  acceleration, and compositor workflows are not certified, hardware QA
-  is blocked on approved fixtures, and Studio is not Supported.
+- **Studio — Supported.** Installs from the same signed `v0.2.0-preview42`
+  ISO with selectable creative specializations; audio profiles and diagnostics
+  ship, while individual third-party creative apps and hardware interfaces
+  remain uncertified per-device.
 - **Labwc — Planned.** No Hornero backend or package set is offered.
 
 These labels describe product evidence, not whether an upstream package exists
@@ -54,7 +54,7 @@ or whether an individual component works on its own.
 ## Edition intent
 
 - **Desktop** is a Wayland-first desktop powered by Hornero Shell. Hyprland is
-  the default validated backend; Niri is experimental.
+  the default backend; Niri is also supported.
 - **Server** is intended to be a small, remotely operable headless system. Its
   current package proposal excludes graphical Shell and compositor packages.
 - **Agents** is intended to extend Server with isolated agent workloads. The

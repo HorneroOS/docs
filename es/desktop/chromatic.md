@@ -7,10 +7,11 @@ una imagen o un color que elijas, y arme con eso una paleta completa de
 Day y Signal High Contrast) siguen siendo el valor de fábrica y el respaldo
 cuando algo sale mal.
 
-> **Development.** Chromatic está en las ramas `main` de la shell y de
-> `horneroctl`. Las ISO actual hasta la v0.2.0-preview32 no lo incluyen. El
-> ajuste de acento (mirá [Ajuste de acento](#ajuste-de-acento)) todavía está
-> en revisión y aún no está en `main`.
+> **Estado de release.** Chromatic v3 viene incluido en `v0.2.0-preview42` (ISO
+> y QCOW2 de Desktop) y en `main`/AUR tanto en Hornero Shell como en
+> `horneroctl`. Las ISO anteriores hasta la `v0.2.0-preview32` no lo
+> incluían. El ajuste de acento (mirá [Ajuste de acento](#ajuste-de-acento))
+> sigue separado.
 
 ## Qué es y qué no es
 

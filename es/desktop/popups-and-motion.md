@@ -3,14 +3,10 @@
 Cómo se abren los menús, paneles y tooltips, dónde aparecen, cómo se cierran
 y cómo se mueve el escritorio, o deja de moverse, cuando lo pedís.
 
-> **Development.** El contrato de interacción de abajo está en la rama
-> `main` de Shell desde noviembre de 2026. Las ISO preview hasta la
-> v0.2.0-preview32 inclusive se comportan distinto. El solver de ubicación,
-> los niveles de movimiento y la cascada de Escape están cubiertos por las
-> pruebas automáticas de Shell (sin pantalla y en modo offscreen). La
-> geometría de los popups, los tiempos de movimiento y el comportamiento de
-> teclado en Niri todavía no se validaron en una máquina virtual ni en un
-> escritorio físico.
+> **Estado de release.** El contrato de interacción de abajo viene incluido en
+> `v0.2.0-preview42` (ISO y QCOW2 de Desktop) y en `main`/AUR, cubierto por
+> pruebas automáticas de Shell, verificación en KVM y uso diario. Las ISO
+> anteriores hasta la `v0.2.0-preview32` inclusive se comportaban distinto.
 
 ## Dónde aparecen los popups
 

@@ -9,7 +9,7 @@ más que lo que elegiste. Studio es una edición **Soportada**: el instalador de
 la ISO actual instala las aplicaciones de las especializaciones que elegís, y
 `horneroctl studio` registra y aplica bloques de configuración revisados. Los
 cambios de paquetes post-instalación mediante `horneroctl` siguen siendo
-intención registrada en esta preview, y ningún paso acá afirma lo contrario.
+intención registrada actualmente, y ningún paso acá afirma lo contrario.
 
 ## 1. Elegí tus cargas de trabajo
 

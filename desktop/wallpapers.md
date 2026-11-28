@@ -6,9 +6,10 @@ never changes interface colours. Colours come from the selected
 [theme](appearance.md), so you can pair any image with any theme. To derive
 colours from a wallpaper on purpose, use [Hornero Chromatic](chromatic.md).
 
-> **Development.** Wallpaper-independent colours arrived with
-> [Hornero Signal](hornero-signal.md) in November 2026. current ISOs up to
-> v0.2.0-preview32 still generate shell colours from the wallpaper.
+> **Release status.** Wallpaper-independent colours arrived with
+> [Hornero Signal](hornero-signal.md) and ship in `v0.2.0-preview42` (ISO
+> and Desktop QCOW2) as well as `main`/AUR. Earlier ISOs up to
+> `v0.2.0-preview32` generated shell colours from the wallpaper.
 
 ## Set a local wallpaper
 

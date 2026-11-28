@@ -59,9 +59,9 @@ logs del lanzador.
 ## Estado y marca registrada
 
 La aceptación en HorneroOS para esta entrada se sigue en HorneroOS/qa#36 y
-permanece pendiente hasta que exista evidencia real de Studio Preview; nada
-acá es una afirmación de soporte. ArtCraft, el nombre ArtCraft y la marca A
-son marcas registradas de ArtCraft Team, usadas solo sin modificaciones como
-parte del lanzador sin modificar; no están licenciadas bajo MIT ni Apache-2.0.
-El instalador en sí sigue siendo el límite de propiedad del futuro instalador
-de Panda Foss — Calamares es solo el puente provisional.
+permanece pendiente hasta que exista evidencia real de aceptación de Studio;
+nada acá es una afirmación de soporte. ArtCraft, el nombre ArtCraft y la
+marca A son marcas registradas de ArtCraft Team, usadas solo sin
+modificaciones como parte del lanzador sin modificar; no están licenciadas
+bajo MIT ni Apache-2.0. Calamares (`3.4.3`) es el instalador gráfico incluido;
+Panda Foss sigue la propiedad futura del instalador.

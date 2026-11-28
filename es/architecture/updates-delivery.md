@@ -2,11 +2,11 @@
 
 HorneroOS se ensambla a partir de varios repositorios y paquetes. Esta página
 es para colaboradores que cambian cómo llega el código fuente a un sistema
-instalado; no es una guía de instalación para usuarios finales. La ISO preview
-firmada v0.2.0-preview32 se entrega fuera de banda (Vercel Blob, con checksum,
-firma y manifiesto en el release de GitHub); esta página cubre la entrega de
-paquetes. Mirá [Primeros pasos](../getting-started/README.md) para el estado
-actual.
+instalado; no es una guía de instalación para usuarios finales. La ISO
+firmada `v0.2.0-preview42` y la QCOW2 preinstalada de Desktop se entregan
+fuera de banda (Vercel Blob, con checksum, firma y manifiesto en el release
+de GitHub); esta página cubre la entrega de paquetes. Mirá
+[Primeros pasos](../getting-started/README.md) para el estado actual.
 
 ## Límites de entrega
 

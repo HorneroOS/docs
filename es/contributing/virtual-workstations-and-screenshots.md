@@ -77,9 +77,9 @@ Flags principales en `HorneroOS/installer/scripts/build-vm-image.sh`:
 | # | Perfil | Edición | Comp. | Demo | Salida y uso |
 | --- | --- | --- | --- | --- | --- |
 | 1 | `desktop-hyprland` | `desktop` | `hypr` | No | `.qcow2.zst` estándar |
-| 2 | `desktop-niri` | `desktop` | `niri` | No | `.qcow2.zst` Niri exp. |
+| 2 | `desktop-niri` | `desktop` | `niri` | No | `.qcow2.zst` Niri |
 | 3 | `studio-hyprland` | `studio` | `hypr` | No | Disco Studio |
-| 4 | `gaming-hyprland` | `gaming` | `hypr` | No | Disco Gaming (solo VM) |
+| 4 | `gaming-hyprland` | `gaming` | `hypr` | No | Disco Gaming |
 | 5 | `playground-demo` | `desktop` | `hypr` | **Sí** | Base Playground/Demo |
 | 6 | `qa-uncompressed` | Cualq. | Cualq. | Opc. | `.qcow2` sin comprimir |
 
@@ -93,7 +93,7 @@ almacenamiento de objetos externo (Vercel Blob / Cloudflare R2) con
 ## 3. Matriz de compatibilidad entre hipervisores
 
 El stack Wayland de HorneroOS (`hyprland 0.57.2-1` sobre **Aquamarine**,
-`niri` experimental sobre **Smithay** y **Quickshell** en **Qt 6**) exige
+`niri` sobre **Smithay** y **Quickshell** en **Qt 6**) exige
 DRM/EGL funcional o un fallback explícito por software (verificado al
 `2026-11-28`):
 

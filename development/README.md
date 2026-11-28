@@ -61,10 +61,11 @@ of the documentation.
 
 ## Product truth
 
-HorneroOS is in development. A working developer setup or component package
-does not imply a supported end-user installation. Check current release and
-installation status before writing guides or claims. Label preview-only
-behavior and package-specific constraints explicitly.
+HorneroOS is used daily in production across physical workstations and
+validated in UEFI and Legacy BIOS KVM. Even so, a working developer setup or
+component package does not imply every sub-feature is certified. Check current
+release and installation status before writing guides or claims. Label
+planned features and package-specific constraints explicitly.
 
 ## Report a bug
 

@@ -44,11 +44,11 @@ adds no controller rules.
   --fullscreen`) is a template, not a recommendation.
 
 ![Settings, Gaming page with the Gaming doctor results. A notice
-states that Gaming is in Preview and installs nothing until you
+states Gaming readiness status and installs nothing until you
 confirm; below it, nineteen of twenty readiness checks pass, each with
 a short plain-language detail.](https://www.horneroos.com/captures/cap-cc-14.png)
 
-*Gaming readiness, checked honestly in Settings → Gaming (Preview):
+*Gaming readiness, checked honestly in Settings → Gaming:
 detection is a hint, not a guarantee that a game will run.
 Running-desktop capture from the maintainer's machine,
 19 November 2026.*

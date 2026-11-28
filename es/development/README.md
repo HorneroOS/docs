@@ -54,12 +54,12 @@ documentación.
 
 ## Verdad del producto
 
-HorneroOS está en desarrollo. Que un entorno de desarrollo funcione o
-que exista el paquete de un componente no implica una instalación
-soportada para usuarios finales. Revisá el estado actual de releases e
-instalación antes de escribir guías o afirmaciones. Etiquetá
-explícitamente el comportamiento solo-preview y las restricciones
-específicas de paquetes.
+HorneroOS se usa a diario en producción en estaciones físicas y está validado
+en KVM con UEFI y Legacy BIOS. Aun así, que un entorno de desarrollo funcione
+o que exista el paquete de un componente no implica que cada subfunción esté
+certificada. Revisá el estado actual de releases e instalación antes de
+escribir guías o afirmaciones. Etiquetá explícitamente las funciones
+planificadas y las restricciones específicas de paquetes.
 
 ## Reportá un bug
 

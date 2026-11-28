@@ -6,10 +6,10 @@ además elige un fondo por defecto, un tema GTK, un tema de íconos y el modo
 claro u oscuro. Todos los temas usan el lenguaje de diseño
 [Hornero Signal](hornero-signal.md).
 
-> **Development.** Esta página describe Hornero Signal, en las ramas `main`
-> desde noviembre de 2026. Las ISO actual hasta la v0.2.0-preview32
-> todavía traen el sistema de apariencia anterior, generado a partir del
-> fondo.
+> **Estado de release.** Esta página describe Hornero Signal, incluido en
+> `v0.2.0-preview42` (ISO y QCOW2 de Desktop) y en `main`/AUR. Las ISO
+> anteriores hasta la `v0.2.0-preview32` traían el sistema de apariencia
+> previo, generado a partir del fondo.
 
 ## Elegí un tema
 

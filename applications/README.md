@@ -7,19 +7,19 @@ guides explain how those parts connect and what to check when one is missing.
 
 ## What is part of Hornero?
 
-The current Preview composition ships in the signed v0.2.0-preview32 ISO
-(Desktop, Studio and Gaming, provisional Calamares installer). It brings
-together Hornero Shell, `horneroctl`, and the `hornero-config` package. On
-`main`, Config requires Bash, Git, Python, `polkit-gnome`, and `ttf-ibm-plex`;
-it does not install
-a complete workstation by itself.
+The current **Supported** composition ships in the signed `v0.2.0-preview42`
+release (Desktop, Studio and Gaming ISO with Calamares `3.4.3`, plus the
+preinstalled Desktop QCOW2). It brings together Hornero Shell, `horneroctl`,
+and the `hornero-config` package. On `main`, Config requires Bash, Git,
+Python, `polkit-gnome`, and `ttf-ibm-plex`; it does not install a complete
+workstation by itself.
 
 ### Hornero defaults for optional applications
 
-> **Development.** Theme palettes below describe
-> [Hornero Signal](../desktop/hornero-signal.md) on `main`. The
-> v0.2.0-preview32 ISO still generates application colours from the
-> wallpaper.
+> **Release status.** Theme palettes below describe
+> [Hornero Signal](../desktop/hornero-signal.md), shipped in
+> `v0.2.0-preview42` and on `main`/AUR. Earlier ISOs up to `v0.2.0-preview32`
+> generated application colours from the wallpaper.
 
 These programs remain separate host packages. If installed, they can use
 defaults supplied by Hornero Config:
@@ -67,8 +67,8 @@ defaults supplied by Hornero Config:
 - **`sss`, `grim`, `slurp`, and GPU Screen Recorder** provide optional capture
   backends. See [Screenshots and recording](capture.md).
 - **Hyprlock and Hypridle** support lock and idle behavior. **SDDM and Hornero
-  Greeter** are separate login components, not part of the current Preview
-  composition. See [Lock and login](login-lock.md).
+  Greeter** are separate login components configured for the display manager.
+  See [Lock and login](login-lock.md).
 
 ### Optional personal workstation applications
 
@@ -97,9 +97,9 @@ running its provisioning commands.
 - [Studio applications](studio.md) — verified source, license, and
   support matrix for the Studio edition.
 - [Studio getting started](studio-getting-started.md) — first
-  project walkthrough for the Preview Studio edition.
+  project walkthrough for the Studio Supported edition.
 - [Studio audio](studio-audio.md) — mode setup, routing, and
-  recovery for the Preview Studio edition.
+  recovery for the Studio Supported edition.
 - [ArtCraft Launcher](studio-artcraft.md) — experimental, manual
   opt-in launcher for the Craft applications.
 - [Studio: AI-assisted creative production](studio-ai-creative.md) —

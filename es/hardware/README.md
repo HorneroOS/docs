@@ -1,14 +1,14 @@
 # Hardware
 
 Guías nuevas: [Gráficos híbridos y NVIDIA](hybrid-graphics-nvidia.md)
-y [Hardware: probado, solo VM y no probado](tested-and-untested.md).
+y [Hardware y funciones: probado y no probado](tested-and-untested.md).
 
 Hornero se construye sobre Arch Linux y Hyprland. Por eso, el soporte de
 dispositivos depende del kernel, el firmware, los drivers y la
-configuración del dispositivo en la máquina. El instalador provisional
-Calamares de la ISO actual no selecciona ni configura un perfil de
-hardware de Hornero por vos, y todavía no existe validación en hardware
-físico.
+configuración del dispositivo en la máquina. El instalador Calamares de
+la ISO actual no selecciona ni configura un perfil de hardware propio por
+vos; ver [Probado y no probado](tested-and-untested.md) para estaciones
+físicas validadas, cobertura KVM y hardware sin probar.
 
 ## Empezá con un chequeo de solo lectura
 

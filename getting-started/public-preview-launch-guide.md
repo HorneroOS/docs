@@ -1,24 +1,25 @@
-# Public preview launch guide
+# Public launch guide
 
 This guide gives first-time external visitors a single, honest entry point to
 try, install, troubleshoot, and report findings on HorneroOS—without assuming
 prior Arch Linux or Hyprland knowledge.
 
-> **Product truth today:** HorneroOS is pre-release software in active
-> development. The currently published signed ISO is **`v0.2.0-preview32`**
-> (`x86_64`), while newer components (**Hornero Signal**, **Hornero Apps**,
-> **Hornero Welcome** updates, and **Chromatic v3**) ship today through the
-> AUR packages on `main` ahead of the next ISO cut. **Desktop**, **Studio**,
-> and **Gaming** are **Preview** editions validated in virtual machines;
-> **Hyprland** is the validated default compositor; **Niri** is experimental;
-> **Server** and **Agents** are planned; and full OS rollback is not shipped
-> yet.
+> **Product truth today:** HorneroOS is used daily in production across
+> multiple physical workstations and validated in UEFI and Legacy BIOS KVM.
+> The current signed release is **`v0.2.0-preview42`** (`x86_64`), bundling
+> **Hornero Signal**, **Hornero Apps**, **Signal Flight Welcome (`v1.6.0`)**,
+> **Chromatic v3**, **Experience Modes**, and **Calamares `3.4.3`** across
+> two signed artifacts: a `3.3 GiB` live & installable ISO and a `2.61 GiB`
+> preinstalled Desktop QCOW2. **Desktop**, **Studio**, and **Gaming** are
+> **Supported** editions; **Hyprland** (default) and **Niri** are **Supported**
+> compositors; **Server**, **Agents**, **Labwc**, and full OS root rollback
+> remain **Planned**.
 
 ## 1. Pick your starting path
 
 | Your setup | Safe path | Time | Key caveat |
 | --- | --- | --- | --- |
-| **Windows 10/11** | VM (ISO) or USB | 20m | No VirtualBox 3D; Rufus DD |
+| **Windows 10/11** | VM (ISO/QCOW2) or USB | 20m | No VirtualBox 3D; Rufus DD |
 | **macOS (M1–M4)** | x86_64 PC or KVM | — | Slow x86_64 CPU emulation |
 | **macOS (Intel)** | VMware or USB | 20m | Verify ISO via `shasum -a 256` |
 | **Arch Linux** | AUR packages | 10m | Never overwrites dotfiles |
@@ -27,21 +28,36 @@ prior Arch Linux or Hyprland knowledge.
 
 You do **not** need to resize partitions or wipe Windows to test HorneroOS.
 
-#### Option A — Virtual machine on Windows (ISO boot)
+#### Option A — Virtual machine on Windows (ISO or QCOW2)
 
-Only the signed ISO is published as a direct download today (standalone
-`.ova` / `.qcow2` archives are part of the automated VM rollout). Boot the
-verified `v0.2.0-preview32` ISO directly:
+Both signed `v0.2.0-preview42` artifacts are available as direct downloads
+from [horneroos.com/install](https://www.horneroos.com/install) and
+[GitHub Releases](https://github.com/HorneroOS/hornero/releases/tag/v0.2.0-preview42)
+(GPG key `FCFBEE43925AB5429362278AE59EAB44AA2498DC`):
 
-1. Download `horneroos-2026.10-preview32-x86_64.iso` (2.7 GB) and its
-   `.sha256` file from [horneroos.com/install](https://www.horneroos.com/install).
+- **Official Live & Installable ISO (`3.3 GiB`, UEFI + Legacy BIOS, validated
+  on physical hardware & KVM):**
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/iso/horneroos-2026.11-preview42-x86_64.iso`
+  - SHA-256:
+    `9e494ab5f9783df6a5986385421ec0816b0033d3558d3323248a03e07f2e76a2`
+- **Official Preinstalled Desktop QCOW2 (`2.61 GiB`, E2E-validated in UEFI
+  KVM):**
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/vm/horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2.zst`
+  - SHA-256:
+    `c1012413227f407d0a312fad7d7a34f789922303db13c752a9a9ed1a324e13c2`
+
+1. Download the `3.3 GiB` ISO (`horneroos-2026.11-preview42-x86_64.iso`) and
+   its `.sha256` file from [horneroos.com/install](https://www.horneroos.com/install)
+   (or download the `2.61 GiB` `.qcow2.zst` for QEMU/KVM hosts).
 2. Verify the download in PowerShell or Command Prompt before mounting it:
 
    ```powershell
-   CertUtil -hashfile horneroos-2026.10-preview32-x86_64.iso SHA256
+   CertUtil -hashfile horneroos-2026.11-preview42-x86_64.iso SHA256
    ```
 
-   Compare the output against the downloaded `.sha256` file.
+   Compare the output against the downloaded `.sha256` file (`9e494ab5...`).
 3. **Recommended on Windows — VMware Workstation Pro** (free for personal use):
    create a new **Linux → Other Linux 6.x kernel 64-bit** VM with **UEFI**
    firmware, **4 GiB+ RAM**, **4 CPU cores**, **32 GiB** virtual disk, and
@@ -70,7 +86,7 @@ verified `v0.2.0-preview32` ISO directly:
 
 ### macOS: honest Apple Silicon (M1–M4) guidance
 
-Read this **before** downloading the 2.7 GB ISO on a Mac:
+Read this **before** downloading the `3.3 GiB` ISO on a Mac:
 
 - **Apple Silicon (`M1`–`M4`) Macs:** HorneroOS publishes **`x86_64` images
   only**. `Hypervisor.framework` cannot hardware-virtualize `x86_64` on ARM64,
@@ -85,7 +101,7 @@ Read this **before** downloading the 2.7 GB ISO on a Mac:
   built-in `shasum`:
 
   ```sh
-  shasum -a 256 horneroos-2026.10-preview32-x86_64.iso
+  shasum -a 256 horneroos-2026.11-preview42-x86_64.iso
   ```
 
 ### Existing Arch Linux: AUR packages & inspection
@@ -131,21 +147,17 @@ See the full steps in [Install on Arch](install-on-arch.md).
 
 Verify these constraints against your workflow before adopting daily:
 
-- **VM-validated ISO, no physical-hardware matrix yet:** `v0.2.0-preview32`
-  passed UEFI unencrypted VM installs for Desktop, Studio, and Gaming. LUKS
-  encryption, legacy BIOS, `copytoram`, and Niri ISO sessions were not run on
-  `preview32`. Only one physical laptop (ASUS ROG Strix G16 on `preview24` +
-  manual fixes) is recorded as `USER-VERIFIED`. See
+- **Physical-hardware + KVM validation & growing hardware matrix:**
+  HorneroOS runs daily in production across multiple physical workstations,
+  and `v0.2.0-preview42` passed both UEFI and Legacy BIOS KVM validation.
+  Per-device combinations (specific NVIDIA hybrid laptops, handhelds, audio
+  interfaces) are tracked openly in
   [Tested and untested](../hardware/tested-and-untested.md).
 - **No OS root rollback yet:** Every current build reports snapshot backend
   `none`. `horneroctl recovery doctor` is read-only diagnostics, and
   `horneroctl config snapshot` archives Hornero settings only—never `/`, the
   kernel, or `pacman` transactions. See
   [Updates and recovery](../desktop/updates-and-rollback.md).
-- **ISO vs AUR drift:** The `v0.2.0-preview32` ISO predates recent Signal
-  Amendment 3, Chromatic v3, Hornero Apps, and Welcome Signal Flight work on
-  `main`/AUR until the next Signal-era ISO is cut and signed. Updating with
-  `yay -Syu` after install delivers the latest desktop packages.
 - **Public Browser Playground is on standby:** `HorneroOS/playground` defaults
   to `standby-awaiting-provider` ($0/month cloud commitment) until a public
   cluster provider is funded and configured. Self-hosting works today on any
@@ -155,9 +167,13 @@ Verify these constraints against your workflow before adopting daily:
   to `llvmpipe` software rendering.
 - **Apple Silicon `x86_64` slowness:** No ARM64 build exists yet; UTM falls
   back to QEMU TCG CPU emulation.
-- **Experimental / Planned scope:** **Niri** is experimental (single-output VM
-  surface); **Server**, **Agents**, and **Labwc** are planned with no bootable
-  images; **Secure Boot** requires disabling in firmware or self-enrolling keys.
+- **Compositor boundaries & Planned items:** **Hyprland** is the default
+  compositor and **Niri** is supported as a scrolling Wayland compositor
+  (features that rely on Hyprland-only protocols such as fullscreen Gaming mode
+  detection or Hyprland scratchpads are documented in
+  [Wayland compositors](../desktop/compositors.md)); **Server**, **Agents**,
+  and **Labwc** remain **Planned** with no bootable images; **Secure Boot**
+  requires disabling in firmware or self-enrolling keys.
 
 ## 3. Practical troubleshooting
 
@@ -249,9 +265,10 @@ usernames, LAN IPs, tokens, or personal logs. See
 
 ### Submit a hardware compatibility report
 
-Real bare-metal reports are how HorneroOS graduates beyond VM validation. Use
-the **Hardware Compatibility Report** issue template (available across HorneroOS
-repositories via `HorneroOS/.github`) and attach sanitized output from:
+Community bare-metal reports expand our compatibility matrix across diverse
+laptops, desktops, and GPUs. Use the **Hardware Compatibility Report** issue
+template (available across HorneroOS repositories via `HorneroOS/.github`) and
+attach sanitized output from:
 
 ```sh
 horneroctl doctor
@@ -286,5 +303,5 @@ upstream packages:
 - **Self-host Playground:** Run `HorneroOS/playground` on internal KVM hardware
   for isolated team onboarding ([Infrastructure](../infrastructure/README.md)).
 
-> **Support expectation:** HorneroOS is an open-source pre-release project with
+> **Support expectation:** HorneroOS is an open-source community project with
 > **no commercial SLAs or guaranteed response times**.

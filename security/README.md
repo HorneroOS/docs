@@ -1,17 +1,19 @@
 # Security and privacy
 
-HorneroOS is a development-stage operating-system family built on Arch Linux.
-A preview ISO or an AUR package is not a substitute for reviewing the software,
-update sources, and threat model on a machine that holds important data.
+HorneroOS is an Arch-based operating-system family used daily in production
+across physical workstations. Neither an ISO image nor an AUR package is a
+substitute for reviewing the software, update sources, and threat model on a
+machine that holds important data.
 
 ## Disk encryption (LUKS)
 
-Full-disk encryption is optional and chosen in the provisional Calamares
-installer during partitioning. Nothing is preselected.
+Full-disk encryption is optional and chosen in the Calamares installer during
+partitioning. Nothing is preselected.
 
-- **Status on v0.2.0-preview32:** Unencrypted UEFI installs passed in
-  disposable VMs. LUKS-encrypted installs were not re-run on preview32 and
-  are not carried forward as passed for that artifact.
+- **Status on `v0.2.0-preview42`:** Unencrypted UEFI and Legacy BIOS installs
+  are validated on physical hardware and KVM; LUKS encryption is available in
+  Calamares and should be verified against your target hardware and recovery
+  workflow.
 - **Session lock is not disk encryption:** Locking the desktop with
   **Super + L** only protects an already-running session. Without LUKS, anyone
   with physical access to the drive can read your files offline.
@@ -21,8 +23,8 @@ installer during partitioning. Nothing is preselected.
 HorneroOS does not currently ship signed Secure Boot shims or enroll
 Microsoft/custom Secure Boot keys automatically.
 
-- Booting the preview ISO requires disabling Secure Boot in firmware unless
-  you sign and enroll your own keys (for example with `sbctl`, following the
+- Booting the ISO requires disabling Secure Boot in firmware unless you sign
+  and enroll your own keys (for example with `sbctl`, following the
   [ArchWiki Secure Boot guide](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)).
 - Do not assume Secure Boot is active after installation; verify with
   `bootctl status`.

@@ -5,11 +5,10 @@ what the desktop can do. It guides new users through a calm first-run setup,
 turns into an everyday discovery hub once you finish, and surfaces concise
 release highlights after an upgrade without replaying first-run screens.
 
-> **Development.** The `horneroctl welcome` CLI and the initial Welcome
-> window are already on `main`, while the **Signal Flight** 3-mode redesign
-> (`First Flight`, `Explore Hornero`, and `What's New`) is tracked across
-> `HorneroOS/shell#751` and `HorneroOS/hornero#506`. Current ISOs up to
-> `v0.2.0-preview32` ship the earlier 11-page Welcome window.
+> **Release status.** The **Signal Flight** 3-mode Welcome (`v1.6.0` — `First
+> Flight`, `Explore Hornero`, and `What's New`) and `horneroctl welcome` ship
+> in `v0.2.0-preview42` (ISO and Desktop QCOW2) as well as on `main`/AUR.
+> Earlier builds up to `v0.2.0-preview32` shipped the 11-page Welcome window.
 
 ## Three modes, one window
 
@@ -126,8 +125,8 @@ machine:
   remains **Planned**.)
 - **Play (Gaming):** Surfaces fullscreen GameMode readiness (`gamescope` and
   `mangohud`).
-- **Compositors and planned editions:** Hyprland is the validated default;
-  [Niri](compositors.md) is **Experimental** and hides Hyprland-only items.
+- **Compositors and planned editions:** Hyprland is the default compositor;
+  [Niri](compositors.md) is **Supported** and hides Hyprland-only items.
   `Labwc` and `Server` are **Planned** and omitted from Welcome.
 
 ## Meet Javi & Companion

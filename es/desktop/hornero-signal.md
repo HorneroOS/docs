@@ -7,12 +7,11 @@ bloqueo, el greeter de inicio de sesión, el instalador y el sitio web.
 Reemplaza la apariencia derivada de Material 3 que la shell heredó de
 Caelestia.
 
-> **Development.** Hornero Signal está en las ramas `main` de Shell, Config
-> y `horneroctl` desde noviembre de 2026. Las ISO actual hasta la
-> v0.2.0-preview32 inclusive todavía traen el sistema de apariencia
-> anterior. Varias superficies de la shell (popouts, barras, páginas del
-> Centro de control) se siguen rediseñando; esta página describe solo lo
-> que ya está integrado.
+> **Estado de release.** Hornero Signal viene integrado como sistema visual por
+> defecto en `v0.2.0-preview42` (ISO y QCOW2 de Desktop) y en `main`/AUR. Las
+> ISO anteriores hasta la `v0.2.0-preview32` inclusive traían el sistema de
+> apariencia previo. Varias superficies de la shell siguen recibiendo ajustes;
+> esta página describe lo que ya está publicado.
 
 ## La idea en un párrafo
 

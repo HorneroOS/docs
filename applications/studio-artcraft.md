@@ -60,9 +60,9 @@ project with the launcher's own logs.
 ## Status and trademark
 
 HorneroOS acceptance for this entry is tracked in HorneroOS/qa#36 and
-stays pending until real Studio Preview evidence exists; nothing here
+stays pending until Studio acceptance evidence exists; nothing here
 is a support claim. ArtCraft, the ArtCraft name and the A mark are
 trademarks of the ArtCraft Team, used only unmodified as part of the
 unmodified launcher; they are not licensed under MIT or Apache-2.0.
-The installer itself remains the future Panda Foss installer's
-ownership boundary — Calamares is only the provisional bridge.
+Calamares (`3.4.3`) is the shipped graphical installer; Panda Foss tracks
+future installer ownership.

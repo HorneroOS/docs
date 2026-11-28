@@ -6,11 +6,11 @@ terminals, the compositor, the lock screen, the login greeter, the installer
 and the website. It replaces the Material 3–derived appearance the shell
 inherited from Caelestia.
 
-> **Development.** Hornero Signal is on the `main` branches of Shell, Config
-> and `horneroctl` since November 2026. current ISOs up to and including
-> v0.2.0-preview32 still ship the previous appearance system. Several shell
-> surfaces (popouts, bars, Control Center pages) are still being redesigned;
-> this page describes only what has landed.
+> **Release status.** Hornero Signal ships as the default visual system in
+> `v0.2.0-preview42` (ISO and Desktop QCOW2) and on `main`/AUR. Earlier ISOs
+> up to `v0.2.0-preview32` shipped the previous appearance system. Several
+> shell surfaces continue receiving refinements; this page describes what is
+> shipped today.
 
 ## The idea in one paragraph
 

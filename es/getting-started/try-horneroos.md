@@ -6,12 +6,14 @@ reparticionar tu computadora. Cada camino en
 [`horneroos.com/try`](https://www.horneroos.com/try) corre software real de
 HorneroOS, nunca una simulación armada en el navegador.
 
-> **Estado honesto hoy:** HorneroOS está en desarrollo activo. La ISO firmada
-> actual es **v0.2.0-preview32** (`Desktop`, `Studio` y `Gaming` son ediciones
-> **Preview** validadas en máquinas virtuales, todavía sin certificación en
-> hardware físico). **Hyprland** es el compositor validado por defecto;
-> **Niri** es experimental; **Server** y **Agents** están planificadas; y
-> todavía no hay rollback completo del sistema operativo. Ver
+> **Estado honesto hoy:** HorneroOS se usa a diario en producción en múltiples
+> estaciones de trabajo físicas y está validado en KVM con UEFI y Legacy BIOS.
+> La release firmada actual es **`v0.2.0-preview42`** (`x86_64`), que incluye
+> **Hornero Signal**, **Hornero Apps**, **Signal Flight Welcome (`v1.6.0`)**,
+> **Chromatic v3** y **Calamares `3.4.3`**. **Desktop**, **Studio** y
+> **Gaming** son ediciones **Soportadas**; **Hyprland** (por defecto) y
+> **Niri** son compositores Wayland **Soportados**; **Server**, **Agents**,
+> **Labwc** y el rollback completo de raíz del SO siguen **Planificados**. Ver
 > [Ediciones y composición de paquetes](../architecture/editions.md) y
 > [Actualizaciones y recuperación](../desktop/updates-and-rollback.md).
 
@@ -68,15 +70,26 @@ VM local o el Playground por WebRTC.
 ## 2. Descargar una máquina virtual preinstalada
 
 Correr HorneroOS en una máquina virtual local te da tiempo ilimitado, control
-total del teclado y fluidez real sin tocar tu sistema anfitrión.
+total del teclado y fluidez real sin tocar tu sistema anfitrión. Para
+`v0.2.0-preview42`, HorneroOS publica **ambos** artefactos firmados: una
+imagen QCOW2 preinstalada de Desktop lista para VM y la ISO live e instalable
+completa:
 
-> **Estado de imágenes prearmadas:** La generación automatizada de `.qcow2.zst`
-> y `.ova` forma parte de la Fase 1 entre `HorneroOS/playground` y
-> `HorneroOS/installer` (`installer.lock.yaml`). Cuando haya un archivo de VM
-> publicado, verificá siempre su checksum y firma GPG; si todavía no ves un
-> paquete prearmado para la versión que buscás, descargá la ISO verificada
-> `v0.2.0-preview32` desde [Primeros pasos](README.md) y arrancala directo en
-> cualquiera de estos hipervisores.
+- **QCOW2 oficial preinstalada de Desktop (`2.61 GiB`, validada punta a punta
+  en KVM UEFI):**
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/vm/horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2.zst`
+  - SHA-256:
+    `c1012413227f407d0a312fad7d7a34f789922303db13c752a9a9ed1a324e13c2`
+- **ISO oficial Live e instalable (`3.3 GiB`, UEFI + Legacy BIOS, validada en
+  hardware físico y KVM):**
+  - URL:
+    `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/iso/horneroos-2026.11-preview42-x86_64.iso`
+  - SHA-256:
+    `9e494ab5f9783df6a5986385421ec0816b0033d3558d3323248a03e07f2e76a2`
+
+Descomprimí la imagen `.qcow2.zst` con `unzstd` (o `zstd -d`) antes de
+conectarla a QEMU/KVM, Quickemu o `libvirt`.
 
 ### Verificá antes de arrancar
 
@@ -101,7 +114,7 @@ Hyprland, Niri y Quickshell directo sobre la GPU de tu host.
 arrancar a mano con UEFI OVMF y VirGL:
 
 ```sh
-./hornero-vm-run.sh horneroos-x86_64.qcow2
+./hornero-vm-run.sh horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2
 ```
 
 Si lanzás QEMU manualmente con una ISO o QCOW2, activá KVM, máquina `q35`,
@@ -115,7 +128,7 @@ archivo `horneroos.conf` junto a tu imagen y arrancá con un solo comando:
 ```sh
 cat <<'EOF' > horneroos.conf
 guest_os="linux"
-disk_img="horneroos/disk.qcow2"
+disk_img="horneroos/horneroos-0.2.0-preview42-desktop-qemu-x86_64.qcow2"
 disk_size="32G"
 ram="4G"
 cpu_cores="4"
@@ -127,8 +140,8 @@ EOF
 quickemu --vm horneroos.conf
 ```
 
-*(Si arrancás la ISO live en vez de un disco preinstalado, agregá la línea
-`iso="horneroos/horneroos-2026.10-preview32-x86_64.iso"`.)*
+*(Si arrancás la ISO live en vez de la QCOW2 preinstalada, agregá la línea
+`iso="horneroos/horneroos-2026.11-preview42-x86_64.iso"`.)*
 
 ### libvirt / `virt-manager` / GNOME Boxes
 
@@ -174,8 +187,8 @@ el uso de CPU más alto.
 HorneroOS hoy compila imágenes **únicamente para `x86_64`**. Como las Mac con
 Apple Silicon (`M1`–`M4`) no pueden virtualizar `x86_64` por hardware mediante
 `Hypervisor.framework`, **UTM cae en emulación de CPU por software (QEMU
-TCG)**. Incluso con VirGL experimental (`virtio-gpu-gl`), Hyprland, Niri y
-Quickshell se sienten **muy lentos** en Apple Silicon bajo UTM.
+TCG)**. Incluso con el renderizador VirGL de UTM (`virtio-gpu-gl`), Hyprland,
+Niri y Quickshell se sienten **muy lentos** en Apple Silicon bajo UTM.
 
 Para evaluar la velocidad real de HorneroOS, usá un equipo x86_64 con Live USB
 o una sesión del Playground en el navegador cuando esté disponible.
@@ -187,13 +200,13 @@ o una sesión del Playground en el navegador cuando esté disponible.
 Arrancar la ISO oficial firmada desde un pendrive USB te deja probar Wi-Fi,
 audio, pantallas y periféricos reales en memoria sin tocar tus discos:
 
-1. **Descargá y verificá** `horneroos-2026.10-preview32-x86_64.iso` (`.sig` +
+1. **Descargá y verificá** `horneroos-2026.11-preview42-x86_64.iso` (`.sig` +
    `.sha256`) siguiendo los comandos de [Primeros pasos](README.md).
 2. **Grabá el pendrive** con un grabador gráfico de confianza o con `dd`
    después de confirmar el dispositivo correcto con `lsblk`:
 
    ```sh
-   sudo dd if=horneroos-2026.10-preview32-x86_64.iso of=/dev/sdX bs=4M \
+   sudo dd if=horneroos-2026.11-preview42-x86_64.iso of=/dev/sdX bs=4M \
      status=progress conv=fsync
    ```
 
@@ -212,8 +225,8 @@ audio, pantallas y periféricos reales en memoria sin tocar tus discos:
    ```
 
 5. **Instalá solo si decidís hacerlo:** Nada modifica tu disco interno hasta
-   que abrís el instalador provisorio Calamares y confirmás las particiones.
-   Seguí [Instalar HorneroOS paso a paso](install-step-by-step.md) (o
+   que abrís el instalador Calamares y confirmás las particiones. Seguí
+   [Instalar HorneroOS paso a paso](install-step-by-step.md) (o
    [Instalar sobre un Arch Linux existente](install-on-arch.md) si ya usás
    Arch Linux).
 

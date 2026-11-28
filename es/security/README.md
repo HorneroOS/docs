@@ -1,19 +1,19 @@
 # Seguridad y privacidad
 
-HorneroOS es una familia de sistemas operativos en etapa de desarrollo basada
-en Arch Linux. Una ISO preview o un paquete de AUR no reemplazan revisar el
-software, las fuentes de actualización y el modelo de amenazas en una máquina
-que guarda datos importantes.
+HorneroOS es una familia de sistemas operativos basada en Arch Linux usada a
+diario en producción en estaciones de trabajo físicas. Ni una ISO ni un paquete
+de AUR reemplazan revisar el software, las fuentes de actualización y el modelo
+de amenazas en una máquina que guarda datos importantes.
 
 ## Cifrado de disco (LUKS)
 
 El cifrado completo de disco es opcional y se elige en el instalador
-provisional Calamares durante el particionado. Nada viene preseleccionado.
+Calamares durante el particionado. Nada viene preseleccionado.
 
-- **Estado en v0.2.0-preview32:** Las instalaciones UEFI sin cifrar pasaron
-  en máquinas virtuales desechables. Las instalaciones cifradas con LUKS no
-  se volvieron a ejecutar sobre preview32 y no se heredan como aprobadas
-  para ese artefacto.
+- **Estado en `v0.2.0-preview42`:** Las instalaciones sin cifrar en UEFI y
+  Legacy BIOS están validadas en hardware físico y KVM; el cifrado LUKS está
+  disponible en Calamares y conviene verificarlo en tu equipo y flujo de
+  recuperación.
 - **El bloqueo de sesión no cifra el disco:** Bloquear el escritorio con
   **Super + L** solo protege una sesión ya en curso. Sin LUKS, cualquiera con
   acceso físico al disco puede leer tus archivos fuera de línea.
@@ -23,9 +23,8 @@ provisional Calamares durante el particionado. Nada viene preseleccionado.
 HorneroOS todavía no distribuye shims firmados para Secure Boot ni enrola
 claves de Microsoft o personalizadas automáticamente.
 
-- Arrancar la ISO preview requiere desactivar Secure Boot en el firmware,
-  salvo que firmes y enroles tus propias claves (por ejemplo con `sbctl`,
-  siguiendo la
+- Arrancar la ISO requiere desactivar Secure Boot en el firmware, salvo que
+  firmes y enroles tus propias claves (por ejemplo con `sbctl`, siguiendo la
   [guía de Secure Boot de ArchWiki](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)).
 - No asumas que Secure Boot quedó activo después de instalar; verificalo con
   `bootctl status`.

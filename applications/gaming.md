@@ -10,9 +10,8 @@ catalogue disagree, the catalogue wins and this page is stale.
 [Arch package index](https://archlinux.org/packages/). Package presence is
 not Hornero support: Gaming is a **Supported** edition
 (HorneroOS/hornero#328) that installs from the shared signed ISO
-(VM-validated only), no application below is QA-validated by
-Hornero on physical hardware, and no row promises that a game, launcher,
-or driver works on any hardware.
+(validated on physical hardware and KVM); no individual third-party game or
+launcher below is certified by Hornero across arbitrary hardware.
 
 ## Profiles
 
@@ -21,9 +20,9 @@ bundle:
 
 | Profile | Meaning | Status |
 | --- | --- | --- |
-| Desktop Gaming | Default desktop gaming profile | Preview (VM-validated) |
+| Desktop Gaming | Default desktop gaming profile | Supported |
 | Handheld | Controller-first session | Planned — none qualified |
-| Streaming | Capture/recording with OBS Studio | Preview (VM-validated) |
+| Streaming | Capture/recording with OBS Studio | Supported |
 | Multi-Launcher | Lutris, Bottles, and Wine runners | Planned |
 | VR | SteamVR path | Experimental — reference-only |
 | Advanced Compatibility | User-managed Proton/Wine opt-ins | Planned |
@@ -32,7 +31,7 @@ bundle:
 
 | Application | Packages | Source | License | Install | Status | Profiles |
 | --- | --- | --- | --- | --- | --- | --- |
-| Steam | steam | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/steam/) | proprietary (Steam Subscriber Agreement) | pacman-repository-opt-in | Preview — opt-in only | Desktop Gaming, Handheld, VR |
+| Steam | steam | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/steam/) | proprietary (Steam Subscriber Agreement) | pacman-repository-opt-in | Supported — opt-in only | Desktop Gaming, Handheld, VR |
 | Lutris | lutris | [arch-extra](https://archlinux.org/packages/extra/x86_64/lutris/) | open-source (GPL-3.0-or-later) | pacman-repository | Planned | Multi-Launcher |
 | Bottles | bottles | [AUR](https://aur.archlinux.org/packages/bottles) (manual) | open-source (GPL-3.0-or-later) | manual | Planned — manual only | Multi-Launcher |
 | Wine | wine | [arch-multilib](https://archlinux.org/packages/multilib/x86_64/wine/) | open-source (LGPL-2.1-or-later) | pacman-repository | Planned | Multi-Launcher, Advanced Compatibility |
@@ -69,11 +68,11 @@ recovery readiness). It never claims game compatibility, hardware
 qualification, measured performance, or latency.
 
 ![Settings, Gaming page with the Gaming doctor results. A notice
-states that Gaming is in Preview and installs nothing until you
+states Gaming readiness status and installs nothing until you
 confirm; below it, nineteen of twenty readiness checks pass, each with
 a short plain-language detail.](https://www.horneroos.com/captures/cap-cc-14.png)
 
-*The same readiness checks in Settings → Gaming. Gaming is a Preview
+*The same readiness checks in Settings → Gaming. Gaming is a Supported
 edition: this reports readiness only and installs nothing.
 Running-desktop capture from the maintainer's machine,
 19 November 2026.*

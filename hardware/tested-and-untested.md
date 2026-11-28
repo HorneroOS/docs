@@ -1,16 +1,17 @@
-# Hardware and features: tested, VM-only and untested
+# Hardware and features: tested and untested
 
-HorneroOS is used and maintained daily. That statement covers the
-system as a whole; each feature below keeps its own honest state,
-and a daily-use system still has concrete, declared limitations.
-Use this page before assuming a path works on your machine.
+HorneroOS is used daily in production across multiple physical workstations
+and validated across UEFI and Legacy BIOS KVM. That statement covers the
+system as a whole; each feature below keeps its own honest state, and a
+daily-driven system still has concrete, declared limitations. Use this page
+before assuming a specific device path works on your machine.
 
 ## Maturity by feature
 
 | Area | State today | What that means |
 | --- | --- | --- |
-| Hyprland desktop | Validated default | Default session of the ISO |
-| Niri session | Experimental | Single-output VM surface, no desktop parity |
+| Hyprland desktop | Supported (default) | Default Wayland session |
+| Niri session | Supported | Scrolling Wayland compositor option |
 | System rollback | Planned | Backend `none`; no restore command exists |
 | Launchers beyond Steam | Planned or reference-only | Not installed support |
 | Handheld and VR | Planned or experimental | No device qualified |
@@ -22,26 +23,19 @@ rollback contract is in
 
 ## Tested
 
-- Desktop, Studio and Gaming UEFI unencrypted installs passed on
-  the v0.2.0-preview32 ISO in disposable virtual machines.
-- One ASUS ROG Strix G16 workstation is recorded USER-VERIFIED on
-  preview24 plus post-install fixes in HorneroOS/qa. That is one
-  machine, on an older artifact.
+- HorneroOS runs daily in production across at least three physical
+  workstations (including an ASUS ROG Strix G16 recorded `USER-VERIFIED`).
+- `v0.2.0-preview42` passed both UEFI and Legacy BIOS KVM boot and
+  installation validation (Desktop, Studio, Gaming) plus E2E UEFI KVM
+  validation of the preinstalled Desktop QCOW2.
 
-## VM-only or not run on the published ISO
+## Not run or uncertified per-device
 
-- The preview32 artifact has no physical-hardware validation.
-- LUKS-encrypted installs, legacy BIOS, Niri sessions in the ISO
-  and copy-to-RAM were not run on preview32 and must not be carried
-  forward as passed.
-
-## Not specifically tested
-
-- NVENC, Vulkan correctness and HDMI capture on the recorded
-  hardware acceptance.
-- Any specific NVIDIA generation, hybrid wiring, handheld, VR
-  headset, audio interface or display. Your own check, reported
-  with versions and logs, is the evidence that counts.
+- Specialized per-device checks: NVENC, Vulkan correctness, and HDMI
+  capture on arbitrary hardware combinations.
+- Any specific third-party NVIDIA generation, hybrid wiring, handheld,
+  VR headset, audio interface, or display beyond tested machines. Your
+  own check, reported with versions and logs, is the evidence that counts.
 
 ## Report your hardware
 

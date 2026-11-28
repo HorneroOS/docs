@@ -9,11 +9,11 @@ falta una.
 
 ## ¿Qué es parte de Hornero?
 
-La composición Preview actual se distribuye en la ISO firmada
-v0.2.0-preview32 (Desktop, Studio y Gaming, instalador
-provisional Calamares). Reúne a Hornero Shell, `horneroctl` y el paquete
-`hornero-config`. Config requiere Bash, Git, Python, `polkit-gnome` y
-`ttf-ibm-plex`; no instala una estación de trabajo completa
+La composición **Soportada** actual se distribuye en la release firmada
+`v0.2.0-preview42` (ISO de Desktop, Studio y Gaming con Calamares `3.4.3`,
+además de la QCOW2 preinstalada de Desktop). Reúne a Hornero Shell,
+`horneroctl` y el paquete `hornero-config`. Config requiere Bash, Git, Python,
+`polkit-gnome` y `ttf-ibm-plex`; no instala una estación de trabajo completa
 por sí solo.
 
 ### Valores por defecto de Hornero para aplicaciones opcionales
@@ -78,7 +78,7 @@ Config:
   [Capturas y grabación](capture.md).
 - **Hyprlock e Hypridle** soportan el bloqueo y el comportamiento en
   reposo. **SDDM y Hornero Greeter** son componentes de login separados,
-  no parte de la composición Preview actual. Ver
+  configurados para el gestor de sesiones. Ver
   [Bloqueo y login](login-lock.md).
 
 ### Aplicaciones opcionales de la estación de trabajo personal
@@ -111,11 +111,11 @@ del producto Hornero no depende de ejecutar sus comandos de provisión.
 - [Medios y audio](media-audio.md) — PipeWire,
   controles de volumen, MPRIS y reproductores.
 - [Aplicaciones de Studio](studio.md) — matriz
-  verificada de origen, licencia y soporte de la edición Studio Preview.
+  verificada de origen, licencia y soporte de la edición Studio Supported.
 - [Primeros pasos en Studio](studio-getting-started.md) —
-  recorrido del primer proyecto para la edición Studio Preview.
+  recorrido del primer proyecto para la edición Studio Supported.
 - [Audio en Studio](studio-audio.md) — configuración
-  de modos, ruteo y recuperación para la edición Studio Preview.
+  de modos, ruteo y recuperación para la edición Studio Supported.
 - [Studio: producción creativa asistida por IA](studio-ai-creative.md) —
   integraciones MCP opcionales y trabajos de render tipados.
 - [ArtCraft Launcher (experimental)](studio-artcraft.md) —

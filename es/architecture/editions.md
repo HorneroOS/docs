@@ -21,33 +21,33 @@ Base + server + agent-host             → Agents
 Base + desktop + studio                → Studio
 ```
 
-El mismo modelo alimenta al instalador gráfico. El instalador provisional
-Calamares en HorneroOS/installer lo consume para construir la ISO preview
-publicada y firmada v0.2.0-preview32; el instalador propio de Panda Foss es el
-camino oficial futuro.
+El mismo modelo alimenta al instalador gráfico. El instalador Calamares
+(`3.4.3`) en `HorneroOS/installer` lo consume para construir la ISO
+publicada y firmada `v0.2.0-preview42` y la QCOW2 preinstalada de Desktop.
 
 ## Madurez actual
 
-- **Desktop — Preview.** Producto de escritorio y composición de paquetes
-  reales; se instala desde la ISO firmada preview32 mediante el camino
-  provisional Calamares.
-- **Gaming — Preview.** Se instala desde la misma ISO firmada preview32 con
-  herramientas de gaming; la validación en hardware físico en preview32 sigue
-  pendiente.
-- **Hyprland — Soportado.** Sesión de escritorio por defecto validada.
-- **Niri — Experimental.** Hay un recorrido verificado en VM de una sola
-  salida. Mirá [Compositores Wayland](../desktop/compositors.md) para ver las
-  brechas.
+- **Desktop — Soportado.** Producto de escritorio y composición de paquetes
+  de uso diario; se instala desde la ISO firmada `v0.2.0-preview42` o corre
+  desde la QCOW2 de Desktop.
+- **Gaming — Soportado.** Se instala desde la misma ISO firmada
+  `v0.2.0-preview42` con herramientas de gaming; de uso diario y validado en
+  KVM y en estaciones físicas (juegos puntuales y handhelds quedan sin
+  certificar).
+- **Hyprland — Soportado.** Sesión de escritorio por defecto.
+- **Niri — Soportado.** Opción de compositor Wayland con columnas desplazables
+  y backend real de Shell. Mirá [Compositores Wayland](../desktop/compositors.md)
+  para los límites puntuales de capacidades.
 - **Server — Planificado.** Se describe un conjunto de paquetes headless; no
   hay imagen booteable ni aceptación completa de administración remota.
 - **Agents — Planificado.** Podman rootless y systemd Quadlet son la dirección;
   el aprovisionamiento de Hermes, el aislamiento, los secretos, el ciclo de
   vida y la recuperación no están certificados.
-- **Studio — Preview.** Se instala desde la misma ISO firmada preview32 con
-  especializaciones creativas seleccionables; el audio, la captura, la edición,
-  la aceleración por hardware y los flujos del compositor no están
-  certificados, el QA de hardware está bloqueado esperando fixtures aprobados y
-  Studio no es Soportado.
+- **Studio — Soportado.** Se instala desde la misma ISO firmada
+  `v0.2.0-preview42` con especializaciones creativas seleccionables; incluye
+  perfiles de audio y diagnósticos, mientras que las apps creativas de
+  terceros y las interfaces de audio puntuales siguen sin certificación por
+  dispositivo.
 - **Labwc — Planificado.** No se ofrece backend ni conjunto de paquetes de
   Hornero.
 
@@ -57,7 +57,7 @@ upstream ni si un componente individual anda por separado.
 ## Intención de cada edición
 
 - **Desktop** es un escritorio Wayland-first impulsado por Hornero Shell.
-  Hyprland es el backend validado por defecto; Niri es experimental.
+  Hyprland es el backend por defecto; Niri también está soportado.
 - **Server** apunta a ser un sistema headless chico y operable en forma remota.
   Su propuesta actual de paquetes excluye la Shell gráfica y los paquetes de
   compositor.

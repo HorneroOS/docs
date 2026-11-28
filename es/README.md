@@ -10,23 +10,25 @@ implementación quedan en los repositorios de la
 [CLI](https://github.com/HorneroOS/hornero) y la
 [configuración](https://github.com/HorneroOS/config).
 
-> HorneroOS es una familia de sistemas operativos basada en Arch, en
-> desarrollo. Su edición Desktop es Wayland-first, con Hyprland como
-> compositor validado por defecto y Niri como backend experimental. Hay
-> publicada una ISO preview firmada (Desktop, Studio y Gaming,
-> v0.2.0-preview32); no es una release estable ni soportada, y la propia
-> v0.2.0-preview32 todavía no tiene validación ni aceptación en hardware
-> físico. La [página de releases](https://horneroos.com/releases) y el
-> [estado de instalación](https://horneroos.com/install) son la fuente
-> actual de qué se puede instalar.
+> HorneroOS es una familia de sistemas operativos basada en Arch y pensada
+> primero para Wayland, usada a diario en producción en múltiples máquinas
+> físicas y validada en KVM con UEFI y Legacy BIOS. **Desktop**, **Studio** y
+> **Gaming** son ediciones **Soportadas**, con **Hyprland** (por defecto) y
+> **Niri** como compositores Wayland soportados. La release firmada
+> **`v0.2.0-preview42`** publica tanto una ISO live e instalable como una
+> imagen QCOW2 preinstalada de Desktop; **Server**, **Agents**, **Labwc** y
+> el rollback completo de raíz del SO siguen **Planificados**. La
+> [página de releases](https://horneroos.com/releases) y el
+> [estado de instalación](https://horneroos.com/install) muestran la
+> disponibilidad vigente.
 
 ## Elegí un camino
 
 | Si querés… | Empezá acá |
 | --- | --- |
 | Entender el estado de releases e instalación | [Primeros pasos](getting-started/README.md) |
-| Seguir la guía externa de vista previa y diagnóstico | [Guía de lanzamiento de vista previa pública](getting-started/public-preview-launch-guide.md) |
-| Revisar el borrador de anuncio y checklist de YouTube | [Borrador de anuncio v0.2.0-preview42](releases/v0.2.0-preview42-announcement-draft.md) |
+| Seguir la guía externa de inicio, lanzamiento y diagnóstico | [Guía de lanzamiento público](getting-started/public-preview-launch-guide.md) |
+| Revisar el anuncio de v0.2.0-preview42 y checklist de YouTube | [Anuncio de lanzamiento v0.2.0-preview42](releases/v0.2.0-preview42-announcement-draft.md) |
 | Probar HorneroOS en navegador, VM o Live USB | [Probar sin instalar](getting-started/try-horneroos.md) |
 | Evaluar hosting cloud del Playground o desplegarlo | [Infraestructura](infrastructure/README.md) · [Kit de decisión cloud](infrastructure/cloud-provider-decision-kit.md) |
 | Grabar demos y videos de HorneroOS para YouTube | [Studio y producción](studio/README.md) · [Flujo YouTube](studio/youtube-production-workflow.md) |
@@ -58,7 +60,7 @@ intencionalmente la misma captura de esa guía, no es una copia nueva.*
 ## Cómo se mantiene precisa esta documentación
 
 Los pasos describen comportamiento disponible en el producto publicado,
-salvo que estén marcados como **Development** o **Preview**. La
+salvo que estén marcados como **Planificado** o **Development**. La
 disponibilidad de paquetes, instalador y releases puede cambiar; revisá
 las páginas vivas de releases e instalación antes de seguir notas viejas.
 Los comandos salen de la ayuda de `horneroctl` y de la configuración

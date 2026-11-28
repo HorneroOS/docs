@@ -10,7 +10,7 @@ Lanzador, los perfiles de estación de trabajo de Hornero Welcome y el motor
 de línea de comandos `horneroctl store`, respaldado por un catálogo
 declarativo firmado (`catalog/apps.v1.json`).
 
-> **Límite de Preview y vuelta atrás:** Hornero Apps **no** crea
+> **Límite de sistema y vuelta atrás:** Hornero Apps **no** crea
 > instantáneas del sistema ni ofrece vuelta atrás universal del sistema
 > operativo hoy. Las instalaciones y actualizaciones nativas en Arch siguen
 > siendo operaciones en un solo sentido sobre el disco; revisá

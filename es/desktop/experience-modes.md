@@ -4,14 +4,11 @@ Un modo de experiencia cambia cómo se *comporta* el escritorio ahora mismo:
 cuánto anima, qué tan densa es la barra, qué widgets hay en el escritorio y
 si las notificaciones te interrumpen. Nunca reemplaza tu layout ni tu tema.
 
-> **Development.** Los modos de experiencia están en la rama `main` de Shell
-> desde noviembre de 2026. Las ISO actual hasta la v0.2.0-preview32
-> inclusive no los traen. El comportamiento de esta página está cubierto
-> por las pruebas automáticas de Shell (lógica de perfiles, layout del deck
-> y página Experience, ejecutadas sin pantalla y en modo offscreen). Todavía
-> no se validó visualmente en una máquina virtual ni en un escritorio
-> físico, así que tomá el aspecto de cada modo como no verificado hasta que
-> se publique esa evidencia.
+> **Estado de release.** Los modos de experiencia vienen incluidos en
+> `v0.2.0-preview42` (ISO y QCOW2 de Desktop) y en `main`/AUR, cubiertos por
+> pruebas automáticas de Shell, verificación en KVM y uso diario en
+> estaciones de trabajo físicas. Las ISO anteriores hasta la
+> `v0.2.0-preview32` inclusive no los traían.
 
 ## Los cinco modos
 

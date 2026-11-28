@@ -11,8 +11,8 @@ actions, **Tab** and **Shift + Tab** to move forward or backward, and
 **Shut down**, **Hibernate**, and **Restart**. The exact commands are supplied
 by the active Hornero configuration, so a system may customize their behavior.
 
-The default keyboard shortcut is configured for both the validated Hyprland
-session and the experimental Niri session. User keybindings can differ; see
+The default keyboard shortcut is configured for both the Hyprland session and
+the Niri session. User keybindings can differ; see
 [Keyboard shortcuts](shortcuts.md) and
 [compositor support](compositors.md) for the current support level.
 

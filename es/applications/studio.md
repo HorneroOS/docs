@@ -18,25 +18,25 @@ hardware específico.
 
 | Aplicación | Paquetes | Origen | Licencia | Instalación | Estado | Grupos |
 | --- | --- | --- | --- | --- | --- | --- |
-| Ardour | ardour | [arch-extra](https://archlinux.org/packages/extra/x86_64/ardour/) | open-source (CC0-1.0, GPL-2.0-or-later, GPL-3.0-or-later, MIT) | pacman-repository | Preview — sin validar en QA | Audio & Music Production |
-| Guitarix | guitarix | [arch-extra](https://archlinux.org/packages/extra/x86_64/guitarix/) | open-source (GPL-2.0-or-later, GPL-3.0-or-later, LGPL-3.0-or-later) | pacman-repository | Preview — sin validar en QA | Audio & Music Production |
-| Carla | carla | [arch-extra](https://archlinux.org/packages/extra/x86_64/carla/) | open-source (GPL-2.0-or-later) | pacman-repository-opt-in | Preview — sin validar en QA | Audio & Music Production |
-| Audacity | audacity | [arch-extra](https://archlinux.org/packages/extra/x86_64/audacity/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Preview — sin validar en QA | Audio & Music Production |
-| REAPER | reaper | [arch-extra](https://archlinux.org/packages/extra/x86_64/reaper/) | propietaria (LicenseRef-EULA) | pacman-repository-opt-in | Preview — sin validar en QA | Audio & Music Production |
-| yabridge (puente VST de Windows) | yabridge, yabridgectl | [arch-extra](https://archlinux.org/packages/extra/x86_64/yabridge/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Preview — sin validar en QA | Audio & Music Production |
-| OBS Studio | obs-studio, ffmpeg | [arch-extra](https://archlinux.org/packages/extra/x86_64/obs-studio/) | open-source (GPL-2.0-only, GPL-3.0-only) | pacman-repository | Preview — sin validar en QA | Streaming & Content Creation |
-| Kdenlive | kdenlive, ffmpeg | [arch-extra](https://archlinux.org/packages/extra/x86_64/kdenlive/) | open-source (GPL-2.0-or-later, GPL-3.0-only) | pacman-repository | Preview — sin validar en QA | Video Editing & Post-Production |
-| Blender | blender | [arch-extra](https://archlinux.org/packages/extra/x86_64/blender/) | open-source (Apache-2.0, BSD-2-Clause, BSD-3-Clause, GPL-2.0-or-later, GPL-3.0-or-later, LGPL-2.1-or-later, MIT, MPL-2.0, Zlib) | pacman-repository | Preview — sin validar en QA | Video Editing & Post-Production; 3D, Animation & VFX; Game Development; Maker & CAD |
-| Krita | krita | [arch-extra](https://archlinux.org/packages/extra/x86_64/krita/) | open-source (GPL3) | pacman-repository | Preview — sin validar en QA | Graphic Design & Illustration; 3D, Animation & VFX; Game Development |
-| GIMP | gimp | [arch-extra](https://archlinux.org/packages/extra/x86_64/gimp/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Preview — sin validar en QA | Graphic Design & Illustration; Photography & RAW Processing |
-| Inkscape | inkscape | [arch-extra](https://archlinux.org/packages/extra/x86_64/inkscape/) | open-source (GPL, LGPL) | pacman-repository-opt-in | Preview — sin validar en QA | Graphic Design & Illustration; Game Development; Maker & CAD |
-| darktable | darktable | [arch-extra](https://archlinux.org/packages/extra/x86_64/darktable/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Preview — sin validar en QA | Photography & RAW Processing |
-| RawTherapee | rawtherapee | [arch-extra](https://archlinux.org/packages/extra/x86_64/rawtherapee/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Preview — sin validar en QA | Photography & RAW Processing |
-| Graphite | graphite | [arch-extra](https://archlinux.org/packages/extra/x86_64/graphite/) | open-source (GPL-2.0-or-later, LGPL-2.1-or-later, MPL-2.0) | pacman-repository-opt-in | Preview — sin validar en QA | Graphic Design & Illustration |
-| Penpot | — | — | — | none | Preview — sin validar en QA | Custom Selection |
-| Scribus | scribus | [arch-extra](https://archlinux.org/packages/extra/x86_64/scribus/) | open-source (GPL-2.0-or-later) | pacman-repository-opt-in | Preview — sin validar en QA | Graphic Design & Illustration |
-| FreeCAD | freecad | [arch-extra](https://archlinux.org/packages/extra/x86_64/freecad/) | open-source (LGPL-2.0-only) | pacman-repository-opt-in | Preview — sin validar en QA | Maker & CAD |
-| Godot | godot | [arch-extra](https://archlinux.org/packages/extra/x86_64/godot/) | open-source (MIT) | pacman-repository-opt-in | Preview — sin validar en QA | Game Development |
+| Ardour | ardour | [arch-extra](https://archlinux.org/packages/extra/x86_64/ardour/) | open-source (CC0-1.0, GPL-2.0-or-later, GPL-3.0-or-later, MIT) | pacman-repository | Instalable — sin certificación de flujo | Audio & Music Production |
+| Guitarix | guitarix | [arch-extra](https://archlinux.org/packages/extra/x86_64/guitarix/) | open-source (GPL-2.0-or-later, GPL-3.0-or-later, LGPL-3.0-or-later) | pacman-repository | Instalable — sin certificación de flujo | Audio & Music Production |
+| Carla | carla | [arch-extra](https://archlinux.org/packages/extra/x86_64/carla/) | open-source (GPL-2.0-or-later) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Audio & Music Production |
+| Audacity | audacity | [arch-extra](https://archlinux.org/packages/extra/x86_64/audacity/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Audio & Music Production |
+| REAPER | reaper | [arch-extra](https://archlinux.org/packages/extra/x86_64/reaper/) | propietaria (LicenseRef-EULA) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Audio & Music Production |
+| yabridge (puente VST de Windows) | yabridge, yabridgectl | [arch-extra](https://archlinux.org/packages/extra/x86_64/yabridge/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Audio & Music Production |
+| OBS Studio | obs-studio, ffmpeg | [arch-extra](https://archlinux.org/packages/extra/x86_64/obs-studio/) | open-source (GPL-2.0-only, GPL-3.0-only) | pacman-repository | Instalable — sin certificación de flujo | Streaming & Content Creation |
+| Kdenlive | kdenlive, ffmpeg | [arch-extra](https://archlinux.org/packages/extra/x86_64/kdenlive/) | open-source (GPL-2.0-or-later, GPL-3.0-only) | pacman-repository | Instalable — sin certificación de flujo | Video Editing & Post-Production |
+| Blender | blender | [arch-extra](https://archlinux.org/packages/extra/x86_64/blender/) | open-source (Apache-2.0, BSD-2-Clause, BSD-3-Clause, GPL-2.0-or-later, GPL-3.0-or-later, LGPL-2.1-or-later, MIT, MPL-2.0, Zlib) | pacman-repository | Instalable — sin certificación de flujo | Video Editing & Post-Production; 3D, Animation & VFX; Game Development; Maker & CAD |
+| Krita | krita | [arch-extra](https://archlinux.org/packages/extra/x86_64/krita/) | open-source (GPL3) | pacman-repository | Instalable — sin certificación de flujo | Graphic Design & Illustration; 3D, Animation & VFX; Game Development |
+| GIMP | gimp | [arch-extra](https://archlinux.org/packages/extra/x86_64/gimp/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Graphic Design & Illustration; Photography & RAW Processing |
+| Inkscape | inkscape | [arch-extra](https://archlinux.org/packages/extra/x86_64/inkscape/) | open-source (GPL, LGPL) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Graphic Design & Illustration; Game Development; Maker & CAD |
+| darktable | darktable | [arch-extra](https://archlinux.org/packages/extra/x86_64/darktable/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Photography & RAW Processing |
+| RawTherapee | rawtherapee | [arch-extra](https://archlinux.org/packages/extra/x86_64/rawtherapee/) | open-source (GPL-3.0-or-later) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Photography & RAW Processing |
+| Graphite | graphite | [arch-extra](https://archlinux.org/packages/extra/x86_64/graphite/) | open-source (GPL-2.0-or-later, LGPL-2.1-or-later, MPL-2.0) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Graphic Design & Illustration |
+| Penpot | — | — | — | none | Solo referencia | Custom Selection |
+| Scribus | scribus | [arch-extra](https://archlinux.org/packages/extra/x86_64/scribus/) | open-source (GPL-2.0-or-later) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Graphic Design & Illustration |
+| FreeCAD | freecad | [arch-extra](https://archlinux.org/packages/extra/x86_64/freecad/) | open-source (LGPL-2.0-only) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Maker & CAD |
+| Godot | godot | [arch-extra](https://archlinux.org/packages/extra/x86_64/godot/) | open-source (MIT) | pacman-repository-opt-in | Instalable — sin certificación de flujo | Game Development |
 | ArtCraft Launcher | ai.storyteller.artcraft-launcher | [vendor](https://github.com/storytold/craft-launcher/releases) | open-source (MIT, Apache-2.0) | manual | Experimental — sin validar en QA | Custom Selection (solo opt-in explícito de aplicación; nunca en una especialización) |
 
 ## Cómo leer la matriz
@@ -53,8 +53,8 @@ hardware específico.
   que solo entra en un plan cuando el usuario elige la aplicación o la
   especialización. Las aplicaciones propietarias requieren además una
   selección explícita de la aplicación (mirá REAPER).
-- **Estado Hornero** se mantiene en `Preview — sin validar en QA` hasta que
-  HorneroOS/qa publique evidencia de aceptación para ese flujo.
+- **Estado Hornero** se mantiene en `Instalable — sin certificación de flujo`
+  hasta que HorneroOS/qa publique evidencia de aceptación para ese flujo.
 
 ## Notas sobre software propietario y compatibilidad
 

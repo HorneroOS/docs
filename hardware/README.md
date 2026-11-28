@@ -2,11 +2,9 @@
 
 Hornero is built on Arch Linux and Hyprland. Device support therefore depends
 on the kernel, firmware, drivers, and device configuration on the machine.
-The current ISO's provisional Calamares installer does not select or
-configure a Hornero hardware profile for you, and v0.2.0-preview32 has
-no physical-hardware validation yet (see
-[Tested and untested](tested-and-untested.md) for the earlier preview24
-workstation record).
+The ISO's Calamares installer does not select or configure a custom Hornero
+hardware profile for you; see [Tested and untested](tested-and-untested.md)
+for validated physical workstations, KVM coverage, and untested hardware.
 
 ## Start with a read-only check
 
@@ -57,7 +55,7 @@ See [how to report a bug](../development/README.md#report-a-bug).
 ## More device guides
 
 - [Hybrid graphics and NVIDIA](hybrid-graphics-nvidia.md)
-- [Hardware: tested, VM-only and untested](tested-and-untested.md)
+- [Hardware and features: tested and untested](tested-and-untested.md)
 
 - [Network](../troubleshooting/README.md#network-and-bluetooth)
 - [Display and graphics](../troubleshooting/README.md#display-and-graphics)

@@ -7,10 +7,10 @@ nunca cambia los colores de la interfaz. Los colores salen del
 cualquier tema. Para derivar colores de un fondo a propósito, usá
 [Hornero Chromatic](chromatic.md).
 
-> **Development.** Los colores independientes del fondo llegaron con
-> [Hornero Signal](hornero-signal.md) en noviembre de 2026. Las ISO actual
-> hasta la v0.2.0-preview32 todavía generan los colores de la shell a
-> partir del fondo.
+> **Estado de release.** Los colores independientes del fondo llegaron con
+> [Hornero Signal](hornero-signal.md) y vienen incluidos en `v0.2.0-preview42`
+> (ISO y QCOW2 de Desktop) además de `main`/AUR. Las ISO anteriores hasta la
+> `v0.2.0-preview32` generaban los colores de la shell a partir del fondo.
 
 ## Poné un fondo local
 

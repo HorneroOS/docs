@@ -1,10 +1,10 @@
 # HorneroOS design language
 
 This guide is the shared starting point for people designing or implementing
-a HorneroOS interface, including the provisional installer. It collects the
-product-level direction and points to the repository that owns each concrete
-rule. It does not replace those implementation contracts or create a second
-copy of their changing token values.
+a HorneroOS interface, including the graphical installer (Calamares). It
+collects the product-level direction and points to the repository that owns each
+concrete rule. It does not replace those implementation contracts or create a
+second copy of their changing token values.
 
 ## Status and authority
 
@@ -22,8 +22,8 @@ mockup, a package, or an experimental configuration.
 
 For installer contributors, use this guide for product identity and
 interaction principles, then use the Config brand files for official assets
-and the edition catalogue for the options the installer may offer. The
-current Calamares branding is provisional implementation detail, not a
+and the edition catalogue for the options the installer may offer. Keep
+Calamares branding aligned with Hornero Signal rather than maintaining a
 separate brand source of truth.
 
 ## Product character
@@ -122,14 +122,15 @@ system feedback, or confidence around consequential actions.
 
 ### 5. Be honest about system capabilities
 
-- HorneroOS Desktop is Wayland-first. Hyprland and Niri have different
-  support maturity; the system is not synonymous with either compositor.
+- HorneroOS Desktop is Wayland-first. Hyprland and Niri expose different
+  compositor capabilities; the system is not synonymous with either
+  compositor.
 - Show only installation choices that can be installed and validated. Label
-  preview or experimental paths at the choice itself, not only in a footer.
+  planned or experimental choices at the option itself, not only in a footer.
 - Degrade gracefully when optional devices, networks, portals, or services
   are unavailable. Explain the condition and provide a safe next step.
 - Use real, reviewed product captures for product claims. Mark concept art,
-  browser recreations, and provisional installer screens clearly.
+  browser recreations, and unreleased installer mockups clearly.
 
 ## Type, icons, and imagery
 
@@ -175,7 +176,7 @@ selection, and recovery instructions take visual priority.
 | Shell interaction and compositor capabilities | [Focus](https://github.com/HorneroOS/shell/blob/main/docs/FOCUS.md), [Interaction](https://github.com/HorneroOS/shell/blob/main/docs/INTERACTION.md), [Compositors](https://github.com/HorneroOS/shell/blob/main/docs/COMPOSITORS.md), [Layouts](https://github.com/HorneroOS/shell/blob/main/docs/LAYOUTS.md) | Keyboard focus, dismissal, compositor-specific feature support, layout intent |
 | Login and lock experience | [Greeter UX checklist](https://github.com/HorneroOS/greeter/blob/main/docs/UX_CHECKLIST.md) | Authentication-safe visual hierarchy, keyboard access, offline media and fallback behavior |
 | Edition and installable capability truth | [Hornero edition catalogue](https://github.com/HorneroOS/hornero/blob/main/editions/catalogue.yaml), [edition architecture](../architecture/editions.md) | Product names, profile composition, maturity and supported choices |
-| Installer visuals | [Provisional Calamares branding](https://github.com/HorneroOS/installer/tree/main/image/calamares/branding/hornero) | Current provisional assets and Calamares-specific implementation only; not canonical identity policy |
+| Installer visuals | [Calamares branding](https://github.com/HorneroOS/installer/tree/main/image/calamares/branding/hornero) | Calamares Signal Night assets and installer-specific implementation |
 | Website art direction | [Website styling guide](https://github.com/HorneroOS/website/blob/main/docs/COMPONENTS_AND_STYLING.md) | The website's own editorial composition, web palette, content imagery, accessibility and motion |
 | Evidence and visual QA | [QA scenarios](https://github.com/HorneroOS/qa/blob/main/docs/SCENARIOS.md), [QA media policy](https://github.com/HorneroOS/qa/blob/main/docs/MEDIA.md) | Reproducible captures, provenance, and what test evidence can claim |
 
@@ -183,21 +184,21 @@ The website uses the same Hornero Signal roles and IBM Plex families as the
 desktop, adapted for editorial layout. It does not define a separate palette
 for the desktop or the installer.
 
-## Applying this guide to the provisional installer
+## Applying this guide to the graphical installer
 
 The installer should feel like HorneroOS through its mark, naming, language,
 Signal colours and type, and care with consequential decisions. It remains an
 installation utility, not a miniature desktop shell. A visitor should be
 able to tell what edition is being installed, where it will go, what will
-change, and whether a choice is experimental before confirming it.
+change, and whether a choice is planned or experimental before confirming it.
 
 Keep Calamares-specific work localized to its branding and module
 configuration. Prefer a small adapter from the shared edition catalogue over
 duplicating package or capability truth in installer UI. When a choice cannot
-yet be performed or tested, label it as unavailable or provisional instead
-of presenting it as complete. The provisional installer is a reference and
-integration surface for the future custom installer; its current colors,
-screenshots, and layout do not overrule this guide.
+yet be performed or tested, label it as unavailable or planned instead of
+presenting it as complete. Keep the Calamares integration modular so any
+future custom installer can share the same edition catalogue and design
+principles.
 
 Before treating an installer design as ready, validate a complete install
 flow in a disposable UEFI and BIOS environment, including both keyboard use

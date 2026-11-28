@@ -78,9 +78,9 @@ Key flags in `HorneroOS/installer/scripts/build-vm-image.sh`:
 | # | Profile | Edition | Comp. | Demo | Purpose |
 | --- | --- | --- | --- | --- | --- |
 | 1 | `desktop-hyprland` | `desktop` | `hypr` | No | Standard `.qcow2.zst` |
-| 2 | `desktop-niri` | `desktop` | `niri` | No | Exp. Niri `.qcow2.zst` |
+| 2 | `desktop-niri` | `desktop` | `niri` | No | Niri `.qcow2.zst` |
 | 3 | `studio-hyprland` | `studio` | `hypr` | No | Studio disk |
-| 4 | `gaming-hyprland` | `gaming` | `hypr` | No | Gaming (VM only) |
+| 4 | `gaming-hyprland` | `gaming` | `hypr` | No | Gaming disk |
 | 5 | `playground-demo` | `desktop` | `hypr` | **Yes** | Playground / Demo |
 | 6 | `qa-uncompressed` | Any | Any | Opt. | Raw `.qcow2` |
 
@@ -92,7 +92,7 @@ object storage (Vercel Blob / Cloudflare R2) with `SHA256SUMS` and detached GPG
 
 ## 3. Cross-hypervisor compatibility matrix
 
-HorneroOS's Wayland stack (`hyprland 0.57.2-1` on **Aquamarine**, experimental
+HorneroOS's Wayland stack (`hyprland 0.57.2-1` on **Aquamarine**,
 `niri` on **Smithay**, and **Quickshell** on **Qt 6**) requires functional
 DRM/EGL or an explicit software fallback (last verified `2026-11-28`):
 

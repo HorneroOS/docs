@@ -5,14 +5,11 @@ the window arrangement: that is controlled by the compositor's window-layout
 profile. This keeps two useful choices separate — **where shell controls
 live** and **how windows are arranged**.
 
-> **Development.** The 14-preset catalogue, the Cockpit default and Cockpit
-> Clear are on the `main` branch of Shell and Config since November 2026.
-> Current ISOs up to and including v0.2.0-preview32 ship the earlier
-> fifteen-preset catalogue. The catalogue is covered by Shell's automated
-> tests (preset schema, placement and bar behaviour, run headless and
-> offscreen). It has not yet been validated visually in a virtual machine
-> or on a physical desktop, and Cockpit Clear has not been checked over real
-> wallpapers on a real host.
+> **Release status.** The 14-preset catalogue, the Cockpit default, and
+> Cockpit Clear ship in `v0.2.0-preview42` (ISO and Desktop QCOW2) and on
+> `main`/AUR, covered by Shell automated tests, live KVM checks, and daily
+> production use. Earlier ISOs up to `v0.2.0-preview32` shipped the 15-preset
+> catalogue.
 
 Open the Layout Picker with **Super + Shift + B**. Its topology previews show
 whether a preset uses a side rail, one or two horizontal bars, clear surfaces,

@@ -181,12 +181,12 @@ Submit through [distrosea.com/contact/](https://distrosea.com/contact/) with:
 
 - **Distribution:** HorneroOS (`x86_64`, Arch Linux base, Hyprland, Quickshell,
   and SDDM `hornero-greeter`).
-- **Release:** `v0.2.0-preview32` (`horneroos-2026.10-preview32-x86_64.iso`,
-  2.7 GB / `2,931,294,208` bytes).
+- **Release:** `v0.2.0-preview42` (`horneroos-2026.11-preview42-x86_64.iso`,
+  `3.3 GiB`).
 - **Direct ISO URL:**
-  `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/iso/horneroos-2026.10-preview32-x86_64.iso`
+  `https://apvhgc6x8t0o0dzm.public.blob.vercel-storage.com/iso/horneroos-2026.11-preview42-x86_64.iso`
 - **SHA-256:**
-  `b8cd0f8604bc69f7d2112fb8bccd97115d32d197e9c92c62e02faf5de6345aec` (with
+  `9e494ab5f9783df6a5986385421ec0816b0033d3558d3323248a03e07f2e76a2` (with
   `.sha256` and `.sig` signed by `FCFBEE43925AB5429362278AE59EAB44AA2498DC`).
 - **Boot & graphics note for DistroSea operators:** Supports UEFI
   (`systemd-boot`) and BIOS (`syslinux`), auto-logs into `hornero-live`
