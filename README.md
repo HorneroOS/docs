@@ -24,6 +24,8 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | If you want to… | Start here |
 | --- | --- |
 | Understand release and installation status | [Getting started](getting-started/README.md) |
+| Follow the external-user preview onboarding & triage guide | [Public preview launch guide](getting-started/public-preview-launch-guide.md) |
+| Review the launch announcement & YouTube demo checklist | [v0.2.0-preview42 announcement draft](releases/v0.2.0-preview42-announcement-draft.md) |
 | Try HorneroOS in a browser, VM, or Live USB | [Try without installing](getting-started/try-horneroos.md) |
 | Evaluate Playground cloud hosting or deploy it | [Infrastructure](infrastructure/README.md) · [Cloud decision kit](infrastructure/cloud-provider-decision-kit.md) |
 | Record HorneroOS demos and YouTube videos | [Studio and media production](studio/README.md) · [YouTube workflow](studio/youtube-production-workflow.md) |

@@ -25,6 +25,8 @@ implementación quedan en los repositorios de la
 | Si querés… | Empezá acá |
 | --- | --- |
 | Entender el estado de releases e instalación | [Primeros pasos](getting-started/README.md) |
+| Seguir la guía externa de vista previa y diagnóstico | [Guía de lanzamiento de vista previa pública](getting-started/public-preview-launch-guide.md) |
+| Revisar el borrador de anuncio y checklist de YouTube | [Borrador de anuncio v0.2.0-preview42](releases/v0.2.0-preview42-announcement-draft.md) |
 | Probar HorneroOS en navegador, VM o Live USB | [Probar sin instalar](getting-started/try-horneroos.md) |
 | Evaluar hosting cloud del Playground o desplegarlo | [Infraestructura](infrastructure/README.md) · [Kit de decisión cloud](infrastructure/cloud-provider-decision-kit.md) |
 | Grabar demos y videos de HorneroOS para YouTube | [Studio y producción](studio/README.md) · [Flujo YouTube](studio/youtube-production-workflow.md) |
