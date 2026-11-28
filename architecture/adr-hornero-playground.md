@@ -151,24 +151,26 @@ qcow2`—avoiding fragile Packer `boot_command` timing. Following Kali's
 distribution model, artifacts publish as `.qcow2.zst`/`.7z` and `.ova`/`.vmdk`
 with `SHA256SUMS`, GPG `.sig`, explicit credentials, and first-boot docs.
 
-### Cloud KVM hosting economics (verified 2025/2026)
+### Cloud KVM hosting economics (conservative pre-benchmark model)
 
 Each interactive HorneroOS session needs **2–4 vCPU threads and 4 GiB RAM**
 (capped via systemd cgroups, backed by a shared read-only QCOW2 and an
-ephemeral CoW overlay with a 10–15 minute TTL).
+ephemeral CoW overlay with a 10–15 minute TTL). Applying 20% host/VirGL
+headroom, <= 1.0x CPU ceiling, WebRTC encode cost, and 1 Presenter/burst slot
+yields conservative unbenchmarked estimates (`0` production-validated):
 
-| Tier | Specs | Price | Slots | / Slot |
-| --- | --- | --- | --- | --- |
-| **Hetzner `AX42`** | 8700GE, iGPU, 64G | **€46–€99/mo** | ~8–12 | **€4–€12** |
-| **Hetzner `EX44`** | Core i5-13500, 64G | **€59/mo** | ~6–14 | **€4.2–€9.8** |
-| **Hetzner `AX52`** | Ryzen 7 7700, 64G | €59–83.7/mo | ~8–12 | **€5–10.5** |
-| **GCP `n2-std-16`** | 16 vCPU, 64G L2 | **~$567/mo** | ~8–12 | **$47–$71** |
-| **AWS `c7i.metal`** | 96 vCPU, 192G | **$4.28/hr** | ~36–44 | **$71–$87** |
+| Tier | Specs | Price | Th | Cons (GPU/CPU) | /Slot |
+| --- | --- | --- | --- | --- | --- |
+| **Hetzner AX42** | 8700GE, 64G | €46–€99 | 7 | **4** (4–6/2–4) | €12–€25 |
+| **Hetzner EX44** | i5-13500, 64G | €59/mo | 9 | **6** GPU / **3** CPU | €9.8 |
+| **Hetzner AX52** | R7 7700, 64G | €59–84 | 7 | **4** (4–6/2–4) | €15–€21 |
+| **GCP n2-std-16** | 16c, 64G L2 | ~$567 | 7 | **2** (N/A/2 L2) | $283.5 |
+| **AWS c7i.metal** | 96c, 192G | $4.28/h | 36 | **17** (N/A/17) | $183.9 |
 
 Hetzner bare-metal dedicated nodes (`AX42` with Radeon iGPU + ECC DDR5, `EX44`
 with 20 threads and €0 setup) eliminate the L1→L2 nested virtualization tax
-and reduce per-slot costs by 6–15× versus GCP nested KVM or AWS `c7i.metal-24xl`
-(no small `.metal` instances exist on AWS).
+and avoid GCP/AWS egress premiums, though multi-VM 60 FPS concurrency must
+still be benchmarked before advertising exact slot SLAs.
 
 ## Decision
 

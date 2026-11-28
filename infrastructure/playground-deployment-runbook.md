@@ -38,10 +38,11 @@ maintainers authorize spend), six concrete tasks separate selection from launch:
 #### 1. Verify provider requirements
 
 Confirm the target node provides `x86_64` CPU extensions (`vmx` or `svm`),
-hardware `/dev/kvm`, >= 64 GiB RAM for 8–14 concurrent 4 GiB slots, >= 1 Gbit/s
-uplink, and (for VirGL) an accessible host GPU render node
-(`/dev/dri/renderD*`, such as Hetzner `AX42` Ryzen 7 PRO 8700GE iGPU). Verify
-AUP rules allow public demo traffic behind strict egress filtering.
+hardware `/dev/kvm`, >= 64 GiB RAM for 4–6 conservative VirGL slots (or 2–4
+CPU-only `llvmpipe` slots; unbenchmarked), >= 1 Gbit/s uplink, and (for VirGL)
+an accessible host GPU render node (`/dev/dri/renderD*`, such as Hetzner
+`AX42` Ryzen 7 PRO 8700GE iGPU). Verify AUP rules allow public demo traffic
+behind strict egress filtering.
 
 #### 2. Provision infrastructure
 
