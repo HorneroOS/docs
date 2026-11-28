@@ -16,6 +16,7 @@ registra qué revisiones de componentes se compusieron juntas.
 | [shell](https://github.com/HorneroOS/shell) | UI Quickshell y servicios de sesión en vivo: barras, lanzador, Dashboard, Ajustes, notificaciones, bloqueo y apariencia |
 | [greeter](https://github.com/HorneroOS/greeter) | Tema de SDDM, assets Qt/QML y validación de paquetes |
 | [qa](https://github.com/HorneroOS/qa) | Corridas de aceptación gráfica aisladas y evidencia |
+| [playground](https://github.com/HorneroOS/playground) | Demos efímeras KVM en navegador, lanzadores locales de VM, IaC y modo presentador |
 | [docs](https://github.com/HorneroOS/docs) | Este manual de usuarias, usuarios y colaboradores |
 | [website](https://github.com/HorneroOS/website) | Presentación pública del producto y la vista renderizada de este manual |
 
@@ -35,6 +36,11 @@ registra qué revisiones de componentes se compusieron juntas.
   transaccionales y esquema v2.
 - [Modelo de amenazas de Hornero Apps (en inglés)][tm-apps] —
   análisis STRIDE y política de cadena de suministro para Hornero Apps.
+- [ADR: arquitectura de Hornero Playground (en inglés)][adr-playground] —
+  límites de `HorneroOS/playground`, matriz de virtualización y economía de
+  streaming.
+- [Modelo de amenazas de Hornero Playground (en inglés)][tm-playground] —
+  análisis STRIDE multi-tenant de KVM efímero y runbook de incidentes.
 - [Sistema de apariencia](appearance-system.md) —
   responsabilidades de temas, fondos, paleta y toolkits.
 - [Modos de experiencia](experience-modes.md) — cómo se combinan los modos
@@ -55,3 +61,5 @@ Shell.
 [adr-apps]: ../../architecture/adr-hornero-apps.md
 [adr-welcome]: ../../architecture/adr-hornero-welcome.md
 [tm-apps]: ../../architecture/hornero-apps-threat-model.md
+[adr-playground]: ../../architecture/adr-hornero-playground.md
+[tm-playground]: ../../architecture/hornero-playground-threat-model.md
