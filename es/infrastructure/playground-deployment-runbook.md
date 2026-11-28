@@ -40,9 +40,10 @@ puesta en marcha:
 #### 1. Verificar requisitos del proveedor
 
 Confirmá que el nodo destino ofrece extensiones `x86_64` (`vmx` o `svm`),
-`/dev/kvm` por hardware, >= 64 GiB de RAM para 8–14 turnos simultáneos de 4 GiB,
-enlace >= 1 Gbit/s y (para VirGL) un nodo de renderizado GPU accesible en el
-host (`/dev/dri/renderD*`, como la iGPU Ryzen 7 PRO 8700GE del Hetzner `AX42`).
+`/dev/kvm` por hardware, >= 64 GiB de RAM para 4–6 turnos conservadores con
+VirGL (o 2–4 con `llvmpipe` solo CPU; sin benchmark aún), enlace >= 1 Gbit/s
+y (para VirGL) un nodo de renderizado GPU accesible en el host
+(`/dev/dri/renderD*`, como la iGPU Ryzen 7 PRO 8700GE del Hetzner `AX42`).
 Verificá que el AUP permita tráfico público de demos detrás de filtrado
 estricto de salida.
 

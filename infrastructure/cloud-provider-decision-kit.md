@@ -125,20 +125,42 @@ prefer local VirGL VMs via Quickemu or `hornero-vm-run.sh` (see
 
 ---
 
-## Budget scenario analysis
+## Budget scenario analysis (conservative pre-benchmark model)
 
-Use `HorneroOS/playground/tools/cost_calculator.py` to model slot count, egress,
-and monthly cost against your target concurrency. Each active slot reserves
-**4 GiB RAM + 2–4 threads**.
+Use `HorneroOS/playground/tools/cost_calculator.py` to model theoretical vs
+conservative slot counts, egress, and monthly cost. Each active slot reserves
+**4096 MiB guest RAM + 1200 MiB VirGL/QEMU overhead** and **2 guest vCPUs**,
+while conservative sizing deducts **20% host/orchestrator/VirGL headroom**,
+enforces a **<= 1.0× CPU oversubscription ceiling**, accounts for **WebRTC
+encoding overhead**, and reserves **1 slot per node** for startup bursts and
+Presenter Mode.
 
-| Budget | Setup | Slots | Unviable / Rejected |
-| --- | --- | --- | --- |
-| **$0** | Local QCOW2 + R2 + DistroSea | 0 | AWS `.metal`; GCP |
-| **~$25/mo** | OVH `KS-1/2` control/cpu | ~4–6 | AWS `.metal`; no VirGL |
-| **~$50/mo** | **Hetzner `AX42`** (€46+€49) | **8–12** | AWS `.metal`; GCP |
-| **~$100/mo** | **Hetzner `EX44`** (€59)+R2 | **10–14** | AWS `.metal` (>30×) |
-| **~$200/mo** | 2–3× Hetzner + `coturn` | **20–36** | AWS `.metal` (>15×) |
-| **Burst** | **GCP `n2-std-16` Spot** | 8–12 | Fixed GCP or `.metal` |
+- **Local multi-VM benchmark (`locally_benchmarked_slots`):** `null` (pending
+  real multi-VM KVM load testing).
+- **Production validation (`production_validated_slots`):** `0` (**NOT YET
+  VALIDATED — no cloud provider selected**).
+- **Software rendering (`llvmpipe`) vs VirGL penalty:** Without a host GPU for
+  VirGL, Wayland compositing + Quickshell + WebRTC encoding consumes ~4 host
+  threads/slot. A 16–20 thread ~$50/mo CPU-only host sustains **~2–4 smooth
+  interactive sessions** under `llvmpipe`, vs **~4–6 conservative VirGL
+  sessions** on an iGPU node such as Hetzner `AX42` (never promise 7–10
+  sessions at 60 FPS without real multi-VM benchmarks).
+
+| Budget | Setup | Th | Cons (GPU/CPU) | Bench | Prod | $/Slot |
+| --- | --- | --- | --- | --- | --- | --- |
+| **$0** | QCOW2+DistroSea | 0 | **0** (N/A/0) | `null` | `0` | N/A |
+| **~$25** | VPS 6t/16G CPU | 2 | **0** (N/A/0) | `null` | `0` | N/A |
+| **~$50** | **Hetzner AX42** | 7 | **4** (4–6/2–4) | `null` | `0` | ~$13 |
+| **~$100** | Metal 24t/128G | 11 | **7** (6–8/3–4) | `null` | `0` | ~$14 |
+| **~$200** | 2× Bare-metal | 22 | **14** (10–14/6–8) | `null` | `0` | ~$14 |
+| **Burst** | **GCP n2-16** | 7 | **2** (N/A/2 L2) | `null` | `0` | ~$284 |
+
+Notes per tier:
+
+- **~$25/mo (CPU-only VPS):** Unviable for WebRTC (`<=1` degraded `llvmpipe`).
+- **~$50/mo (`AX42` iGPU):** Unbenchmarked; ~4–6 VirGL slots (~2–4 CPU-only).
+- **~$100–$200/mo:** Adds Presenter/failover headroom; 0 prod-validated slots.
+- **GCP `n2-std-16`:** No physical GPU + L1->L2 tax yields ~2 `llvmpipe` slots.
 
 ### Why AWS `.metal` is unviable for $25–$200/mo budgets
 
