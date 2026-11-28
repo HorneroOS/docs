@@ -22,6 +22,10 @@ contributor instructions before editing.
 - [Visual quality audit](visual-quality-audit.md) — independent per-surface
   ratings, prioritised visual defects and the capture coverage gaps.
 - [Testing](testing.md) — select focused checks and graphical acceptance.
+- [Virtual workstations, display profiles, and screenshot factory](../contributing/virtual-workstations-and-screenshots.md)
+  — QCOW2 VM builds, hypervisor compatibility, scenarios, and CI tiers.
+- [YouTube and content production workflow](../studio/youtube-production-workflow.md)
+  — Hornero Demo Studio, OBS/PipeWire capture, and Kdenlive export.
 - [Quality assurance and release engineering](quality-and-releases.md) —
   evidence classes, graphical acceptance, signing and how releases are built.
 - [Interaction contract for extension authors](interaction-contract.md) —

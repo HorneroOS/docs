@@ -41,6 +41,10 @@ registra qué revisiones de componentes se compusieron juntas.
   streaming.
 - [Modelo de amenazas de Hornero Playground (en inglés)][tm-playground] —
   análisis STRIDE multi-tenant de KVM efímero y runbook de incidentes.
+- [Kit de decisión de proveedores cloud](../infrastructure/cloud-provider-decision-kit.md)
+  — matriz verificada de proveedores, latencia desde Argentina y presupuestos.
+- [Runbook de despliegue de Playground](../infrastructure/playground-deployment-runbook.md)
+  — secuencia final de 19 pasos y kill-switch de emergencia.
 - [Sistema de apariencia](appearance-system.md) —
   responsabilidades de temas, fondos, paleta y toolkits.
 - [Modos de experiencia](experience-modes.md) — cómo se combinan los modos

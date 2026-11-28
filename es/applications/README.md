@@ -133,6 +133,8 @@ del producto Hornero no depende de ejecutar sus comandos de provisión.
   verificada de origen, licencia y soporte de la edición Gaming.
 - [Capturas y grabación](capture.md) — backends de
   captura de pantalla y grabación.
+- [Flujo de producción para YouTube y contenido](../studio/youtube-production-workflow.md)
+  — Demo Studio, pistas OBS/PipeWire, 10 escenarios y exportación Kdenlive.
 - [Conectividad](connectivity.md) — NetworkManager,
   Bluetooth y proveedores de VPN.
 - [Utilidades del sistema](system-utilities.md) — Git,

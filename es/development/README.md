@@ -21,6 +21,10 @@ instrucciones para colaboradores de ese repositorio antes de editar.
 - [Guía de extensiones](extensions.md) — PluginKit 3, manifest v3, glifos y
   widgets de escritorio.
 - [Pruebas](testing.md) — elegí chequeos enfocados y aceptación gráfica.
+- [Estaciones virtuales, perfiles de pantalla y fábrica de capturas](../contributing/virtual-workstations-and-screenshots.md)
+  — VMs QCOW2, matriz de hipervisores, escenarios y niveles CI.
+- [Flujo de producción para YouTube y contenido](../studio/youtube-production-workflow.md)
+  — Hornero Demo Studio, captura OBS/PipeWire y exportación a Kdenlive.
 - [Calidad y releases](quality-and-releases.md) — clases de evidencia,
   aceptación gráfica, firma y cómo se construyen las releases.
 - [Contribuir](contributing.md) — expectativas de ramas, revisión y trabajo

@@ -36,6 +36,10 @@ records which component revisions were composed together.
   economics.
 - [Hornero Playground threat model](hornero-playground-threat-model.md) —
   multi-tenant ephemeral KVM STRIDE analysis and incident runbook.
+- [Cloud provider decision kit](../infrastructure/cloud-provider-decision-kit.md)
+  — verified provider matrix, Argentina latency, and budget scenarios.
+- [Playground deployment runbook](../infrastructure/playground-deployment-runbook.md)
+  — 19-step final deployment sequence and emergency kill-switch.
 - [Appearance system](appearance-system.md) — theme, wallpaper, palette, and
   toolkit responsibilities.
 - [Experience modes](experience-modes.md) — how modes compose with

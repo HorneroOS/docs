@@ -25,6 +25,9 @@ and [configuration](https://github.com/HorneroOS/config) repositories.
 | --- | --- |
 | Understand release and installation status | [Getting started](getting-started/README.md) |
 | Try HorneroOS in a browser, VM, or Live USB | [Try without installing](getting-started/try-horneroos.md) |
+| Evaluate Playground cloud hosting or deploy it | [Infrastructure](infrastructure/README.md) · [Cloud decision kit](infrastructure/cloud-provider-decision-kit.md) |
+| Record HorneroOS demos and YouTube videos | [Studio and media production](studio/README.md) · [YouTube workflow](studio/youtube-production-workflow.md) |
+| Build official QCOW2 VMs, screenshots, or release CI | [Contributing infrastructure](contributing/README.md) · [Virtual workstations](contributing/virtual-workstations-and-screenshots.md) |
 | Install and take the first steps | [Installing step by step](getting-started/install-step-by-step.md) · [Post-install](applications/post-install-first-steps.md) |
 | Install on an existing Arch Linux system | [Install on Arch](getting-started/install-on-arch.md) |
 | Boot a fallback kernel, fix NVIDIA, play, or record | [Kernel and fallback](desktop/kernel-and-fallback.md) · [Hybrid graphics](hardware/hybrid-graphics-nvidia.md) · [Gaming](applications/gaming-proton-gamemode.md) · [Studio audio](applications/studio-low-latency.md) |
@@ -82,6 +85,12 @@ content; the website does not maintain a second copy.
   firewall, release signing, and trust boundaries.
 - [Troubleshooting](troubleshooting/README.md) — recover from common failures.
 - [Architecture](architecture/README.md) — editions, ownership, and data flow.
+- [Infrastructure](infrastructure/README.md) — Playground cloud decision kit,
+  latency, budgets, and 19-step deployment runbook.
+- [Studio and media production](studio/README.md) — Hornero Demo Studio,
+  OBS/PipeWire routing, 10 YouTube scenarios, and Kdenlive export.
+- [Contributing infrastructure](contributing/README.md) — QCOW2 virtual
+  workstations, display profiles, hypervisor matrix, and release CI tiers.
 - [Development](development/README.md) — code, QA, and contribution paths.
 - [Design language](development/design-language.md) — product identity, UI
   principles, source-of-truth map, and guidance for installer contributors.

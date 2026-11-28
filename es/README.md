@@ -26,6 +26,9 @@ implementación quedan en los repositorios de la
 | --- | --- |
 | Entender el estado de releases e instalación | [Primeros pasos](getting-started/README.md) |
 | Probar HorneroOS en navegador, VM o Live USB | [Probar sin instalar](getting-started/try-horneroos.md) |
+| Evaluar hosting cloud del Playground o desplegarlo | [Infraestructura](infrastructure/README.md) · [Kit de decisión cloud](infrastructure/cloud-provider-decision-kit.md) |
+| Grabar demos y videos de HorneroOS para YouTube | [Studio y producción](studio/README.md) · [Flujo YouTube](studio/youtube-production-workflow.md) |
+| Armar VMs QCOW2, capturas o entender los niveles CI | [Infraestructura para contribuir](contributing/README.md) · [Estaciones virtuales](contributing/virtual-workstations-and-screenshots.md) |
 | Instalar y dar los primeros pasos | [Instalar paso a paso](getting-started/install-step-by-step.md) · [Primeros pasos post-instalación](applications/post-install-first-steps.md) |
 | Instalar sobre un Arch Linux existente | [Instalar en Arch](getting-started/install-on-arch.md) |
 | Conocer qué está probado y qué no | [Probado y no probado](hardware/tested-and-untested.md) · [Problemas por síntoma](troubleshooting/by-symptom.md) |
@@ -86,6 +89,12 @@ copia.
   fallos comunes.
 - [Arquitectura](architecture/README.md) — ediciones, propiedad y flujo de
   datos.
+- [Infraestructura](infrastructure/README.md) — kit de decisión de proveedores
+  cloud, latencia, presupuestos y runbook de despliegue en 19 pasos.
+- [Studio y producción multimedia](studio/README.md) — Hornero Demo Studio,
+  OBS/PipeWire, 10 escenarios de YouTube y exportación a Kdenlive.
+- [Infraestructura para contribuir](contributing/README.md) — estaciones
+  virtuales QCOW2, perfiles de pantalla, hipervisores y niveles CI.
 - [Desarrollo](development/README.md) — código, QA y caminos de
   contribución.
 - [Lenguaje de diseño](development/design-language.md) — identidad del
