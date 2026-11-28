@@ -10,6 +10,7 @@ los ajustes persistentes del sistema y de la shell.
 
 | Tarea | Guía |
 | --- | --- |
+| Usar el recorrido First Flight, Explore y What's New | [Hornero Welcome](hornero-welcome.md) |
 | Entender el aspecto Hornero Signal | [Hornero Signal](hornero-signal.md) |
 | Elegir un aspecto coordinado | [Temas y apariencia](appearance.md) |
 | Colorear el escritorio desde un fondo o un color | [Hornero Chromatic](chromatic.md) |

@@ -30,6 +30,9 @@ registra qué revisiones de componentes se compusieron juntas.
 - [ADR: arquitectura de Hornero Apps (en inglés)][adr-apps] —
   arquitectura de la tienda de software, opciones descartadas y taxonomía
   de procedencia.
+- [ADR: arquitectura de Hornero Welcome (en inglés)][adr-welcome] —
+  dirección creativa Signal Flight, tokens de movimiento, vistas previas
+  transaccionales y esquema v2.
 - [Modelo de amenazas de Hornero Apps (en inglés)][tm-apps] —
   análisis STRIDE y política de cadena de suministro para Hornero Apps.
 - [Sistema de apariencia](appearance-system.md) —
@@ -50,4 +53,5 @@ documentos de
 Shell.
 
 [adr-apps]: ../../architecture/adr-hornero-apps.md
+[adr-welcome]: ../../architecture/adr-hornero-welcome.md
 [tm-apps]: ../../architecture/hornero-apps-threat-model.md
